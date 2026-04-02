@@ -3,7 +3,7 @@
 ---
 
 <section
-  class="relative overflow-hidden min-h-[90vh] flex items-center"
+  class="relative overflow-hidden"
   style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-neutral-dark) 100%);"
 >
   <!-- Patrón decorativo de puntos sobre el fondo -->
@@ -16,27 +16,55 @@
     aria-hidden="true"
   ></div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 md:py-20 w-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
 
-      <!-- Contenido textual -->
-      <div>
-        <!-- Línea decorativa + nombre -->
-        <div class="flex items-start gap-4 mb-6">
+      <!-- ── IMAGEN — primero en DOM = primero en mobile ── -->
+      <div class="flex justify-center items-end md:order-last animate-scale-in delay-300">
+        <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-full">
+          <!-- Decoración borrosa detrás -->
           <div
-            class="animate-slide-in-left w-1 self-stretch rounded-full mt-1"
+            class="absolute -inset-4 rounded-2xl opacity-20"
+            style="background: var(--color-accent); filter: blur(30px);"
+            aria-hidden="true"
+          ></div>
+          <img
+            src="/imagenes/perfil/pablo2.jpg"
+            alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
+            class="relative rounded-2xl object-cover object-top w-full"
+            style="box-shadow: var(--shadow-lg); max-height: 420px; height: 60vw; max-height-md: none;"
+            width="480"
+            height="560"
+          />
+          <!-- Badge flotante de autoridad -->
+          <div
+            class="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-5 px-4 sm:px-6 py-2 sm:py-3 rounded-xl shadow-lg"
+            style="background: var(--color-accent); color: #fff; border-radius: var(--radius);"
+          >
+            <p class="text-xs font-medium opacity-80">Veterinarios formados</p>
+            <p class="text-xl sm:text-2xl font-bold" style="font-family: var(--font-display);">+1.200</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── TEXTO — debajo de imagen en mobile, izquierda en desktop ── -->
+      <div class="md:order-first pt-6 md:pt-0">
+        <!-- Línea decorativa + nombre -->
+        <div class="flex items-start gap-4 mb-5">
+          <div
+            class="animate-slide-in-left w-1 self-stretch rounded-full mt-1 shrink-0"
             style="background: var(--color-accent); min-height: 48px;"
             aria-hidden="true"
           ></div>
           <div>
             <h1
-              class="animate-fade-in-up delay-100 text-4xl md:text-6xl text-white font-bold leading-tight"
+              class="animate-fade-in-up delay-100 text-4xl sm:text-5xl md:text-6xl text-white font-bold leading-tight"
               style="font-family: var(--font-display);"
             >
               Pablo Borrás
             </h1>
             <p
-              class="animate-fade-in-up delay-200 mt-2 text-base md:text-lg font-medium tracking-wide"
+              class="animate-fade-in-up delay-200 mt-2 text-sm sm:text-base md:text-lg font-medium tracking-wide"
               style="color: var(--color-accent-light); font-family: var(--font-body);"
             >
               Speaker · Autor · Médico Veterinario
@@ -46,7 +74,7 @@
 
         <!-- Párrafo de autoridad -->
         <p
-          class="text-white/80 text-base md:text-lg leading-relaxed mb-10 max-w-lg animate-fade-in-up delay-300"
+          class="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-lg animate-fade-in-up delay-300"
           style="font-family: var(--font-body);"
         >
           Referente clínico, formador de veterinarios y divulgador científico.<br />
@@ -54,7 +82,7 @@
         </p>
 
         <!-- CTAs por audiencia -->
-        <div class="flex flex-col sm:flex-row flex-wrap gap-4">
+        <div class="flex flex-col sm:flex-row flex-wrap gap-3">
           <!-- CTA tutores -->
           <a
             href="/tutores"
@@ -84,40 +112,12 @@
         </div>
       </div>
 
-      <!-- Imagen del profesional -->
-      <div class="hidden md:flex justify-center items-center animate-scale-in delay-300">
-        <div class="relative">
-          <!-- Decoración detrás de la imagen -->
-          <div
-            class="absolute -inset-4 rounded-2xl opacity-20"
-            style="background: var(--color-accent); filter: blur(30px);"
-            aria-hidden="true"
-          ></div>
-          <img
-            src="/imagenes/perfil/pablo2.jpg"
-            alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
-            class="relative rounded-2xl object-cover"
-            style="box-shadow: var(--shadow-lg);"
-            width="480"
-            height="560"
-          />
-          <!-- Badge flotante de autoridad -->
-          <div
-            class="absolute -bottom-4 -left-6 px-6 py-3 rounded-xl shadow-lg"
-            style="background: var(--color-accent); color: #fff; border-radius: var(--radius);"
-          >
-            <p class="text-xs font-medium opacity-80">Veterinarios formados</p>
-            <p class="text-2xl font-bold" style="font-family: var(--font-display);">+1.200</p>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 
-  <!-- Scroll indicator -->
+  <!-- Scroll indicator — solo desktop -->
   <div
-    class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce-slow pointer-events-none"
+    class="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-1 animate-bounce-slow pointer-events-none"
     aria-hidden="true"
   >
     <span class="uppercase tracking-widest" style="font-size: 10px; color: rgba(255,255,255,0.45); letter-spacing: 0.18em;">scroll</span>
