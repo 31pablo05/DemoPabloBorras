@@ -1,0 +1,32 @@
+---
+// PruebaSocial.astro — Franja oscura de autoridad con números clave
+const stats = [
+  { numero: '+1.200', label: 'Veterinarios formados' },
+  { numero: '+30',    label: 'Congresos como speaker' },
+  { numero: '+15',    label: 'Años de experiencia' },
+  { numero: '+60',    label: 'Casos publicados' },
+];
+---
+
+<section class="py-14" style="background: var(--color-primary);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      {stats.map((stat, i) => (
+        <div class="reveal" style={`transition-delay: ${i * 0.1}s;`}>
+          <p
+            class="text-4xl md:text-5xl font-bold text-white"
+            style="font-family: var(--font-display);"
+          >
+            {stat.numero}
+          </p>
+          <p
+            class="text-xs mt-2 uppercase tracking-widest"
+            style="color: var(--color-accent-light);"
+          >
+            {stat.label}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

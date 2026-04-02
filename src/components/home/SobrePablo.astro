@@ -35,7 +35,7 @@ const stats = [
         <!-- Imagen principal -->
         <div class="relative w-full max-w-sm">
           <img
-            src="https://placehold.co/480x560/2D5A4A/FFFFFF?text=Foto+de+Pablo"
+            src="/imagenes/perfil/pablo1.jpg"
             alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
             class="relative w-full object-cover"
             style="border-radius: 16px; box-shadow: var(--shadow-lg);"
@@ -113,6 +113,7 @@ const stats = [
                 <p
                   class="text-2xl font-bold leading-none"
                   style="font-family: var(--font-display); color: var(--color-accent);"
+                  data-count
                 >
                   {stat.numero}
                 </p>
@@ -147,3 +148,36 @@ const stats = [
     </div>
   </div>
 </section>
+
+<script>
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const original = el.textContent.trim();
+        const prefix = original.startsWith('+') ? '+' : '';
+        const target = parseInt(original.replace(/[^0-9]/g, ''), 10);
+        const useThousands = target >= 1000;
+        const duration = 1400;
+        const start = performance.now();
+        function format(n) {
+          return useThousands
+            ? prefix + n.toLocaleString('de-DE')
+            : prefix + n;
+        }
+        function step(ts) {
+          const elapsed = ts - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = format(Math.round(eased * target));
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(el => observer.observe(el));
+  }
+</script>

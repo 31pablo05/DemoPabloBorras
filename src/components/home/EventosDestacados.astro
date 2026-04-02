@@ -19,6 +19,13 @@ const tipoColor = {
   Simposio: 'purple',
 };
 
+const tipoAccentColor = {
+  Congreso: '#3B82F6',
+  Jornada:  '#F97316',
+  Workshop: '#2D9B73',
+  Simposio: '#8B5CF6',
+};
+
 // Formatear fecha → "15 AGO 2025"
 function formatFecha(fechaStr) {
   const meses = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
@@ -39,7 +46,7 @@ function formatFecha(fechaStr) {
       {destacados.map((evento, index) => (
         <div
           class="reveal rounded-2xl overflow-hidden flex flex-col md:flex-row"
-          style={`background: var(--color-neutral-light); border-radius: var(--radius); box-shadow: var(--shadow); transition-delay: ${index * 0.15}s;`}
+          style={`background: var(--color-neutral-light); border-radius: var(--radius); box-shadow: var(--shadow); border-top: 3px solid ${tipoAccentColor[evento.tipo] || '#2D9B73'}; transition-delay: ${index * 0.15}s;`}
         >
           <!-- Bloque de fecha -->
           <div
