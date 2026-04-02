@@ -30,10 +30,10 @@ const videosToShow = limit ? videos.slice(0, limit) : videos;
 
     <!-- Grid de videos -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-2">
-      {videosToShow.map(video => (
+      {videosToShow.map((video, index) => (
         <div
-          class="bg-white rounded-2xl overflow-hidden card-lift"
-          style="border-radius: var(--radius); box-shadow: var(--shadow);"
+          class="reveal bg-white rounded-2xl overflow-hidden card-lift"
+          style={`border-radius: var(--radius); box-shadow: var(--shadow); transition-delay: ${index * 0.15}s;`}
         >
           <!-- iframe YouTube responsive -->
           <div class="aspect-video w-full">

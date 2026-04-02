@@ -48,11 +48,11 @@ const cards = [
 
     <!-- Grid de cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
-      {cards.map(card => (
+      {cards.map((card, index) => (
         <a
           href={card.href}
-          class="card-lift group block bg-white rounded-2xl p-8 no-underline"
-          style="border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; border-top: 3px solid transparent; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;"
+          class="card-lift reveal group block bg-white rounded-2xl p-8 no-underline"
+          style={`border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; border-top: 3px solid transparent; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; transition-delay: ${index * 0.15}s;`}
           onmouseover="this.style.borderTopColor='var(--color-accent)'"
           onmouseout="this.style.borderTopColor='transparent'"
         >

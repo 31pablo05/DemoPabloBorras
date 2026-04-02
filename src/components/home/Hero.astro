@@ -9,9 +9,9 @@
   <!-- Patrón decorativo de puntos sobre el fondo -->
   <div class="dot-pattern absolute inset-0 pointer-events-none" aria-hidden="true"></div>
 
-  <!-- Elemento decorativo: círculo de acento superior derecha -->
+  <!-- Elemento decorativo: círculo de acento superior derecha (float animado) -->
   <div
-    class="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 pointer-events-none"
+    class="blob-float absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 pointer-events-none"
     style="background: var(--color-accent); filter: blur(80px); transform: translate(30%, -30%);"
     aria-hidden="true"
   ></div>
@@ -22,21 +22,21 @@
       <!-- Contenido textual -->
       <div>
         <!-- Línea decorativa + nombre -->
-        <div class="flex items-start gap-4 mb-6 animate-fade-in-up">
+        <div class="flex items-start gap-4 mb-6">
           <div
-            class="w-1 self-stretch rounded-full mt-1"
+            class="animate-slide-in-left w-1 self-stretch rounded-full mt-1"
             style="background: var(--color-accent); min-height: 48px;"
             aria-hidden="true"
           ></div>
           <div>
             <h1
-              class="text-4xl md:text-6xl text-white font-bold leading-tight"
+              class="animate-fade-in-up delay-100 text-4xl md:text-6xl text-white font-bold leading-tight"
               style="font-family: var(--font-display);"
             >
               Pablo Borrás
             </h1>
             <p
-              class="mt-2 text-base md:text-lg font-medium tracking-wide"
+              class="animate-fade-in-up delay-200 mt-2 text-base md:text-lg font-medium tracking-wide"
               style="color: var(--color-accent-light); font-family: var(--font-body);"
             >
               Speaker · Autor · Médico Veterinario
@@ -46,7 +46,7 @@
 
         <!-- Párrafo de autoridad -->
         <p
-          class="text-white/80 text-base md:text-lg leading-relaxed mb-10 max-w-lg animate-fade-in-up delay-200"
+          class="text-white/80 text-base md:text-lg leading-relaxed mb-10 max-w-lg animate-fade-in-up delay-300"
           style="font-family: var(--font-body);"
         >
           Referente clínico, formador de veterinarios y divulgador científico.<br />
@@ -58,7 +58,7 @@
           <!-- CTA tutores -->
           <a
             href="/tutores"
-            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm text-white transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 animate-fade-in-up delay-300"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm text-white transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 animate-fade-in-up delay-400"
             style="background: var(--color-accent); border-radius: var(--radius);"
           >
             🐾 Soy tutor de mascotas
@@ -67,7 +67,7 @@
           <!-- CTA veterinarios -->
           <a
             href="/veterinarios"
-            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm transition-all duration-200 hover:bg-gray-100 hover:-translate-y-0.5 animate-fade-in-up delay-400"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm transition-all duration-200 hover:bg-gray-100 hover:-translate-y-0.5 animate-fade-in-up delay-500"
             style="background: #fff; color: var(--color-primary); border-radius: var(--radius);"
           >
             🩺 Soy veterinario
@@ -76,7 +76,7 @@
           <!-- CTA empresas -->
           <a
             href="/empresas"
-            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm text-white border-2 border-white transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5 animate-fade-in-up delay-500"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm text-white border-2 border-white transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5 animate-fade-in-up delay-600"
             style="border-radius: var(--radius);"
           >
             🏢 Represento una empresa
@@ -85,7 +85,7 @@
       </div>
 
       <!-- Imagen del profesional -->
-      <div class="hidden lg:flex justify-center items-center animate-fade-in delay-300">
+      <div class="hidden lg:flex justify-center items-center animate-scale-in delay-300">
         <div class="relative">
           <!-- Decoración detrás de la imagen -->
           <div

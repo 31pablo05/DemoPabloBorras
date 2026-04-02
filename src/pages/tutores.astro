@@ -11,61 +11,62 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
   description="Contenido educativo, videos y consejos de salud animal para tutores de mascotas. Por Pablo Borrás, Médico Veterinario."
 >
 
-  <!-- Hero secundario -->
+  <!-- Hero emocional — Tutores -->
   <section
-    class="py-20 text-center"
-    style="background: var(--color-accent);"
+    class="py-24 text-center"
+    style="background: linear-gradient(135deg, #1B4D3E 0%, #0F2A20 100%);"
   >
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Ícono decorativo -->
-      <div class="flex justify-center mb-6">
-        <div
-          class="w-16 h-16 rounded-full flex items-center justify-center text-3xl"
-          style="background: rgba(255,255,255,0.2);"
-        >
-          🐾
-        </div>
-      </div>
+      <!-- Emoji grande con animación -->
+      <div class="text-6xl mb-6 animate-fade-in">🐾</div>
       <h1
-        class="text-4xl md:text-5xl font-bold text-white mb-4"
-        style="font-family: var(--font-display);"
+        class="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in-up delay-100"
+        style="font-family: var(--font-display); line-height: 1.2;"
       >
-        Para tutores de mascotas
+        Tu mascota merece lo mejor.<br/>
+        <span style="color: var(--color-accent-light);">Vos también merecés entenderlo.</span>
       </h1>
-      <p class="text-white/85 text-lg max-w-xl mx-auto">
-        Contenido educativo, divulgación científica y videos pensados para quienes comparten su vida con un animal.
+      <p class="text-lg max-w-xl mx-auto mb-8 animate-fade-in-up delay-200" style="color: rgba(255,255,255,0.7);">
+        Videos, divulgación y consejos pensados por un veterinario para quienes comparten su vida con un animal.
       </p>
+      <!-- Badge de acceso libre -->
+      <div class="flex justify-center animate-fade-in-up delay-300">
+        <span
+          class="inline-block text-sm font-semibold px-4 py-2 rounded-full"
+          style="background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); border: 1px solid rgba(255,255,255,0.2);"
+        >
+          Contenido gratuito · Sin registro · Para todos
+        </span>
+      </div>
     </div>
   </section>
 
-  <!-- Intro: qué encontrás en esta sección -->
-  <section class="py-16 bg-white">
+  <!-- Bloque 3 columnas emocional -->
+  <section class="py-16" style="background: var(--color-neutral-light);">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <SectionTitle
-        title="¿Qué vas a encontrar acá?"
-        subtitle="Contenido para vos y tu mascota"
-        centered={true}
-      />
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
           {
-            emoji: '🎬',
+            emoji: '🎥',
             titulo: 'Videos educativos',
-            desc: 'Explicaciones claras sobre salud, comportamiento y bienestar animal. Sin tecnicismos innecesarios.',
+            desc: 'Explicaciones claras sobre salud, alimentación y comportamiento.',
           },
           {
-            emoji: '📖',
-            titulo: 'Divulgación científica',
-            desc: 'Artículos y publicaciones que traducen la ciencia veterinaria en consejos útiles para el día a día.',
+            emoji: '🩺',
+            titulo: 'Basado en evidencia',
+            desc: 'Información avalada por años de práctica clínica real.',
           },
           {
-            emoji: '📱',
-            titulo: 'Contenido en redes',
-            desc: 'Seguí a Pablo en Instagram y YouTube para recibir contenido nuevo todas las semanas.',
+            emoji: '❤️',
+            titulo: 'Para tutores comprometidos',
+            desc: 'Porque el vínculo con tu mascota empieza por entenderla.',
           },
-        ].map(item => (
-          <div class="text-center">
-            <div class="text-4xl mb-3">{item.emoji}</div>
+        ].map((item, index) => (
+          <div
+            class="reveal text-center bg-white rounded-2xl p-8"
+            style={`border-radius: var(--radius); box-shadow: var(--shadow); transition-delay: ${index * 0.15}s;`}
+          >
+            <div class="text-4xl mb-4">{item.emoji}</div>
             <h3
               class="text-lg font-bold mb-2"
               style="font-family: var(--font-display); color: var(--color-text);"

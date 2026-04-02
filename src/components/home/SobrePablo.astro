@@ -1,0 +1,149 @@
+---
+// SobrePablo.astro — Bloque de presentación y autoridad profesional del home
+import Button from '../ui/Button.astro';
+
+const stats = [
+  { numero: '+15',    label: 'Años de experiencia' },
+  { numero: '+1.200', label: 'Veterinarios capacitados' },
+  { numero: '+30',    label: 'Congresos como speaker' },
+  { numero: '+60',    label: 'Casos en el libro técnico' },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- ── Columna izquierda: Foto ── -->
+      <div
+        class="reveal relative flex justify-center lg:justify-start"
+        style="transition-delay: 0.1s;"
+      >
+        <!-- Sombra de color desplazada detrás de la imagen -->
+        <div
+          class="absolute rounded-2xl"
+          style="
+            background: var(--color-accent);
+            opacity: 0.18;
+            border-radius: 16px;
+            inset: 0;
+            transform: translate(12px, 12px);
+          "
+          aria-hidden="true"
+        ></div>
+
+        <!-- Imagen principal -->
+        <div class="relative w-full max-w-sm">
+          <img
+            src="https://placehold.co/480x560/1B3A4B/4ECBA1?text=Pablo+Borr%C3%A1s"
+            alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
+            class="relative w-full object-cover"
+            style="border-radius: 16px; box-shadow: var(--shadow-lg);"
+            width="480"
+            height="560"
+          />
+
+          <!-- Tarjeta flotante superpuesta (esquina inferior izquierda) -->
+          <div
+            class="absolute -bottom-5 -left-5 px-5 py-4 bg-white"
+            style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.14);"
+          >
+            <p
+              class="text-3xl font-bold leading-none"
+              style="font-family: var(--font-display); color: var(--color-accent);"
+            >
+              +15
+            </p>
+            <p class="text-xs mt-0.5" style="color: var(--color-text-muted);">
+              años de experiencia
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Columna derecha: Texto ── -->
+      <div>
+        <!-- Badge -->
+        <div class="reveal" style="transition-delay: 0.1s;">
+          <span
+            class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-5"
+            style="background: rgba(45,155,115,0.12); color: var(--color-accent); border: 1px solid rgba(45,155,115,0.25);"
+          >
+            Médico Veterinario · Speaker · Autor
+          </span>
+        </div>
+
+        <!-- Título -->
+        <div class="reveal" style="transition-delay: 0.15s;">
+          <h2
+            class="text-3xl md:text-4xl font-bold mb-5 leading-tight"
+            style="font-family: var(--font-display); color: var(--color-text);"
+          >
+            Más de 15 años transformando la medicina veterinaria
+          </h2>
+        </div>
+
+        <!-- Párrafo 1 -->
+        <div class="reveal" style="transition-delay: 0.2s;">
+          <p class="text-base leading-relaxed mb-4" style="color: var(--color-text-muted);">
+            Médico Veterinario con especialización clínica y una trayectoria de más de 15 años en el ejercicio profesional, la docencia universitaria y la divulgación científica dentro del ecosistema veterinario argentino.
+          </p>
+        </div>
+
+        <!-- Párrafo 2 -->
+        <div class="reveal" style="transition-delay: 0.25s;">
+          <p class="text-base leading-relaxed mb-8" style="color: var(--color-text-muted);">
+            Capacitó a más de 1.200 veterinarios en todo el país, participó como speaker en más de 30 congresos nacionales e internacionales, y publicó un libro técnico de referencia clínica para profesionales del sector.
+          </p>
+        </div>
+
+        <!-- Stats en grid 2×2 -->
+        <div class="reveal grid grid-cols-2 mb-8" style="transition-delay: 0.35s;">
+          {stats.map((stat, i) => {
+            const isRightCol = i % 2 === 1;
+            const isTopRow   = i < 2;
+            return (
+              <div
+                class="p-4"
+                style={[
+                  isRightCol ? 'border-left: 1px solid #E5EAED;' : '',
+                  !isTopRow  ? 'border-top: 1px solid #E5EAED;'  : '',
+                ].join(' ')}
+              >
+                <p
+                  class="text-2xl font-bold leading-none"
+                  style="font-family: var(--font-display); color: var(--color-accent);"
+                >
+                  {stat.numero}
+                </p>
+                <p class="text-xs mt-1" style="color: var(--color-text-muted);">
+                  {stat.label}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+
+        <!-- CTA outline -->
+        <div class="reveal" style="transition-delay: 0.4s;">
+          <a
+            href="/veterinarios"
+            class="inline-flex items-center gap-2 px-6 py-3 font-semibold text-sm transition-all duration-200 rounded-lg"
+            style="
+              border: 2px solid var(--color-accent);
+              color: var(--color-accent);
+              border-radius: var(--radius);
+              text-decoration: none;
+              background: transparent;
+            "
+            onmouseover="this.style.background='var(--color-accent)'; this.style.color='#fff';"
+            onmouseout="this.style.background='transparent'; this.style.color='var(--color-accent)';"
+          >
+            Conocé más sobre Pablo →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

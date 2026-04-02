@@ -2,6 +2,7 @@
 // pages/index.astro — Página de inicio (Home)
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/home/Hero.astro';
+import SobrePablo from '../components/home/SobrePablo.astro';
 import AudienceCards from '../components/home/AudienceCards.astro';
 import EventosDestacados from '../components/home/EventosDestacados.astro';
 import VideosPreview from '../components/home/VideosPreview.astro';
@@ -16,7 +17,10 @@ import Button from '../components/ui/Button.astro';
   <!-- 1. Hero principal con 3 CTAs por audiencia -->
   <Hero />
 
-  <!-- 2. Tres caminos: Tutores / Veterinarios / Empresas -->
+  <!-- 2. Bloque "Sobre Pablo" — bio + stats de autoridad -->
+  <SobrePablo />
+
+  <!-- 3. Tres caminos: Tutores / Veterinarios / Empresas -->
   <AudienceCards />
 
   <!-- 3. Próximos 2 eventos destacados -->
