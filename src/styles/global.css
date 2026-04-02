@@ -4,25 +4,25 @@
    DESIGN TOKENS — Paleta Pablo Borrás
    ============================================= */
 @theme {
-  --color-primary: #1B3A4B;
-  --color-accent: #2D9B73;
+  --color-primary:      #1B3A4B;
+  --color-accent:       #2D9B73;
   --color-accent-light: #4ECBA1;
   --color-neutral-dark: #0F1E26;
-  --color-neutral-mid: #1E3A4A;
-  --color-neutral-light: #F5F7F6;
-  --color-text: #1A1A2E;
-  --color-text-muted: #6B7280;
+  --color-neutral-mid:  #1E3A4A;
+  --color-neutral-light:#F5F7F6;
+  --color-text:         #1A1A2E;
+  --color-text-muted:   #6B7280;
 
   --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
 
-  --radius: 8px;
-  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --radius:    8px;
+  --shadow:    0 4px 24px rgba(0,0,0,0.08);
   --shadow-lg: 0 8px 40px rgba(0,0,0,0.15);
 }
 
 /* =============================================
-   BASE STYLES
+   BASE
    ============================================= */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -51,17 +51,12 @@ img {
 }
 
 /* =============================================
-   ANIMACIONES
+   KEYFRAMES
    ============================================= */
+
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
@@ -69,40 +64,82 @@ img {
   to   { opacity: 1; }
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseAccent {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes floatBlob {
+  0%, 100% { transform: translate(30%, -30%) scale(1); }
+  50%       { transform: translate(30%, -30%) scale(1.08); }
+}
+
+/* =============================================
+   CLASES DE ANIMACIÓN
+   ============================================= */
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease both;
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-
 .animate-fade-in {
-  animation: fadeIn 0.5s ease both;
+  animation: fadeIn 0.6s ease both;
 }
-
+.animate-slide-in-left {
+  animation: slideInLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
 .animate-slide-down {
   animation: slideDown 0.3s ease both;
 }
+.animate-scale-in {
+  animation: scaleIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
 
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
+/* Delays para stagger */
+.delay-100 { animation-delay: 0.10s; }
+.delay-200 { animation-delay: 0.20s; }
+.delay-300 { animation-delay: 0.30s; }
+.delay-400 { animation-delay: 0.40s; }
+.delay-500 { animation-delay: 0.50s; }
+.delay-600 { animation-delay: 0.60s; }
+.delay-700 { animation-delay: 0.70s; }
 
 /* =============================================
-   UTILIDADES PERSONALIZADAS
+   REVEAL ON SCROLL
+   (activado por IntersectionObserver en Layout.astro)
    ============================================= */
 
-/* Underline animado para nav links */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity   0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =============================================
+   UTILIDADES DE COMPONENTES
+   ============================================= */
+
+/* Nav link con underline animado */
 .nav-link {
   position: relative;
   color: #ffffff;
@@ -126,13 +163,7 @@ img {
   width: 100%;
 }
 
-/* Hero dot pattern overlay */
-.dot-pattern {
-  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* Glassmorphism header on scroll */
+/* Header con glassmorphism al hacer scroll */
 .header-glass {
   background: rgba(27, 58, 75, 0.92) !important;
   backdrop-filter: blur(12px);
@@ -140,7 +171,23 @@ img {
   box-shadow: 0 2px 20px rgba(0,0,0,0.2);
 }
 
-/* Card hover lift */
+/* Patrón de puntos — fondo decorativo del Hero */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Blob flotante del Hero */
+.blob-float {
+  animation: floatBlob 7s ease-in-out infinite;
+}
+
+/* Barra de acento con pulso suave */
+.accent-bar {
+  animation: pulseAccent 3s ease-in-out infinite;
+}
+
+/* Card con elevación al hover */
 .card-lift {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -149,7 +196,7 @@ img {
   box-shadow: var(--shadow-lg);
 }
 
-/* Timeline vertical line */
+/* Línea vertical de timeline */
 .timeline-line {
   position: relative;
 }
@@ -164,101 +211,7 @@ img {
   border-radius: 2px;
 }
 
-/* Aspect ratio para YouTube */
+/* Aspect ratio 16:9 para iframes de YouTube */
 .aspect-video {
   aspect-ratio: 16 / 9;
-}
-
-/* ─── Animaciones Hero ─────────────────────────────────────────── */
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(32px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.92);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes pulseAccent {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.5; }
-}
-
-/* Clases de animación reutilizables (override de las anteriores) */
-.animate-fade-in-up {
-  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.animate-fade-in {
-  animation: fadeIn 0.6s ease both;
-}
-.animate-slide-in-left {
-  animation: slideInLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.animate-scale-in {
-  animation: scaleIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-/* Delays para stagger (override) */
-.delay-100 { animation-delay: 0.10s; }
-.delay-200 { animation-delay: 0.20s; }
-.delay-300 { animation-delay: 0.30s; }
-.delay-400 { animation-delay: 0.40s; }
-.delay-500 { animation-delay: 0.50s; }
-.delay-600 { animation-delay: 0.60s; }
-.delay-700 { animation-delay: 0.70s; }
-
-/* Línea decorativa del Hero: pulso suave */
-.accent-bar {
-  animation: pulseAccent 3s ease-in-out infinite;
-}
-
-/* Burbuja de fondo: float suave */
-@keyframes floatBlob {
-  0%, 100% { transform: translate(30%, -30%) scale(1); }
-  50%       { transform: translate(30%, -30%) scale(1.08); }
-}
-.blob-float {
-  animation: floatBlob 7s ease-in-out infinite;
-}
-
-/* Reveal on scroll (se activa con JS vía IntersectionObserver) */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
