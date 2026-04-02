@@ -1,0 +1,127 @@
+---
+// ServiciosEmpresas.astro — Servicios institucionales para empresas y organizaciones
+import SectionTitle from '../ui/SectionTitle.astro';
+import Button from '../ui/Button.astro';
+
+const servicios = [
+  {
+    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </svg>`,
+    titulo: 'Charlas y conferencias institucionales',
+    descripcion: 'Keynotes y presentaciones científicas para congresos, jornadas veterinarias y eventos corporativos. Contenido adaptado al público, con nivel académico y capacidad de comunicación masiva.',
+    cta: '/contacto?tab=empresas',
+  },
+  {
+    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+    </svg>`,
+    titulo: 'Capacitaciones para equipos veterinarios',
+    descripcion: 'Programas de formación continua diseñados para grupos de trabajo: clínicas, pet shops con asesoría veterinaria, laboratorios y distribuidoras de productos veterinarios.',
+    cta: '/contacto?tab=empresas',
+  },
+  {
+    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+      <line x1="8" y1="21" x2="16" y2="21"/>
+      <line x1="12" y1="17" x2="12" y2="21"/>
+    </svg>`,
+    titulo: 'Contenido educativo y comunicación científica',
+    descripcion: 'Producción de contenidos escritos, audiovisuales y digitales con rigor científico y lenguaje accesible. Ideal para marcas de alimentos, productos veterinarios y campañas de salud animal.',
+    cta: '/contacto?tab=empresas',
+  },
+  {
+    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="12" y1="8" x2="12" y2="12"/>
+      <line x1="12" y1="16" x2="12.01" y2="16"/>
+    </svg>`,
+    titulo: 'Proyectos de colaboración y consultoría',
+    descripcion: 'Asesoría estratégica en comunicación veterinaria, desarrollo de programas educativos y proyectos de impacto en bienestar animal para instituciones públicas o privadas.',
+    cta: '/contacto?tab=empresas',
+  },
+];
+---
+
+<section class="py-20" style="background: var(--color-neutral-light);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <SectionTitle
+      title="Propuestas para empresas e instituciones"
+      subtitle="Servicios corporativos"
+    />
+
+    <p class="text-base leading-relaxed mb-12 max-w-2xl" style="color: var(--color-text-muted);">
+      Pablo Borrás colabora con laboratorios, clínicas veterinarias, facultades, organizaciones de bienestar animal e industria de alimentos para mascotas. Sumá autoridad científica y expertise clínico a tu proyecto.
+    </p>
+
+    <!-- Grid de 4 servicios -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      {servicios.map(servicio => (
+        <div
+          class="bg-white rounded-2xl p-8 card-lift flex gap-6"
+          style="box-shadow: var(--shadow); border-radius: var(--radius);"
+        >
+          <!-- Ícono -->
+          <div
+            class="shrink-0 w-14 h-14 flex items-center justify-center rounded-xl"
+            style="color: var(--color-accent); background: rgba(45,155,115,0.08);"
+            set:html={servicio.icon}
+          />
+
+          <!-- Content -->
+          <div class="flex flex-col gap-2">
+            <h3
+              class="text-lg font-bold"
+              style="font-family: var(--font-display); color: var(--color-text);"
+            >
+              {servicio.titulo}
+            </h3>
+            <p class="text-sm leading-relaxed flex-1" style="color: var(--color-text-muted);">
+              {servicio.descripcion}
+            </p>
+            <a
+              href={servicio.cta}
+              class="text-sm font-semibold transition-colors hover:underline mt-1"
+              style="color: var(--color-accent); text-decoration: none;"
+            >
+              Consultar →
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Sección de logos (placeholders) -->
+    <div class="mb-16">
+      <p
+        class="text-xs font-semibold uppercase tracking-widest text-center mb-8"
+        style="color: var(--color-text-muted);"
+      >
+        Empresas e instituciones con las que trabajé
+      </p>
+      <div class="flex flex-wrap justify-center items-center gap-6">
+        {[1, 2, 3, 4, 5].map(i => (
+          <div
+            class="h-12 w-36 rounded-lg flex items-center justify-center"
+            style="background: #e5e7eb; color: #9ca3af; font-size: 11px; font-weight: 600; letter-spacing: 0.05em;"
+          >
+            EMPRESA {i}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA final -->
+    <div class="text-center">
+      <Button href="/contacto?tab=empresas" variant="primary" size="lg">
+        Hablemos de tu proyecto →
+      </Button>
+    </div>
+
+  </div>
+</section>

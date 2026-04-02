@@ -1,0 +1,117 @@
+---
+// Hero.astro — Sección principal de la homepage con CTAs por audiencia
+---
+
+<section
+  class="relative overflow-hidden min-h-[90vh] flex items-center"
+  style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-neutral-dark) 100%);"
+>
+  <!-- Patrón decorativo de puntos sobre el fondo -->
+  <div class="dot-pattern absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+
+  <!-- Elemento decorativo: círculo de acento superior derecha -->
+  <div
+    class="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 pointer-events-none"
+    style="background: var(--color-accent); filter: blur(80px); transform: translate(30%, -30%);"
+    aria-hidden="true"
+  ></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Contenido textual -->
+      <div>
+        <!-- Línea decorativa + nombre -->
+        <div class="flex items-start gap-4 mb-6 animate-fade-in-up">
+          <div
+            class="w-1 self-stretch rounded-full mt-1"
+            style="background: var(--color-accent); min-height: 48px;"
+            aria-hidden="true"
+          ></div>
+          <div>
+            <h1
+              class="text-4xl md:text-6xl text-white font-bold leading-tight"
+              style="font-family: var(--font-display);"
+            >
+              Pablo Borrás
+            </h1>
+            <p
+              class="mt-2 text-base md:text-lg font-medium tracking-wide"
+              style="color: var(--color-accent-light); font-family: var(--font-body);"
+            >
+              Speaker · Autor · Médico Veterinario
+            </p>
+          </div>
+        </div>
+
+        <!-- Párrafo de autoridad -->
+        <p
+          class="text-white/80 text-base md:text-lg leading-relaxed mb-10 max-w-lg animate-fade-in-up delay-200"
+          style="font-family: var(--font-body);"
+        >
+          Referente clínico, formador de veterinarios y divulgador científico.<br />
+          Más de 15 años acompañando a mascotas, profesionales e instituciones.
+        </p>
+
+        <!-- CTAs por audiencia -->
+        <div class="flex flex-col sm:flex-row flex-wrap gap-4">
+          <!-- CTA tutores -->
+          <a
+            href="/tutores"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm text-white transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 animate-fade-in-up delay-300"
+            style="background: var(--color-accent); border-radius: var(--radius);"
+          >
+            🐾 Soy tutor de mascotas
+          </a>
+
+          <!-- CTA veterinarios -->
+          <a
+            href="/veterinarios"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm transition-all duration-200 hover:bg-gray-100 hover:-translate-y-0.5 animate-fade-in-up delay-400"
+            style="background: #fff; color: var(--color-primary); border-radius: var(--radius);"
+          >
+            🩺 Soy veterinario
+          </a>
+
+          <!-- CTA empresas -->
+          <a
+            href="/empresas"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm text-white border-2 border-white transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5 animate-fade-in-up delay-500"
+            style="border-radius: var(--radius);"
+          >
+            🏢 Represento una empresa
+          </a>
+        </div>
+      </div>
+
+      <!-- Imagen del profesional -->
+      <div class="hidden lg:flex justify-center items-center animate-fade-in delay-300">
+        <div class="relative">
+          <!-- Decoración detrás de la imagen -->
+          <div
+            class="absolute -inset-4 rounded-2xl opacity-20"
+            style="background: var(--color-accent); filter: blur(30px);"
+            aria-hidden="true"
+          ></div>
+          <img
+            src="https://placehold.co/480x560/1B3A4B/4ECBA1?text=Pablo+Borr%C3%A1s"
+            alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
+            class="relative rounded-2xl object-cover"
+            style="box-shadow: var(--shadow-lg);"
+            width="480"
+            height="560"
+          />
+          <!-- Badge flotante de autoridad -->
+          <div
+            class="absolute -bottom-4 -left-6 px-6 py-3 rounded-xl shadow-lg"
+            style="background: var(--color-accent); color: #fff; border-radius: var(--radius);"
+          >
+            <p class="text-xs font-medium opacity-80">Veterinarios formados</p>
+            <p class="text-2xl font-bold" style="font-family: var(--font-display);">+1.200</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

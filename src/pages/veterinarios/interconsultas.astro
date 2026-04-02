@@ -1,0 +1,67 @@
+---
+// pages/veterinarios/interconsultas.astro — Página de interconsultas con formulario
+import Layout from '../../layouts/Layout.astro';
+import Interconsultas from '../../components/veterinarios/Interconsultas.astro';
+import FormularioContacto from '../../components/contacto/FormularioContacto.jsx';
+---
+
+<Layout
+  title="Interconsultas veterinarias — Pablo Borrás"
+  description="Servicio de interconsulta clínica para veterinarios. Segunda opinión especializada, diagnóstico diferencial y protocolos terapéuticos."
+>
+
+  <!-- Encabezado de página -->
+  <section
+    class="py-16"
+    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-neutral-dark) 100%);"
+  >
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm mb-4" style="color: var(--color-accent-light);" aria-label="Breadcrumb">
+        <a href="/veterinarios" style="color: var(--color-accent-light); text-decoration: none;">Para veterinarios</a>
+        <span class="mx-2 opacity-50">/</span>
+        <span class="text-white/70">Interconsultas</span>
+      </nav>
+      <h1
+        class="text-4xl font-bold text-white"
+        style="font-family: var(--font-display);"
+      >
+        Interconsultas clínicas
+      </h1>
+      <p class="text-white/70 mt-2 text-lg">
+        Segunda opinión especializada para casos complejos.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contenido del servicio -->
+  <Interconsultas />
+
+  <!-- Formulario de contacto pre-abierto en tab Interconsultas -->
+  <section class="py-16" style="background: var(--color-neutral-light);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2
+          class="text-3xl font-bold"
+          style="font-family: var(--font-display); color: var(--color-text);"
+        >
+          Enviá tu consulta
+        </h2>
+        <p class="mt-2 text-sm" style="color: var(--color-text-muted);">
+          Completá el formulario y te respondemos a la brevedad.
+        </p>
+      </div>
+      <!-- React Island: se hidrata en el cliente con tab=interconsultas preseleccionado -->
+      <FormularioContacto client:load />
+    </div>
+  </section>
+
+</Layout>
+
+<!-- Script para fijar el parámetro de URL si no está presente -->
+<script>
+  if (typeof window !== 'undefined' && !new URLSearchParams(window.location.search).get('tab')) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('tab', 'interconsultas');
+    window.history.replaceState({}, '', url.toString());
+  }
+</script>

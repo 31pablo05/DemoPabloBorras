@@ -1,0 +1,66 @@
+---
+// pages/empresas.astro — Página para empresas e instituciones
+import Layout from '../layouts/Layout.astro';
+import ServiciosEmpresas from '../components/empresas/ServiciosEmpresas.astro';
+import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
+---
+
+<Layout
+  title="Para empresas e instituciones — Pablo Borrás"
+  description="Charlas institucionales, capacitaciones corporativas y proyectos de colaboración veterinaria. Por Pablo Borrás, Speaker y Médico Veterinario."
+>
+
+  <!-- Hero secundario -->
+  <section
+    class="py-20"
+    style="background: var(--color-neutral-dark);"
+  >
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div
+        class="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
+        style="background: rgba(45,155,115,0.15); color: var(--color-accent-light); border: 1px solid rgba(45,155,115,0.3);"
+      >
+        Propuestas para el sector corporativo
+      </div>
+      <h1
+        class="text-4xl md:text-5xl font-bold text-white mb-4"
+        style="font-family: var(--font-display);"
+      >
+        Para empresas e instituciones
+      </h1>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto">
+        Sumá autoridad científica, experiencia clínica y capacidad de comunicación a tus proyectos institucionales y eventos.
+      </p>
+    </div>
+  </section>
+
+  <!-- Servicios corporativos -->
+  <ServiciosEmpresas />
+
+  <!-- Formulario pre-abierto en tab Empresas -->
+  <section class="py-16" style="background: var(--color-neutral-light);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2
+          class="text-3xl font-bold"
+          style="font-family: var(--font-display); color: var(--color-text);"
+        >
+          Hablemos de tu proyecto
+        </h2>
+        <p class="mt-2 text-sm" style="color: var(--color-text-muted);">
+          Contanos sobre tu empresa o institución y cómo podría colaborar Pablo.
+        </p>
+      </div>
+      <FormularioContacto client:load />
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  if (typeof window !== 'undefined' && !new URLSearchParams(window.location.search).get('tab')) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('tab', 'empresas');
+    window.history.replaceState({}, '', url.toString());
+  }
+</script>

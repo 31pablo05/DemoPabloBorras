@@ -1,0 +1,63 @@
+---
+// pages/videos.astro — Todos los videos con filtro por categoría (React Island)
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/ui/Button.astro';
+import SectionTitle from '../components/ui/SectionTitle.astro';
+import VideosFiltrados from '../components/home/VideosFiltrados.jsx';
+---
+
+<Layout
+  title="Videos y conferencias — Pablo Borrás"
+  description="Videos educativos, casos clínicos y conferencias de Pablo Borrás, Médico Veterinario y Speaker."
+>
+
+  <!-- Hero de videos -->
+  <section
+    class="py-20 text-center"
+    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-neutral-dark) 100%);"
+  >
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-5xl mb-6">🎬</div>
+      <h1
+        class="text-4xl md:text-5xl font-bold text-white mb-4"
+        style="font-family: var(--font-display);"
+      >
+        Videos y conferencias
+      </h1>
+      <p class="text-white/70 text-lg">
+        Contenido audiovisual educativo y clínico: casos prácticos, conferencias magistrales y divulgación veterinaria para todos los públicos.
+      </p>
+    </div>
+  </section>
+
+  <!-- Grid con filtro interactivo (React Island) -->
+  <section style="background: var(--color-neutral-light);" class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionTitle
+        title="Todos los videos"
+        subtitle="Canal de contenidos"
+      />
+      <!-- React Island con filtro por categoría -->
+      <VideosFiltrados client:load />
+    </div>
+  </section>
+
+  <!-- CTA al canal de YouTube -->
+  <section class="py-14 bg-white text-center">
+    <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2
+        class="text-2xl font-bold mb-4"
+        style="font-family: var(--font-display); color: var(--color-text);"
+      >
+        ¿Querés ver más contenido?
+      </h2>
+      <p class="text-sm mb-6" style="color: var(--color-text-muted);">
+        Suscribite al canal de YouTube para no perderte ningún video nuevo.
+      </p>
+      <Button href="https://www.youtube.com/@pabloborras" variant="primary" size="lg" external={true}>
+        Ir al canal de YouTube →
+      </Button>
+    </div>
+  </section>
+
+</Layout>

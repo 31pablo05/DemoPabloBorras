@@ -1,0 +1,90 @@
+---
+// EventosDestacados.astro — Próximos 2 eventos más cercanos destacados en home
+import { eventos } from '../../data/eventos.js';
+import SectionTitle from '../ui/SectionTitle.astro';
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+
+// Ordenar por fecha y tomar los 2 próximos eventos futuros (o más recientes si todos son pasados)
+const hoy = new Date();
+const sorted = [...eventos].sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+const proximos = sorted.filter(e => new Date(e.fecha) >= hoy).slice(0, 2);
+const destacados = proximos.length > 0 ? proximos : sorted.slice(0, 2);
+
+// Colores de badge por tipo de evento
+const tipoColor = {
+  Congreso: 'blue',
+  Jornada:  'orange',
+  Workshop: 'green',
+  Simposio: 'purple',
+};
+
+// Formatear fecha → "15 AGO 2025"
+function formatFecha(fechaStr) {
+  const meses = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
+  const d = new Date(fechaStr + 'T12:00:00');
+  return `${String(d.getDate()).padStart(2,'0')} ${meses[d.getMonth()]} ${d.getFullYear()}`;
+}
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <SectionTitle
+      title="Próximos eventos"
+      subtitle="Agenda 2025"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-2">
+      {destacados.map(evento => (
+        <div
+          class="rounded-2xl overflow-hidden flex flex-col md:flex-row"
+          style={`background: var(--color-neutral-light); border-radius: var(--radius); box-shadow: var(--shadow);`}
+        >
+          <!-- Bloque de fecha -->
+          <div
+            class="flex flex-col items-center justify-center px-8 py-6 text-white shrink-0"
+            style="background: var(--color-primary); min-width: 120px;"
+          >
+            <span class="text-4xl font-bold" style="font-family: var(--font-display); line-height: 1;">
+              {String(new Date(evento.fecha + 'T12:00:00').getDate()).padStart(2,'0')}
+            </span>
+            <span class="text-xs font-semibold tracking-widest mt-1 uppercase" style="color: var(--color-accent-light);">
+              {['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'][new Date(evento.fecha + 'T12:00:00').getMonth()]}
+            </span>
+            <span class="text-sm mt-0.5 opacity-70">
+              {new Date(evento.fecha + 'T12:00:00').getFullYear()}
+            </span>
+          </div>
+
+          <!-- Contenido del evento -->
+          <div class="p-6 flex flex-col justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <Badge label={evento.tipo} color={tipoColor[evento.tipo] || 'gray'} />
+                <span class="text-xs" style="color: var(--color-text-muted);">📍 {evento.ciudad}</span>
+              </div>
+              <h3
+                class="text-lg font-bold mb-2"
+                style="font-family: var(--font-display); color: var(--color-text);"
+              >
+                {evento.nombre}
+              </h3>
+              <p class="text-sm leading-relaxed" style="color: var(--color-text-muted);">
+                {evento.descripcion}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Botón a toda la agenda -->
+    <div class="mt-10 flex justify-center">
+      <Button href="/eventos" variant="primary" size="md">
+        Ver agenda completa →
+      </Button>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,147 @@
+---
+// pages/tutores.astro — Sección exclusiva para tutores de mascotas
+// REGLA: NO incluir LibroTecnico, Interconsultas ni formularios clínicos
+import Layout from '../layouts/Layout.astro';
+import VideosPreview from '../components/home/VideosPreview.astro';
+import SectionTitle from '../components/ui/SectionTitle.astro';
+---
+
+<Layout
+  title="Para tutores de mascotas — Pablo Borrás"
+  description="Contenido educativo, videos y consejos de salud animal para tutores de mascotas. Por Pablo Borrás, Médico Veterinario."
+>
+
+  <!-- Hero secundario -->
+  <section
+    class="py-20 text-center"
+    style="background: var(--color-accent);"
+  >
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Ícono decorativo -->
+      <div class="flex justify-center mb-6">
+        <div
+          class="w-16 h-16 rounded-full flex items-center justify-center text-3xl"
+          style="background: rgba(255,255,255,0.2);"
+        >
+          🐾
+        </div>
+      </div>
+      <h1
+        class="text-4xl md:text-5xl font-bold text-white mb-4"
+        style="font-family: var(--font-display);"
+      >
+        Para tutores de mascotas
+      </h1>
+      <p class="text-white/85 text-lg max-w-xl mx-auto">
+        Contenido educativo, divulgación científica y videos pensados para quienes comparten su vida con un animal.
+      </p>
+    </div>
+  </section>
+
+  <!-- Intro: qué encontrás en esta sección -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionTitle
+        title="¿Qué vas a encontrar acá?"
+        subtitle="Contenido para vos y tu mascota"
+        centered={true}
+      />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        {[
+          {
+            emoji: '🎬',
+            titulo: 'Videos educativos',
+            desc: 'Explicaciones claras sobre salud, comportamiento y bienestar animal. Sin tecnicismos innecesarios.',
+          },
+          {
+            emoji: '📖',
+            titulo: 'Divulgación científica',
+            desc: 'Artículos y publicaciones que traducen la ciencia veterinaria en consejos útiles para el día a día.',
+          },
+          {
+            emoji: '📱',
+            titulo: 'Contenido en redes',
+            desc: 'Seguí a Pablo en Instagram y YouTube para recibir contenido nuevo todas las semanas.',
+          },
+        ].map(item => (
+          <div class="text-center">
+            <div class="text-4xl mb-3">{item.emoji}</div>
+            <h3
+              class="text-lg font-bold mb-2"
+              style="font-family: var(--font-display); color: var(--color-text);"
+            >
+              {item.titulo}
+            </h3>
+            <p class="text-sm leading-relaxed" style="color: var(--color-text-muted);">
+              {item.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Todos los videos disponibles -->
+  <VideosPreview />
+
+  <!-- Redes sociales -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <SectionTitle
+        title="Seguí a Pablo en redes"
+        subtitle="Contenido semanal"
+        centered={true}
+      />
+      <p class="text-sm mb-8" style="color: var(--color-text-muted);">
+        Consejos sobre salud animal, detrás de escena de sus conferencias, respuestas a dudas frecuentes y mucho más.
+      </p>
+
+      <!-- Links a redes -->
+      <div class="flex justify-center gap-6 flex-wrap">
+        <a
+          href="#"
+          class="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-opacity hover:opacity-80"
+          style="background: #E4405F; color: #fff; border-radius: var(--radius); text-decoration: none;"
+          aria-label="Instagram de Pablo Borrás"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+          Instagram
+        </a>
+        <a
+          href="https://www.youtube.com/@pabloborras"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-opacity hover:opacity-80"
+          style="background: #FF0000; color: #fff; border-radius: var(--radius); text-decoration: none;"
+          aria-label="Canal de YouTube de Pablo Borrás"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
+          </svg>
+          YouTube
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final — NO incluir ningún formulario clínico -->
+  <section
+    class="py-14 text-center"
+    style="background: var(--color-neutral-light);"
+  >
+    <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p
+        class="text-base font-medium p-6 rounded-2xl"
+        style="background: #fff; box-shadow: var(--shadow); color: var(--color-text); border-radius: var(--radius); border-left: 4px solid var(--color-accent);"
+      >
+        💙 ¿Tenés dudas sobre la salud de tu mascota? <strong>Consultá a tu veterinario de confianza.</strong> Ellos son los indicados para evaluar a tu animal de manera personalizada.
+      </p>
+    </div>
+  </section>
+
+</Layout>

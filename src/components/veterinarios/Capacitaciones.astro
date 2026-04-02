@@ -1,0 +1,96 @@
+---
+// Capacitaciones.astro — Cards de capacitaciones para veterinarios
+import { capacitaciones } from '../../data/capacitaciones.js';
+import SectionTitle from '../ui/SectionTitle.astro';
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+
+const modalidadColor = {
+  Presencial: 'blue',
+  Online:     'green',
+  Híbrido:    'purple',
+};
+
+const nivelColor = {
+  'Avanzado':          'orange',
+  'Intermedio':        'blue',
+  'Básico-Intermedio': 'green',
+};
+---
+
+<section class="py-20" style="background: var(--color-neutral-light);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <SectionTitle
+      title="Capacitaciones veterinarias"
+      subtitle="Formación continua"
+    />
+
+    <p class="text-base leading-relaxed mb-10 max-w-2xl" style="color: var(--color-text-muted);">
+      Programas diseñados para veterinarios en ejercicio que buscan actualización clínica, nuevas herramientas diagnósticas y protocolos terapéuticos basados en evidencia. Modalidades presencial, online e híbrida según la propuesta.
+    </p>
+
+    <!-- Cards de capacitaciones -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {capacitaciones.map(cap => (
+        <div
+          class="bg-white rounded-2xl p-7 flex flex-col card-lift"
+          style="box-shadow: var(--shadow); border-radius: var(--radius);"
+        >
+          <!-- Header badges -->
+          <div class="flex flex-wrap gap-2 mb-4">
+            <Badge label={cap.modalidad} color={modalidadColor[cap.modalidad] || 'gray'} />
+            <Badge label={cap.nivel} color={nivelColor[cap.nivel] || 'gray'} />
+          </div>
+
+          <!-- Título -->
+          <h3
+            class="text-lg font-bold mb-1"
+            style="font-family: var(--font-display); color: var(--color-text);"
+          >
+            {cap.titulo}
+          </h3>
+
+          <!-- Duración -->
+          <p class="text-xs font-medium mb-3" style="color: var(--color-accent);">
+            ⏱ {cap.duracion}
+          </p>
+
+          <!-- Descripción -->
+          <p class="text-sm leading-relaxed mb-4 flex-1" style="color: var(--color-text-muted);">
+            {cap.descripcion}
+          </p>
+
+          <!-- Temas como tags -->
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            {cap.temas.map(tema => (
+              <span
+                class="text-xs px-2.5 py-1 rounded-full"
+                style="background: var(--color-neutral-light); color: var(--color-text-muted); border: 1px solid #e5e7eb;"
+              >
+                {tema}
+              </span>
+            ))}
+          </div>
+
+          <!-- CTA -->
+          <a
+            href="/contacto?tab=capacitaciones"
+            class="inline-flex items-center justify-center w-full py-2.5 text-sm font-semibold rounded-lg transition-all duration-200 hover:opacity-80"
+            style="background: var(--color-primary); color: #fff; border-radius: var(--radius); text-decoration: none;"
+          >
+            Consultar disponibilidad →
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA a medida -->
+    <div class="mt-12 text-center">
+      <Button href="/contacto" variant="secondary" size="md">
+        Solicitar una capacitación a medida
+      </Button>
+    </div>
+
+  </div>
+</section>

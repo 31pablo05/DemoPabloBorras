@@ -1,0 +1,94 @@
+---
+// AudienceCards.astro — Tres caminos por audiencia con cards interactivas
+import SectionTitle from '../ui/SectionTitle.astro';
+
+const cards = [
+  {
+    href: '/tutores',
+    emoji: null,
+    icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+    </svg>`,
+    label: 'Para tutores de mascotas',
+    description: 'Contenido educativo, videos explicativos y consejos de salud para cuidar mejor a tu compañero. Sin tecnicismos, con amor y evidencia.',
+    cta: 'Ir a contenido para tutores',
+  },
+  {
+    href: '/veterinarios',
+    emoji: null,
+    icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+    </svg>`,
+    label: 'Para veterinarios',
+    description: 'Interconsultas clínicas, capacitaciones avanzadas y acceso al libro técnico. Herramientas diseñadas para el ejercicio profesional de excelencia.',
+    cta: 'Ver servicios para colegas',
+  },
+  {
+    href: '/empresas',
+    emoji: null,
+    icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+    </svg>`,
+    label: 'Para empresas e instituciones',
+    description: 'Charlas institucionales, capacitaciones corporativas y proyectos de colaboración científica. Sumá autoridad veterinaria a tu organización.',
+    cta: 'Explorar propuestas',
+  },
+];
+---
+
+<section style="background: var(--color-neutral-light);" class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <SectionTitle
+      title="¿Cómo puedo ayudarte?"
+      subtitle="Tres audiencias, tres recorridos"
+      centered={true}
+    />
+
+    <!-- Grid de cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
+      {cards.map(card => (
+        <a
+          href={card.href}
+          class="card-lift group block bg-white rounded-2xl p-8 no-underline"
+          style="border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; border-top: 3px solid transparent; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;"
+          onmouseover="this.style.borderTopColor='var(--color-accent)'"
+          onmouseout="this.style.borderTopColor='transparent'"
+        >
+          <!-- Ícono -->
+          <div
+            class="mb-5 w-16 h-16 flex items-center justify-center rounded-xl"
+            style="color: var(--color-accent); background: rgba(45,155,115,0.08);"
+            set:html={card.icon}
+          />
+
+          <!-- Título -->
+          <h3
+            class="text-xl font-bold mb-3"
+            style="font-family: var(--font-display); color: var(--color-text);"
+          >
+            {card.label}
+          </h3>
+
+          <!-- Descripción -->
+          <p
+            class="text-sm leading-relaxed mb-6"
+            style="color: var(--color-text-muted); font-family: var(--font-body);"
+          >
+            {card.description}
+          </p>
+
+          <!-- CTA texto -->
+          <span
+            class="text-sm font-semibold transition-colors group-hover:underline"
+            style="color: var(--color-accent);"
+          >
+            {card.cta} →
+          </span>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,34 @@
+---
+// pages/eventos.astro — Agenda completa de eventos
+import Layout from '../layouts/Layout.astro';
+import AgendaEventos from '../components/eventos/AgendaEventos.astro';
+---
+
+<Layout
+  title="Agenda de eventos — Pablo Borrás"
+  description="Próximos congresos, jornadas, workshops y simposios donde participa Pablo Borrás como speaker y trainer veterinario."
+>
+
+  <!-- Hero de eventos -->
+  <section
+    class="py-20 text-center"
+    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-neutral-dark) 100%);"
+  >
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-5xl mb-6">🗓</div>
+      <h1
+        class="text-4xl md:text-5xl font-bold text-white mb-4"
+        style="font-family: var(--font-display);"
+      >
+        Agenda de eventos
+      </h1>
+      <p class="text-white/70 text-lg">
+        Congresos, jornadas, workshops y simposios donde Pablo Borrás participa como speaker, trainer o panelista en todo el país.
+      </p>
+    </div>
+  </section>
+
+  <!-- Agenda completa (timeline) -->
+  <AgendaEventos />
+
+</Layout>

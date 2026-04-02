@@ -1,0 +1,76 @@
+---
+// VideosPreview.astro — Vista previa de videos de YouTube
+import { videos } from '../../data/videos.js';
+import SectionTitle from '../ui/SectionTitle.astro';
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+
+// Colores por categoría
+const catColor = {
+  'Casos Clínicos': 'blue',
+  'Educativo':      'green',
+  'Conferencias':   'purple',
+};
+
+// Permitir mostrar un subconjunto desde props (para home muestra 3, para /videos muestra todos)
+interface Props {
+  limit?: number;
+}
+const { limit } = Astro.props;
+const videosToShow = limit ? videos.slice(0, limit) : videos;
+---
+
+<section style="background: var(--color-neutral-light);" class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <SectionTitle
+      title="Videos y conferencias"
+      subtitle="Contenido audiovisual"
+    />
+
+    <!-- Grid de videos -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-2">
+      {videosToShow.map(video => (
+        <div
+          class="bg-white rounded-2xl overflow-hidden card-lift"
+          style="border-radius: var(--radius); box-shadow: var(--shadow);"
+        >
+          <!-- iframe YouTube responsive -->
+          <div class="aspect-video w-full">
+            <iframe
+              src={`https://www.youtube.com/embed/${video.id}`}
+              title={video.titulo}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+              class="w-full h-full"
+              style="border: none;"
+            ></iframe>
+          </div>
+
+          <!-- Info del video -->
+          <div class="p-5">
+            <Badge label={video.categoria} color={catColor[video.categoria] || 'gray'} />
+            <h3
+              class="mt-2 text-base font-semibold leading-snug"
+              style="font-family: var(--font-display); color: var(--color-text);"
+            >
+              {video.titulo}
+            </h3>
+            <p class="mt-1 text-sm" style="color: var(--color-text-muted);">
+              {video.descripcion}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA al canal -->
+    <div class="mt-10 flex justify-center">
+      <Button href="https://www.youtube.com/@pabloborras" variant="primary" size="md" external={true}>
+        Ver canal de YouTube →
+      </Button>
+    </div>
+
+  </div>
+</section>

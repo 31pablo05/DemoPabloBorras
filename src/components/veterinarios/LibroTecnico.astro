@@ -1,0 +1,132 @@
+---
+// LibroTecnico.astro — Presentación premium del libro (SOLO para sección veterinarios)
+// IMPORTANTE: Este componente NO debe usarse en tutores ni en la home principal.
+import Button from '../ui/Button.astro';
+
+const beneficios = [
+  'Más de 60 casos clínicos reales con resolución paso a paso.',
+  'Protocolos terapéuticos actualizados a guías internacionales.',
+  'Tablas de referencia rápida para la consulta diaria.',
+  'Imágenes clínicas de alta calidad con diagnóstico diferencial.',
+  'Bibliografía científica actualizada al 2024.',
+];
+
+const publicoObjetivo = [
+  'Médicos veterinarios en ejercicio clínico',
+  'Residentes y pasantes veterinarios',
+  'Docentes universitarios de ciencias veterinarias',
+  'Profesionales en formación de posgrado',
+];
+---
+
+<!-- Sección del libro técnico: gradiente suave y diseño premium -->
+<section
+  class="py-20"
+  style="background: linear-gradient(160deg, var(--color-neutral-light) 0%, #ffffff 100%);"
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Badge exclusivo -->
+    <div class="flex justify-center mb-10">
+      <span
+        class="inline-block text-sm font-semibold px-4 py-1.5 rounded-full"
+        style="background: rgba(45,155,115,0.12); color: var(--color-accent); border: 1px solid rgba(45,155,115,0.3);"
+      >
+        📚 Exclusivo para médicos veterinarios
+      </span>
+    </div>
+
+    <!-- Card premium de ancho completo -->
+    <div
+      class="rounded-2xl overflow-hidden flex flex-col lg:flex-row"
+      style="box-shadow: var(--shadow-lg); border-radius: 16px;"
+    >
+
+      <!-- Imagen portada del libro -->
+      <div
+        class="lg:w-72 shrink-0 flex items-center justify-center p-8"
+        style="background: var(--color-primary);"
+      >
+        <img
+          src="https://placehold.co/280x380/1B3A4B/4ECBA1?text=Cl%C3%ADnica+Veterinaria+Avanzada"
+          alt="Portada del libro Clínica Veterinaria Avanzada – Casos y Protocolos de Pablo Borrás"
+          class="rounded-lg"
+          style="box-shadow: 0 8px 32px rgba(0,0,0,0.3);"
+          width="280"
+          height="380"
+        />
+      </div>
+
+      <!-- Contenido -->
+      <div class="flex-1 p-8 lg:p-12 bg-white">
+
+        <h2
+          class="text-2xl lg:text-3xl font-bold mb-4"
+          style="font-family: var(--font-display); color: var(--color-text);"
+        >
+          Clínica Veterinaria Avanzada
+          <span class="block text-lg font-normal mt-1" style="color: var(--color-text-muted);">
+            Casos y Protocolos
+          </span>
+        </h2>
+
+        <p class="text-base leading-relaxed mb-4" style="color: var(--color-text-muted);">
+          Una obra de referencia que condensa más de 15 años de práctica clínica en un manual práctico, riguroso y actualizado. Diseñado para el veterinario que busca elevar el estándar de su ejercicio profesional.
+        </p>
+        <p class="text-base leading-relaxed mb-8" style="color: var(--color-text-muted);">
+          Cada caso está presentado con metodología diagnóstica clara, opciones terapéuticas jerarquizadas y discusión basada en evidencia. Una herramienta para tener al alcance en cada consulta compleja.
+        </p>
+
+        <!-- Grid: Público + Beneficios -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+
+          <!-- Público objetivo -->
+          <div>
+            <h4
+              class="font-semibold text-sm uppercase tracking-wider mb-3"
+              style="color: var(--color-text); font-family: var(--font-body);"
+            >
+              Dirigido a:
+            </h4>
+            <ul class="space-y-1.5">
+              {publicoObjetivo.map(pub => (
+                <li class="flex items-start gap-2 text-sm" style="color: var(--color-text-muted);">
+                  <span style="color: var(--color-accent);" aria-hidden="true">→</span>
+                  {pub}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Beneficios -->
+          <div>
+            <h4
+              class="font-semibold text-sm uppercase tracking-wider mb-3"
+              style="color: var(--color-text); font-family: var(--font-body);"
+            >
+              Qué vas a encontrar:
+            </h4>
+            <ul class="space-y-1.5">
+              {beneficios.map(b => (
+                <li class="flex items-start gap-2 text-sm" style="color: var(--color-text-muted);">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- CTA -->
+        <Button href="#" variant="primary" size="lg" external={true}>
+          Obtener el libro →
+        </Button>
+
+      </div>
+    </div>
+
+  </div>
+</section>

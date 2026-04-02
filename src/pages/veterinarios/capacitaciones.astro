@@ -1,0 +1,65 @@
+---
+// pages/veterinarios/capacitaciones.astro — Página de capacitaciones con formulario
+import Layout from '../../layouts/Layout.astro';
+import Capacitaciones from '../../components/veterinarios/Capacitaciones.astro';
+import FormularioContacto from '../../components/contacto/FormularioContacto.jsx';
+---
+
+<Layout
+  title="Capacitaciones veterinarias — Pablo Borrás"
+  description="Programas de formación continua para veterinarios: clínica avanzada, dermatología, nutrición. Presencial, online e híbrido."
+>
+
+  <!-- Encabezado -->
+  <section
+    class="py-16"
+    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-neutral-dark) 100%);"
+  >
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm mb-4" aria-label="Breadcrumb">
+        <a href="/veterinarios" style="color: var(--color-accent-light); text-decoration: none;">Para veterinarios</a>
+        <span class="mx-2 opacity-50 text-white/50">/</span>
+        <span class="text-white/70">Capacitaciones</span>
+      </nav>
+      <h1
+        class="text-4xl font-bold text-white"
+        style="font-family: var(--font-display);"
+      >
+        Capacitaciones veterinarias
+      </h1>
+      <p class="text-white/70 mt-2 text-lg">
+        Formación continua basada en evidencia para profesionales en ejercicio.
+      </p>
+    </div>
+  </section>
+
+  <!-- Cards de capacitaciones -->
+  <Capacitaciones />
+
+  <!-- Formulario pre-abierto en tab Capacitaciones -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2
+          class="text-3xl font-bold"
+          style="font-family: var(--font-display); color: var(--color-text);"
+        >
+          Consultá disponibilidad
+        </h2>
+        <p class="mt-2 text-sm" style="color: var(--color-text-muted);">
+          Completá el formulario y coordinamos los detalles.
+        </p>
+      </div>
+      <FormularioContacto client:load />
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  if (typeof window !== 'undefined' && !new URLSearchParams(window.location.search).get('tab')) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('tab', 'capacitaciones');
+    window.history.replaceState({}, '', url.toString());
+  }
+</script>

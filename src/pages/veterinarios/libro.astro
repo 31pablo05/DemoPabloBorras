@@ -1,0 +1,95 @@
+---
+// pages/veterinarios/libro.astro — Página del libro técnico con FAQ acordeón
+import Layout from '../../layouts/Layout.astro';
+import LibroTecnico from '../../components/veterinarios/LibroTecnico.astro';
+---
+
+<Layout
+  title="Libro Técnico Veterinario — Pablo Borrás"
+  description="Clínica Veterinaria Avanzada – Casos y Protocolos. Manual de referencia exclusivo para médicos veterinarios, por Pablo Borrás."
+>
+
+  <!-- Encabezado -->
+  <section
+    class="py-16"
+    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-neutral-dark) 100%);"
+  >
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm mb-4" aria-label="Breadcrumb">
+        <a href="/veterinarios" style="color: var(--color-accent-light); text-decoration: none;">Para veterinarios</a>
+        <span class="mx-2 opacity-50 text-white/50">/</span>
+        <span class="text-white/70">Libro técnico</span>
+      </nav>
+      <h1
+        class="text-4xl font-bold text-white"
+        style="font-family: var(--font-display);"
+      >
+        Libro técnico
+      </h1>
+      <p class="text-white/70 mt-2">
+        Manual de referencia clínica · Exclusivo para profesionales veterinarios.
+      </p>
+    </div>
+  </section>
+
+  <!-- Componente del libro (NO aparece en tutores ni en el home) -->
+  <LibroTecnico />
+
+  <!-- FAQ con acordeón CSS -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2
+        class="text-2xl font-bold text-center mb-10"
+        style="font-family: var(--font-display); color: var(--color-text);"
+      >
+        Preguntas frecuentes
+      </h2>
+
+      <!-- Acordeón nativo con <details> -->
+      <div class="space-y-4">
+        {[
+          {
+            pregunta: '¿El libro es adecuado para residentes o recién egresados?',
+            respuesta: 'El libro está pensado principalmente para veterinarios en ejercicio que enfrentan casos complejos a diario. Sin embargo, residentes y profesionales en formación de posgrado también encontrarán un material muy valioso para complementar su formación teórica con casos reales y protocolos aplicables.',
+          },
+          {
+            pregunta: '¿Está disponible en formato digital (PDF o eBook)?',
+            respuesta: 'Actualmente el libro se comercializa en una edición impresa de alta calidad. Estamos evaluando una edición digital accesible. Podés dejarnos tu email para recibir novedades sobre disponibilidad.',
+          },
+          {
+            pregunta: '¿Con qué frecuencia se actualiza el contenido?',
+            respuesta: 'La obra cuenta con una revisión bibliográfica actualizada al momento de publicación. Dado que la ciencia veterinaria avanza rápidamente, Pablo Borrás comparte actualizaciones de los protocolos a través de sus capacitaciones y contenidos digitales para quienes ya tienen el libro.',
+          },
+        ].map((faq, i) => (
+          <details
+            class="group rounded-xl overflow-hidden"
+            style="box-shadow: var(--shadow); border-radius: var(--radius);"
+          >
+            <summary
+              class="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-sm select-none"
+              style="background: var(--color-neutral-light); color: var(--color-text); list-style: none;"
+            >
+              <span>{faq.pregunta}</span>
+              <!-- Ícono +/- -->
+              <span
+                class="ml-4 shrink-0 text-lg font-bold transition-transform"
+                style="color: var(--color-accent);"
+                aria-hidden="true"
+              >
+                +
+              </span>
+            </summary>
+            <div
+              class="px-6 py-5 text-sm leading-relaxed"
+              style="background: #fff; color: var(--color-text-muted);"
+            >
+              {faq.respuesta}
+            </div>
+          </details>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+</Layout>

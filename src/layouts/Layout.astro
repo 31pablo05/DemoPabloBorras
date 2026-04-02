@@ -1,0 +1,57 @@
+---
+// Layout.astro — Plantilla base para todas las páginas
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Plataforma de marca personal de Pablo Borrás — Médico Veterinario, Speaker y Autor.'
+} = Astro.props;
+
+const canonicalURL = Astro.url.href;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph básico -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content="https://placehold.co/1200x630/1B3A4B/FFFFFF?text=Pablo+Borr%C3%A1s" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <!-- Encabezado de navegación global -->
+    <Header />
+
+    <!-- Contenido principal de cada página -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- Pie de página global -->
+    <Footer />
+  </body>
+</html>
