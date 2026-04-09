@@ -3,10 +3,10 @@
 import Button from '../ui/Button.astro';
 
 const stats = [
-  { numero: '+15',    label: 'Años de experiencia' },
-  { numero: '+1.200', label: 'Veterinarios capacitados' },
-  { numero: '+30',    label: 'Congresos como speaker' },
-  { numero: '+60',    label: 'Casos en el libro técnico' },
+  { numero: '+15',    label: 'Años de experiencia clínica' },
+  { numero: '+5.000', label: 'Veterinarios formados' },
+  { numero: '+20',    label: 'Países donde disertó' },
+  { numero: '1',      label: 'Libro técnico publicado' },
 ];
 ---
 
@@ -34,6 +34,7 @@ const stats = [
 
         <!-- Imagen principal -->
         <div class="relative w-full max-w-sm pb-8 lg:pb-0">
+          <!-- TODO: confirmar nombre del archivo de foto de perfil con Pablo -->
           <img
             src="/imagenes/perfil/pablo1.jpg"
             alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
@@ -83,17 +84,14 @@ const stats = [
           </h2>
         </div>
 
-        <!-- Párrafo 1 -->
+        <!-- Párrafo bio -->
         <div class="reveal" style="transition-delay: 0.2s;">
-          <p class="text-base leading-relaxed mb-4" style="color: var(--color-text-muted);">
-            Médico Veterinario con especialización clínica y una trayectoria de más de 15 años en el ejercicio profesional, la docencia universitaria y la divulgación científica dentro del ecosistema veterinario argentino.
-          </p>
-        </div>
-
-        <!-- Párrafo 2 -->
-        <div class="reveal" style="transition-delay: 0.25s;">
           <p class="text-base leading-relaxed mb-8" style="color: var(--color-text-muted);">
-            Capacitó a más de 1.200 veterinarios en todo el país, participó como speaker en más de 30 congresos nacionales e internacionales, y publicó un libro técnico de referencia clínica para profesionales del sector.
+            Médico Veterinario, Especialista en Enfermedades Infecciosas y Parasitarias (CPHV)
+            y Magíster en Prevención y Control de Zoonosis (UNNOBA–ANLIS).
+            Miembro del TroCCAP Council y de ISCAID. Docente, investigador y speaker internacional
+            con presencia en congresos en Argentina, Ecuador, Colombia, Uruguay, Brasil,
+            Paraguay, España y Países Bajos.
           </p>
         </div>
 

@@ -105,12 +105,12 @@ const servicios = [
         Empresas e instituciones con las que trabajé
       </p>
       <div class="flex flex-wrap justify-center items-center gap-6">
-        {[1, 2, 3, 4, 5].map(i => (
+        {['IDEXX', 'Boehringer Ingelheim', 'Royal Canin / Purina', 'WAAVP', 'TroCCAP'].map(nombre => (
           <div
             class="h-12 w-36 rounded-lg flex items-center justify-center"
             style="background: #e5e7eb; color: #9ca3af; font-size: 11px; font-weight: 600; letter-spacing: 0.05em;"
           >
-            EMPRESA {i}
+            {nombre}
           </div>
         ))}
       </div>
