@@ -1,0 +1,16 @@
+{
+  "name": "Pablo Borrás — Veterinario",
+  "short_name": "Pablo Borrás",
+  "description": "Médico Veterinario MSc especialista en enfermedades infecciosas y parasitarias",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#1B3A4B",
+  "theme_color": "#2D9B73",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# TODO: reemplazar con el dominio real cuando esté confirmado
+Sitemap: https://www.pabloborras.com/sitemap.xml
