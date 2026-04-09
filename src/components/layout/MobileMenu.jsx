@@ -1,6 +1,7 @@
 // MobileMenu.jsx — React Island: menú hamburguesa animado
 import { useState } from 'react';
 
+/** @param {{ links: Array<{label: string, href: string}> }} props */
 export default function MobileMenu({ links = [] }) {
   const [isOpen, setIsOpen] = useState(false);
 

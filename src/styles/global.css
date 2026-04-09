@@ -139,36 +139,164 @@ img {
    UTILIDADES DE COMPONENTES
    ============================================= */
 
-/* Nav link con underline animado */
-.nav-link {
-  position: relative;
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 2px;
-  background: var(--color-accent-light);
-  transition: width 0.25s ease;
-}
-.nav-link:hover {
-  color: var(--color-accent-light);
-}
-.nav-link:hover::after {
-  width: 100%;
+/* ── HEADER REDESIGN ───────────────────────────────────── */
+
+@keyframes headerSlideDown {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Header con glassmorphism al hacer scroll */
+/* Contenedor principal del header */
+.header-entry {
+  background: var(--color-primary);
+  animation: headerSlideDown 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  border-bottom: 1px solid rgba(78, 203, 161, 0.18);
+  transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+/* Logo: grupo con hover coordinado */
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+}
+
+/* Badge de monograma PB */
+.logo-badge {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(45, 155, 115, 0.35);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+}
+.logo-group:hover .logo-badge {
+  transform: rotate(-8deg) scale(1.1);
+  box-shadow: 0 4px 18px rgba(78, 203, 161, 0.45);
+}
+
+/* Nombre en el logo */
+.logo-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #fff;
+  transition: color 0.2s;
+  line-height: 1.2;
+}
+@media (min-width: 768px) {
+  .logo-name { font-size: 1.4rem; }
+}
+.logo-group:hover .logo-name {
+  color: var(--color-accent-light);
+}
+
+/* Subtítulo del logo */
+.logo-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--color-accent-light);
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+.logo-group:hover .logo-subtitle {
+  opacity: 1;
+}
+
+/* Pill de nav — estado normal */
+.nav-pill {
+  position: relative;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.38rem 0.75rem;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-pill:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+/* Pill activo (página actual) */
+.nav-pill.active {
+  color: var(--color-accent-light);
+  background: rgba(78, 203, 161, 0.12);
+}
+.nav-pill.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-accent-light);
+}
+
+/* Separador vertical antes del CTA */
+.nav-cta-separator {
+  width: 1px;
+  height: 22px;
+  margin: 0 0.4rem;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 1px;
+}
+
+/* Botón CTA en la nav */
+.nav-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 7px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  background: var(--color-accent);
+  box-shadow: 0 2px 14px rgba(45, 155, 115, 0.32);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.nav-cta-btn:hover {
+  background: #268a64;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 22px rgba(45, 155, 115, 0.52);
+}
+.nav-cta-btn.active {
+  background: #268a64;
+}
+.nav-cta-arrow {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.nav-cta-btn:hover .nav-cta-arrow {
+  transform: translateX(3px);
+}
+
+/* Header con glassmorphism al hacer scroll — actualizado */
 .header-glass {
-  background: rgba(27, 58, 75, 0.92) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+  background: rgba(12, 26, 34, 0.9) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.28), inset 0 -1px 0 rgba(78, 203, 161, 0.12);
+  border-bottom-color: rgba(78, 203, 161, 0.1) !important;
 }
 
 /* Patrón de puntos — fondo decorativo del Hero */

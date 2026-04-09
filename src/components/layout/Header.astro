@@ -10,47 +10,48 @@ const navLinks = [
   { label: 'Eventos', href: '/eventos' },
   { label: 'Contacto', href: '/contacto' },
 ];
+
+// En desktop el "Contacto" se muestra como CTA separado, no como pill
+const desktopNavLinks = navLinks.filter(l => l.href !== '/contacto');
 ---
 
 <header
   id="site-header"
-  class="sticky top-0 z-50 w-full"
-  style="background: var(--color-primary); transition: background 0.3s, box-shadow 0.3s;"
+  class="sticky top-0 z-50 w-full header-entry"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 md:h-20">
 
-      <!-- Logo + subtítulo -->
-      <a href="/" class="flex flex-col leading-tight group" aria-label="Pablo Borrás – Inicio">
-        <span
-          class="text-white font-bold text-xl md:text-2xl"
-          style="font-family: var(--font-display);"
-        >
-          Pablo Borrás
-        </span>
-        <span
-          class="text-xs tracking-wide"
-          style="color: var(--color-accent-light); font-family: var(--font-body);"
-        >
-          Méd. Veterinario · Speaker · Autor
-        </span>
+      <!-- Logo + badge de monograma -->
+      <a href="/" class="logo-group" aria-label="Pablo Borrás – Inicio">
+        <div class="logo-badge" aria-hidden="true">
+          <span>PB</span>
+        </div>
+        <div class="flex flex-col leading-tight">
+          <span class="logo-name">Pablo Borrás</span>
+          <span class="logo-subtitle">Méd. Veterinario · Speaker · Autor</span>
+        </div>
       </a>
 
       <!-- Navegación desktop -->
-      <nav class="hidden md:flex items-center gap-6" aria-label="Navegación principal">
-        {navLinks.map(link => (
-          <a href={link.href} class="nav-link text-sm font-medium">
+      <nav class="hidden md:flex items-center gap-1" aria-label="Navegación principal">
+        {desktopNavLinks.map(link => (
+          <a
+            href={link.href}
+            class="nav-pill"
+            data-nav-href={link.href}
+          >
             {link.label}
           </a>
         ))}
-        <a
-          href="/contacto"
-          class="inline-flex items-center px-4 py-1.5 text-sm font-semibold text-white"
-          style="background: var(--color-accent); border-radius: 6px; text-decoration: none; transition: background 0.2s;"
-          onmouseover="this.style.background='#268a64'"
-          onmouseout="this.style.background='var(--color-accent)'"
-        >
-          Contactar
+
+        <!-- Separador vertical antes del CTA -->
+        <div class="nav-cta-separator" aria-hidden="true"></div>
+
+        <!-- Botón CTA principal -->
+        <a href="/contacto" class="nav-cta-btn" data-nav-href="/contacto">
+          <span>Contactar</span>
+          <span class="nav-cta-arrow" aria-hidden="true">→</span>
         </a>
       </nav>
 
@@ -63,14 +64,25 @@ const navLinks = [
   </div>
 </header>
 
-<!-- Script glassmorphism al scroll -->
 <script>
+  // ── Glassmorphism al scroll ──────────────────────────────
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
       header?.classList.add('header-glass');
     } else {
       header?.classList.remove('header-glass');
+    }
+  }, { passive: true });
+
+  // ── Marcar enlace activo según pathname ──────────────────
+  const path = window.location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll<HTMLAnchorElement>('[data-nav-href]').forEach(link => {
+    const href = link.getAttribute('data-nav-href')?.replace(/\/$/, '') || '/';
+    const isHome = href === '' || href === '/';
+    const matches = isHome ? path === '/' : path === href || path.startsWith(href + '/');
+    if (matches) {
+      link.classList.add('active');
     }
   });
 </script>
