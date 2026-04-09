@@ -4,11 +4,11 @@
 import Button from '../ui/Button.astro';
 
 const beneficios = [
-  'Más de 60 casos clínicos reales con resolución paso a paso.',
-  'Protocolos terapéuticos actualizados a guías internacionales.',
-  'Tablas de referencia rápida para la consulta diaria.',
-  'Imágenes clínicas de alta calidad con diagnóstico diferencial.',
-  'Bibliografía científica actualizada al 2024.',
+  'Enfermedades infecciosas y parasitarias con énfasis en América Latina y Europa',
+  'Abordaje basado en evidencia científica actualizada',
+  'Casos clínicos reales con diagnóstico diferencial',
+  'Protocolos terapéuticos aplicables a la práctica diaria',
+  'Bibliografía internacional de referencia',
 ];
 
 const publicoObjetivo = [
@@ -47,9 +47,10 @@ const publicoObjetivo = [
         class="lg:w-72 shrink-0 flex items-center justify-center p-8"
         style="background: var(--color-primary);"
       >
-        <img
-          src="/imagenes/perfil/pablo2.jpg"
-          alt="Portada del libro Clínica Veterinaria Avanzada – Casos y Protocolos de Pablo Borrás"
+          <!-- TODO: confirmar nombre del archivo de tapa con Pablo -->
+          <img
+          src="/imagenes/libro/tapa-libro.jpg"
+          alt="Portada del Manual Práctico de Enfermedades Infecciosas y Parasitarias en el Perro — Pablo Borrás"
           class="rounded-lg"
           style="box-shadow: 0 8px 32px rgba(0,0,0,0.3);"
           width="280"
@@ -64,17 +65,13 @@ const publicoObjetivo = [
           class="text-2xl lg:text-3xl font-bold mb-4"
           style="font-family: var(--font-display); color: var(--color-text);"
         >
-          Clínica Veterinaria Avanzada
-          <span class="block text-lg font-normal mt-1" style="color: var(--color-text-muted);">
-            Casos y Protocolos
-          </span>
+          Manual Práctico de Enfermedades Infecciosas y Parasitarias en el Perro
         </h2>
 
-        <p class="text-base leading-relaxed mb-4" style="color: var(--color-text-muted);">
-          Una obra de referencia que condensa más de 15 años de práctica clínica en un manual práctico, riguroso y actualizado. Diseñado para el veterinario que busca elevar el estándar de su ejercicio profesional.
-        </p>
         <p class="text-base leading-relaxed mb-8" style="color: var(--color-text-muted);">
-          Cada caso está presentado con metodología diagnóstica clara, opciones terapéuticas jerarquizadas y discusión basada en evidencia. Una herramienta para tener al alcance en cada consulta compleja.
+          Este libro fue pensado con el objetivo de brindar herramientas, conocimientos y actualizaciones
+          sobre diferentes enfermedades producidas por virus, bacterias, hongos, protozoarios y helmintos
+          que afectan a los perros de todo el mundo, con mayor énfasis en América Latina y Europa.
         </p>
 
         <!-- Grid: Público + Beneficios -->
@@ -120,10 +117,29 @@ const publicoObjetivo = [
 
         </div>
 
-        <!-- CTA -->
-        <Button href="#" variant="primary" size="lg" external={true}>
-          Obtener el libro →
-        </Button>
+        <!-- Precio y editorial -->
+        <div class="mb-6">
+          <p class="text-2xl font-bold" style="font-family: var(--font-display); color: var(--color-text);">104 €</p>
+          <p class="text-xs mt-0.5" style="color: var(--color-text-muted);">impuestos incluidos</p>
+          <p class="text-xs mt-1" style="color: var(--color-text-muted);">Editorial Multimedica Ediciones Veterinarias</p>
+        </div>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-3">
+          <Button href="https://libros-veterinaria.multimedica.es/parasitologia/472-manual-practico-de-enfermedades-infecciosas-y-parasitarias-del-perro.html" variant="primary" size="lg" external={true}>
+            Obtener el libro →
+          </Button>
+          {/* TODO: reemplazar # con link al PDF de capítulo muestra */}
+          <a
+            href="#"
+            class="inline-flex items-center justify-center font-semibold transition-all duration-200 px-8 py-4 text-base"
+            style="border: 2px solid var(--color-accent); color: var(--color-accent); border-radius: var(--radius); text-decoration: none; background: transparent;"
+            onmouseover="this.style.background='rgba(45,155,115,0.08)';"
+            onmouseout="this.style.background='transparent';"
+          >
+            Descargar capítulo muestra
+          </a>
+        </div>
 
       </div>
     </div>

@@ -3,10 +3,10 @@
 import Button from '../ui/Button.astro';
 
 const stats = [
-  { numero: '+15',    label: 'Años de experiencia clínica' },
-  { numero: '+5.000', label: 'Veterinarios formados' },
-  { numero: '+20',    label: 'Países donde disertó' },
-  { numero: '1',      label: 'Libro técnico publicado' },
+  { numero: '+15',  label: 'Años de experiencia clínica' },
+  { numero: '+30K', label: 'Seguidores en Instagram' },
+  { numero: '+8',   label: 'Países donde disertó' },
+  { numero: '1',    label: 'Libro técnico publicado' },
 ];
 ---
 
@@ -140,6 +140,39 @@ const stats = [
           >
             Conocé más sobre Pablo →
           </a>
+        </div>
+
+        <!-- Badges de autoridad internacional -->
+        <div class="reveal mt-8 pt-6" style="transition-delay: 0.45s; border-top: 1px solid #E5EAED;">
+          <p class="text-xs font-semibold uppercase tracking-wider mb-4" style="color: var(--color-text-muted);">
+            Membresías y reconocimientos
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a
+              href="https://www.troccap.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-opacity hover:opacity-80"
+              style="background: rgba(45,155,115,0.1); color: var(--color-accent); border: 1px solid rgba(45,155,115,0.25);"
+            >
+              🌿 TroCCAP Council Scientific Member
+            </a>
+            <a
+              href="https://www.abcdcatsvets.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-opacity hover:opacity-80"
+              style="background: rgba(59,130,246,0.08); color: #3B82F6; border: 1px solid rgba(59,130,246,0.2);"
+            >
+              🐱 ABCD cats &amp; vets Europe
+            </a>
+            <span
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium"
+              style="background: rgba(245,158,11,0.08); color: #D97706; border: 1px solid rgba(245,158,11,0.2);"
+            >
+              🏆 2º Premio mejor caso clínico — AVEACA 2025
+            </span>
+          </div>
         </div>
       </div>
 
