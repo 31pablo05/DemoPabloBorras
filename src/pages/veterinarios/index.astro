@@ -1,4 +1,4 @@
----
+﻿---
 // pages/veterinarios/index.astro — Hub para veterinarios con 3 subsecciones y datos de autoridad
 import Layout from '../../layouts/Layout.astro';
 import SectionTitle from '../../components/ui/SectionTitle.astro';
@@ -128,17 +128,35 @@ const stats = [
             subtitle="Autoridad clínica"
           />
           <p class="text-base leading-relaxed mb-4" style="color: var(--color-text-muted);">
-            Pablo Borrás construyó su autoridad profesional en la práctica clínica diaria, la investigación continua y una vocación genuina por la formación de colegas.
+            Médico Veterinario egresado de la Universidad de Buenos Aires. Especialista
+            en Enfermedades Infecciosas y Parasitarias (CPHV) y Magíster en Prevención y
+            Control de Zoonosis (UNNOBA–ANLIS). Editor asociado de <em>Parasites and Vectors</em>
+            (Springer Nature). Miembro del TroCCAP Council e ISCAID. Colaborador del
+            servicio de Zoopatología del Hospital Francisco J. Muñiz. Actualmente
+            cursando el Máster en Medicina Interna de Pequeños Animales en la
+            Universidad Autónoma de Barcelona (España). Docente, investigador y speaker
+            internacional con presencia en congresos en Argentina, Ecuador, Colombia,
+            Uruguay, Brasil, Paraguay, España y Países Bajos.
           </p>
-          <p class="text-base leading-relaxed mb-4" style="color: var(--color-text-muted);">
-            Hoy es un referente reconocido en el ecosistema veterinario argentino: presente en los principales congresos, con publicaciones especializadas y miles de colegas formados en sus programas.
-          </p>
-          <ul class="space-y-1.5 text-sm" style="color: var(--color-text-muted);">
-            <li class="flex items-start gap-2"><span style="color: var(--color-accent);">▸</span> Editor asociado de <em>Parasites &amp; Vectors</em> — Springer Nature</li>
-            <li class="flex items-start gap-2"><span style="color: var(--color-accent);">▸</span> Colaborador del servicio de Zoopatología, Hospital Francisco J. Muñiz</li>
-            <li class="flex items-start gap-2"><span style="color: var(--color-accent);">▸</span> Candidato a Magíster en Medicina Interna — Fac. Veterinaria, UAB (España)</li>
-            <li class="flex items-start gap-2"><span style="color: var(--color-accent);">▸</span> Miembro de TroCCAP, ISCAID y ESCCAP</li>
+          <ul class="space-y-1.5 text-sm mb-8" style="color: var(--color-text-muted);">
+            <li class="flex items-start gap-2"><span style="color: var(--color-accent);">&#9656;</span> Editor asociado de <em>Parasites &amp; Vectors</em> — Springer Nature</li>
+            <li class="flex items-start gap-2"><span style="color: var(--color-accent);">&#9656;</span> Colaborador del servicio de Zoopatología, Hospital Francisco J. Muñiz</li>
+            <li class="flex items-start gap-2"><span style="color: var(--color-accent);">&#9656;</span> Actualmente cursando el Máster en Medicina Interna — Fac. Veterinaria, UAB (España)</li>
+            <li class="flex items-start gap-2"><span style="color: var(--color-accent);">&#9656;</span> Miembro de TroCCAP, ISCAID y ESCCAP</li>
           </ul>
+
+          <!-- Membresías y reconocimientos -->
+          <div class="pt-5" style="border-top: 1px solid #E5EAED;">
+            <p class="text-xs font-semibold uppercase tracking-wider mb-4" style="color: var(--color-text-muted);">Membresías y reconocimientos</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="https://www.troccap.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-opacity hover:opacity-80" style="background: rgba(45,155,115,0.1); color: var(--color-accent); border: 1px solid rgba(45,155,115,0.25);">&#128300; TroCCAP Council Scientific Member</a>
+              <a href="https://www.abcdcatsvets.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-opacity hover:opacity-80" style="background: rgba(59,130,246,0.08); color: #3B82F6; border: 1px solid rgba(59,130,246,0.2);">&#128049; ABCD cats &amp; vets Europe</a>
+              <a href="https://www.iscaid.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-opacity hover:opacity-80" style="background: rgba(139,92,246,0.08); color: #7C3AED; border: 1px solid rgba(139,92,246,0.2);">&#127760; ISCAID Member</a>
+              <a href="https://www.esccap.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-opacity hover:opacity-80" style="background: rgba(45,155,115,0.08); color: var(--color-accent); border: 1px solid rgba(45,155,115,0.2);">&#127807; ESCCAP Member</a>
+              <a href="https://link.springer.com/journal/13071" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-opacity hover:opacity-80" style="background: rgba(234,88,12,0.08); color: #C2410C; border: 1px solid rgba(234,88,12,0.2);">&#128214; Editor — Parasites &amp; Vectors</a>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium" style="background: rgba(245,158,11,0.08); color: #D97706; border: 1px solid rgba(245,158,11,0.2);">&#127942; 2º Premio mejor caso clínico — AVEACA 2025</span>
+            </div>
+          </div>
         </div>
 
         <!-- Stats -->
@@ -170,29 +188,33 @@ const stats = [
 
       <SectionTitle
         title="Publicaciones científicas"
-        subtitle="Investigación"
+        subtitle="Investigación y ciencia"
       />
 
-      <div class="space-y-4 mt-2">
+      <div class="divide-y" style="border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: #fff;">
         {[
           {
             titulo: 'Heartworm adulticide treatment: a tropical perspective',
-            revista: 'Parasites & Vectors — Springer Nature',
+            revista: 'Parasites &amp; Vectors — Springer Nature',
+            año: '2023',
             href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10141906/',
           },
           {
             titulo: 'First report of phaeohyphomycosis caused by Phialophora americana in a domestic cat from Argentina',
             revista: 'Journal of Feline Medicine and Surgery',
+            año: '2022',
             href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8908401/',
           },
           {
             titulo: 'First identification of Strongyloides stercoralis infection in a pet dog in Argentina',
-            revista: 'Parasites & Vectors — Springer Nature',
+            revista: 'Parasites &amp; Vectors — Springer Nature',
+            año: '2023',
             href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10605978/',
           },
           {
             titulo: 'Feline tuberculosis due to Mycobacterium bovis: case series from Buenos Aires, Argentina',
             revista: 'Journal of Feline Medicine and Surgery',
+            año: '2025',
             href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC13009748/',
           },
         ].map((pub, i) => (
@@ -200,23 +222,31 @@ const stats = [
             href={pub.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="reveal flex gap-4 p-5 bg-white transition-shadow hover:shadow-md"
-            style={`border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; transition-delay: ${i * 0.1}s;`}
+            class="reveal flex gap-4 p-5 transition-colors hover:bg-neutral-50"
+            style={`text-decoration: none; transition-delay: ${i * 0.1}s;`}
           >
-            <div class="shrink-0 mt-0.5">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-              </svg>
-            </div>
-            <div>
-              <p class="text-sm font-semibold leading-snug" style="color: var(--color-text);">{pub.titulo}</p>
-              <p class="text-xs mt-1" style="color: var(--color-text-muted);">{pub.revista}</p>
+            <div class="shrink-0 mt-0.5 text-lg">&#128196;</div>
+            <div class="flex-1 min-w-0">
+              <p
+                class="text-sm font-semibold leading-snug transition-colors"
+                style="color: var(--color-primary);"
+                onmouseover="this.style.color='var(--color-accent)'"
+                onmouseout="this.style.color='var(--color-primary)'"
+              >
+                {pub.titulo}
+              </p>
+              <div class="flex items-center gap-2 mt-1.5 flex-wrap">
+                <p class="text-xs" style="color: var(--color-text-muted);" set:html={pub.revista} />
+                <span
+                  class="inline-block px-1.5 py-0.5 rounded text-xs font-semibold"
+                  style="background: rgba(45,155,115,0.1); color: var(--color-accent);"
+                >
+                  {pub.año}
+                </span>
+              </div>
             </div>
             <div class="ml-auto shrink-0 self-center">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                 <polyline points="15 3 21 3 21 9"/>
                 <line x1="10" y1="14" x2="21" y2="3"/>
@@ -226,6 +256,33 @@ const stats = [
         ))}
       </div>
 
+    </div>
+  </section>
+
+  <!-- Sección: Recursos y organizaciones de referencia -->
+  <section class="py-14 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-semibold uppercase tracking-widest mb-5 text-center" style="color: var(--color-text-muted);">Recursos y organizaciones de referencia</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        {[
+          { label: 'TroCCAP', href: 'https://www.troccap.com' },
+          { label: 'ABCD cats &amp; vets', href: 'https://www.abcdcatsvets.org' },
+          { label: 'CAPC', href: 'https://capcvet.org' },
+          { label: 'ESCCAP', href: 'https://www.esccap.org' },
+          { label: 'ISCAID', href: 'https://www.iscaid.org' },
+          { label: 'Parasites &amp; Vectors', href: 'https://link.springer.com/journal/13071' },
+          { label: 'JVIM', href: 'https://academic.oup.com/jvim' },
+        ].map(r => (
+          <a
+            href={r.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-4 py-2 text-xs font-medium transition-colors"
+            style="border-radius: var(--radius); border: 1px solid #D1D5DB; color: var(--color-text-muted); text-decoration: none; background: var(--color-neutral-light);"
+            set:html={r.label}
+          />
+        ))}
+      </div>
     </div>
   </section>
 

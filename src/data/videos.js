@@ -1,22 +1,21 @@
 // src/data/videos.js — Videos de YouTube de Pablo Borrás
-// TODO: reemplazar los IDs placeholder con los IDs reales de YouTube de Pablo
 export const videos = [
   {
-    id: "REEMPLAZAR_VIDEO_1", // TODO: ID real de Pablo
-    titulo: "Dermatitis en perros: diagnóstico temprano y tratamiento",
-    categoria: "Casos Clínicos",
-    descripcion: "Revisión de los principales cuadros dermatológicos y su abordaje."
+    id: 'z518tUU_pFM',
+    categoria: 'Conferencias',
+    titulo: 'Parvovirus y Distemper canino: una mirada desde la clínica',
+    descripcion: 'Abordaje clínico, diagnóstico diferencial y manejo de las dos enfermedades infecciosas más frecuentes en perros.',
   },
   {
-    id: "REEMPLAZAR_VIDEO_2", // TODO: ID real de Pablo
-    titulo: "Nutrición felina: mitos y realidades",
-    categoria: "Educativo",
-    descripcion: "Todo lo que el tutor debe saber sobre la alimentación de su gato."
+    id: 'vaWswhnXQsA',
+    categoria: 'Casos Clínicos',
+    titulo: 'Micoplasmas hemotrópicos en gatos: ¿qué hay de nuevo?',
+    descripcion: 'Actualización clínica y diagnóstica sobre hemoplasmas felinos. Presentado en Biogal Academy.',
   },
   {
-    id: "REEMPLAZAR_VIDEO_3", // TODO: ID real de Pablo
-    titulo: "Ponencia: Clínica Avanzada en Congreso Nacional",
-    categoria: "Conferencias",
-    descripcion: "Presentación completa ante 800 profesionales veterinarios."
-  }
+    id: 'wyBBOrjNaxM',
+    categoria: 'Educativo',
+    titulo: 'Dirofilariosis como enfermedad zoonótica: puntos clave',
+    descripcion: 'Claves para detección, diagnóstico y comunicación del riesgo zoonótico en la consulta.',
+  },
 ];

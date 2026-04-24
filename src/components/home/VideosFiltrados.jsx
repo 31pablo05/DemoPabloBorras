@@ -76,12 +76,12 @@ export default function VideosFiltrados() {
               {/* iframe YouTube */}
               <div style={{ aspectRatio: '16/9', width: '100%' }}>
                 <iframe
-                  src={`https://www.youtube.com/embed/${video.id}`}
+                  src={`https://www.youtube-nocookie.com/embed/${video.id}`}
                   title={video.titulo}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
                   allowFullScreen
                   loading="lazy"
-                  style={{ width: '100%', height: '100%', border: 'none' }}
+                  style={{ width: '100%', height: '100%', border: 'none', borderRadius: 'var(--radius)' }}
                 />
               </div>
 

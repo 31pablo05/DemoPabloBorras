@@ -48,16 +48,19 @@ import Button from '../components/ui/Button.astro';
           {
             medio: 'Infobae',
             titulo: 'El 75% de los dueños de mascotas pide mejores recomendaciones para evitar parásitos',
+            año: '2026',
             href: 'https://www.infobae.com/perros-y-gatos/2026/03/20/el-75-de-los-duenos-de-mascotas-pide-mejores-recomendaciones-para-evitar-parasitos/',
           },
           {
             medio: 'La Nación',
-            titulo: 'Aparición en TikTok de La Nación',
+            titulo: 'Aparición viral sobre prevención de parásitos en mascotas',
+            año: '2024',
             href: 'https://www.tiktok.com/@lanacioncom/video/7578953045355072824',
           },
           {
             medio: 'Mi Negocio Veterinario',
             titulo: 'De las redes a la cumbre de la industria veterinaria',
+            año: '2022',
             href: 'https://www.minegocioveterinario.com/2022/11/de-las-redes-a-la-cumbre-de-la-industria-veterinaria/',
           },
         ].map((item, i) => (
@@ -68,16 +71,14 @@ import Button from '../components/ui/Button.astro';
             class="reveal flex flex-col gap-2 p-6 bg-white transition-shadow hover:shadow-md"
             style={`border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; transition-delay: ${i * 0.12}s;`}
           >
-            <span class="text-xs font-bold uppercase tracking-widest" style="color: var(--color-accent);">{item.medio}</span>
-            <p class="text-sm leading-snug font-medium" style="color: var(--color-text);">{item.titulo}</p>
-            <span class="text-xs mt-auto flex items-center gap-1" style="color: var(--color-text-muted);">
-              Leer nota
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                <polyline points="15 3 21 3 21 9"/>
-                <line x1="10" y1="14" x2="21" y2="3"/>
-              </svg>
-            </span>
+            <span class="inline-flex items-center justify-center self-start px-2.5 py-0.5 rounded-full text-xs font-bold" style="background: rgba(45,155,115,0.12); color: var(--color-accent);">{item.medio}</span>
+            <p class="text-sm leading-snug font-semibold" style="color: var(--color-text);">{item.titulo}</p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="text-xs" style="color: var(--color-text-muted);">{item.año}</span>
+              <span class="text-xs flex items-center gap-1 font-medium" style="color: var(--color-accent);">
+                Leer →
+              </span>
+            </div>
           </a>
         ))}
       </div>
@@ -126,7 +127,7 @@ import Button from '../components/ui/Button.astro';
             ¿Sos veterinario? Conocé el libro técnico.
           </h2>
           <p class="text-sm" style="color: var(--color-text-muted);">
-            Manual Práctico de Enfermedades Infecciosas y Parasitarias en el Perro — Pablo Borrás · Multimedica Ediciones Veterinarias
+            Manual Práctico de Enfermedades Infecciosas y Parasitarias en el Perro — Pablo Borrás · Disponible en Multimedica Ediciones, Mercado Libre y Amazon.
           </p>
         </div>
         <div class="shrink-0">
