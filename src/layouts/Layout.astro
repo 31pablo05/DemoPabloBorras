@@ -87,6 +87,15 @@ const fullTitle = title.includes('Pablo Borrás') ? title : `${title} | Pablo Bo
         Debe incluir: foto de Pablo + nombre + título profesional + fondo oscuro con acento verde.
         Herramienta sugerida: Canva o cualquier editor de imágenes. */}
 
+    <!-- Google Analytics 4 — TODO: reemplazar G-XXXXXXXXXX con el ID real -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <!-- JSON-LD — Schema.org Person -->
     <script type="application/ld+json">
     {

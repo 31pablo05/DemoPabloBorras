@@ -9,7 +9,8 @@ const TABS = [
   { id: 'empresas',       label: 'Empresas'         },
 ];
 
-const ACCESS_KEY = 'REEMPLAZAR_CON_KEY_REAL';
+// TODO: reemplazar con la API Key real de Web3Forms
+const ACCESS_KEY = 'REEMPLAZAR_CON_API_KEY_WEB3FORMS';
 
 // ─── Estilos comunes ──────────────────────────────────────────────────────────
 const inputStyle = {

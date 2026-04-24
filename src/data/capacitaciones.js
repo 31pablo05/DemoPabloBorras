@@ -2,29 +2,29 @@
 export const capacitaciones = [
   {
     id: 1,
-    titulo: "Clínica Avanzada de Pequeños Animales",
-    modalidad: "Presencial",
-    duracion: "8 horas",
-    nivel: "Avanzado",
-    descripcion: "Diagnóstico diferencial y abordaje terapéutico con discusión de casos reales.",
-    temas: ["Diagnóstico diferencial", "Protocolos terapéuticos", "Casos clínicos complejos"]
+    titulo: "Enfermedades Vectoriales en Perros",
+    modalidad: "Presencial / Online / Híbrida",
+    duracion: "Variable según formato",
+    nivel: "Intermedio–Avanzado",
+    descripcion: "Abordaje clínico y diagnóstico de las principales enfermedades vectoriales: Ehrlichia, Babesia, Anaplasma, Dirofilaria, Leishmania y Hepatozoon. Énfasis en América Latina.",
+    temas: ["Ehrlichiosis y anaplasmosis canina", "Babesiosis: diagnóstico y tratamiento", "Dirofilariosis canina (incluyendo heat treatment)", "Leishmaniosis y Hepatozoon"]
   },
   {
     id: 2,
-    titulo: "Dermatología Veterinaria Práctica",
-    modalidad: "Online",
-    duracion: "4 horas",
-    nivel: "Intermedio",
-    descripcion: "Identificación y tratamiento de las patologías dermatológicas más frecuentes.",
-    temas: ["Dermatitis alérgica", "Hongos y bacterias", "Tratamiento tópico y sistémico"]
+    titulo: "Infectología Canina y Felina",
+    modalidad: "Presencial / Online / Híbrida",
+    duracion: "Variable según formato",
+    nivel: "Intermedio–Avanzado",
+    descripcion: "Casos clínicos, diagnóstico diferencial y protocolos terapéuticos en enfermedades infecciosas del perro y el gato. Moquillo canino, leptospirosis, panleucopenia felina, toxoplasmosis y más.",
+    temas: ["Moquillo canino", "Leptospirosis", "Panleucopenia felina", "Toxoplasmosis", "Vacunación en caninos"]
   },
   {
     id: 3,
-    titulo: "Nutrición Clínica en Mascotas",
-    modalidad: "Híbrido",
-    duracion: "6 horas",
-    nivel: "Básico-Intermedio",
-    descripcion: "Fundamentos de nutrición aplicados a la consulta diaria.",
-    temas: ["Requerimientos nutricionales", "Dietas terapéuticas", "Suplementación"]
+    titulo: "Zoonosis y Escenarios Emergentes",
+    modalidad: "Presencial / Online / Híbrida",
+    duracion: "Variable según formato",
+    nivel: "Avanzado",
+    descripcion: "Nuevos escenarios zoonóticos desde el mundo de los perros y gatos. Brucelosis canina, tuberculosis bovina en gatos, Strongyloides stercoralis y otras zoonosis de relevancia clínica.",
+    temas: ["Brucelosis canina", "Tuberculosis bovina en gatos", "Strongyloides stercoralis", "Parasitología con diagnóstico molecular"]
   }
 ];
