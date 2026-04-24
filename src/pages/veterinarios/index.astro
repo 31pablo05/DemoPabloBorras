@@ -130,9 +130,15 @@ const stats = [
           <p class="text-base leading-relaxed mb-4" style="color: var(--color-text-muted);">
             Pablo Borrás construyó su autoridad profesional en la práctica clínica diaria, la investigación continua y una vocación genuina por la formación de colegas.
           </p>
-          <p class="text-base leading-relaxed" style="color: var(--color-text-muted);">
+          <p class="text-base leading-relaxed mb-4" style="color: var(--color-text-muted);">
             Hoy es un referente reconocido en el ecosistema veterinario argentino: presente en los principales congresos, con publicaciones especializadas y miles de colegas formados en sus programas.
           </p>
+          <ul class="space-y-1.5 text-sm" style="color: var(--color-text-muted);">
+            <li class="flex items-start gap-2"><span style="color: var(--color-accent);">▸</span> Editor asociado de <em>Parasites &amp; Vectors</em> — Springer Nature</li>
+            <li class="flex items-start gap-2"><span style="color: var(--color-accent);">▸</span> Colaborador del servicio de Zoopatología, Hospital Francisco J. Muñiz</li>
+            <li class="flex items-start gap-2"><span style="color: var(--color-accent);">▸</span> Candidato a Magíster en Medicina Interna — Fac. Veterinaria, UAB (España)</li>
+            <li class="flex items-start gap-2"><span style="color: var(--color-accent);">▸</span> Miembro de TroCCAP, ISCAID y ESCCAP</li>
+          </ul>
         </div>
 
         <!-- Stats -->
@@ -156,6 +162,70 @@ const stats = [
         </div>
 
       </div>
+    </div>
+  </section>
+  <!-- Sección: Publicaciones científicas -->
+  <section style="background: var(--color-neutral-light);" class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <SectionTitle
+        title="Publicaciones científicas"
+        subtitle="Investigación"
+      />
+
+      <div class="space-y-4 mt-2">
+        {[
+          {
+            titulo: 'Heartworm adulticide treatment: a tropical perspective',
+            revista: 'Parasites & Vectors — Springer Nature',
+            href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10141906/',
+          },
+          {
+            titulo: 'First report of phaeohyphomycosis caused by Phialophora americana in a domestic cat from Argentina',
+            revista: 'Journal of Feline Medicine and Surgery',
+            href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8908401/',
+          },
+          {
+            titulo: 'First identification of Strongyloides stercoralis infection in a pet dog in Argentina',
+            revista: 'Parasites & Vectors — Springer Nature',
+            href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10605978/',
+          },
+          {
+            titulo: 'Feline tuberculosis due to Mycobacterium bovis: case series from Buenos Aires, Argentina',
+            revista: 'Journal of Feline Medicine and Surgery',
+            href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC13009748/',
+          },
+        ].map((pub, i) => (
+          <a
+            href={pub.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="reveal flex gap-4 p-5 bg-white transition-shadow hover:shadow-md"
+            style={`border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; transition-delay: ${i * 0.1}s;`}
+          >
+            <div class="shrink-0 mt-0.5">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-semibold leading-snug" style="color: var(--color-text);">{pub.titulo}</p>
+              <p class="text-xs mt-1" style="color: var(--color-text-muted);">{pub.revista}</p>
+            </div>
+            <div class="ml-auto shrink-0 self-center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </div>
+          </a>
+        ))}
+      </div>
+
     </div>
   </section>
 

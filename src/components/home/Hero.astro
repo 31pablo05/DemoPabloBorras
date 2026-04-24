@@ -19,8 +19,8 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 md:py-20 w-full">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
 
-      <!-- ── IMAGEN — primero en DOM = primero en mobile ── -->
-      <div class="flex justify-center items-end md:order-last animate-scale-in delay-300">
+      <!-- ── IMAGEN — order-2 en mobile = aparece debajo del texto ── -->
+      <div class="flex justify-center items-end order-2 md:order-last animate-scale-in delay-300">
         <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-full">
           <!-- Decoración borrosa detrás -->
           <div
@@ -47,8 +47,8 @@
         </div>
       </div>
 
-      <!-- ── TEXTO — debajo de imagen en mobile, izquierda en desktop ── -->
-      <div class="md:order-first pt-6 md:pt-0">
+      <!-- ── TEXTO — order-1 en mobile = aparece arriba de la imagen ── -->
+      <div class="order-1 md:order-first pt-0 md:pt-0">
         <!-- Línea decorativa + nombre -->
         <div class="flex items-start gap-4 mb-5">
           <div

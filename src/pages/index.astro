@@ -33,6 +33,57 @@ import Button from '../components/ui/Button.astro';
   <!-- 4. Vista previa de 3 videos -->
   <VideosPreview limit={3} />
 
+  <!-- 4b. En los medios -->
+  <section style="background: var(--color-neutral-light);" class="py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-10 reveal">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color: var(--color-accent);">Prensa</p>
+        <h2 class="text-3xl font-bold" style="font-family: var(--font-display); color: var(--color-text);">En los medios</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          {
+            medio: 'Infobae',
+            titulo: 'El 75% de los dueños de mascotas pide mejores recomendaciones para evitar parásitos',
+            href: 'https://www.infobae.com/perros-y-gatos/2026/03/20/el-75-de-los-duenos-de-mascotas-pide-mejores-recomendaciones-para-evitar-parasitos/',
+          },
+          {
+            medio: 'La Nación',
+            titulo: 'Aparición en TikTok de La Nación',
+            href: 'https://www.tiktok.com/@lanacioncom/video/7578953045355072824',
+          },
+          {
+            medio: 'Mi Negocio Veterinario',
+            titulo: 'De las redes a la cumbre de la industria veterinaria',
+            href: 'https://www.minegocioveterinario.com/2022/11/de-las-redes-a-la-cumbre-de-la-industria-veterinaria/',
+          },
+        ].map((item, i) => (
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="reveal flex flex-col gap-2 p-6 bg-white transition-shadow hover:shadow-md"
+            style={`border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; transition-delay: ${i * 0.12}s;`}
+          >
+            <span class="text-xs font-bold uppercase tracking-widest" style="color: var(--color-accent);">{item.medio}</span>
+            <p class="text-sm leading-snug font-medium" style="color: var(--color-text);">{item.titulo}</p>
+            <span class="text-xs mt-auto flex items-center gap-1" style="color: var(--color-text-muted);">
+              Leer nota
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
   <!-- 5. Teaser del libro técnico (solo para veterinarios) -->
   <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,12 +92,18 @@ import Button from '../components/ui/Button.astro';
         style="background: linear-gradient(135deg, var(--color-neutral-light) 0%, #fff 100%); border-left: 4px solid var(--color-accent); box-shadow: var(--shadow);"
       >
         <!-- TODO: Pablo debe confirmar el nombre del archivo de imagen de tapa -->
-        <img
-          src="/imagenes/libro/tapa-libro.jpg"
-          alt="Manual Práctico de Enfermedades Infecciosas y Parasitarias en el Perro"
-          class="shrink-0 w-24 rounded-lg object-cover"
-          style="box-shadow: var(--shadow);"
-        />
+        <div class="relative shrink-0">
+          <img
+            src="/imagenes/libro/tapa-libro.jpg"
+            alt="Manual Práctico de Enfermedades Infecciosas y Parasitarias en el Perro"
+            class="w-24 rounded-lg object-cover"
+            style="box-shadow: var(--shadow);"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+          />
+          <div style="display:none; width:96px; height:128px; background:var(--color-primary); border-radius:var(--radius); align-items:center; justify-content:center; color:white; font-size:11px; text-align:center; padding:8px; flex-direction:column; gap:4px;">
+            📚<span>Manual<br/>Práctico</span>
+          </div>
+        </div>
         <div class="shrink-0">
           <!-- Ícono de libro -->
           <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
