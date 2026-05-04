@@ -150,8 +150,21 @@ img {
 .header-entry {
   background: var(--color-primary);
   animation: headerSlideDown 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
-  border-bottom: 1px solid rgba(78, 203, 161, 0.18);
+  border-bottom: 1px solid rgba(78, 203, 161, 0.15);
+  position: relative;
+  overflow: hidden;
   transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+/* Patrón de puntos sutil en el fondo del header */
+.header-entry::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(78,203,161,0.035) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Logo: grupo con hover coordinado */
@@ -165,8 +178,8 @@ img {
 /* Badge de monograma PB */
 .logo-badge {
   flex-shrink: 0;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
   background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
   display: flex;
@@ -174,15 +187,15 @@ img {
   justify-content: center;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.04em;
   color: #fff;
-  box-shadow: 0 2px 10px rgba(45, 155, 115, 0.35);
+  box-shadow: 0 2px 14px rgba(45, 155, 115, 0.4);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
 }
 .logo-group:hover .logo-badge {
-  transform: rotate(-8deg) scale(1.1);
-  box-shadow: 0 4px 18px rgba(78, 203, 161, 0.45);
+  transform: rotate(-6deg) scale(1.08);
+  box-shadow: 0 4px 20px rgba(78, 203, 161, 0.5);
 }
 
 /* Nombre en el logo */

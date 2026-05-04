@@ -19,43 +19,90 @@ const desktopNavLinks = navLinks.filter(l => l.href !== '/contacto');
   id="site-header"
   class="sticky top-0 z-50 w-full header-entry"
 >
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 md:h-20">
+  <!-- Línea de acento verde en el top -->
+  <div
+    aria-hidden="true"
+    style="
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #2D9B73 0%, #4ECBA1 50%, #2D9B73 100%);
+      z-index: 1;
+    "
+  ></div>
 
-      <!-- Logo + badge de monograma -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="position: relative; z-index: 1;">
+    <div class="flex items-center justify-between h-16 md:h-[68px]">
+
+      <!-- ── LOGO ── -->
       <a href="/" class="logo-group" aria-label="Pablo Borrás – Inicio">
-        <div class="logo-badge" aria-hidden="true">
-          <span>PB</span>
-        </div>
-        <div class="flex flex-col leading-tight">
-          <span class="logo-name">Pablo Borrás</span>
-          <span class="logo-subtitle">Méd. Veterinario · Speaker · Autor</span>
+        <!-- Logo imagen -->
+        <img
+          src="/imagenes/logo/log3.png"
+          alt="Pablo Borrás"
+          style="height: 48px; width: auto; object-fit: contain; display: block; flex-shrink: 0;"
+          loading="eager"
+        />
+
+        <!-- Separador vertical -->
+        <div
+          aria-hidden="true"
+          style="
+            width: 1px;
+            height: 28px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 1px;
+            flex-shrink: 0;
+          "
+        ></div>
+
+        <!-- Texto del logo -->
+        <div class="flex flex-col" style="gap: 3px; line-height: 1;">
+          <span
+            style="
+              font-family: var(--font-display);
+              font-size: 1.1rem;
+              font-weight: 700;
+              color: #ffffff;
+              letter-spacing: -0.01em;
+            "
+          >Pablo Borrás</span>
+          <span
+            style="
+              font-family: var(--font-body);
+              font-size: 0.625rem;
+              font-weight: 500;
+              color: var(--color-accent-light);
+              letter-spacing: 0.07em;
+              text-transform: uppercase;
+              opacity: 0.85;
+            "
+          >Vet. Especialista · Speaker · Autor</span>
         </div>
       </a>
 
-      <!-- Navegación desktop -->
-      <nav class="hidden md:flex items-center gap-1" aria-label="Navegación principal">
+      <!-- ── NAV DESKTOP ── -->
+      <nav class="hidden md:flex items-center gap-0.5" aria-label="Navegación principal">
         {desktopNavLinks.map(link => (
           <a
             href={link.href}
             class="nav-pill"
             data-nav-href={link.href}
+            style="letter-spacing: 0.01em;"
           >
             {link.label}
           </a>
         ))}
 
-        <!-- Separador vertical antes del CTA -->
         <div class="nav-cta-separator" aria-hidden="true"></div>
 
-        <!-- Botón CTA principal -->
         <a href="/contacto" class="nav-cta-btn" data-nav-href="/contacto">
           <span>Contactar</span>
           <span class="nav-cta-arrow" aria-hidden="true">→</span>
         </a>
       </nav>
 
-      <!-- Menú móvil (React Island) -->
+      <!-- ── MENÚ MÓVIL ── -->
       <div class="md:hidden">
         <MobileMenu links={navLinks} client:load />
       </div>

@@ -3,6 +3,7 @@
 import Layout from '../../layouts/Layout.astro';
 import SectionTitle from '../../components/ui/SectionTitle.astro';
 import Button from '../../components/ui/Button.astro';
+import PodcastsMNV from '../../components/veterinarios/PodcastsMNV.astro';
 
 const subsecciones = [
   {
@@ -155,6 +156,8 @@ const stats = [
               <a href="https://www.esccap.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-opacity hover:opacity-80" style="background: rgba(45,155,115,0.08); color: var(--color-accent); border: 1px solid rgba(45,155,115,0.2);">&#127807; ESCCAP Member</a>
               <a href="https://link.springer.com/journal/13071" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-opacity hover:opacity-80" style="background: rgba(234,88,12,0.08); color: #C2410C; border: 1px solid rgba(234,88,12,0.2);">&#128214; Editor — Parasites &amp; Vectors</a>
               <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium" style="background: rgba(245,158,11,0.08); color: #D97706; border: 1px solid rgba(245,158,11,0.2);">&#127942; 2º Premio mejor caso clínico — AVEACA 2025</span>
+              <a href="https://capcvet.org/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-opacity hover:opacity-80" style="background: rgba(245,158,11,0.08); color: #D97706; border: 1px solid rgba(245,158,11,0.2);">🐾 CAPC Member</a>
+              <a href="https://academic.oup.com/jvim" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-opacity hover:opacity-80" style="background: rgba(139,92,246,0.08); color: #7C3AED; border: 1px solid rgba(139,92,246,0.2);">📖 JVIM — Journal of Veterinary Internal Medicine</a>
             </div>
           </div>
         </div>
@@ -217,6 +220,12 @@ const stats = [
             año: '2025',
             href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC13009748/',
           },
+          {
+            titulo: 'Feline tuberculosis due to Mycobacterium bovis: case series with clinical course, genotyping and therapeutic outcomes from Buenos Aires, Argentina',
+            revista: 'Journal of Feline Medicine and Surgery — SAGE Journals',
+            año: '2026',
+            href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC13009748/',
+          },
         ].map((pub, i) => (
           <a
             href={pub.href}
@@ -258,6 +267,8 @@ const stats = [
 
     </div>
   </section>
+
+  <PodcastsMNV />
 
   <!-- Sección: Recursos y organizaciones de referencia -->
   <section class="py-14 bg-white">

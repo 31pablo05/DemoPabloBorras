@@ -1,0 +1,78 @@
+---
+// PodcastsMNV.astro — Episodios de podcast en Mi Negocio Veterinario
+import SectionTitle from '../ui/SectionTitle.astro';
+
+const episodios = [
+  {
+    titulo: 'Leptospirosis canina: consideraciones de alto valor',
+    href: 'https://www.minegocioveterinario.com/2022/10/leptospirosis-canina-consideraciones-de-alto-valor-2/',
+    año: '2022',
+  },
+  {
+    titulo: 'El verano y la prevención de enfermedades, ¿qué hacer?',
+    href: 'https://www.minegocioveterinario.com/2022/11/el-verano-y-la-prevencion-de-enfermedades-que-hacer-2/',
+    año: '2022',
+  },
+  {
+    titulo: 'Parásitos internos y cachorros: 5 claves en la consulta veterinaria',
+    href: 'https://www.minegocioveterinario.com/2022/08/parasitos-internos-y-cachorros-5-claves-en-la-consulta-veterinaria-2/',
+    año: '2022',
+  },
+  {
+    titulo: 'Tos de las perreras: ¿un problema estacional?',
+    href: 'https://www.minegocioveterinario.com/2022/07/tos-de-las-perreras-un-problema-estacional/',
+    año: '2022',
+  },
+  {
+    titulo: 'Zoonosis y especies no tradicionales, claves para los veterinarios',
+    href: 'https://www.minegocioveterinario.com/2021/04/zoonosis-y-especies-no-tradicionales-claves-para-los-veterinarios/',
+    año: '2021',
+  },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <SectionTitle
+      title="Podcasts y columnas de audio"
+      subtitle="Mi Negocio Veterinario"
+    />
+
+    <p class="text-sm mb-8" style="color: var(--color-text-muted);">
+      Episodios disponibles en la plataforma de <strong>Mi Negocio Veterinario</strong> y en Spotify.
+    </p>
+
+    <div class="divide-y" style="border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: #fff;">
+      {episodios.map((ep, i) => (
+        <a
+          href={ep.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-between gap-4 p-5 transition-colors hover:bg-neutral-50 no-underline group"
+          style="text-decoration: none;"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="shrink-0 w-10 h-10 flex items-center justify-center rounded-full text-white text-sm font-bold"
+              style="background: var(--color-accent);"
+            >
+              🎙
+            </div>
+            <p class="text-sm font-semibold group-hover:underline" style="color: var(--color-text);">
+              {ep.titulo}
+            </p>
+          </div>
+          <span class="shrink-0 text-xs" style="color: var(--color-text-muted);">{ep.año}</span>
+        </a>
+      ))}
+    </div>
+
+    <p class="text-xs mt-6 text-center" style="color: var(--color-text-muted);">
+      También disponibles en
+      <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline" style="color: #1DB954;">Spotify</a>
+      buscando "Mi Negocio Veterinario".
+    </p>
+
+  </div>
+</section>

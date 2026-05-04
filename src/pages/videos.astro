@@ -1,62 +1,107 @@
 ---
-// pages/videos.astro — Todos los videos con filtro por categoría (React Island)
 import Layout from '../layouts/Layout.astro';
-import Button from '../components/ui/Button.astro';
-import SectionTitle from '../components/ui/SectionTitle.astro';
-import VideosFiltrados from '../components/home/VideosFiltrados.jsx';
+import VideosPreview from '../components/home/VideosPreview.astro';
+
+const categorias = [
+  {
+    titulo: 'Para veterinarios',
+    descripcion: 'Clases, conferencias y actualizaciones clínicas para profesionales.',
+    videos: [
+      {
+        id: 'z518tUU_pFM',
+        titulo: 'Parvovirus y Distemper canino: una mirada desde la clínica',
+        canal: 'YouTube',
+      },
+      {
+        id: 'vaWswhnXQsA',
+        titulo: 'Biogal Academy — Micoplasmas hemotropicos en gatos: ¿qué hay de nuevo?',
+        canal: 'YouTube',
+      },
+      {
+        id: 'wyBBOrjNaxM',
+        titulo: 'Dirofilariosis como enfermedad zoonótica: Puntos claves',
+        canal: 'YouTube',
+      },
+    ],
+  },
+];
 ---
 
 <Layout
-  title="Videos y conferencias — Pablo Borrás"
-  description="Videos educativos, casos clínicos y conferencias de Pablo Borrás, Médico Veterinario y Speaker."
+  title="Videos — Pablo Borrás Veterinario"
+  description="Videos educativos y conferencias de Pablo Borrás sobre enfermedades infecciosas y parasitarias en perros y gatos. Para veterinarios y tutores de mascotas."
 >
 
-  <!-- Hero de videos -->
+  <!-- Hero -->
   <section
     class="py-20 text-center"
     style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-neutral-dark) 100%);"
   >
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-5xl mb-6">🎬</div>
+      <div class="text-5xl mb-6">▶️</div>
       <h1
         class="text-4xl md:text-5xl font-bold text-white mb-4"
         style="font-family: var(--font-display);"
       >
-        Videos y conferencias
+        Videos
       </h1>
       <p class="text-white/70 text-lg">
-        Contenido audiovisual educativo y clínico: casos prácticos, conferencias magistrales y divulgación veterinaria para todos los públicos.
+        Conferencias, actualizaciones clínicas y contenido educativo.
       </p>
     </div>
   </section>
 
-  <!-- Grid con filtro interactivo (React Island) -->
-  <section style="background: var(--color-neutral-light);" class="py-20">
+  <!-- Videos grid -->
+  <section class="py-20" style="background: var(--color-neutral-light);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <SectionTitle
-        title="Todos los videos"
-        subtitle="Canal de contenidos"
-      />
-      <!-- React Island con filtro por categoría -->
-      <VideosFiltrados client:load />
-    </div>
-  </section>
 
-  <!-- CTA al canal de YouTube -->
-  <section class="py-14 bg-white text-center">
-    <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2
-        class="text-2xl font-bold mb-4"
-        style="font-family: var(--font-display); color: var(--color-text);"
-      >
-        ¿Querés ver más contenido?
-      </h2>
-      <p class="text-sm mb-6" style="color: var(--color-text-muted);">
-        Suscribite al canal de YouTube para no perderte ningún video nuevo.
-      </p>
-      <Button href="https://www.youtube.com/@pabloborras" variant="primary" size="lg" external={true}>
-        Ir al canal de YouTube →
-      </Button>
+      {categorias.map(cat => (
+        <div class="mb-16">
+          <div class="mb-8">
+            <p class="text-xs font-semibold uppercase tracking-widest mb-1" style="color: var(--color-accent);">
+              {cat.descripcion}
+            </p>
+            <h2 class="text-2xl font-bold" style="font-family: var(--font-display); color: var(--color-text);">
+              {cat.titulo}
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {cat.videos.map(v => (
+              <div class="bg-white overflow-hidden" style="border-radius: var(--radius); box-shadow: var(--shadow);">
+                <div class="relative" style="padding-top: 56.25%;">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${v.id}`}
+                    title={v.titulo}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    class="absolute inset-0 w-full h-full"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="p-4">
+                  <p class="text-sm font-semibold" style="color: var(--color-text);">{v.titulo}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- CTA canal -->
+      <div class="text-center mt-8">
+        <a
+          href="https://www.youtube.com/@pabloborras"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-6 py-3 font-semibold text-sm text-white transition-all hover:opacity-90"
+          style="background: #FF0000; border-radius: var(--radius); text-decoration: none;"
+        >
+          Ver canal completo en YouTube →
+        </a>
+      </div>
+
     </div>
   </section>
 
