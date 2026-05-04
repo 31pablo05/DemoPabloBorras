@@ -85,6 +85,39 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
   <!-- Todos los videos disponibles -->
   <VideosPreview />
 
+  <!-- Apariciones en medios -->
+  <section class="py-12" style="background: var(--color-neutral-light);">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-center mb-6" style="color: var(--color-text-muted);">Apariciones en medios</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a
+          href="https://www.infobae.com/perros-y-gatos/2026/03/20/el-75-de-los-duenos-de-mascotas-pide-mejores-recomendaciones-para-evitar-parasitos/"
+          target="_blank" rel="noopener noreferrer"
+          class="flex items-center gap-4 p-4 bg-white rounded-xl transition-shadow hover:shadow-md"
+          style="border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; border-left: 3px solid #DC2626;"
+        >
+          <div class="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-white text-xs font-bold" style="background: #DC2626;">in</div>
+          <div>
+            <p class="text-xs font-bold" style="color: #DC2626;">Infobae · 2026</p>
+            <p class="text-sm font-semibold leading-snug" style="color: var(--color-text);">Nota de salud animal en Infobae</p>
+          </div>
+        </a>
+        <a
+          href="https://www.tiktok.com/@lanacioncom/video/7578953045355072824"
+          target="_blank" rel="noopener noreferrer"
+          class="flex items-center gap-4 p-4 bg-white rounded-xl transition-shadow hover:shadow-md"
+          style="border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; border-left: 3px solid #1B3A4B;"
+        >
+          <div class="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-white text-xs font-bold" style="background: #1B3A4B;">LN</div>
+          <div>
+            <p class="text-xs font-bold" style="color: var(--color-primary);">La Nación · TikTok · 2025</p>
+            <p class="text-sm font-semibold leading-snug" style="color: var(--color-text);">Consejo viral sobre parásitos en mascotas</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Redes sociales -->
   <section class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -112,7 +145,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
             <circle cx="12" cy="12" r="4"/>
             <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
           </svg>
-          Instagram
+          @pablojborras
         </a>
         <a
           href="https://www.youtube.com/@pabloborras"
@@ -149,40 +182,58 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
             nombre: 'Veterinaria Guayaquil',
             direccion: 'Guayaquil 650, CABA',
             dias: 'Todos los miércoles + Jueves por la tarde cada 15 días',
+            principal: true,
           },
           {
             nombre: 'Veterinaria Merli',
             direccion: 'Cnel. Apolinario Figueroa 299, CABA',
             dias: 'Martes cada 15 días',
+            principal: false,
           },
           {
             nombre: 'Clínica Veterinaria Panda',
             direccion: 'Nahuel Huapi 5185, CABA (suc. Nahuel Huapi)',
             dias: 'Un martes por mes',
+            principal: false,
           },
           {
             nombre: 'Clínica Veterinaria Wellvet',
             direccion: 'Lavalle 4090, CABA',
             dias: 'Un viernes por mes',
+            principal: false,
           },
         ].map((c, i) => (
           <div
             class="reveal flex gap-4 p-6 bg-white"
-            style={`border-radius: var(--radius); box-shadow: var(--shadow); transition-delay: ${i * 0.1}s;`}
+            style={`border-radius: var(--radius); box-shadow: ${c.principal ? 'var(--shadow-lg)' : 'var(--shadow)'}; transition-delay: ${i * 0.1}s; border: ${c.principal ? '2px solid var(--color-accent)' : '2px solid transparent'};`}
           >
             <!-- Ícono pin -->
-            <div class="shrink-0 mt-0.5">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div
+              class="shrink-0 mt-0.5 w-10 h-10 rounded-xl flex items-center justify-center"
+              style={`background: ${c.principal ? 'var(--color-accent)' : 'rgba(45,155,115,0.1)'};`}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={c.principal ? '#fff' : 'var(--color-accent)'} stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
                 <circle cx="12" cy="10" r="3"/>
               </svg>
             </div>
-            <div>
-              <h3 class="font-bold text-base" style="font-family: var(--font-display); color: var(--color-text);">
-                {c.nombre}
-              </h3>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="font-bold text-base" style="font-family: var(--font-display); color: var(--color-text);">
+                  {c.nombre}
+                </h3>
+                {c.principal && (
+                  <span class="inline-block text-xs font-bold px-2 py-0.5 rounded-full" style="background: var(--color-accent); color: #fff;">Principal</span>
+                )}
+              </div>
               <p class="text-sm mt-0.5" style="color: var(--color-text-muted);">{c.direccion}</p>
-              <p class="text-sm mt-2 font-medium" style="color: var(--color-accent);">{c.dias}</p>
+              <div class="flex items-center gap-2 mt-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <p class="text-sm font-medium" style="color: var(--color-accent);">{c.dias}</p>
+              </div>
             </div>
           </div>
         ))}
