@@ -2,5 +2,16 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-# TODO: reemplazar con el dominio real cuando esté confirmado
-Sitemap: https://www.pabloborras.com/sitemap.xml
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+Sitemap: https://demo-pablo-borras.vercel.app/sitemap.xml
