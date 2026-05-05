@@ -4,23 +4,40 @@
 
 <section
   class="relative overflow-hidden"
-  style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-neutral-dark) 100%);"
+  style="
+    background:
+      radial-gradient(ellipse 90% 70% at 15% 60%, rgba(27,77,62,0.9) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 80% at 85% 10%, rgba(45,155,115,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse 70% 50% at 50% 100%, rgba(10,34,24,0.8) 0%, transparent 60%),
+      linear-gradient(160deg, #0F2A20 0%, #1B4D3E 45%, #0F3020 100%);
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  "
 >
   <!-- Patrón decorativo de puntos sobre el fondo -->
   <div class="dot-pattern absolute inset-0 pointer-events-none" aria-hidden="true"></div>
 
   <!-- Elemento decorativo: círculo de acento superior derecha (float animado) -->
   <div
-    class="blob-float absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 pointer-events-none"
+    class="blob-float absolute top-0 right-0 w-96 h-96 rounded-full opacity-[0.15] pointer-events-none"
     style="background: var(--color-accent); filter: blur(80px); transform: translate(30%, -30%);"
     aria-hidden="true"
   ></div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 md:py-20 w-full">
+  <!-- Blob sutil inferior izquierda -->
+  <div
+    class="absolute bottom-0 left-0 w-72 h-72 rounded-full pointer-events-none"
+    style="background: var(--color-accent-light); filter: blur(100px); transform: translate(-30%, 30%); opacity: 0.08;"
+    aria-hidden="true"
+  ></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:py-20 w-full">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
 
       <!-- ── IMAGEN — order-2 en mobile = aparece debajo del texto ── -->
-      <div class="flex justify-center items-end order-2 md:order-last animate-scale-in delay-300">
+      <div class="flex justify-center items-end order-2 md:order-last animate-scale-in hero-float delay-300">
         <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-full">
           <!-- Decoración borrosa detrás -->
           <div
@@ -32,10 +49,23 @@
             src="/imagenes/perfil/pablo2.jpg"
             alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
             class="relative rounded-3xl object-contain w-full"
-            style="box-shadow: var(--shadow-lg); max-height: 560px;"
+            style="box-shadow: var(--shadow-lg), 0 0 60px rgba(45,155,115,0.18); max-height: 560px;"
             width="480"
             height="560"
           />
+
+          <!-- Fade inferior sobre la imagen -->
+          <div
+            aria-hidden="true"
+            style="
+              position: absolute;
+              bottom: 0; left: 0; right: 0;
+              height: 100px;
+              background: linear-gradient(to top, #0F2A20, transparent);
+              border-radius: 0 0 24px 24px;
+              pointer-events: none;
+            "
+          ></div>
 
         </div>
       </div>
@@ -74,8 +104,8 @@
           Más de 15 años acompañando a mascotas, profesionales e instituciones.
         </p>
 
-        <!-- CTAs por audiencia -->
-        <div class="flex flex-col sm:flex-row flex-wrap gap-3">
+        <!-- CTAs por audiencia (solo desktop) -->
+        <div class="hidden md:flex flex-row flex-wrap gap-3">
           <!-- CTA tutores -->
           <a
             href="/tutores"
@@ -97,12 +127,42 @@
           <!-- CTA empresas -->
           <a
             href="/empresas"
-            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm text-white border-2 border-white transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5 animate-fade-in-up delay-600"
-            style="border-radius: var(--radius);"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-white transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5 animate-fade-in-up delay-600"
+            style="border-radius: var(--radius); opacity: 0.75; border: 1.5px solid rgba(255,255,255,0.35); font-size: 0.8rem;"
           >
             🏢 Represento una empresa
           </a>
         </div>
+      </div>
+
+      <!-- CTAs por audiencia (solo mobile — debajo de la imagen) -->
+      <div class="flex md:hidden flex-col gap-3 order-3 w-full">
+          <!-- CTA tutores -->
+          <a
+            href="/tutores"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm text-white transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
+            style="background: var(--color-accent); border-radius: var(--radius);"
+          >
+            🐾 Soy tutor de mascotas
+          </a>
+
+          <!-- CTA veterinarios -->
+          <a
+            href="/veterinarios"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm transition-all duration-200 hover:bg-gray-100 hover:-translate-y-0.5"
+            style="background: #fff; color: var(--color-primary); border-radius: var(--radius);"
+          >
+            🩺 Soy veterinario
+          </a>
+
+          <!-- CTA empresas -->
+          <a
+            href="/empresas"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-white transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5"
+            style="border-radius: var(--radius); opacity: 0.75; border: 1.5px solid rgba(255,255,255,0.35); font-size: 0.8rem;"
+          >
+            🏢 Represento una empresa
+          </a>
       </div>
 
     </div>

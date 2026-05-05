@@ -18,15 +18,17 @@ const desktopNavLinks = navLinks.filter(l => l.href !== '/contacto');
 <header
   id="site-header"
   class="sticky top-0 z-50 w-full header-entry"
+  style="transition: background 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;"
 >
   <!-- Línea de acento verde en el top -->
   <div
+    class="accent-line"
     aria-hidden="true"
     style="
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 2px;
-      background: linear-gradient(90deg, #2D9B73 0%, #4ECBA1 50%, #2D9B73 100%);
+      background: linear-gradient(90deg, #1B3A4B 0%, #2D9B73 50%, #4ECBA1 100%);
       z-index: 1;
     "
   ></div>
@@ -38,44 +40,38 @@ const desktopNavLinks = navLinks.filter(l => l.href !== '/contacto');
       <a href="/" class="logo-group" aria-label="Pablo Borrás – Inicio">
         <!-- Logo imagen -->
         <img
-          src="/imagenes/logo/log3.png"
+          src="/imagenes/logo/log2.png"
           alt="Pablo Borrás"
-          style="height: 48px; width: auto; object-fit: contain; display: block; flex-shrink: 0;"
+          class="logo-img"
+          style="height: 56px; width: auto; object-fit: contain; display: block; flex-shrink: 0;"
           loading="eager"
         />
 
         <!-- Separador vertical -->
         <div
+          class="logo-separator"
           aria-hidden="true"
-          style="
-            width: 1px;
-            height: 28px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 1px;
-            flex-shrink: 0;
-          "
         ></div>
 
         <!-- Texto del logo -->
         <div class="flex flex-col" style="gap: 3px; line-height: 1;">
           <span
+            class="logo-name"
             style="
               font-family: var(--font-display);
               font-size: 1.1rem;
               font-weight: 700;
-              color: #ffffff;
               letter-spacing: -0.01em;
             "
           >Pablo Borrás</span>
           <span
+            class="logo-subtitle"
             style="
               font-family: var(--font-body);
               font-size: 0.625rem;
               font-weight: 500;
-              color: var(--color-accent-light);
               letter-spacing: 0.07em;
               text-transform: uppercase;
-              opacity: 0.85;
             "
           >Vet. Especialista · Speaker · Autor</span>
         </div>

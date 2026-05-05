@@ -30,7 +30,7 @@ export default function MobileMenu({ links = [] }) {
             display: 'block',
             width: '24px',
             height: '2px',
-            background: '#fff',
+            background: '#1B3A4B',
             borderRadius: '2px',
             transition: 'transform 0.3s, opacity 0.3s',
             transform: isOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
@@ -41,7 +41,7 @@ export default function MobileMenu({ links = [] }) {
             display: 'block',
             width: '24px',
             height: '2px',
-            background: '#fff',
+            background: '#1B3A4B',
             borderRadius: '2px',
             transition: 'opacity 0.3s',
             opacity: isOpen ? 0 : 1,
@@ -52,7 +52,7 @@ export default function MobileMenu({ links = [] }) {
             display: 'block',
             width: '24px',
             height: '2px',
-            background: '#fff',
+            background: '#1B3A4B',
             borderRadius: '2px',
             transition: 'transform 0.3s, opacity 0.3s',
             transform: isOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none',
@@ -69,7 +69,9 @@ export default function MobileMenu({ links = [] }) {
             top: '100%',
             left: 0,
             right: 0,
-            background: 'var(--color-neutral-dark)',
+            background: 'rgba(255, 255, 255, 0.98)',
+            backdropFilter: 'blur(20px)',
+            borderTop: '1px solid rgba(27,58,75,0.10)',
             padding: '16px 0',
             boxShadow: 'var(--shadow-lg)',
             zIndex: 100,
@@ -84,20 +86,20 @@ export default function MobileMenu({ links = [] }) {
                 style={{
                   display: 'block',
                   padding: '12px 24px',
-                  color: '#ffffff',
+                  color: '#1B3A4B',
                   textDecoration: 'none',
                   fontFamily: 'var(--font-body)',
                   fontSize: '1rem',
                   fontWeight: 500,
-                  borderBottom: '1px solid rgba(255,255,255,0.06)',
+                  borderBottom: '1px solid rgba(27,58,75,0.08)',
                   transition: 'color 0.2s, background 0.2s',
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.color = 'var(--color-accent-light)';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                  e.currentTarget.style.color = 'var(--color-accent)';
+                  e.currentTarget.style.background = 'rgba(27,58,75,0.04)';
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.color = '#ffffff';
+                  e.currentTarget.style.color = '#1B3A4B';
                   e.currentTarget.style.background = 'transparent';
                 }}
               >
