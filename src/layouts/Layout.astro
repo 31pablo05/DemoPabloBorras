@@ -15,7 +15,7 @@ interface Props {
 const {
   title,
   description = 'Pablo Borrás — Médico Veterinario MSc, especialista en enfermedades infecciosas y parasitarias de perros y gatos. Speaker internacional, autor y docente. Buenos Aires, Argentina.',
-  image = '/og/og-pablo-borras.jpg',
+  image = '/OGimage.png',
   type = 'website',
   noindex = false,
 } = Astro.props;
@@ -65,7 +65,9 @@ const fullTitle = title.includes('Pablo Borrás') ? title : `${title} | Pablo Bo
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:image:alt" content="Pablo Borrás — Médico Veterinario, Speaker y Autor" />
 
-    <!-- Favicon — TODO: reemplazar con favicon real de Pablo -->
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />

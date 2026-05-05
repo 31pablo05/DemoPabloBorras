@@ -6,10 +6,10 @@
   class="relative overflow-hidden"
   style="
     background:
-      radial-gradient(ellipse 90% 70% at 15% 60%, rgba(27,77,62,0.9) 0%, transparent 55%),
-      radial-gradient(ellipse 60% 80% at 85% 10%, rgba(45,155,115,0.15) 0%, transparent 50%),
-      radial-gradient(ellipse 70% 50% at 50% 100%, rgba(10,34,24,0.8) 0%, transparent 60%),
-      linear-gradient(160deg, #0F2A20 0%, #1B4D3E 45%, #0F3020 100%);
+      radial-gradient(ellipse 80% 65% at 10% 55%, rgba(24,59,127,0.95) 0%, transparent 52%),
+      radial-gradient(ellipse 55% 70% at 88% 12%, rgba(24,128,201,0.20) 0%, transparent 48%),
+      radial-gradient(ellipse 65% 55% at 50% 100%, rgba(2,6,35,0.85) 0%, transparent 55%),
+      linear-gradient(155deg, #020618 0%, #040d4e 35%, #0d1b6e 65%, #040d4e 100%);
     min-height: 100svh;
     display: flex;
     flex-direction: column;
@@ -22,14 +22,14 @@
   <!-- Elemento decorativo: círculo de acento superior derecha (float animado) -->
   <div
     class="blob-float absolute top-0 right-0 w-96 h-96 rounded-full opacity-[0.15] pointer-events-none"
-    style="background: var(--color-accent); filter: blur(80px); transform: translate(30%, -30%);"
+    style="background: linear-gradient(135deg, #1880c9, #2d2e6f); filter: blur(80px); transform: translate(30%, -30%);"
     aria-hidden="true"
   ></div>
 
   <!-- Blob sutil inferior izquierda -->
   <div
     class="absolute bottom-0 left-0 w-72 h-72 rounded-full pointer-events-none"
-    style="background: var(--color-accent-light); filter: blur(100px); transform: translate(-30%, 30%); opacity: 0.08;"
+    style="background: #1a367c; filter: blur(100px); transform: translate(-30%, 30%); opacity: 0.10;"
     aria-hidden="true"
   ></div>
 
@@ -49,7 +49,7 @@
             src="/imagenes/perfil/pablo2.jpg"
             alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
             class="relative rounded-3xl object-contain w-full"
-            style="box-shadow: var(--shadow-lg), 0 0 60px rgba(45,155,115,0.18); max-height: 560px;"
+            style="box-shadow: var(--shadow-lg), 0 0 60px rgba(24,128,201,0.20); max-height: 560px;"
             width="480"
             height="560"
           />
@@ -61,7 +61,7 @@
               position: absolute;
               bottom: 0; left: 0; right: 0;
               height: 100px;
-              background: linear-gradient(to top, #0F2A20, transparent);
+              background: linear-gradient(to top, #040d4e, transparent);
               border-radius: 0 0 24px 24px;
               pointer-events: none;
             "
@@ -76,7 +76,7 @@
         <div class="flex items-start gap-4 mb-5">
           <div
             class="animate-slide-in-left w-1 self-stretch rounded-full mt-1 shrink-0"
-            style="background: var(--color-accent); min-height: 48px;"
+            style="background: var(--color-accent); min-height: 48px; background: linear-gradient(to bottom, #1880c9, #5ba8e0);"
             aria-hidden="true"
           ></div>
           <div>

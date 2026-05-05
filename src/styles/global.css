@@ -4,21 +4,22 @@
    DESIGN TOKENS — Paleta Pablo Borrás
    ============================================= */
 @theme {
-  --color-primary:      #1B3A4B;
-  --color-accent:       #2D9B73;
-  --color-accent-light: #4ECBA1;
-  --color-neutral-dark: #0F1E26;
-  --color-neutral-mid:  #1E3A4A;
-  --color-neutral-light:#F5F7F6;
-  --color-text:         #1A1A2E;
-  --color-text-muted:   #6B7280;
+  --color-primary:       #040d4e;
+  --color-secondary:     #183b7f;
+  --color-accent:        #1880c9;
+  --color-accent-light:  #5ba8e0;
+  --color-neutral-dark:  #040d4e;
+  --color-neutral-mid:   #1a367c;
+  --color-neutral-light: #eef3fb;
+  --color-text:          #0d0d2b;
+  --color-text-muted:    #6b7899;
 
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body:    'DM Sans', system-ui, sans-serif;
 
   --radius:    8px;
-  --shadow:    0 4px 24px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 40px rgba(0,0,0,0.15);
+  --shadow:    0 4px 24px rgba(4, 13, 78, 0.08);
+  --shadow-lg: 0 8px 40px rgba(4, 13, 78, 0.16);
 }
 
 /* =============================================
@@ -173,7 +174,7 @@ img {
 .logo-separator {
   width: 1px;
   height: 28px;
-  background: rgba(27, 58, 75, 0.12);
+  background: rgba(4, 13, 78, 0.15);
   border-radius: 1px;
   flex-shrink: 0;
   transition: background 0.35s ease;
@@ -202,12 +203,12 @@ img {
   font-size: 13px;
   letter-spacing: 0.04em;
   color: #fff;
-  box-shadow: 0 2px 14px rgba(45, 155, 115, 0.4);
+  box-shadow: 0 2px 14px rgba(24, 128, 201, 0.4);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
 }
 .logo-group:hover .logo-badge {
   transform: rotate(-6deg) scale(1.08);
-  box-shadow: 0 4px 20px rgba(78, 203, 161, 0.5);
+  box-shadow: 0 4px 20px rgba(91, 168, 224, 0.5);
 }
 
 /* Nombre en el logo */
@@ -215,7 +216,7 @@ img {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.25rem;
-  color: #1B3A4B;
+  color: #040d4e;
   transition: color 0.2s;
   line-height: 1.2;
 }
@@ -223,7 +224,7 @@ img {
   .logo-name { font-size: 1.35rem; }
 }
 .logo-group:hover .logo-name {
-  color: #2D9B73;
+  color: #1880c9;
 }
 
 /* Subtítulo del logo */
@@ -231,8 +232,8 @@ img {
   font-family: var(--font-body);
   font-size: 0.68rem;
   letter-spacing: 0.05em;
-  color: #2D9B73;
-  opacity: 0.80;
+  color: #1880c9;
+  opacity: 0.85;
   transition: opacity 0.2s;
 }
 .logo-group:hover .logo-subtitle {
@@ -259,15 +260,15 @@ img {
   transition: color 0.2s, background 0.2s;
 }
 .nav-pill:hover {
-  color: #1B3A4B;
-  background: rgba(27, 58, 75, 0.06);
+  color: #040d4e;
+  background: rgba(24, 128, 201, 0.06);
 }
 
 /* Pill activo (página actual) */
 .nav-pill.active {
-  color: #1B3A4B;
+  color: #040d4e;
   font-weight: 600;
-  background: rgba(27, 58, 75, 0.07);
+  background: rgba(24, 128, 201, 0.08);
 }
 .nav-pill.active::after {
   content: '';
@@ -278,7 +279,7 @@ img {
   width: 18px;
   height: 2px;
   border-radius: 2px;
-  background: #2D9B73;
+  background: #1880c9;
 }
 
 /* Separador vertical antes del CTA */
@@ -286,7 +287,7 @@ img {
   width: 1px;
   height: 22px;
   margin: 0 0.4rem;
-  background: rgba(27, 58, 75, 0.12);
+  background: rgba(4, 13, 78, 0.15);
   border-radius: 1px;
 }
 
@@ -302,17 +303,17 @@ img {
   font-weight: 600;
   color: #fff;
   text-decoration: none;
-  background: #1B3A4B;
-  box-shadow: 0 2px 12px rgba(27, 58, 75, 0.25);
+  background: #040d4e;
+  box-shadow: 0 2px 12px rgba(4, 13, 78, 0.25);
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 .nav-cta-btn:hover {
-  background: #2D4F63;
+  background: #183b7f;
   transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(27, 58, 75, 0.35);
+  box-shadow: 0 5px 20px rgba(4, 13, 78, 0.35);
 }
 .nav-cta-btn.active {
-  background: #2D4F63;
+  background: #040d4e;
 }
 .nav-cta-arrow {
   display: inline-block;
@@ -327,13 +328,13 @@ img {
   background: rgba(255, 255, 255, 0.99) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  box-shadow: 0 2px 28px rgba(27, 58, 75, 0.10) !important;
-  border-bottom-color: rgba(27, 58, 75, 0.15) !important;
+  box-shadow: 0 2px 28px rgba(4, 13, 78, 0.10) !important;
+  border-bottom-color: rgba(24, 128, 201, 0.15) !important;
 }
 
 /* Patrón de puntos — fondo decorativo del Hero */
 .dot-pattern {
-  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(24,128,201,0.07) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -354,6 +355,25 @@ img {
     heroFloat 7s ease-in-out 1s infinite;
 }
 
+/* Shimmer sweep para elementos highlight */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.4s ease-in-out infinite;
+}
+
+/* Texto con gradiente azul — para títulos destacados */
+.gradient-text {
+  background: linear-gradient(135deg, #1880c9 0%, #5ba8e0 60%, #040d4e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Barra de acento con pulso suave */
 .accent-bar {
   animation: pulseAccent 3s ease-in-out infinite;
@@ -365,7 +385,7 @@ img {
 }
 .card-lift:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 12px 40px rgba(24, 128, 201, 0.18);
 }
 
 /* Línea vertical de timeline */
