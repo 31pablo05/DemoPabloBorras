@@ -20,8 +20,7 @@ const {
   noindex = false,
 } = Astro.props;
 
-// TODO: reemplazar con el dominio real cuando esté confirmado
-const SITE_URL = 'https://www.pabloborras.com';
+const SITE_URL = 'https://demo-pablo-borras.vercel.app';
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
 const ogImage = new URL(image, SITE_URL).href;
 const fullTitle = title.includes('Pablo Borrás') ? title : `${title} | Pablo Borrás`;
