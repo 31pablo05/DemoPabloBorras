@@ -1,6 +1,5 @@
 // src/pages/sitemap.xml.ts
-// TODO: reemplazar SITE_URL con el dominio real cuando esté confirmado
-const SITE_URL = 'https://www.pabloborras.com';
+const SITE_URL = 'https://demo-pablo-borras.vercel.app';
 
 const pages = [
   { url: '/',                            priority: '1.0', changefreq: 'weekly'  },
