@@ -13,12 +13,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
 
   <!-- Hero emocional — Tutores -->
   <section
-    class="py-24 text-center relative overflow-hidden"
-    style="
-      background:
-        linear-gradient(135deg, rgba(4,13,78,0.72) 0%, rgba(2,6,24,0.80) 100%),
-        url('/imagenes/heros/2(1).png') center top / 75% auto no-repeat;
-    "
+    class="py-24 text-center relative overflow-hidden hero-tutores"
   >
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Emoji grande con animación -->
@@ -277,3 +272,19 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
   </section>
 
 </Layout>
+
+<style>
+  .hero-tutores {
+    background:
+      linear-gradient(135deg, rgba(4,13,78,0.72) 0%, rgba(2,6,24,0.80) 100%),
+      url('/imagenes/heros/2(1).png') center top / 75% auto no-repeat;
+  }
+
+  @media (max-width: 768px) {
+    .hero-tutores {
+      background:
+        linear-gradient(135deg, rgba(4,13,78,0.72) 0%, rgba(2,6,24,0.80) 100%),
+        url('/imagenes/heros/paratutores2.JPG') center center / cover no-repeat;
+    }
+  }
+</style>
