@@ -343,16 +343,18 @@ img {
   animation: floatBlob 7s ease-in-out infinite;
 }
 
-/* Float suave del hero image */
-@keyframes heroFloat {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-10px); }
+/* Rotación 3D sutil del hero image */
+@keyframes heroTilt {
+  0%   { transform: perspective(900px) rotateY(-2deg) rotateX(1deg); }
+  50%  { transform: perspective(900px) rotateY( 2deg) rotateX(-1deg); }
+  100% { transform: perspective(900px) rotateY(-2deg) rotateX(1deg); }
 }
-/* Combinado: el scaleIn juega primero (0.9s), luego el float arranca */
+/* Combinado: el scaleIn juega primero, luego el tilt arranca */
 .animate-scale-in.hero-float {
   animation:
     scaleIn   0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both,
-    heroFloat 4s  ease-in-out 1s infinite;
+    heroTilt  8s  ease-in-out 1s infinite;
+  transform-style: preserve-3d;
 }
 
 /* Shimmer sweep para elementos highlight */

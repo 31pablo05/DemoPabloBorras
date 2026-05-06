@@ -14,52 +14,187 @@ const stats = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-      <!-- ── Columna izquierda: Foto ── -->
+      <!-- ── Columna izquierda: Grid B1 — 2 fotos + tapa libro ── -->
       <div
-        class="reveal relative flex justify-center lg:justify-start"
+        class="reveal flex flex-col gap-3"
         style="transition-delay: 0.1s;"
       >
-        <!-- Sombra de color desplazada detrás de la imagen -->
-        <div
-          class="absolute rounded-2xl"
-          style="
-            background: var(--color-accent);
-            opacity: 0.18;
-            border-radius: 16px;
-            inset: 0;
-            transform: translate(12px, 12px);
-          "
-          aria-hidden="true"
-        ></div>
 
-        <!-- Imagen principal -->
-        <div class="relative w-full max-w-sm pb-8 lg:pb-0">
-          <!-- TODO: confirmar nombre del archivo de foto de perfil con Pablo -->
-          <img
-            src="/imagenes/perfil/pablo1.jpg"
-            alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
-            class="relative w-full object-cover"
-            style="border-radius: 16px; box-shadow: var(--shadow-lg);"
-            width="480"
-            height="560"
-          />
-
-          <!-- Tarjeta flotante superpuesta (esquina inferior izquierda) -->
-          <div
-            class="absolute bottom-3 -left-3 sm:-bottom-5 sm:-left-5 px-4 sm:px-5 py-3 bg-white"
-            style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.14);"
-          >
-            <p
-              class="text-3xl font-bold leading-none"
-              style="font-family: var(--font-display); color: var(--color-accent);"
+        <!-- Layout mobile: foto principal + mini-row congreso/libro -->
+        <div class="flex flex-col gap-3 lg:hidden">
+          <!-- Foto principal -->
+          <div style="border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); max-height: 340px;">
+            <img
+              src="/imagenes/perfil/pablo4.png"
+              alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
+              class="w-full object-cover object-top"
+              style="border-radius: 16px; max-height: 340px;"
+              width="480"
+              height="340"
+            />
+          </div>
+          <!-- Fila de 2: congreso + libro -->
+          <div class="grid grid-cols-2 gap-3" style="height: 160px;">
+            <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow);">
+              <img
+                src="/imagenes/congresos/medellin-colombia-2025.jpg"
+                alt="Pablo Borrás en congreso internacional"
+                class="w-full h-full object-cover object-center"
+                style="border-radius: 12px;"
+                loading="lazy"
+                width="200"
+                height="160"
+              />
+            </div>
+            <a
+              href="/veterinarios/libro"
+              class="flex items-center justify-center"
+              style="
+                border-radius: 12px;
+                overflow: hidden;
+                position: relative;
+                background: linear-gradient(160deg, #0a1a5c 0%, #0d2d8a 40%, #1055b0 70%, #1880c9 100%);
+                box-shadow: var(--shadow);
+              "
             >
-              +15
-            </p>
-            <p class="text-xs mt-0.5" style="color: var(--color-text-muted);">
-              años de experiencia
-            </p>
+              <img
+                src="/imagenes/libro/libroport2.png"
+                alt="Manual Práctico — Pablo Borrás"
+                style="width: 85%; height: 90%; object-fit: contain; border-radius: 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.4);"
+                width="130"
+                height="144"
+              />
+            </a>
           </div>
         </div>
+
+        <!-- Grid de 3 celdas: foto grande izquierda + foto congreso + libro (solo desktop) -->
+        <div
+          class="hidden lg:grid"
+          style="
+            grid-template-columns: 1.4fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 12px;
+            height: clamp(520px, 65vw, 720px);
+          "
+        >
+
+          <!-- Celda 1: Foto principal — ocupa las 2 filas -->
+          <div style="grid-row: 1 / 3; position: relative; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-lg);">
+            <img
+              src="/imagenes/perfil/pablo4.png"
+              alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
+              class="w-full h-full object-cover object-top"
+              style="border-radius: 14px;"
+              width="320"
+              height="420"
+            />
+          </div>
+
+          <!-- Celda 2: Foto congreso (arriba derecha) -->
+          <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow);">
+            <img
+              src="/imagenes/congresos/medellin-colombia-2025.jpg"
+              alt="Pablo Borrás en congreso internacional"
+              class="w-full h-full object-cover object-center"
+              style="border-radius: 12px;"
+              loading="lazy"
+              width="200"
+              height="175"
+            />
+          </div>
+
+          <!-- Celda 3: Tapa del libro (abajo derecha) -->
+          <a
+            href="/veterinarios/libro"
+            style="
+              border-radius: 12px;
+              overflow: hidden;
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 100%;
+              background: linear-gradient(160deg, #0a1a5c 0%, #0d2d8a 40%, #1055b0 70%, #1880c9 100%);
+              box-shadow: var(--shadow);
+              transition: transform 0.2s, box-shadow 0.2s;
+            "
+            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)';"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow)';"
+          >
+            <img
+              src="/imagenes/libro/libroport2.png"
+              alt="Manual Práctico de Enfermedades Infecciosas y Parasitarias — Pablo Borrás"
+              class="relative"
+              style="
+                width: 88%;
+                height: 90%;
+                object-fit: contain;
+                border-radius: 6px;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+                display: block;
+              "
+              width="300"
+              height="400"
+            />
+            <!-- Overlay con texto en la parte inferior -->
+            <div style="
+              position: absolute;
+              bottom: 0; left: 0; right: 0;
+              padding: 8px 10px;
+              background: linear-gradient(to top, rgba(4,13,78,0.85) 0%, transparent 100%);
+              border-radius: 0 0 12px 12px;
+            ">
+              <p style="
+                font-family: var(--font-body);
+                font-size: 0.6rem;
+                font-weight: 700;
+                color: var(--color-accent-light);
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                margin: 0;
+              ">Ver libro →</p>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Strip de credencial inferior -->
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--color-neutral-light);
+            border: 1px solid #c8d8f0;
+            border-radius: 10px;
+            padding: 10px 14px;
+          "
+        >
+          <span
+            style="
+              width: 7px;
+              height: 7px;
+              border-radius: 50%;
+              background: #4ade80;
+              flex-shrink: 0;
+              display: inline-block;
+            "
+            aria-hidden="true"
+          ></span>
+          <p
+            style="
+              font-family: var(--font-body);
+              font-size: 0.75rem;
+              color: var(--color-text-muted);
+              margin: 0;
+              line-height: 1.4;
+            "
+          >
+            Editor asociado · <em>Parasites &amp; Vectors</em> — Springer Nature
+          </p>
+        </div>
+
       </div>
 
       <!-- ── Columna derecha: Texto ── -->
