@@ -39,6 +39,20 @@
       <!-- ── IMAGEN — order-2 en mobile = aparece debajo del texto ── -->
       <div class="flex justify-center items-end order-2 md:order-last animate-scale-in hero-float delay-300 relative">
         <div class="w-full max-w-xs sm:max-w-sm md:max-w-full">
+          <!-- Glow lateral derecho animado (complementa el glow existente) -->
+          <div
+            class="hero-img-glow absolute pointer-events-none"
+            style="
+              left: -20px;
+              top: 20%;
+              width: 3px;
+              height: 55%;
+              background: linear-gradient(to bottom, transparent, rgba(91,168,224,0.5), transparent);
+              border-radius: 2px;
+              filter: blur(3px);
+            "
+            aria-hidden="true"
+          ></div>
           <!-- Decoración borrosa detrás -->
           <div
             class="absolute -inset-4 rounded-full opacity-25"
@@ -66,6 +80,38 @@
             width="480"
             height="600"
           />
+
+          <!-- Badge flotante de especialidad -->
+          <div
+            class="hero-badge-float absolute top-6 -left-4 md:-left-6 px-3 py-2"
+            style="
+              background: rgba(4, 13, 78, 0.88);
+              border: 1px solid rgba(91, 168, 224, 0.4);
+              border-radius: 8px;
+              backdrop-filter: blur(10px);
+              -webkit-backdrop-filter: blur(10px);
+              z-index: 10;
+            "
+            aria-hidden="true"
+          >
+            <p style="
+              font-family: var(--font-body);
+              font-size: 0.6rem;
+              font-weight: 700;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              color: var(--color-accent-light);
+              margin: 0;
+              white-space: nowrap;
+            ">Esp. Enf. Infecciosas</p>
+            <p style="
+              font-family: var(--font-body);
+              font-size: 0.62rem;
+              color: rgba(255,255,255,0.6);
+              margin: 2px 0 0;
+              white-space: nowrap;
+            ">Parasitarias · UBA · UNNOBA</p>
+          </div>
 
           <!-- Glow base de la imagen -->
           <div
@@ -121,12 +167,72 @@
 
         <!-- Párrafo de autoridad -->
         <p
-          class="text-white/70 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-lg animate-fade-in-up delay-300"
+          class="text-white/70 text-sm sm:text-base md:text-lg leading-relaxed mb-5 max-w-lg animate-fade-in-up delay-300"
           style="font-family: var(--font-body); letter-spacing: 0.01em; line-height: 1.75;"
         >
           Referente clínico, formador de veterinarios y divulgador científico.<br />
           Más de 15 años acompañando a mascotas, profesionales e instituciones.
         </p>
+
+        <!-- Strip de stats de autoridad -->
+        <div
+          class="flex items-center gap-5 mb-7 animate-fade-in-up delay-400"
+          style="
+            border-top: 1px solid rgba(255,255,255,0.09);
+            border-bottom: 1px solid rgba(255,255,255,0.09);
+            padding: 12px 0;
+          "
+        >
+          <div class="hero-stat text-center flex-shrink-0">
+            <p
+              class="text-xl font-bold text-white leading-none"
+              style="font-family: var(--font-display);"
+              data-hero-count="15"
+              data-hero-prefix="+"
+              data-hero-suffix=""
+            >+15</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 3px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">años</p>
+          </div>
+
+          <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
+
+          <div class="hero-stat text-center flex-shrink-0">
+            <p
+              class="text-xl font-bold text-white leading-none"
+              style="font-family: var(--font-display);"
+              data-hero-count="4"
+              data-hero-prefix=""
+              data-hero-suffix=""
+            >4</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 3px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">publicaciones</p>
+          </div>
+
+          <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
+
+          <div class="hero-stat text-center flex-shrink-0">
+            <p
+              class="text-xl font-bold text-white leading-none"
+              style="font-family: var(--font-display);"
+              data-hero-count="30"
+              data-hero-prefix=""
+              data-hero-suffix="K+"
+            >30K+</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 3px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">seguidores</p>
+          </div>
+
+          <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
+
+          <div class="hero-stat text-center flex-shrink-0">
+            <p
+              class="text-xl font-bold text-white leading-none"
+              style="font-family: var(--font-display);"
+              data-hero-count="8"
+              data-hero-prefix="+"
+              data-hero-suffix=""
+            >+8</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 3px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">países</p>
+          </div>
+        </div>
 
         <!-- CTAs por audiencia (solo desktop) -->
         <div class="hidden md:flex flex-row flex-wrap gap-3">
@@ -156,6 +262,16 @@
           >
             🏢 Represento una empresa
           </a>
+        </div>
+
+        <!-- Indicador de disponibilidad — solo desktop -->
+        <div
+          class="hidden md:flex items-center gap-2 mt-3 animate-fade-in-up delay-700"
+        >
+          <span class="avail-dot" aria-hidden="true"></span>
+          <span style="font-size: 0.68rem; color: rgba(255,255,255,0.38); font-family: var(--font-body); letter-spacing: 0.04em;">
+            Recibiendo consultas · Buenos Aires, Argentina
+          </span>
         </div>
       </div>
 
@@ -191,5 +307,22 @@
 
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-hero-count]').forEach((el) => {
+        const target = parseInt(el.getAttribute('data-hero-count') || '0', 10);
+        const prefix = el.getAttribute('data-hero-prefix') || '';
+        const suffix = el.getAttribute('data-hero-suffix') || '';
+        let cur = 0;
+        const step = Math.max(1, Math.ceil(target / 28));
+        const iv = setInterval(() => {
+          cur = Math.min(cur + step, target);
+          el.textContent = prefix + cur + suffix;
+          if (cur >= target) clearInterval(iv);
+        }, 45);
+      });
+    });
+  </script>
 
 </section>
