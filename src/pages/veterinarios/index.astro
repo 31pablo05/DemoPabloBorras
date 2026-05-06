@@ -163,24 +163,40 @@ const stats = [
           </div>
         </div>
 
-        <!-- Stats -->
-        <div class="grid grid-cols-2 gap-6">
-          {stats.map(stat => (
+        <!-- Imagen de Pablo -->
+        <div class="flex flex-col gap-6">
+          <!-- Imagen con stats superpuestos abajo -->
+          <div class="img-desktop-rounded overflow-hidden relative" style="box-shadow: var(--shadow-lg);">
+            <img
+              src="/imagenes/perfil/pablo3.jpg"
+              alt="Pablo Borrás — Médico Veterinario"
+              class="w-full object-cover object-top img-desktop-rounded"
+            />
+
+            <!-- Stats overlay translúcido en la parte inferior -->
             <div
-              class="p-6 rounded-2xl text-center"
-              style="background: var(--color-neutral-light); border-radius: var(--radius);"
+              class="absolute bottom-0 left-0 right-0"
+              style="
+                background: linear-gradient(to top, rgba(4,13,78,0.82) 0%, rgba(4,13,78,0.55) 60%, transparent 100%);
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+                padding: 2rem 1.5rem 1.5rem;
+              "
             >
-              <p
-                class="text-3xl font-bold mb-1"
-                style="font-family: var(--font-display); color: var(--color-primary);"
-              >
-                {stat.numero}
-              </p>
-              <p class="text-sm" style="color: var(--color-text-muted);">
-                {stat.label}
-              </p>
+              <div class="grid grid-cols-2 gap-3">
+                {stats.map(stat => (
+                <div class="stat-card text-center">
+                  <p class="stat-number text-2xl font-bold text-white" style="font-family: var(--font-display);">
+                    {stat.numero}
+                  </p>
+                  <p class="text-xs text-white/75 leading-tight mt-0.5">
+                    {stat.label}
+                  </p>
+                </div>
+                ))}
+              </div>
             </div>
-          ))}
+          </div>
         </div>
 
       </div>
@@ -307,3 +323,36 @@ const stats = [
   </section>
 
 </Layout>
+
+<style>
+  .img-desktop-rounded {
+    border-radius: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .img-desktop-rounded {
+      border-radius: 2rem;
+    }
+  }
+
+  .stat-card {
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    cursor: default;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-4px) scale(1.05);
+    background: rgba(255, 255, 255, 0.10);
+  }
+
+  .stat-card:hover .stat-number {
+    color: var(--color-accent-light);
+    transition: color 0.25s ease;
+  }
+
+  .stat-number {
+    transition: color 0.25s ease;
+  }
+</style>

@@ -37,32 +37,48 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
 
       <!-- ── IMAGEN — order-2 en mobile = aparece debajo del texto ── -->
-      <div class="flex justify-center items-end order-2 md:order-last animate-scale-in hero-float delay-300">
-        <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-full">
+      <div class="flex justify-center items-end order-2 md:order-last animate-scale-in hero-float delay-300 relative">
+        <div class="w-full max-w-xs sm:max-w-sm md:max-w-full">
           <!-- Decoración borrosa detrás -->
           <div
-            class="absolute -inset-4 rounded-2xl opacity-20"
-            style="background: var(--color-accent); filter: blur(30px);"
+            class="absolute -inset-4 rounded-full opacity-25"
+            style="background: radial-gradient(circle, #1880c9 0%, #5ba8e0 40%, transparent 70%); filter: blur(70px);"
             aria-hidden="true"
           ></div>
           <img
             src="/imagenes/perfil/pablo2.jpg"
             alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
-            class="relative rounded-3xl object-contain w-full"
-            style="box-shadow: var(--shadow-lg), 0 0 60px rgba(24,128,201,0.20); max-height: 560px;"
+            class="relative w-full"
+            style="
+              max-height: 600px;
+              object-fit: contain;
+              object-position: center bottom;
+              -webkit-mask-image:
+                linear-gradient(to bottom, black 40%, rgba(0,0,0,0.6) 72%, transparent 100%),
+                linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+              -webkit-mask-composite: destination-in;
+              mask-image:
+                linear-gradient(to bottom, black 40%, rgba(0,0,0,0.6) 72%, transparent 100%),
+                linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+              mask-composite: intersect;
+              filter: drop-shadow(0 0 40px rgba(24,128,201,0.25)) drop-shadow(0 20px 60px rgba(2,6,35,0.5));
+            "
             width="480"
-            height="560"
+            height="600"
           />
 
-          <!-- Fade inferior sobre la imagen -->
+          <!-- Glow base de la imagen -->
           <div
             aria-hidden="true"
             style="
               position: absolute;
-              bottom: 0; left: 0; right: 0;
-              height: 100px;
-              background: linear-gradient(to top, #040d4e, transparent);
-              border-radius: 0 0 24px 24px;
+              bottom: -20px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 60%;
+              height: 80px;
+              background: radial-gradient(ellipse, rgba(24,128,201,0.20) 0%, transparent 70%);
+              filter: blur(20px);
               pointer-events: none;
             "
           ></div>
@@ -87,8 +103,16 @@
               Pablo Borrás
             </h1>
             <p
-              class="animate-fade-in-up delay-200 mt-2 text-sm sm:text-base md:text-lg font-medium tracking-wide"
-              style="color: var(--color-accent-light); font-family: var(--font-body);"
+              class="animate-fade-in-up delay-200 mt-2"
+              style="
+                color: var(--color-accent-light);
+                font-family: var(--font-body);
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                font-size: 0.8rem;
+                font-weight: 600;
+                opacity: 0.9;
+              "
             >
               Speaker · Autor · Médico Veterinario
             </p>
@@ -97,8 +121,8 @@
 
         <!-- Párrafo de autoridad -->
         <p
-          class="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-lg animate-fade-in-up delay-300"
-          style="font-family: var(--font-body);"
+          class="text-white/70 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-lg animate-fade-in-up delay-300"
+          style="font-family: var(--font-body); letter-spacing: 0.01em; line-height: 1.75;"
         >
           Referente clínico, formador de veterinarios y divulgador científico.<br />
           Más de 15 años acompañando a mascotas, profesionales e instituciones.
