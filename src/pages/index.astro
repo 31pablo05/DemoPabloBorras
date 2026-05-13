@@ -56,8 +56,9 @@ import Button from '../components/ui/Button.astro';
             accentColor: '#DC2626',
             accentBg: 'rgba(220,38,38,0.07)',
             accentBorder: 'rgba(220,38,38,0.2)',
-            logoBg: '#DC2626',
+            logoBg: '#ffffff',
             logoText: 'in',
+            logoImg: '/imagenes/logo/infobaelogo.png',
           },
           {
             medio: 'La Nación',
@@ -69,8 +70,9 @@ import Button from '../components/ui/Button.astro';
             accentColor: 'var(--color-primary)',
             accentBg: 'rgba(27,62,75,0.07)',
             accentBorder: 'rgba(27,62,75,0.2)',
-            logoBg: '#040d4e',
+            logoBg: '#ffffff',
             logoText: 'LN',
+            logoImg: '/imagenes/logo/lanacion.png',
           },
           {
             medio: 'Mi Negocio Veterinario',
@@ -107,10 +109,13 @@ import Button from '../components/ui/Button.astro';
             style={`border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; transition-delay: ${i * 0.1}s; border-left: 4px solid ${item.accentColor};`}
           >
             <div
-              class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-white text-xs font-bold"
-              style={`background: ${item.logoBg};`}
+              class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-white text-xs font-bold overflow-hidden"
+              style={`background: ${item.logoBg}; border: 1px solid rgba(0,0,0,0.08);`}
             >
-              {item.logoText}
+              {item.logoImg
+                ? <img src={item.logoImg} alt={item.medio} style="width: 100%; height: 100%; object-fit: contain; padding: 6px;" loading="lazy" />
+                : item.logoText
+              }
             </div>
             <div class="flex-1 min-w-0">
               <div class="flex items-center gap-2 mb-1 flex-wrap">
