@@ -2,6 +2,61 @@
 import { useState } from 'react';
 import { videos } from '../../data/videos.js';
 
+function FacadeVideo({ id, titulo }) {
+  const [loaded, setLoaded] = useState(false);
+
+  if (loaded) {
+    return (
+      <div style={{ aspectRatio: '16/9', width: '100%' }}>
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
+          title={titulo}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+          allowFullScreen
+          style={{ width: '100%', height: '100%', border: 'none' }}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div
+      onClick={() => setLoaded(true)}
+      style={{
+        aspectRatio: '16/9',
+        width: '100%',
+        position: 'relative',
+        overflow: 'hidden',
+        cursor: 'pointer',
+        borderRadius: 'var(--radius) var(--radius) 0 0',
+      }}
+    >
+      <img
+        src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
+        alt={titulo}
+        loading="lazy"
+        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+      />
+      <div style={{
+        position: 'absolute', inset: 0,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        background: 'rgba(2,6,35,0.35)',
+      }}>
+        <div style={{
+          width: 56, height: 56, borderRadius: '50%',
+          background: 'rgba(255,255,255,0.95)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.35)',
+        }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#1880c9" aria-hidden="true">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const CATS = ['Todos', ...Array.from(new Set(videos.map(v => v.categoria)))];
 
 const catColor = {
@@ -73,17 +128,8 @@ export default function VideosFiltrados() {
                 e.currentTarget.style.boxShadow = 'var(--shadow)';
               }}
             >
-              {/* iframe YouTube */}
-              <div style={{ aspectRatio: '16/9', width: '100%' }}>
-                <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${video.id}`}
-                  title={video.titulo}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
-                  allowFullScreen
-                  loading="lazy"
-                  style={{ width: '100%', height: '100%', border: 'none', borderRadius: 'var(--radius)' }}
-                />
-              </div>
+              {/* Facade YouTube */}
+              <FacadeVideo id={video.id} titulo={video.titulo} />
 
               {/* Texto */}
               <div style={{ padding: '16px 20px 20px' }}>
