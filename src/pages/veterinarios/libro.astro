@@ -11,8 +11,16 @@ import LibroTecnico from '../../components/veterinarios/LibroTecnico.astro';
 
   <!-- Encabezado -->
   <section
-    class="py-16"
-    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-neutral-dark) 100%);"
+    style="
+      position: relative;
+      padding: 6rem 0;
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(135deg, rgba(4,13,78,0.78) 0%, rgba(2,6,35,0.84) 100%),
+        url('/imagenes/perfil/pablo2.jpg') center 20% / 35% auto no-repeat;
+    "
   >
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <nav class="text-sm mb-4" aria-label="Breadcrumb">
