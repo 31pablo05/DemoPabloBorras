@@ -42,19 +42,31 @@ const publicoObjetivo = [
       style="box-shadow: var(--shadow-lg); border-radius: 16px;"
     >
 
-      <!-- Imagen portada del libro -->
+      <!-- Panel izquierdo azul: foto de Pablo + portada del libro -->
       <div
-        class="lg:w-72 shrink-0 flex items-center justify-center p-8"
+        class="lg:w-72 shrink-0 flex flex-col items-center justify-end gap-4 pt-8 px-8 pb-0"
         style="background: var(--color-primary);"
       >
-          <!-- TODO: confirmar nombre del archivo de tapa con Pablo -->
-          <img
+        <!-- Foto de Pablo sosteniendo el libro -->
+        <img
+          src="/imagenes/perfil/pablo1.jpg"
+          alt="Pablo Borrás sosteniendo su libro"
+          class="rounded-xl w-full object-cover object-top"
+          style="
+            max-height: 240px;
+            object-position: center 20%;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+            border: 2px solid rgba(255,255,255,0.12);
+          "
+        />
+        <!-- Portada del libro -->
+        <img
           src="/imagenes/libro/port.jpg"
           alt="Portada del Manual Práctico de Enfermedades Infecciosas y Parasitarias en el Perro — Pablo Borrás"
           class="rounded-lg"
-          style="box-shadow: 0 8px 32px rgba(0,0,0,0.3);"
-          width="280"
-          height="380"
+          style="box-shadow: 0 8px 32px rgba(0,0,0,0.3); margin-bottom: -1px;"
+          width="200"
+          height="270"
         />
       </div>
 
@@ -137,9 +149,8 @@ const publicoObjetivo = [
           <Button href="https://libros-veterinaria.multimedica.es/parasitologia/472-manual-practico-de-enfermedades-infecciosas-y-parasitarias-del-perro.html" variant="primary" size="lg" external={true}>
             Obtener el libro →
           </Button>
-          <!-- TODO: reemplazar con URLs exactas de ML y Amazon -->
           <a
-            href="https://www.mercadolibre.com.ar/buscar?q=manual+practico+enfermedades+infecciosas+parasitarias+perro+borras"
+            href="https://www.mercadolibre.com.ar/borras-manual-enfermedades-infecciosas-y-parasitarias-perro/up/MLAU426974103#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=7&type=product&float_highlight=last_units&tracking_id=c5fc6b0f-02dc-4397-b432-ee73603769fb&wid=MLA1439922199&sid=search"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center justify-center font-semibold transition-all duration-200 px-6 py-4 text-sm"
