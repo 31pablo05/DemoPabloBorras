@@ -1,6 +1,5 @@
 ﻿---
-// GaleriaCongresos.astro — Galería de fotos de congresos internacionales
-// TODO: reemplazar imágenes en /public/imagenes/congresos/ con las fotos reales
+// GaleriaCongresos.astro — Galería de fotos con overlay hover
 import SectionTitle from '../ui/SectionTitle.astro';
 
 const congresos = [
@@ -10,6 +9,7 @@ const congresos = [
     lugar: 'Maastricht, Países Bajos',
     año: '2025',
     rol: 'Póster científico',
+    rolColor: 'blue',
   },
   {
     foto: '/imagenes/congresos/waavp-curitiba-2025.jpg',
@@ -17,6 +17,7 @@ const congresos = [
     lugar: 'Curitiba, Brasil',
     año: '2025',
     rol: 'Presentación científica',
+    rolColor: 'blue',
   },
   {
     foto: '/imagenes/congresos/aveaca-buenos-aires-2025.jpg',
@@ -24,6 +25,7 @@ const congresos = [
     lugar: 'Buenos Aires, Argentina',
     año: '2025',
     rol: '2° Premio mejor caso clínico',
+    rolColor: 'gold',
   },
   {
     foto: '/imagenes/congresos/cvdl-guayaquil-2025.jpg',
@@ -31,6 +33,7 @@ const congresos = [
     lugar: 'Guayaquil, Ecuador',
     año: '2025',
     rol: 'Ponente',
+    rolColor: 'blue',
   },
   {
     foto: '/imagenes/congresos/civi-iguazu-2025.jpg',
@@ -38,6 +41,7 @@ const congresos = [
     lugar: 'Iguazú, Argentina',
     año: '2025',
     rol: 'Ponente invitado',
+    rolColor: 'blue',
   },
   {
     foto: '/imagenes/congresos/idexx-asuncion-2025.jpg',
@@ -45,6 +49,7 @@ const congresos = [
     lugar: 'Asunción, Paraguay',
     año: '2025',
     rol: 'Speaker oficial',
+    rolColor: 'blue',
   },
   {
     foto: '/imagenes/congresos/hospital-muniz-2025.jpg',
@@ -52,6 +57,7 @@ const congresos = [
     lugar: 'Buenos Aires, Argentina',
     año: '2025',
     rol: 'Disertante',
+    rolColor: 'blue',
   },
   {
     foto: '/imagenes/congresos/medellin-colombia-2025.jpg',
@@ -59,6 +65,7 @@ const congresos = [
     lugar: 'Medellín, Colombia',
     año: '2025',
     rol: 'Ponente',
+    rolColor: 'blue',
   },
   {
     foto: '/imagenes/congresos/mendoza-2025.jpg',
@@ -66,8 +73,14 @@ const congresos = [
     lugar: 'Mendoza, Argentina',
     año: '2025',
     rol: 'Docente',
+    rolColor: 'blue',
   },
 ];
+
+const rolChipStyle = {
+  blue: 'background: rgba(24,128,201,0.35); color: #5ba8e0; border: 1px solid rgba(24,128,201,0.45);',
+  gold: 'background: rgba(252,211,77,0.20); color: #FCD34D; border: 1px solid rgba(252,211,77,0.40);',
+};
 ---
 
 <section class="py-20 bg-white">
@@ -78,48 +91,33 @@ const congresos = [
       subtitle="Congresos y eventos"
     />
 
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-    >
-      {congresos.map((congreso) => (
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {congresos.map((congreso, i) => (
         <div
-          class="reveal rounded-2xl overflow-hidden card-lift"
-          style="box-shadow: var(--shadow); border-radius: var(--radius);"
+          class="congreso-card reveal"
+          style={`transition-delay: ${(i % 3) * 0.1}s;`}
         >
-          <!-- Imagen con overlay al hover -->
-          <div class="relative" style="aspect-ratio: 4/3; overflow: hidden;">
-            <img
-              src={congreso.foto}
-              alt={`${congreso.evento} — ${congreso.lugar}`}
-              class="congreso-img w-full h-full object-cover"
-              loading="lazy"
-            />
-            <!-- Overlay oscuro sutil al hover (CSS) -->
-            <div class="congreso-overlay absolute inset-0" style="background: rgba(0,0,0,0); transition: background 0.3s;"></div>
-            <!-- Badge año -->
-            <span
-              class="absolute top-3 right-3 px-2 py-0.5 rounded-full text-xs font-semibold"
-              style="background: var(--color-primary); color: #fff; opacity: 0.9;"
-            >
-              {congreso.año}
-            </span>
-          </div>
+          <!-- Imagen fullsize -->
+          <img
+            src={congreso.foto}
+            alt={`${congreso.evento} — ${congreso.lugar}`}
+            class="congreso-img"
+            loading="lazy"
+            decoding="async"
+            width="400"
+            height="300"
+          />
 
-          <!-- Contenido de la card -->
-          <div class="p-5">
-            <h3
-              class="font-bold text-base leading-snug mb-1"
-              style="font-family: var(--font-display); color: var(--color-text);"
-            >
-              {congreso.evento}
-            </h3>
-            <p class="text-xs mb-3" style="color: var(--color-text-muted);">
-              {congreso.lugar}
-            </p>
-            <!-- Chip de rol -->
+          <!-- Badge año — siempre visible -->
+          <span class="year-badge">{congreso.año}</span>
+
+          <!-- Overlay con info — aparece al hover -->
+          <div class="congreso-overlay-info">
+            <p class="congreso-overlay-title">{congreso.evento}</p>
+            <p class="congreso-overlay-lugar">📍 {congreso.lugar}</p>
             <span
-              class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium"
-              style="background: rgba(24,128,201,0.10); color: var(--color-accent); border: 1px solid rgba(24,128,201,0.20);"
+              class="congreso-rol-chip"
+              style={rolChipStyle[congreso.rolColor] || rolChipStyle.blue}
             >
               {congreso.rol}
             </span>
@@ -132,14 +130,102 @@ const congresos = [
 </section>
 
 <style>
-  .congreso-card:hover .congreso-img {
-    transform: scale(1.04);
-    transition: transform 0.4s ease;
+  /* ── Card contenedor ── */
+  .congreso-card {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--color-primary);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.10);
+    transition: box-shadow 0.3s ease;
   }
+  .congreso-card:hover {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.20);
+  }
+
+  /* ── Imagen ── */
   .congreso-img {
-    transition: transform 0.4s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
   }
-  .card-lift:hover .congreso-overlay {
-    background: rgba(0, 0, 0, 0.18) !important;
+  .congreso-card:hover .congreso-img {
+    transform: scale(1.07);
+  }
+
+  /* ── Badge año ── */
+  .year-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(4, 13, 78, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Overlay info — slide desde abajo ── */
+  .congreso-overlay-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 16px 16px;
+    background: linear-gradient(
+      to top,
+      rgba(2, 6, 35, 0.94) 0%,
+      rgba(2, 6, 35, 0.65) 55%,
+      transparent 100%
+    );
+    transform: translateY(30px);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.35s ease;
+  }
+  .congreso-card:hover .congreso-overlay-info {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* ── Textos del overlay ── */
+  .congreso-overlay-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 4px;
+    line-height: 1.3;
+    font-family: var(--font-display);
+  }
+  .congreso-overlay-lugar {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0 0 10px;
+  }
+
+  /* ── Chip de rol ── */
+  .congreso-rol-chip {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Mobile: overlay siempre visible (no hay hover en touch) ── */
+  @media (max-width: 768px) {
+    .congreso-overlay-info {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 </style>

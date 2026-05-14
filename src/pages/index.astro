@@ -86,6 +86,7 @@ import Button from '../components/ui/Button.astro';
             accentBorder: 'rgba(24,128,201,0.20)',
             logoBg: 'var(--color-accent)',
             logoText: 'MNV',
+            logoImg: '/imagenes/logo/logominegocio.png',
           },
           {
             medio: 'Instagram viral',
@@ -97,16 +98,17 @@ import Button from '../components/ui/Button.astro';
             accentColor: '#E4405F',
             accentBg: 'rgba(228,64,95,0.07)',
             accentBorder: 'rgba(228,64,95,0.2)',
-            logoBg: '#E4405F',
+            logoBg: '#ffffff',
             logoText: 'IG',
+            logoImg: '/imagenes/logo/infobaelogo.png',
           },
         ].map((item, i) => (
           <a
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="reveal flex items-start gap-5 p-6 bg-white transition-all hover:shadow-md hover:-translate-y-0.5"
-            style={`border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; transition-delay: ${i * 0.1}s; border-left: 4px solid ${item.accentColor};`}
+            class="reveal media-card flex items-start gap-5 p-6 bg-white"
+            style={`border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; transition-delay: ${i * 0.1}s; border-left: 3px solid ${item.accentColor}; transition: transform 0.25s ease, box-shadow 0.25s ease, border-left-width 0.2s ease;`}
           >
             <div
               class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-white text-xs font-bold overflow-hidden"
@@ -125,7 +127,28 @@ import Button from '../components/ui/Button.astro';
               <p class="text-sm leading-snug font-semibold mb-3" style="color: var(--color-text);">{item.titulo}</p>
               <div class="flex items-center justify-between">
                 <span class="text-xs" style="color: var(--color-text-muted);">{item.año}</span>
-                <span class="text-xs font-semibold" style={`color: ${item.accentColor};`}>{item.cta}</span>
+                <span
+                  class="media-cta inline-flex items-center gap-1 text-xs font-semibold"
+                  style={`color: ${item.accentColor}; opacity: 0.72; transition: opacity 0.2s;`}
+                >
+                  {item.cta.replace(' →', '')}
+                  <svg
+                    class="media-arrow"
+                    style="transition: transform 0.2s ease; flex-shrink: 0;"
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </span>
               </div>
             </div>
           </a>
@@ -203,3 +226,25 @@ import Button from '../components/ui/Button.astro';
   </section>
 
 </Layout>
+
+<style>
+  /* En los medios — hover lift en cards */
+  .media-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-left-width 0.2s ease;
+  }
+  .media-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10) !important;
+    border-left-width: 5px !important;
+  }
+
+  /* Flecha se mueve al hover */
+  .media-card:hover .media-arrow {
+    transform: translateX(4px);
+  }
+
+  /* CTA sube a opacity completa al hover */
+  .media-card:hover .media-cta {
+    opacity: 1 !important;
+  }
+</style>
