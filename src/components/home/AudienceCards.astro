@@ -54,8 +54,9 @@ const cards = [
       {cards.map((card, index) => (
         <a
           href={card.href}
-          class="card-lift reveal group block bg-white rounded-2xl p-8 no-underline"
-          style={`border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; border-top: 3px solid ${card.color}; transition: transform 0.25s, box-shadow 0.25s; transition-delay: ${index * 0.15}s;`}
+          class="card-lift reveal group audience-card block bg-white rounded-2xl p-8 no-underline"
+          style={`border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; border-top: 3px solid ${card.color}; opacity: 0.55; transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s, opacity 0.25s; transition-delay: ${index * 0.15}s;`}
+          data-color={card.color}
         >
           <!-- Ícono -->
           <div
@@ -82,10 +83,26 @@ const cards = [
 
           <!-- CTA texto -->
           <span
-            class="text-sm font-semibold transition-colors group-hover:underline"
+            class="inline-flex items-center gap-1.5 text-sm font-semibold"
             style={`color: ${card.color};`}
           >
-            {card.cta} →
+            {card.cta}
+            <svg
+              class="card-cta-arrow"
+              style="transition: transform 0.2s ease; flex-shrink: 0;"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
           </span>
         </a>
       ))}
@@ -93,3 +110,13 @@ const cards = [
 
   </div>
 </section>
+
+<style>
+  .audience-card:hover {
+    border-top-color: currentColor;
+    opacity: 1 !important;
+  }
+  .audience-card:hover .card-cta-arrow {
+    transform: translateX(4px);
+  }
+</style>

@@ -37,12 +37,58 @@ function formatFecha(fechaStr) {
 }
 ---
 
-<section class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-20" style="position: relative; background: #060b1e; overflow: hidden;">
+
+  <!-- Desktop (lg+): pablob3.png 1920×1080, landscape, cubre toda la sección -->
+  <img
+    src="/imagenes/perfil/pablob3.png"
+    alt=""
+    aria-hidden="true"
+    class="hidden lg:block"
+    style="
+      position: absolute;
+      top: -15px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: calc(100% + 15px);
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.28;
+      pointer-events: none;
+      user-select: none;
+    "
+  />
+
+  <!-- Mobile (<lg): pablob2.png 1080×1920 portrait, cubre toda la sección -->
+  <img
+    src="/imagenes/perfil/pablob2.png"
+    alt=""
+    aria-hidden="true"
+    class="lg:hidden"
+    style="
+      position: absolute;
+      top: -280px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: calc(100% + 280px);
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.22;
+      pointer-events: none;
+      user-select: none;
+    "
+  />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="position: relative; z-index: 1;">
 
     <SectionTitle
       title={tituloSeccion}
       subtitle={subtituloSeccion}
+      light={true}
     />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-2">
