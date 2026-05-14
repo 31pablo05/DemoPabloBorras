@@ -25,9 +25,12 @@
     style="z-index: 0;"
     aria-hidden="true"
   >
+    <!-- Desktop -->
     <img
+      id="hero-bg-pablo"
       src="/imagenes/perfil/pablofondohero2.png"
       alt=""
+      class="hidden md:block"
       style="
         position: absolute;
         left: 0;
@@ -40,6 +43,25 @@
         filter: blur(0.5px) saturate(0.85);
         -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 45%, transparent 100%);
         mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 45%, transparent 100%);
+      "
+    />
+    <!-- Mobile -->
+    <img
+      src="/imagenes/perfil/fondoheromobile.png"
+      alt=""
+      class="block md:hidden"
+      style="
+        position: absolute;
+        left: 0;
+        top: -10%;
+        height: 112%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center top;
+        opacity: 0.32;
+        filter: blur(0.5px) saturate(0.85);
+        -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 55%, transparent 100%);
+        mask-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 55%, transparent 100%);
       "
     />
   </div>
@@ -200,7 +222,7 @@
       </div>
 
       <!-- ── TEXTO — order-1 en mobile = aparece arriba de la imagen ── -->
-      <div class="order-1 md:order-first pt-0 md:pt-0">
+      <div class="order-1 md:order-first pt-0 md:pt-0 mt-24 md:mt-0">
         <!-- Línea decorativa + nombre -->
         <div class="flex items-start gap-4 mb-5">
           <div
