@@ -19,6 +19,31 @@
   <!-- Patrón decorativo de puntos sobre el fondo -->
   <div class="dot-pattern absolute inset-0 pointer-events-none" aria-hidden="true"></div>
 
+  <!-- Imagen de Pablo difuminada — lado izquierdo, detrás de todo -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="z-index: 0;"
+    aria-hidden="true"
+  >
+    <img
+      src="/imagenes/perfil/pablofondohero2.png"
+      alt=""
+      style="
+        position: absolute;
+        left: 0;
+        top: -12%;
+        height: 115%;
+        width: 55%;
+        object-fit: cover;
+        object-position: left top;
+        opacity: 0.32;
+        filter: blur(0.5px) saturate(0.85);
+        -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 45%, transparent 100%);
+        mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 45%, transparent 100%);
+      "
+    />
+  </div>
+
   <!-- Elemento decorativo: círculo de acento superior derecha (float animado) -->
   <div
     class="blob-float absolute top-0 right-0 w-96 h-96 rounded-full opacity-[0.15] pointer-events-none"
@@ -33,7 +58,7 @@
     aria-hidden="true"
   ></div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:py-20 w-full">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:py-20 w-full" style="position: relative; z-index: 1;">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
 
       <!-- ── IMAGEN — order-2 en mobile = aparece debajo del texto ── -->
