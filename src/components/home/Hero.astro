@@ -146,7 +146,13 @@
           <!-- ── Imagen DESKTOP: cuerpo entero con mask y fade ── -->
           <div
             class="relative w-full hidden md:block"
-            style="border-radius: 24px 24px 0 0; overflow: hidden;"
+            style="
+              border-radius: 20px;
+              overflow: hidden;
+              box-shadow:
+                6px 0 48px rgba(24,128,201,0.22),
+                0 8px 40px rgba(2,6,35,0.5);
+            "
           >
             <img
               src="/imagenes/perfil/pablo2.jpg"
@@ -230,14 +236,20 @@
         <!-- Línea decorativa + nombre -->
         <div class="flex items-start gap-4 mb-5">
           <div
-            class="animate-slide-in-left w-1 self-stretch rounded-full mt-1 shrink-0"
-            style="background: var(--color-accent); min-height: 48px; background: linear-gradient(to bottom, #1880c9, #5ba8e0);"
+            class="hero-bar-grow w-1 self-stretch rounded-full mt-1 shrink-0"
+            style="background: linear-gradient(to bottom, #1880c9, #5ba8e0); min-height: 48px;"
             aria-hidden="true"
           ></div>
           <div>
             <h1
-              class="animate-fade-in-up delay-100 text-4xl sm:text-5xl md:text-6xl text-white font-bold leading-tight"
-              style="font-family: var(--font-display);"
+              class="animate-fade-in-up delay-100 text-4xl sm:text-5xl md:text-6xl font-bold leading-tight"
+              style="
+                font-family: var(--font-display);
+                background: linear-gradient(135deg, #ffffff 0%, #ffffff 55%, #5ba8e0 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+              "
             >
               Pablo Borrás
             </h1>
@@ -284,7 +296,7 @@
               data-hero-prefix="+"
               data-hero-suffix=""
             >+15</p>
-            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 3px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">años</p>
+            <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">años</p>
           </div>
 
           <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
@@ -297,7 +309,7 @@
               data-hero-prefix=""
               data-hero-suffix=""
             >4</p>
-            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 3px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">publicaciones</p>
+            <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">publicaciones</p>
           </div>
 
           <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
@@ -310,7 +322,7 @@
               data-hero-prefix=""
               data-hero-suffix="K+"
             >30K+</p>
-            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 3px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">seguidores</p>
+            <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">seguidores</p>
           </div>
 
           <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
@@ -323,38 +335,75 @@
               data-hero-prefix="+"
               data-hero-suffix=""
             >+8</p>
-            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 3px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">países</p>
+            <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">países</p>
           </div>
         </div>
 
         <!-- CTAs por audiencia (solo desktop) -->
-        <div class="hidden md:flex flex-row flex-wrap gap-3">
-          <!-- CTA tutores -->
+        <div class="hidden md:flex flex-row flex-wrap gap-3 animate-fade-in-up delay-400">
+
+          <!-- CTA tutores — blanco -->
           <a
             href="/tutores"
-            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm text-white transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 animate-fade-in-up delay-400"
-            style="background: var(--color-accent); border-radius: var(--radius);"
+            class="inline-flex items-center gap-2.5 px-6 py-3 font-bold text-sm transition-all duration-200 animate-fade-in-up delay-400"
+            style="
+              border-radius: 10px;
+              background: #ffffff;
+              color: #040d4e;
+              text-decoration: none;
+              box-shadow: 0 2px 12px rgba(255,255,255,0.12);
+            "
+            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(255,255,255,0.25)'; this.style.background='#f0f4ff';"
+            onmouseout="this.style.transform=''; this.style.boxShadow='0 2px 12px rgba(255,255,255,0.12)'; this.style.background='#ffffff';"
           >
-            🐾 Soy tutor de mascotas
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            Soy tutor de mascotas
           </a>
 
-          <!-- CTA veterinarios -->
+          <!-- CTA veterinarios — celeste -->
           <a
             href="/veterinarios"
-            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm transition-all duration-200 hover:bg-gray-100 hover:-translate-y-0.5 animate-fade-in-up delay-500"
-            style="background: #fff; color: var(--color-primary); border-radius: var(--radius);"
+            class="inline-flex items-center gap-2.5 px-6 py-3 font-semibold text-sm transition-all duration-200 animate-fade-in-up delay-500"
+            style="
+              border-radius: 10px;
+              background: #1880c9;
+              color: #ffffff;
+              text-decoration: none;
+              box-shadow: 0 2px 12px rgba(24,128,201,0.3);
+            "
+            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(24,128,201,0.5)'; this.style.background='#1a90e0';"
+            onmouseout="this.style.transform=''; this.style.boxShadow='0 2px 12px rgba(24,128,201,0.3)'; this.style.background='#1880c9';"
           >
-            🩺 Soy veterinario
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+            Soy veterinario
           </a>
 
-          <!-- CTA empresas -->
+          <!-- CTA empresas — outline -->
           <a
             href="/empresas"
-            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-white transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5 animate-fade-in-up delay-600"
-            style="border-radius: var(--radius); opacity: 0.75; border: 1.5px solid rgba(255,255,255,0.35); font-size: 0.8rem;"
+            class="inline-flex items-center gap-2 font-medium text-sm transition-all duration-200 animate-fade-in-up delay-600"
+            style="
+              border-radius: 10px;
+              padding: 11px 22px;
+              background: transparent;
+              color: rgba(255,255,255,0.6);
+              text-decoration: none;
+              border: 1.5px solid rgba(255,255,255,0.3);
+            "
+            onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(255,255,255,0.85)'; this.style.color='rgba(255,255,255,0.85)';"
+            onmouseout="this.style.transform=''; this.style.borderColor='rgba(255,255,255,0.3)'; this.style.color='rgba(255,255,255,0.6)';"
           >
-            🏢 Represento una empresa
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="7" width="20" height="14" rx="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+            Represento una empresa →
           </a>
+
         </div>
 
         <!-- Indicador de disponibilidad — solo desktop -->
@@ -379,53 +428,82 @@
       >
         <div class="hero-stat text-center flex-shrink-0">
           <p class="text-xl font-bold text-white leading-none" style="font-family: var(--font-display);" data-hero-count="15" data-hero-prefix="+" data-hero-suffix="">+15</p>
-          <p style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 3px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">años</p>
+          <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">años</p>
         </div>
         <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
         <div class="hero-stat text-center flex-shrink-0">
           <p class="text-xl font-bold text-white leading-none" style="font-family: var(--font-display);" data-hero-count="4" data-hero-prefix="" data-hero-suffix="">4</p>
-          <p style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 3px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">publicaciones</p>
+          <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">publicaciones</p>
         </div>
         <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
         <div class="hero-stat text-center flex-shrink-0">
           <p class="text-xl font-bold text-white leading-none" style="font-family: var(--font-display);" data-hero-count="30" data-hero-prefix="" data-hero-suffix="K+">30K+</p>
-          <p style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 3px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">seguidores</p>
+          <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">seguidores</p>
         </div>
         <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
         <div class="hero-stat text-center flex-shrink-0">
           <p class="text-xl font-bold text-white leading-none" style="font-family: var(--font-display);" data-hero-count="8" data-hero-prefix="+" data-hero-suffix="">+8</p>
-          <p style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 3px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">países</p>
+          <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">países</p>
         </div>
       </div>
 
       <!-- CTAs por audiencia (solo mobile — debajo de la imagen) -->
       <div class="flex md:hidden flex-col gap-3 order-4 w-full">
-          <!-- CTA tutores -->
-          <a
-            href="/tutores"
-            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm text-white transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
-            style="background: var(--color-accent); border-radius: var(--radius);"
-          >
-            🐾 Soy tutor de mascotas
-          </a>
 
-          <!-- CTA veterinarios -->
-          <a
-            href="/veterinarios"
-            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm transition-all duration-200 hover:bg-gray-100 hover:-translate-y-0.5"
-            style="background: #fff; color: var(--color-primary); border-radius: var(--radius);"
-          >
-            🩺 Soy veterinario
-          </a>
+        <!-- CTA tutores — blanco -->
+        <a
+          href="/tutores"
+          class="inline-flex items-center justify-center gap-2.5 px-6 py-3 font-bold text-sm"
+          style="
+            border-radius: 10px;
+            background: #ffffff;
+            color: #040d4e;
+            text-decoration: none;
+          "
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          Soy tutor de mascotas
+        </a>
 
-          <!-- CTA empresas -->
-          <a
-            href="/empresas"
-            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-white transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5"
-            style="border-radius: var(--radius); opacity: 0.75; border: 1.5px solid rgba(255,255,255,0.35); font-size: 0.8rem;"
-          >
-            🏢 Represento una empresa
-          </a>
+        <!-- CTA veterinarios — celeste -->
+        <a
+          href="/veterinarios"
+          class="inline-flex items-center justify-center gap-2.5 px-6 py-3 font-semibold text-sm"
+          style="
+            border-radius: 10px;
+            background: #1880c9;
+            color: #ffffff;
+            text-decoration: none;
+          "
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+          Soy veterinario
+        </a>
+
+        <!-- CTA empresas — outline -->
+        <a
+          href="/empresas"
+          class="inline-flex items-center justify-center gap-2 font-medium text-sm"
+          style="
+            border-radius: 10px;
+            padding: 11px 22px;
+            background: transparent;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            border: 1.5px solid rgba(255,255,255,0.3);
+          "
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
+          Represento una empresa →
+        </a>
+
       </div>
 
     </div>

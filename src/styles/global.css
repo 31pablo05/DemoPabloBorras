@@ -241,9 +241,23 @@ img {
 }
 
 /* Imagen del logo */
+@keyframes logo-enter {
+  from { opacity: 0; transform: scale(0.82) translateY(6px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0);   }
+}
+
 .logo-img {
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
-  transition: filter 0.35s ease;
+  transform-origin: center bottom;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter    0.35s ease;
+  animation: logo-enter 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.logo-group:hover .logo-img {
+  transform: scale(1.12);
+  filter: drop-shadow(0 6px 16px rgba(24, 128, 201, 0.35));
 }
 
 /* Pill de nav — estado normal */
@@ -455,6 +469,16 @@ img {
 .hero-stat:nth-child(1) { animation-delay: 0.85s; }
 .hero-stat:nth-child(3) { animation-delay: 0.95s; }
 .hero-stat:nth-child(5) { animation-delay: 1.05s; }
+
+/* Barra vertical del Hero — crece de arriba hacia abajo */
+@keyframes barGrow {
+  from { transform: scaleY(0); opacity: 0; transform-origin: top; }
+  to   { transform: scaleY(1); opacity: 1; transform-origin: top; }
+}
+.hero-bar-grow {
+  animation: barGrow 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  transform-origin: top;
+}
 
 /* Dot de disponibilidad */
 @keyframes availPulse {
