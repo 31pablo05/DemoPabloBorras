@@ -14,10 +14,10 @@ const stats = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-      <!-- ── Columna izquierda: Grid de fotos + Stats + Caption ── -->
+      <!-- ── Columna izquierda: Grid de fotos + Caption ── -->
       <div class="reveal hidden lg:flex flex-col gap-4" style="transition-delay: 0.1s;">
 
-        <!-- 1. Grid de fotos (igual que antes) -->
+        <!-- 1. Grid de fotos -->
         <div
           class="hidden lg:grid"
           style="
@@ -108,35 +108,7 @@ const stats = [
           </a>
         </div>
 
-        <!-- 2. Grid de stats 2×2 -->
-        <div class="grid grid-cols-2 gap-3">
-          {stats.map((stat) => (
-            <div
-              class="p-5 text-center"
-              style="
-                background: #f7fafd;
-                border: 1px solid #d1e0f0;
-                border-radius: 12px;
-              "
-            >
-              <p
-                class="text-3xl font-bold leading-none mb-2"
-                style="font-family: var(--font-display); color: #1880c9;"
-                data-count
-              >
-                {stat.numero}
-              </p>
-              <p
-                class="text-xs uppercase tracking-wide"
-                style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.05em;"
-              >
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <!-- 3. Strip de credencial inferior -->
+        <!-- 2. Strip de credencial inferior -->
         <div
           style="
             display: flex;
