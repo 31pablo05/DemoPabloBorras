@@ -12,63 +12,12 @@ const stats = [
 
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-      <!-- ── Columna izquierda: Grid B1 — 2 fotos + tapa libro ── -->
-      <div
-        class="reveal hidden lg:flex flex-col gap-3"
-        style="transition-delay: 0.1s;"
-      >
+      <!-- ── Columna izquierda: Grid de fotos + Stats + Caption ── -->
+      <div class="reveal hidden lg:flex flex-col gap-4" style="transition-delay: 0.1s;">
 
-        <!-- Layout mobile: foto principal + mini-row congreso/libro -->
-        <div class="flex flex-col gap-3 lg:hidden">
-          <!-- Foto principal -->
-          <div style="border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); max-height: 340px;">
-            <img
-              src="/imagenes/perfil/pablo4.png"
-              alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
-              class="w-full object-cover object-top"
-              style="border-radius: 16px; max-height: 340px;"
-              width="480"
-              height="340"
-            />
-          </div>
-          <!-- Fila de 2: congreso + libro -->
-          <div class="grid grid-cols-2 gap-3" style="height: 160px;">
-            <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow);">
-              <img
-                src="/imagenes/congresos/medellin-colombia-2025.jpg"
-                alt="Pablo Borrás en congreso internacional"
-                class="w-full h-full object-cover object-center"
-                style="border-radius: 12px;"
-                loading="lazy"
-                width="200"
-                height="160"
-              />
-            </div>
-            <a
-              href="/veterinarios/libro"
-              class="flex items-center justify-center"
-              style="
-                border-radius: 12px;
-                overflow: hidden;
-                position: relative;
-                background: linear-gradient(160deg, #0a1a5c 0%, #0d2d8a 40%, #1055b0 70%, #1880c9 100%);
-                box-shadow: var(--shadow);
-              "
-            >
-              <img
-                src="/imagenes/libro/libroport2.png"
-                alt="Manual Práctico — Pablo Borrás"
-                style="width: 85%; height: 90%; object-fit: contain; border-radius: 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.4);"
-                width="130"
-                height="144"
-              />
-            </a>
-          </div>
-        </div>
-
-        <!-- Grid de 3 celdas: foto grande izquierda + foto congreso + libro (solo desktop) -->
+        <!-- 1. Grid de fotos (igual que antes) -->
         <div
           class="hidden lg:grid"
           style="
@@ -78,7 +27,6 @@ const stats = [
             height: clamp(520px, 65vw, 720px);
           "
         >
-
           <!-- Celda 1: Foto principal — ocupa las 2 filas -->
           <div class="sobrepablo-card" style="grid-row: 1 / 3; position: relative; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-lg);">
             <img
@@ -158,10 +106,37 @@ const stats = [
               ">Ver libro →</p>
             </div>
           </a>
-
         </div>
 
-        <!-- Strip de credencial inferior -->
+        <!-- 2. Grid de stats 2×2 -->
+        <div class="grid grid-cols-2 gap-3">
+          {stats.map((stat) => (
+            <div
+              class="p-5 text-center"
+              style="
+                background: #f7fafd;
+                border: 1px solid #d1e0f0;
+                border-radius: 12px;
+              "
+            >
+              <p
+                class="text-3xl font-bold leading-none mb-2"
+                style="font-family: var(--font-display); color: #1880c9;"
+                data-count
+              >
+                {stat.numero}
+              </p>
+              <p
+                class="text-xs uppercase tracking-wide"
+                style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.05em;"
+              >
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <!-- 3. Strip de credencial inferior -->
         <div
           style="
             display: flex;
@@ -214,20 +189,33 @@ const stats = [
         <!-- Título -->
         <div class="reveal" style="transition-delay: 0.15s;">
           <h2
-            class="text-3xl md:text-4xl font-bold mb-5 leading-tight"
+            class="text-3xl md:text-4xl font-bold mb-6 leading-tight"
             style="font-family: var(--font-display); color: var(--color-text);"
           >
             Más de <span style="color: var(--color-accent);">15 años</span> transformando la medicina veterinaria
           </h2>
         </div>
 
-        <!-- Párrafo bio -->
+        <!-- Párrafo bio — LEAD (formación y editor) -->
         <div class="reveal" style="transition-delay: 0.2s;">
-          <p class="text-base leading-relaxed mb-8" style="color: var(--color-text-muted);">
+          <p
+            class="text-base leading-relaxed mb-4"
+            style="color: #111827; font-weight: 600; font-family: var(--font-body);"
+          >
             Médico Veterinario egresado de la Universidad de Buenos Aires. Especialista
             en Enfermedades Infecciosas y Parasitarias (CPHV) y Magíster en Prevención y
             Control de Zoonosis (UNNOBA–ANLIS). Editor asociado de <em>Parasites and Vectors</em>
-            (Springer Nature). Miembro del TroCCAP Council e ISCAID. Colaborador del
+            (Springer Nature).
+          </p>
+        </div>
+
+        <!-- Párrafo bio — DETALLE (membresías, máster y países) -->
+        <div class="reveal" style="transition-delay: 0.25s;">
+          <p
+            class="text-sm leading-relaxed mb-8"
+            style="color: #374151; font-weight: 400; font-family: var(--font-body);"
+          >
+            Miembro del TroCCAP Council e ISCAID. Colaborador del
             servicio de Zoopatología del Hospital Francisco J. Muñiz. Actualmente
             cursando el Máster en Medicina Interna de Pequeños Animales en la
             Universidad Autónoma de Barcelona (España). Docente, investigador y speaker
@@ -236,7 +224,7 @@ const stats = [
           </p>
         </div>
 
-        <!-- Imágenes — solo mobile (entre bio y stats) -->
+        <!-- Imágenes — solo mobile (entre bio y CTA) -->
         <div class="lg:hidden flex flex-col gap-3 mb-8">
           <!-- Foto principal -->
           <div style="border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); max-height: 340px;">
@@ -302,38 +290,37 @@ const stats = [
               Editor asociado · <em>Parasites &amp; Vectors</em> — Springer Nature
             </p>
           </div>
-        </div>
-
-        <!-- Stats en grid 2×2 -->
-        <div class="reveal grid grid-cols-2 mb-8" style="transition-delay: 0.35s; border: 1px solid #e2eaf4; border-radius: 12px; overflow: hidden;">
-          {stats.map((stat, i) => {
-            const isRightCol = i % 2 === 1;
-            const isTopRow   = i < 2;
-            return (
+          <!-- Stats mobile 2x2 -->
+          <div class="grid grid-cols-2 gap-3">
+            {stats.map((stat) => (
               <div
-                class="p-4"
-                style={[
-                  isRightCol ? 'border-left: 1px solid #c8d8f0;' : '',
-                  !isTopRow  ? 'border-top: 1px solid #c8d8f0;'  : '',,
-                ].join(' ')}
+                class="p-4 text-center"
+                style="
+                  background: #f7fafd;
+                  border: 1px solid #d1e0f0;
+                  border-radius: 12px;
+                "
               >
                 <p
-                  class="text-2xl font-bold leading-none"
-                  style="font-family: var(--font-display); color: var(--color-accent);"
+                  class="text-2xl font-bold leading-none mb-2"
+                  style="font-family: var(--font-display); color: #1880c9;"
                   data-count
                 >
                   {stat.numero}
                 </p>
-                <p class="text-xs mt-1" style="color: var(--color-text-muted);">
+                <p
+                  class="text-xs uppercase tracking-wide"
+                  style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.05em;"
+                >
                   {stat.label}
                 </p>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
 
         <!-- CTA outline -->
-        <div class="reveal" style="transition-delay: 0.4s;">
+        <div class="reveal" style="transition-delay: 0.3s;">
           <a
             href="/sobre-pablo"
             class="inline-flex items-center gap-2 px-6 py-3 font-semibold text-sm transition-all duration-200 rounded-lg"
@@ -368,7 +355,7 @@ const stats = [
         </div>
 
         <!-- Badges de autoridad internacional -->
-        <div class="reveal mt-8 pt-6" style="transition-delay: 0.45s; border-top: 1px solid #E5EAED;">
+        <div class="reveal mt-8 pt-6" style="transition-delay: 0.35s; border-top: 1px solid #E5EAED;">
           <p class="text-xs font-semibold uppercase tracking-wider mb-4" style="color: var(--color-text-muted);">
             Membresías y reconocimientos
           </p>

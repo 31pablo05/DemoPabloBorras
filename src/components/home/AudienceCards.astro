@@ -1,41 +1,66 @@
 ﻿---
-// AudienceCards.astro — Tres caminos por audiencia con cards interactivas
+// AudienceCards.astro — Tres caminos por audiencia con cards con header coloreado
 import SectionTitle from '../ui/SectionTitle.astro';
 
 const cards = [
   {
     href: '/tutores',
-    emoji: null,
+    whoLabel: 'Para vos si tenés mascotas',
     icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
     </svg>`,
-    label: 'Para tutores de mascotas',
-    description: 'Contenido educativo, videos explicativos y consejos de salud para cuidar mejor a tu compañero.',
+    iconBg: `<svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+    </svg>`,
+    label: 'Para tutores\nde mascotas',
+    description: 'Contenido educativo y divulgativo para cuidar mejor a tu compañero, con respaldo científico real.',
+    pills: ['Videos educativos', 'Consejos de salud', 'Prevención'],
     cta: 'Ir a contenido para tutores',
-    color: '#1880c9',
+    headGradient: 'linear-gradient(135deg, #1880c9 0%, #0d5fa0 100%)',
+    pillColor: '#1880c9',
+    pillBg: 'rgba(24,128,201,0.10)',
+    pillBorder: 'rgba(24,128,201,0.28)',
+    ctaColor: '#1880c9',
   },
   {
     href: '/veterinarios',
-    emoji: null,
+    whoLabel: 'Para vos si sos veterinario',
     icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
     </svg>`,
-    label: 'Para veterinarios',
-    description: 'Interconsultas clínicas, capacitaciones avanzadas y acceso al libro técnico. Herramientas diseñadas para el ejercicio profesional de excelencia.',
+    iconBg: `<svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+    </svg>`,
+    label: 'Para veterinarios\ny profesionales',
+    description: 'Interconsultas clínicas, formación avanzada y acceso al libro técnico para elevar tu práctica profesional.',
+    pills: ['Interconsultas', 'Capacitaciones', 'Libro técnico'],
     cta: 'Ver servicios para colegas',
-    color: '#3B82F6',
+    headGradient: 'linear-gradient(135deg, #040d4e 0%, #183b7f 100%)',
+    pillColor: '#040d4e',
+    pillBg: 'rgba(4,13,78,0.07)',
+    pillBorder: 'rgba(4,13,78,0.22)',
+    ctaColor: '#040d4e',
   },
   {
     href: '/empresas',
-    emoji: null,
+    whoLabel: 'Para empresas e instituciones',
     icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
       <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
     </svg>`,
-    label: 'Para empresas e instituciones',
-    description: 'Charlas institucionales, capacitaciones corporativas y proyectos de colaboración científica. Sumá autoridad veterinaria a tu organización.',
+    iconBg: `<svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+    </svg>`,
+    label: 'Para empresas\ne instituciones',
+    description: 'Charlas, capacitaciones corporativas y proyectos de colaboración científica con autoridad veterinaria.',
+    pills: ['Charlas', 'Capacitaciones corp.', 'Proyectos'],
     cta: 'Explorar propuestas',
-    color: '#8B5CF6',
+    headGradient: 'linear-gradient(135deg, #183b7f 0%, #5b4aa8 100%)',
+    pillColor: '#5b4aa8',
+    pillBg: 'rgba(91,74,168,0.09)',
+    pillBorder: 'rgba(91,74,168,0.28)',
+    ctaColor: '#5b4aa8',
   },
 ];
 ---
@@ -54,56 +79,91 @@ const cards = [
       {cards.map((card, index) => (
         <a
           href={card.href}
-          class="card-lift reveal group audience-card block bg-white rounded-2xl p-8 no-underline"
-          style={`border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; border-top: 3px solid ${card.color}; opacity: 0.55; transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s, opacity 0.25s; transition-delay: ${index * 0.15}s;`}
-          data-color={card.color}
+          class="audience-card block bg-white no-underline overflow-hidden"
+          style="border-radius: 16px; box-shadow: 0 4px 12px rgba(4, 13, 78, 0.08); text-decoration: none; transition: transform 0.25s ease, box-shadow 0.25s ease;"
         >
-          <!-- Ícono -->
+          <!-- Header coloreado con gradiente -->
           <div
-            class="mb-5 w-16 h-16 flex items-center justify-center rounded-xl"
-            style={`color: ${card.color}; background: ${card.color}1A;`}
-            set:html={card.icon}
-          />
-
-          <!-- Título -->
-          <h3
-            class="text-xl font-bold mb-3"
-            style="font-family: var(--font-display); color: var(--color-text);"
+            class="card-header relative px-8 pt-8 pb-10 overflow-hidden"
+            style={`background: ${card.headGradient};`}
           >
-            {card.label}
-          </h3>
-
-          <!-- Descripción -->
-          <p
-            class="text-sm leading-relaxed mb-6"
-            style="color: var(--color-text-muted); font-family: var(--font-body);"
-          >
-            {card.description}
-          </p>
-
-          <!-- CTA texto -->
-          <span
-            class="inline-flex items-center gap-1.5 text-sm font-semibold"
-            style={`color: ${card.color};`}
-          >
-            {card.cta}
-            <svg
-              class="card-cta-arrow"
-              style="transition: transform 0.2s ease; flex-shrink: 0;"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
+            <!-- Etiqueta "Para quién" -->
+            <div
+              class="text-xs font-medium mb-5"
+              style="color: rgba(255, 255, 255, 0.85); letter-spacing: 0.02em;"
             >
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </span>
+              {card.whoLabel}
+            </div>
+
+            <!-- Ícono en cajita -->
+            <div
+              class="mb-5 w-16 h-16 flex items-center justify-center rounded-xl"
+              style="background: rgba(255, 255, 255, 0.15); color: white;"
+              set:html={card.icon}
+            />
+
+            <!-- Título -->
+            <h3
+              class="text-2xl font-bold leading-tight"
+              style="font-family: var(--font-display); color: white; white-space: pre-line;"
+            >
+              {card.label}
+            </h3>
+
+            <!-- Ícono decorativo gigante en el fondo -->
+            <div
+              class="absolute bottom-0 right-0"
+              style="color: rgba(255, 255, 255, 0.12); transform: translate(20%, 20%);"
+              set:html={card.iconBg}
+            />
+          </div>
+
+          <!-- Cuerpo blanco -->
+          <div class="px-8 py-8">
+            <!-- Pills -->
+            <div class="flex flex-wrap gap-2 mb-5">
+              {card.pills.map(pill => (
+                <span
+                  class="text-xs font-medium px-3 py-1.5 rounded-full"
+                  style={`color: ${card.pillColor}; background: ${card.pillBg}; border: 1px solid ${card.pillBorder};`}
+                >
+                  {pill}
+                </span>
+              ))}
+            </div>
+
+            <!-- Descripción -->
+            <p
+              class="text-sm leading-relaxed mb-6"
+              style="color: var(--color-text-muted); font-family: var(--font-body);"
+            >
+              {card.description}
+            </p>
+
+            <!-- CTA con flecha -->
+            <span
+              class="inline-flex items-center gap-1.5 text-sm font-semibold"
+              style={`color: ${card.ctaColor};`}
+            >
+              {card.cta}
+              <svg
+                class="card-cta-arrow"
+                style="transition: transform 0.2s ease; flex-shrink: 0;"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </div>
         </a>
       ))}
     </div>
@@ -113,8 +173,8 @@ const cards = [
 
 <style>
   .audience-card:hover {
-    border-top-color: currentColor;
-    opacity: 1 !important;
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(4, 13, 78, 0.16) !important;
   }
   .audience-card:hover .card-cta-arrow {
     transform: translateX(4px);
