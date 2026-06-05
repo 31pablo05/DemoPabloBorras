@@ -108,13 +108,48 @@ const tematicas = [
       background: linear-gradient(160deg, #040d4e 0%, #0d2466 40%, #0a1e55 100%);
     "
   >
-    <!-- Foto de fondo con overlay -->
+    <!-- Foto de fondo -->
     <div
       style="
         position: absolute;
         inset: 0;
         background: url('/imagenes/perfil/pablo3.jpg') center 20% / cover no-repeat;
-        opacity: 0.22;
+        opacity: 0.28;
+      "
+      aria-hidden="true"
+    ></div>
+
+    <!-- Overlay de fondo con degradé direccional (izquierda oscura → derecha transparente) -->
+    <div
+      style="
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, rgba(4,13,78,0.88) 0%, rgba(24,128,201,0.35) 100%);
+      "
+      aria-hidden="true"
+    ></div>
+
+    <!-- Patrón de puntos sutil -->
+    <div
+      style="
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+        background-size: 28px 28px;
+        pointer-events: none;
+      "
+      aria-hidden="true"
+    ></div>
+
+    <!-- Línea de acento vertical izquierda -->
+    <div
+      style="
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(to bottom, transparent 0%, #1880c9 50%, transparent 100%);
       "
       aria-hidden="true"
     ></div>
@@ -126,38 +161,194 @@ const tematicas = [
     ></div>
 
     <div
-      class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-28 w-full"
+      class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 pt-24 sm:pt-28 w-full"
       style="position: relative; z-index: 1;"
     >
       <div class="max-w-3xl">
+        <!-- Badge -->
         <span
-          class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-6"
-          style="background: rgba(24,128,201,0.18); color: var(--color-accent-light); border: 1px solid rgba(24,128,201,0.35);"
+          class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-4 sm:mb-6 hero-badge"
+          style="background: rgba(24,128,201,0.18); color: var(--color-accent-light); border: 1px solid rgba(24,128,201,0.35); font-size: 0.65rem; line-height: 1.3;"
         >
-          Médico Veterinario MSc · Speaker Internacional · Autor
+          <span class="hidden sm:inline">Médico Veterinario MSc · Speaker Internacional · Autor</span>
+          <span class="sm:hidden">Veterinario · Speaker · Autor</span>
         </span>
+
+        <!-- Línea decorativa antes del título -->
+        <div
+          class="hero-line"
+          style="
+            width: 48px;
+            height: 3px;
+            background: #1880c9;
+            border-radius: 2px;
+            margin-bottom: 16px sm:margin-bottom: 20px;
+          "
+          aria-hidden="true"
+        ></div>
+
+        <!-- Nombre -->
         <h1
-          class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 hero-name"
           style="font-family: var(--font-display); line-height: 1.15;"
         >
           Pablo Borrás
         </h1>
-        <p class="text-white/75 text-lg max-w-xl leading-relaxed">
+
+        <!-- Descripción -->
+        <p class="text-white/75 text-base sm:text-lg max-w-xl leading-relaxed mb-6 sm:mb-8 hero-description">
           Especialista en enfermedades infecciosas y parasitarias de perros y gatos.
           Docente, investigador y voz de referencia en infectología veterinaria de habla hispana.
         </p>
+
+        <!-- Stats inline -->
+        <div
+          class="flex items-center gap-3 sm:gap-6 hero-stats overflow-x-auto"
+          style="
+            border-top: 1px solid rgba(255,255,255,0.15);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding: 14px 0;
+            max-width: fit-content;
+          "
+        >
+          <div style="text-align: center; min-width: fit-content;">
+            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0;">+15</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;">años</p>
+          </div>
+
+          <div style="width: 1px; height: 22px; background: rgba(255,255,255,0.12); flex-shrink: 0; align-self: center;"></div>
+
+          <div style="text-align: center; min-width: fit-content;">
+            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0;">+8</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;">países</p>
+          </div>
+
+          <div style="width: 1px; height: 22px; background: rgba(255,255,255,0.12); flex-shrink: 0; align-self: center;"></div>
+
+          <div style="text-align: center; min-width: fit-content;">
+            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0;">30K</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;">seguidores</p>
+          </div>
+
+          <div style="width: 1px; height: 22px; background: rgba(255,255,255,0.12); flex-shrink: 0; align-self: center;"></div>
+
+          <div style="text-align: center; min-width: fit-content;">
+            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0;">4</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;">publicaciones</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicador de scroll -->
+      <div
+        class="hero-scroll"
+        style="
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+        "
+      >
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="rgba(255,255,255,0.4)"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="scroll-arrow"
+          aria-hidden="true"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+        <span class="hidden sm:inline" style="font-size: 0.65rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.12em;">Scroll</span>
       </div>
     </div>
   </section>
 
-  <!-- ── BIO + FOTO ── -->
-  <section class="py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+  <style>
+    /* Animaciones de entrada escalonadas */
+    .hero-badge {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out 0.1s both;
+    }
 
-        <!-- Foto -->
+    .hero-line {
+      width: 0;
+      animation: growWidth 0.8s ease-out 0.3s both;
+    }
+
+    .hero-name {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out 0.35s both;
+    }
+
+    .hero-description {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out 0.5s both;
+    }
+
+    .hero-stats {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out 0.62s both;
+    }
+
+    .hero-scroll {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out 1s both;
+    }
+
+    /* Bounce animation para la flecha */
+    .scroll-arrow {
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes growWidth {
+      from {
+        width: 0;
+      }
+      to {
+        width: 48px;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(6px);
+      }
+    }
+  </style>
+
+  <!-- ── BIO + FOTO ── -->
+  <section class="py-20" style="background: #f8fafc;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Parte superior: dos columnas alineadas al tope -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-12">
+
+        <!-- Columna izquierda: Foto + Caption -->
         <div class="order-2 lg:order-1">
-          <div style="border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg); max-height: 560px;">
+          <div class="lg:mt-24" style="border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg); max-height: 560px;">
             <img
               src="/imagenes/perfil/pablo1.jpg"
               alt="Pablo Borrás — Médico Veterinario especialista en infectología"
@@ -168,7 +359,7 @@ const tematicas = [
               loading="eager"
             />
           </div>
-          <!-- Credencial -->
+          <!-- Caption strip -->
           <div
             style="
               margin-top: 16px;
@@ -191,7 +382,7 @@ const tematicas = [
           </div>
         </div>
 
-        <!-- Texto bio -->
+        <!-- Columna derecha: Badge + Título + Párrafos -->
         <div class="order-1 lg:order-2">
           <span
             class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-5"
@@ -199,60 +390,109 @@ const tematicas = [
           >
             Quién es
           </span>
+
+          <!-- Línea decorativa antes del título -->
+          <div
+            style="
+              width: 40px;
+              height: 3px;
+              background: #1880c9;
+              border-radius: 2px;
+              margin-bottom: 16px;
+              margin-left: 12px;
+            "
+            aria-hidden="true"
+          ></div>
+
           <h2
             class="text-3xl md:text-4xl font-bold mb-6"
             style="font-family: var(--font-display); color: var(--color-text); line-height: 1.2;"
           >
             Una trayectoria construida sobre ciencia y compromiso
           </h2>
-          <div style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.85;" class="space-y-4">
-            <p>
+
+          <div class="space-y-4">
+            <!-- Primer párrafo: destacado con borde izquierdo -->
+            <p style="
+              color: #111827;
+              font-weight: 600;
+              font-size: 14.5px;
+              line-height: 1.75;
+              border-left: 3px solid #1880c9;
+              padding-left: 14px;
+            ">
               Pablo Borrás es Médico Veterinario egresado de la Universidad de Buenos Aires, Especialista
               en Enfermedades Infecciosas y Parasitarias (CPHV) y Magíster en Prevención y Control de
               Zoonosis (UNNOBA–ANLIS). Actualmente cursa el Máster en Medicina Interna de Pequeños
               Animales en la Universidad Autónoma de Barcelona.
             </p>
-            <p>
+
+            <!-- Párrafos intermedios: secundarios -->
+            <p style="color: #4b5563; font-weight: 400; font-size: 13px; line-height: 1.8;">
               A lo largo de más de 15 años de carrera, construyó un perfil único que combina la clínica
               diaria con la investigación científica, la docencia y la comunicación. Ese cruce entre
               rigor académico y capacidad de transmitir es lo que define su forma de ejercer y enseñar.
             </p>
-            <p>
+
+            <p style="color: #4b5563; font-weight: 400; font-size: 13px; line-height: 1.8;">
               Ha disertado en congresos internacionales en Argentina, Colombia, Ecuador, Uruguay, Brasil,
               Paraguay, España y Países Bajos. Es colaborador del Servicio de Zoopatología del Hospital
               Francisco J. Muñiz, editor asociado de <em>Parasites & Vectors</em> (Springer Nature) y
               miembro activo del TroCCAP Council, ABCD Cats & Vets Europe e ISCAID.
             </p>
-            <p>
-              En 2025, obtuvo el 2° Premio al mejor caso clínico en AVEACA por el primer reporte de
-              <em>Schizophyllum commune</em> en perro en América Latina. Ese mismo año fue speaker
-              oficial del lanzamiento de SNAP Tests IDEXX en Asunción, Paraguay.
-            </p>
-          </div>
 
-          <!-- Stats -->
-          <div class="grid grid-cols-2 mt-8 pt-8" style="border-top: 1px solid #E5EAED;">
-            {[
-              { n: '+15', l: 'Años de experiencia clínica' },
-              { n: '+30K', l: 'Seguidores en Instagram' },
-              { n: '+8', l: 'Países donde disertó' },
-              { n: '+4', l: 'Artículos científicos' },
-            ].map((s, i) => (
-              <div
-                class="p-4"
-                style={[
-                  i % 2 === 1 ? 'border-left: 1px solid #c8d8f0;' : '',
-                  i >= 2      ? 'border-top: 1px solid #c8d8f0;'  : '',
-                ].join(' ')}
-              >
-                <p class="text-2xl font-bold leading-none" style="font-family: var(--font-display); color: var(--color-accent);">{s.n}</p>
-                <p class="text-xs mt-1" style="color: var(--color-text-muted);">{s.l}</p>
-              </div>
-            ))}
+            <!-- Último párrafo: chip destacado con emoji -->
+            <div style="
+              background: #e8f3fb;
+              border-radius: 8px;
+              padding: 12px 14px;
+            ">
+              <p style="color: #1880c9; font-weight: 500; font-size: 13px; line-height: 1.7; margin: 0;">
+                🏆 En 2025, obtuvo el 2° Premio al mejor caso clínico en AVEACA por el primer reporte de
+                <em>Schizophyllum commune</em> en perro en América Latina. Ese mismo año fue speaker
+                oficial del lanzamiento de SNAP Tests IDEXX en Asunción, Paraguay.
+              </p>
+            </div>
           </div>
         </div>
 
       </div>
+
+      <!-- Parte inferior: fila completa de 4 stats -->
+      <div style="border-top: 0.5px solid #b8cde0; padding-top: 32px;">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { n: '+15', l: 'Años de experiencia clínica' },
+            { n: '+30K', l: 'Seguidores en Instagram' },
+            { n: '+8', l: 'Países donde disertó' },
+            { n: '+4', l: 'Artículos científicos' },
+          ].map((s) => (
+            <div
+              style="
+                background: #ffffff;
+                border: 1px solid #d0dff0;
+                border-radius: 10px;
+                padding: 20px;
+                text-align: center;
+              "
+            >
+              <p
+                class="text-3xl font-bold leading-none mb-2"
+                style="font-family: var(--font-display); color: #1880c9;"
+              >
+                {s.n}
+              </p>
+              <p
+                class="text-xs uppercase tracking-wide"
+                style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.05em;"
+              >
+                {s.l}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -276,67 +516,139 @@ const tematicas = [
 
       <!-- Timeline -->
       <div style="position: relative;">
-        <!-- Línea vertical -->
+        <!-- Línea vertical con gradiente -->
         <div
-          style="position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--color-accent), rgba(24,128,201,0.2)); margin-left: 20px;"
+          style="position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #1880c9 0%, #5ba8e0 50%, rgba(91,168,224,0.2) 100%); margin-left: 20px;"
           aria-hidden="true"
         ></div>
 
         <div class="space-y-10" style="padding-left: 56px;">
-          {formacion.map((item) => (
-            <div style="position: relative;">
-              <!-- Punto en la línea -->
-              <div
-                style="position: absolute; left: -48px; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--color-accent); border: 3px solid white; box-shadow: 0 0 0 3px rgba(24,128,201,0.2);"
-                aria-hidden="true"
-              ></div>
-              <div
-                style="
-                  background: white;
-                  border: 1px solid #DDE8F5;
-                  border-radius: 14px;
-                  padding: 20px 24px;
-                  box-shadow: var(--shadow);
-                "
-              >
-                <span
-                  style="
-                    display: inline-block;
-                    font-family: var(--font-body);
-                    font-size: 0.7rem;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    letter-spacing: 0.08em;
-                    color: var(--color-accent);
-                    background: rgba(24,128,201,0.08);
-                    border: 1px solid rgba(24,128,201,0.2);
-                    border-radius: 20px;
-                    padding: 3px 10px;
-                    margin-bottom: 8px;
-                  "
-                >{item.año}</span>
-                <h3
-                  class="font-bold text-base mb-1"
-                  style="font-family: var(--font-display); color: var(--color-text);"
+          {formacion.map((item, index) => {
+            const esActivo = item.año.includes('Actualidad');
+            return (
+              <div style="position: relative;">
+                <!-- Punto en la línea -->
+                <div
+                  style={`
+                    position: absolute;
+                    left: -48px;
+                    top: 8px;
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background: ${esActivo ? '#1880c9' : 'white'};
+                    border: 2px solid #1880c9;
+                    ${esActivo ? 'box-shadow: 0 0 0 4px rgba(24,128,201,0.2);' : ''}
+                  `}
+                  aria-hidden="true"
+                ></div>
+
+                <!-- Card -->
+                <div
+                  class="formacion-card"
+                  style={`
+                    background: ${esActivo ? 'linear-gradient(135deg, #f0f8ff 0%, #ffffff 60%)' : 'white'};
+                    border: 1px solid #dde8f2;
+                    border-left: 3px solid ${esActivo ? '#1880c9' : '#dde8f2'};
+                    border-radius: 14px;
+                    padding: 20px 24px;
+                    position: relative;
+                    transition: box-shadow 0.3s ease;
+                  `}
                 >
-                  {item.titulo}
-                </h3>
-                <p
-                  class="text-sm font-semibold mb-2"
-                  style="color: var(--color-accent);"
-                >
-                  {item.institucion}
-                </p>
-                <p class="text-sm leading-relaxed" style="color: var(--color-text-muted);">
-                  {item.descripcion}
-                </p>
+                  {esActivo && (
+                    <span
+                      style="
+                        position: absolute;
+                        top: 16px;
+                        right: 20px;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 4px;
+                        font-size: 0.65rem;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        letter-spacing: 0.05em;
+                        color: #166534;
+                        background: #dcfce7;
+                        border-radius: 999px;
+                        padding: 4px 10px;
+                      "
+                    >
+                      <span style="width: 5px; height: 5px; border-radius: 50%; background: #166534;"></span>
+                      En curso
+                    </span>
+                  )}
+
+                  <span
+                    style={`
+                      display: inline-flex;
+                      align-items: center;
+                      gap: 6px;
+                      font-family: var(--font-body);
+                      font-size: 0.7rem;
+                      font-weight: 700;
+                      text-transform: uppercase;
+                      letter-spacing: 0.08em;
+                      color: ${esActivo ? 'white' : '#1880c9'};
+                      background: ${esActivo ? '#1880c9' : '#e8f3fb'};
+                      border-radius: 999px;
+                      padding: 4px 12px;
+                      margin-bottom: 10px;
+                    `}
+                  >
+                    {!esActivo && <span style="width: 4px; height: 4px; border-radius: 50%; background: #1880c9;"></span>}
+                    {item.año}
+                  </span>
+
+                  <h3
+                    style="
+                      font-family: var(--font-display);
+                      font-weight: 700;
+                      font-size: 15px;
+                      color: #0a1e55;
+                      margin-bottom: 6px;
+                      line-height: 1.3;
+                    "
+                  >
+                    {item.titulo}
+                  </h3>
+
+                  <p
+                    style="
+                      color: #1880c9;
+                      font-weight: 600;
+                      font-size: 12.5px;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    {item.institucion}
+                  </p>
+
+                  <p
+                    style="
+                      color: #6b7280;
+                      font-weight: 400;
+                      font-size: 12.5px;
+                      line-height: 1.65;
+                    "
+                  >
+                    {item.descripcion}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
   </section>
+
+  <style>
+    .formacion-card:hover {
+      box-shadow: 0 4px 20px rgba(4,13,78,0.08);
+    }
+  </style>
 
   <!-- ── ACTIVIDAD CIENTÍFICA ── -->
   <section class="py-20 bg-white">
@@ -360,41 +672,117 @@ const tematicas = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {ciencia.map((item) => (
-          <div
-            style="
-              background: var(--color-neutral-light);
-              border: 1px solid #DDE8F5;
-              border-radius: 16px;
-              padding: 24px;
-              transition: transform 0.2s, box-shadow 0.2s;
-            "
-            onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-lg)';"
-            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
-          >
+        {ciencia.map((item, index) => {
+          // Colores por categoría
+          const colores = [
+            '#1880c9', // Editor asociado
+            '#040d4e', // TroCCAP Council
+            '#183b7f', // ABCD Cats & Vets Europe
+            '#5ba8e0', // ISCAID
+            '#183b7f', // Hospital Francisco J. Muñiz
+            '#16a34a', // Premio AVEACA 2025
+          ];
+          const colorCategoria = colores[index];
+          const esPremio = index === 5;
+
+          // Convertir hex a rgba con opacidad para el fondo del ícono
+          const hexToRgba = (hex: string, alpha: number) => {
+            const r = parseInt(hex.slice(1, 3), 16);
+            const g = parseInt(hex.slice(3, 5), 16);
+            const b = parseInt(hex.slice(5, 7), 16);
+            return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+          };
+
+          return (
             <div
-              style="
-                width: 48px;
-                height: 48px;
-                border-radius: 12px;
-                background: rgba(24,128,201,0.1);
-                border: 1px solid rgba(24,128,201,0.2);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: var(--color-accent);
-                margin-bottom: 14px;
-              "
-              set:html={item.icono}
-            ></div>
-            <p class="font-bold text-sm mb-0.5" style="color: var(--color-text); font-family: var(--font-display);">{item.titulo}</p>
-            <p class="text-xs font-semibold mb-3" style="color: var(--color-accent);">{item.detalle}</p>
-            <p class="text-sm leading-relaxed" style="color: var(--color-text-muted);">{item.descripcion}</p>
-          </div>
-        ))}
+              class="ciencia-card"
+              style={`
+                background: var(--color-neutral-light);
+                border: 1px solid #DDE8F5;
+                border-top: 3px solid ${colorCategoria};
+                border-radius: 16px;
+                padding: 24px;
+                position: relative;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+              `}
+            >
+              {esPremio && (
+                <span
+                  style="
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                    font-size: 0.65rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.03em;
+                    color: #166534;
+                    background: #dcfce7;
+                    border-radius: 999px;
+                    padding: 4px 10px;
+                  "
+                >
+                  ★ Premio
+                </span>
+              )}
+
+              <div
+                style={`
+                  width: 48px;
+                  height: 48px;
+                  border-radius: 12px;
+                  background: ${hexToRgba(colorCategoria, 0.12)};
+                  border: 1px solid ${hexToRgba(colorCategoria, 0.25)};
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: ${colorCategoria};
+                  margin-bottom: 14px;
+                `}
+              >
+                <div style={`color: ${colorCategoria};`} set:html={item.icono.replace('stroke="currentColor"', `stroke="${colorCategoria}"`)} />
+              </div>
+
+              <p
+                class="font-bold text-sm mb-0.5"
+                style="color: var(--color-text); font-family: var(--font-display);"
+              >
+                {item.titulo}
+              </p>
+
+              <p
+                class="text-xs font-semibold mb-3"
+                style={`
+                  color: ${colorCategoria};
+                  text-transform: uppercase;
+                  letter-spacing: 0.03em;
+                `}
+              >
+                {item.detalle}
+              </p>
+
+              <p
+                class="text-sm leading-relaxed"
+                style="color: var(--color-text-muted);"
+              >
+                {item.descripcion}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </div>
   </section>
+
+  <style>
+    .ciencia-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(4,13,78,0.10);
+    }
+  </style>
 
   <!-- ── TEMÁTICAS ── -->
   <section style="background: linear-gradient(135deg, #040d4e 0%, #0d2466 50%, #040d4e 100%);" class="py-20">

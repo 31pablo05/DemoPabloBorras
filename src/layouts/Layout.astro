@@ -26,6 +26,10 @@ const SITE_URL = 'https://demo-pablo-borras.vercel.app';
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
 const ogImage = new URL(image, SITE_URL).href;
 const fullTitle = title.includes('Pablo Borrás') ? title : `${title} | Pablo Borrás`;
+
+// Solo precargar imágenes del Hero en páginas que lo usan
+const currentPath = Astro.url.pathname;
+const hasHero = currentPath === '/' || currentPath === '/sobre-pablo';
 ---
 
 <!DOCTYPE html>
@@ -86,10 +90,14 @@ const fullTitle = title.includes('Pablo Borrás') ? title : `${title} | Pablo Bo
       rel="stylesheet"
     />
 
-    <!-- Preload imágenes críticas del hero (LCP) -->
-    <link rel="preload" as="image" href="/imagenes/perfil/pablo2.jpg" fetchpriority="high" />
-    <link rel="preload" as="image" href="/imagenes/perfil/pablofondohero2.png" media="(min-width: 768px)" />
-    <link rel="preload" as="image" href="/imagenes/perfil/fondoheromobile.png" media="(max-width: 767px)" />
+    <!-- Preload imágenes críticas del hero (LCP) — solo en páginas con Hero -->
+    {hasHero && (
+      <>
+        <link rel="preload" as="image" href="/imagenes/perfil/pablo2.jpg" fetchpriority="high" />
+        <link rel="preload" as="image" href="/imagenes/perfil/pablofondohero2.png" media="(min-width: 768px)" />
+        <link rel="preload" as="image" href="/imagenes/perfil/fondoheromobile.png" media="(max-width: 767px)" />
+      </>
+    )}
     {heroImage && <link rel="preload" as="image" href={heroImage} fetchpriority="high" />}
 
     {/* TODO: crear imagen OG 1200x630px en /public/og/og-pablo-borras.jpg
