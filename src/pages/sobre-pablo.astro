@@ -460,7 +460,7 @@ const tematicas = [
 
       <!-- Parte inferior: fila completa de 4 stats -->
       <div style="border-top: 0.5px solid #b8cde0; padding-top: 32px;">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="stats-grid grid grid-cols-4 gap-4">
           {[
             { n: '+15', l: 'Años de experiencia clínica' },
             { n: '+30K', l: 'Seguidores en Instagram' },
@@ -468,6 +468,7 @@ const tematicas = [
             { n: '+4', l: 'Artículos científicos' },
           ].map((s) => (
             <div
+              class="stat-card"
               style="
                 background: #ffffff;
                 border: 1px solid #d0dff0;
@@ -477,13 +478,13 @@ const tematicas = [
               "
             >
               <p
-                class="text-3xl font-bold leading-none mb-2"
+                class="stat-number text-3xl font-bold leading-none mb-2"
                 style="font-family: var(--font-display); color: #1880c9;"
               >
                 {s.n}
               </p>
               <p
-                class="text-xs uppercase tracking-wide"
+                class="stat-label text-xs uppercase tracking-wide"
                 style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.05em;"
               >
                 {s.l}
@@ -495,6 +496,28 @@ const tematicas = [
 
     </div>
   </section>
+
+  <style>
+    /* Stats responsive - siempre en una sola fila */
+    @media (max-width: 767px) {
+      .stats-grid {
+        gap: 6px !important;
+      }
+
+      .stat-card {
+        padding: 10px 8px !important;
+        border-radius: 8px !important;
+      }
+
+      .stat-number {
+        font-size: 18px !important;
+      }
+
+      .stat-label {
+        font-size: 9px !important;
+      }
+    }
+  </style>
 
   <!-- ── FORMACIÓN ACADÉMICA ── -->
   <section style="background: var(--color-neutral-light);" class="py-20">
@@ -785,8 +808,20 @@ const tematicas = [
   </style>
 
   <!-- ── TEMÁTICAS ── -->
-  <section style="background: linear-gradient(135deg, #040d4e 0%, #0d2466 50%, #040d4e 100%);" class="py-20">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section style="background: linear-gradient(160deg, #040d4e 0%, #0d1f6b 50%, #0a1855 100%); position: relative;" class="py-20 expertise-section">
+    <!-- Patrón de puntos decorativo -->
+    <div
+      style="
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+        background-size: 28px 28px;
+        pointer-events: none;
+      "
+      aria-hidden="true"
+    ></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" style="position: relative; z-index: 1;">
       <div class="text-center mb-12">
         <span
           class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-4"
@@ -808,36 +843,79 @@ const tematicas = [
       <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {tematicas.map((t) => (
           <li
+            class="expertise-item"
             style="
               display: flex;
               align-items: flex-start;
-              gap: 10px;
-              background: rgba(255,255,255,0.06);
-              border: 1px solid rgba(255,255,255,0.1);
+              gap: 12px;
+              background: rgba(255,255,255,0.05);
+              border: 0.5px solid rgba(255,255,255,0.10);
               border-radius: 10px;
               padding: 14px 16px;
+              transition: all 0.2s ease;
             "
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              style="color: var(--color-accent-light); flex-shrink: 0; margin-top: 2px;"
+            <!-- Cajita del checkmark -->
+            <div
+              class="expertise-check-box"
+              style="
+                width: 22px;
+                height: 22px;
+                border-radius: 6px;
+                background: rgba(24,128,201,0.2);
+                border: 1px solid rgba(91,168,224,0.3);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                transition: all 0.2s ease;
+              "
               aria-hidden="true"
             >
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span class="text-sm text-white/80 leading-snug">{t}</span>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#5ba8e0"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <span
+              class="expertise-text"
+              style="
+                font-size: 13px;
+                line-height: 1.55;
+                color: rgba(255,255,255,0.85);
+                transition: color 0.2s ease;
+              "
+            >{t}</span>
           </li>
         ))}
       </ul>
     </div>
   </section>
+
+  <style>
+    .expertise-item:hover {
+      background: rgba(24,128,201,0.15);
+      border-color: rgba(91,168,224,0.45);
+      transform: translateX(4px);
+    }
+
+    .expertise-item:hover .expertise-check-box {
+      background: rgba(24,128,201,0.4);
+      border-color: #5ba8e0;
+    }
+
+    .expertise-item:hover .expertise-text {
+      color: #ffffff;
+    }
+  </style>
 
   <!-- ── GALERÍA CONGRESOS ── -->
   <section class="py-20 bg-white">
@@ -912,45 +990,176 @@ const tematicas = [
   </section>
 
   <!-- ── CTA FINAL ── -->
-  <section style="background: var(--color-neutral-light); border-top: 1px solid #DDE8F5;" class="py-20">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <section style="background: linear-gradient(135deg, #040d4e 0%, #183b7f 60%, #1880c9 100%); position: relative;" class="py-20 cta-section">
+    <!-- Patrón de puntos decorativo -->
+    <div
+      style="
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+        background-size: 28px 28px;
+        pointer-events: none;
+      "
+      aria-hidden="true"
+    ></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" style="position: relative; z-index: 1;">
+      <!-- Badge -->
+      <span
+        class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-5"
+        style="background: rgba(24,128,201,0.18); color: #5ba8e0; border: 1px solid rgba(91,168,224,0.35);"
+      >
+        ¿Trabajamos juntos?
+      </span>
+
       <h2
-        class="text-3xl md:text-4xl font-bold mb-4"
-        style="font-family: var(--font-display); color: var(--color-text);"
+        class="text-3xl md:text-4xl font-bold mb-4 text-white"
+        style="font-family: var(--font-display);"
       >
         ¿Cómo podés trabajar con Pablo?
       </h2>
-      <p class="text-base mb-10 max-w-xl mx-auto" style="color: var(--color-text-muted);">
+      <p class="text-base mb-10 max-w-xl mx-auto" style="color: rgba(255,255,255,0.65);">
         Ya sea que seas veterinario buscando formación continua, una empresa o institución que necesita
         un speaker de excelencia, o simplemente querés ponerte en contacto.
       </p>
+
+      <!-- Botones rediseñados -->
       <div class="flex flex-wrap justify-center gap-4">
-        <Button href="/veterinarios" variant="primary" size="md">
-          Servicios para veterinarios →
-        </Button>
-        <Button href="/empresas" variant="outline" size="md">
-          Charlas para empresas →
-        </Button>
-        <Button href="/contacto" variant="outline" size="md">
-          Contactar →
-        </Button>
+        <!-- Botón 1: Servicios para veterinarios -->
+        <a
+          href="/veterinarios"
+          class="cta-button"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #1880c9;
+            border-radius: 12px;
+            padding: 16px 24px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255,255,255,0.15);
+          "
+        >
+          <!-- Cajita ícono -->
+          <div
+            style="
+              width: 36px;
+              height: 36px;
+              border-radius: 8px;
+              background: rgba(255,255,255,0.18);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-shrink: 0;
+            "
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <!-- Textos -->
+          <div style="text-align: left;">
+            <p style="font-weight: 700; font-size: 14px; color: #ffffff; margin: 0; line-height: 1.2;">Servicios para veterinarios</p>
+            <p style="font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.75); margin: 2px 0 0; line-height: 1.2;">Interconsultas y capacitaciones</p>
+          </div>
+        </a>
+
+        <!-- Botón 2: Charlas para empresas -->
+        <a
+          href="/empresas"
+          class="cta-button"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #4a3d9e;
+            border-radius: 12px;
+            padding: 16px 24px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255,255,255,0.15);
+          "
+        >
+          <!-- Cajita ícono -->
+          <div
+            style="
+              width: 36px;
+              height: 36px;
+              border-radius: 8px;
+              background: rgba(255,255,255,0.18);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-shrink: 0;
+            "
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <line x1="3" y1="9" x2="21" y2="9"/>
+              <line x1="9" y1="21" x2="9" y2="9"/>
+            </svg>
+          </div>
+          <!-- Textos -->
+          <div style="text-align: left;">
+            <p style="font-weight: 700; font-size: 14px; color: #ffffff; margin: 0; line-height: 1.2;">Charlas para empresas</p>
+            <p style="font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.75); margin: 2px 0 0; line-height: 1.2;">Capacitaciones y proyectos</p>
+          </div>
+        </a>
+
+        <!-- Botón 3: Contactar -->
+        <a
+          href="/contacto"
+          class="cta-button cta-button-light"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px 24px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255,255,255,0.25);
+          "
+        >
+          <!-- Cajita ícono -->
+          <div
+            style="
+              width: 36px;
+              height: 36px;
+              border-radius: 8px;
+              background: rgba(24,128,201,0.12);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-shrink: 0;
+            "
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1880c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <!-- Textos -->
+          <div style="text-align: left;">
+            <p style="font-weight: 700; font-size: 14px; color: #040d4e; margin: 0; line-height: 1.2;">Contactar</p>
+            <p style="font-weight: 400; font-size: 12px; color: #5b7a9e; margin: 2px 0 0; line-height: 1.2;">Escribí tu consulta directamente</p>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-</Layout>
+  <style>
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+    }
 
-<style>
-  /* Smooth button outline fix para fondo claro */
-  section:last-child a[href="/empresas"],
-  section:last-child a[href="/contacto"] {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-    background: transparent;
-  }
-  section:last-child a[href="/empresas"]:hover,
-  section:last-child a[href="/contacto"]:hover {
-    background: var(--color-accent);
-    color: white;
-  }
-</style>
+    .cta-button-light:hover {
+      box-shadow: 0 12px 28px rgba(24,128,201,0.3);
+    }
+  </style>
+
+</Layout>
