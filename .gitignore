@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# videos grandes (usar CDN o hosting externo)
+public/videos/*.mp4
+!public/videos/moquillo.mp4
+!public/videos/canidos-silvestres.mp4
