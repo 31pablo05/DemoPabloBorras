@@ -67,8 +67,8 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
         class="hero-title text-4xl md:text-5xl font-bold text-white mb-4"
         style="font-family: var(--font-display); line-height: 1.2; opacity: 0; animation: fadeUp 0.6s ease-out 0.25s both;"
       >
-        Tu mascota merece lo mejor.<br/>
-        <span style="color: #a8d8f0;">Vos también merecés entenderlo.</span>
+        Tu mascota merece lo mejor<br/>
+        <span style="color: #a8d8f0;">Vos también merecés entenderlo</span>
       </h1>
 
       <!-- Descripción -->
@@ -162,12 +162,14 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
         {[
           {
             videoSrc: '/videos/moquillo.mp4',
+            posterSrc: '/imagenes/postermoquillo.PNG',
             duracion: '1:00',
             titulo: '5 cosas que todo tutor debe saber sobre el moquillo',
             descripcion: 'Lo que necesitás saber para proteger a tu perro.',
           },
           {
             videoSrc: '/videos/canidos-silvestres.mp4',
+            posterSrc: '/imagenes/postercandidos.PNG',
             duracion: '1:20',
             titulo: 'Perros domésticos y cánidos silvestres',
             descripcion: 'Lo que tienen en común y por qué importa saberlo.',
@@ -181,8 +183,24 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
             <div
               class="video-facade-container"
               data-video-src={video.videoSrc}
-              style="position: relative; aspect-ratio: 9/16; width: 100%; background: var(--color-primary); cursor: pointer; overflow: hidden;"
+              data-poster={video.posterSrc}
+              style="position: relative; aspect-ratio: 9/16; width: 100%; cursor: pointer; overflow: hidden; background: #000;"
             >
+              <!-- Imagen poster como preview -->
+              <img
+                src={video.posterSrc}
+                alt={video.titulo}
+                class="video-poster-preview"
+                style="
+                  position: absolute;
+                  inset: 0;
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  z-index: 1;
+                "
+                loading="lazy"
+              />
               <!-- Botón play central -->
               <div
                 class="play-button-overlay"
@@ -194,6 +212,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
                   justify-content: center;
                   background: rgba(4,13,78,0.3);
                   transition: background 0.3s ease;
+                  z-index: 2;
                 "
               >
                 <div
@@ -229,6 +248,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
                   font-family: var(--font-body);
                   backdrop-filter: blur(4px);
                   letter-spacing: 0.02em;
+                  z-index: 2;
                 "
               >
                 {video.duracion}
@@ -639,10 +659,14 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
   videoFacades.forEach((facade) => {
     facade.addEventListener('click', function(this: HTMLElement) {
       const videoSrc = this.getAttribute('data-video-src');
+      const posterSrc = this.getAttribute('data-poster');
       
       // Crear elemento video
       const videoElement = document.createElement('video');
       videoElement.src = videoSrc || '';
+      if (posterSrc) {
+        videoElement.poster = posterSrc;
+      }
       videoElement.controls = true;
       videoElement.autoplay = true;
       videoElement.playsInline = true;
