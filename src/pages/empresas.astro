@@ -11,48 +11,301 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
   heroImage="/imagenes/heros/2.png"
 >
 
-  <!-- Hero secundario -->
+  <!-- Hero mejorado -->
   <section
-    class="py-20"
-    style="min-height: 520px; display: flex; align-items: center; background: linear-gradient(135deg, rgba(4,13,78,0.78) 0%, rgba(2,6,24,0.85) 100%), url('/imagenes/heros/2.png') center top / cover no-repeat;"
+    class="relative overflow-hidden"
+    style="
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(135deg, rgba(4,13,78,0.85) 0%, rgba(24,128,201,0.75) 100%),
+        url('/imagenes/heros/2.png') center top / cover no-repeat;
+    "
   >
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div
-        class="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
-        style="background: rgba(24,128,201,0.12); color: var(--color-accent-light); border: 1px solid rgba(24,128,201,0.28);"
-      >
-        Propuestas para el sector corporativo
+    <!-- Patrón decorativo -->
+    <div
+      style="
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.08) 1px, transparent 0);
+        background-size: 40px 40px;
+        opacity: 0.3;
+      "
+      aria-hidden="true"
+    ></div>
+
+    <!-- Blob decorativo superior -->
+    <div
+      style="
+        position: absolute;
+        top: -10%;
+        right: -5%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(74,61,158,0.35) 0%, transparent 70%);
+        border-radius: 50%;
+        filter: blur(80px);
+      "
+      aria-hidden="true"
+    ></div>
+
+    <!-- Blob decorativo inferior -->
+    <div
+      style="
+        position: absolute;
+        bottom: -15%;
+        left: -10%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(24,128,201,0.3) 0%, transparent 70%);
+        border-radius: 50%;
+        filter: blur(70px);
+      "
+      aria-hidden="true"
+    ></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 text-center">
+      <!-- Badge superior mejorado -->
+      <div class="inline-block mb-6">
+        <span
+          class="inline-flex items-center gap-2 text-xs font-bold uppercase px-5 py-2.5 rounded-xl backdrop-blur-md"
+          style="background: rgba(255,255,255,0.15); color: white; letter-spacing: 0.1em; border: 1px solid rgba(255,255,255,0.25);"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
+          Propuestas para el sector corporativo
+        </span>
       </div>
+
+      <!-- Título con gradiente -->
       <h1
-        class="text-4xl md:text-5xl font-bold text-white mb-4"
-        style="font-family: var(--font-display);"
+        class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+        style="
+          font-family: var(--font-display);
+          background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          line-height: 1.2;
+        "
       >
         Para empresas e instituciones
       </h1>
-      <p class="text-white/70 text-lg max-w-2xl mx-auto">
-        Sumá autoridad científica, experiencia clínica y capacidad de comunicación a tus proyectos institucionales y eventos.
+
+      <p class="text-lg md:text-xl text-white/85 max-w-3xl mx-auto mb-12 leading-relaxed">
+        Sumá autoridad científica, experiencia clínica y capacidad de comunicación a tus proyectos institucionales y eventos corporativos.
       </p>
+
+      <!-- Stats pills -->
+      <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <div
+          class="flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
+          style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <div>
+            <p class="text-xs text-white/70 uppercase tracking-wider">Speaker</p>
+            <p class="text-sm font-bold text-white">Internacional</p>
+          </div>
+        </div>
+
+        <div
+          class="flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
+          style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+          <div>
+            <p class="text-xs text-white/70 uppercase tracking-wider">Base</p>
+            <p class="text-sm font-bold text-white">Científica sólida</p>
+          </div>
+        </div>
+
+        <div
+          class="flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
+          style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <div>
+            <p class="text-xs text-white/70 uppercase tracking-wider">Experiencia</p>
+            <p class="text-sm font-bold text-white">Clínica diaria</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA principal del hero -->
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="#servicios"
+          class="inline-flex items-center gap-3 px-8 py-4 text-base font-bold rounded-xl transition-all"
+          style="
+            background: linear-gradient(135deg, #1880c9 0%, #4a3d9e 100%);
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 24px rgba(24,128,201,0.4);
+          "
+          onmouseover="this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 12px 36px rgba(24,128,201,0.5)'"
+          onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 24px rgba(24,128,201,0.4)'"
+        >
+          Ver servicios
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+
+        <a
+          href="/contacto?tab=empresas"
+          class="inline-flex items-center gap-3 px-8 py-4 text-base font-bold rounded-xl backdrop-blur-md transition-all"
+          style="
+            background: rgba(255,255,255,0.15);
+            color: white;
+            text-decoration: none;
+            border: 2px solid rgba(255,255,255,0.3);
+          "
+          onmouseover="this.style.background='rgba(255,255,255,0.25)'; this.style.transform='scale(1.02)'"
+          onmouseout="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='scale(1)'"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Contactar
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- Servicios corporativos -->
   <ServiciosEmpresas />
 
+  <!-- Sección: Por qué trabajar con Pablo -->
+  <section class="py-20" style="background: linear-gradient(135deg, #040d4e 0%, #1880c9 100%);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Título de sección -->
+      <div class="text-center mb-16">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: rgba(255,255,255,0.8); letter-spacing: 0.12em;">
+          Valor agregado
+        </p>
+        <h2 
+          class="text-3xl md:text-4xl font-bold mb-4"
+          style="
+            font-family: var(--font-display);
+            background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+          "
+        >
+          ¿Por qué trabajar con Pablo?
+        </h2>
+        <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #93c5fd 0%, #ffffff 100%);"></div>
+      </div>
+
+      <!-- Grid de beneficios -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Beneficio 1 -->
+        <div class="text-center">
+          <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.2);">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3" style="font-family: var(--font-display);">
+            Experiencia clínica real
+          </h3>
+          <p class="text-white/80 text-sm leading-relaxed">
+            No solo teoría: más de 15 años atendiendo pacientes a diario. Casos reales, protocolos probados, evidencia aplicable.
+          </p>
+        </div>
+
+        <!-- Beneficio 2 -->
+        <div class="text-center">
+          <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.2);">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3" style="font-family: var(--font-display);">
+            Rigor científico internacional
+          </h3>
+          <p class="text-white/80 text-sm leading-relaxed">
+            Publicaciones en revistas indexadas, membresías en WAAVP y TroCCAP. Actualización permanente con las últimas investigaciones.
+          </p>
+        </div>
+
+        <!-- Beneficio 3 -->
+        <div class="text-center">
+          <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.2);">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3" style="font-family: var(--font-display);">
+            Comunicación efectiva
+          </h3>
+          <p class="text-white/80 text-sm leading-relaxed">
+            Speaker en congresos internacionales. Capacidad de adaptar contenido complejo para diferentes audiencias, desde técnicos hasta público general.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Stat destacado -->
+      <div class="mt-16 text-center">
+        <div class="inline-block p-8 rounded-2xl backdrop-blur-md" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2);">
+          <p class="text-5xl font-bold text-white mb-2" style="font-family: var(--font-display);">
+            15+ años
+          </p>
+          <p class="text-white/80 text-sm uppercase tracking-wider">
+            De experiencia combinando clínica, investigación y docencia
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- Formulario pre-abierto en tab Empresas -->
-  <section class="py-16" style="background: var(--color-neutral-light);">
+  <section class="py-20" style="background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
+      <div class="text-center mb-12">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-accent); letter-spacing: 0.12em;">
+          Próximo paso
+        </p>
         <h2
-          class="text-3xl font-bold"
-          style="font-family: var(--font-display); color: var(--color-text);"
+          class="text-3xl md:text-4xl font-bold mb-4"
+          style="font-family: var(--font-display); color: var(--color-text); line-height: 1.2;"
         >
           Hablemos de tu proyecto
         </h2>
-        <p class="mt-2 text-sm" style="color: var(--color-text-muted);">
+        <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #4a3d9e 100%);"></div>
+        <p class="mt-4 text-base" style="color: var(--color-text-muted);">
           Contanos sobre tu empresa o institución y cómo podría colaborar Pablo.
         </p>
       </div>
-      <FormularioContacto client:load />
+      <div class="bg-white p-8 md:p-10 rounded-2xl" style="box-shadow: 0 4px 24px rgba(0,0,0,0.08); border-top: 4px solid #1880c9;">
+        <FormularioContacto client:load />
+      </div>
     </div>
   </section>
 

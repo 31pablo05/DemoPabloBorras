@@ -51,70 +51,154 @@ const stats = [
   heroImage="/imagenes/heros/mendoza.jpg"
 >
 
-  <!-- Hero secundario -->
+  <!-- Hero secundario mejorado -->
   <section
-    class="py-24 md:py-28"
-    style="min-height: 680px; display: flex; align-items: center; background: linear-gradient(135deg, rgba(4,13,78,0.78) 0%, rgba(2,6,24,0.85) 100%), url('/imagenes/heros/mendoza.jpg') center 60% / cover no-repeat;"
+    class="py-24 md:py-28 relative overflow-hidden"
+    style="min-height: 100svh; display: flex; align-items: center; background: linear-gradient(135deg, rgba(4,13,78,0.88) 0%, rgba(24,59,127,0.82) 50%, rgba(24,128,201,0.78) 100%), url('/imagenes/heros/mendoza.jpg') center 60% / cover no-repeat;"
   >
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Patrón de puntos decorativo -->
+    <div
+      style="
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+        background-size: 24px 24px;
+        pointer-events: none;
+      "
+      aria-hidden="true"
+    ></div>
+    
+    <!-- Blob decorativo -->
+    <div
+      style="
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(24,128,201,0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        filter: blur(80px);
+        pointer-events: none;
+      "
+      aria-hidden="true"
+    ></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       <div
-        class="inline-block text-xs font-semibold uppercase tracking-widest px-5 py-2 rounded-full mb-7"
-        style="background: rgba(24,128,201,0.15); color: #a8d8f0; border: 1px solid rgba(24,128,201,0.35); letter-spacing: 0.12em;"
+        class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-5 py-2.5 rounded-full mb-7"
+        style="background: rgba(255,255,255,0.12); color: #a8d8f0; border: 1px solid rgba(255,255,255,0.25); letter-spacing: 0.12em; backdrop-filter: blur(10px);"
       >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
         Espacio exclusivo para profesionales
       </div>
       <h1
         class="text-4xl md:text-6xl font-bold text-white mb-6"
-        style="font-family: var(--font-display); line-height: 1.15;"
+        style="font-family: var(--font-display); line-height: 1.15; text-shadow: 0 2px 20px rgba(0,0,0,0.3);"
       >
-        Para veterinarios y profesionales
+        Para veterinarios y<br/><span style="background: linear-gradient(135deg, #ffffff 0%, #5ba8e0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">profesionales de la salud animal</span>
       </h1>
-      <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+      <p class="text-white/85 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8" style="text-shadow: 0 1px 8px rgba(0,0,0,0.2);">
         Herramientas diseñadas para elevar el estándar de tu ejercicio profesional: interconsultas, formación continua y material de referencia clínica.
       </p>
+      <!-- Badges de credenciales -->
+      <div class="flex flex-wrap justify-center gap-3 items-center">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px);">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+          Esp. Enf. Infecciosas
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px);">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+          MSc Zoonosis
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px);">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Editor P&V
+        </span>
+      </div>
     </div>
   </section>
 
-  <!-- 3 Cards de subsecciones -->
-  <section style="background: var(--color-neutral-light);" class="py-20 md:py-24">
+  <!-- 3 Cards de subsecciones mejoradas -->
+  <section style="background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);" class="py-20 md:py-24">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <SectionTitle
-        title="¿Qué necesitás?"
-        subtitle="Servicios para colegas"
-        centered={true}
-      />
+      <div class="text-center mb-12">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-accent); letter-spacing: 0.12em;">
+          Servicios para colegas
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display); color: var(--color-text); line-height: 1.2;">
+          ¿Qué necesitás?
+        </h2>
+        <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #4a3d9e 100%);"></div>
+      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mt-8">
-        {subsecciones.map(sub => (
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mt-12">
+        {[
+          { ...subsecciones[0], color: '#1880c9', bgGradient: 'linear-gradient(135deg, rgba(24,128,201,0.08) 0%, transparent 100%)', shadowColor: '24,128,201' },
+          { ...subsecciones[1], color: '#4a3d9e', bgGradient: 'linear-gradient(135deg, rgba(74,61,158,0.08) 0%, transparent 100%)', shadowColor: '74,61,158' },
+          { ...subsecciones[2], color: '#1880c9', bgGradient: 'linear-gradient(135deg, rgba(24,128,201,0.08) 0%, transparent 100%)', shadowColor: '24,128,201' },
+        ].map((sub, index) => (
           <a
             href={sub.href}
-            class="card-lift group block bg-white rounded-2xl p-8 md:p-10 no-underline"
-            style="border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-decoration: none; border-top: 4px solid transparent; transition: all 0.3s ease;"
-            onmouseover="this.style.borderTopColor='var(--color-accent)'; this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 32px rgba(24,128,201,0.15)'"
-            onmouseout="this.style.borderTopColor='transparent'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'"
+            class="card-lift group block bg-white rounded-2xl p-8 md:p-10 no-underline relative overflow-hidden"
+            style={`
+              border-radius: 18px;
+              box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+              text-decoration: none;
+              border-top: 4px solid ${sub.color};
+              transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+              transform-origin: center;
+            `}
+            onmouseover={`this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(${sub.shadowColor},0.25)'`}
+            onmouseout={`this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.08)'`}
           >
+            <!-- Gradiente de fondo -->
             <div
-              class="mb-6 w-16 h-16 flex items-center justify-center rounded-xl"
-              style="color: var(--color-accent); background: rgba(24,128,201,0.1); transition: all 0.3s ease;"
-              set:html={sub.icon}
-            />
-            <h2
-              class="text-2xl font-bold mb-4"
-              style="font-family: var(--font-display); color: var(--color-text); line-height: 1.3;"
-            >
-              {sub.titulo}
-            </h2>
-            <p class="text-base leading-relaxed mb-6" style="color: var(--color-text-muted); line-height: 1.6;">
-              {sub.descripcion}
-            </p>
-            <span class="text-sm font-bold group-hover:underline inline-flex items-center gap-1" style="color: var(--color-accent);">
-              {sub.cta}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </span>
+              style={`
+                position: absolute;
+                inset: 0;
+                background: ${sub.bgGradient};
+                pointer-events: none;
+                opacity: 1;
+                transition: opacity 0.3s ease;
+              `}
+              aria-hidden="true"
+            ></div>
+            
+            <!-- Contenido -->
+            <div style="position: relative; z-index: 1;">
+              <div
+                class="mb-6 w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300"
+                style={`color: ${sub.color}; background: ${sub.color === '#1880c9' ? 'rgba(24,128,201,0.12)' : 'rgba(74,61,158,0.12)'}; border: 2px solid ${sub.color === '#1880c9' ? 'rgba(24,128,201,0.2)' : 'rgba(74,61,158,0.2)'};`}
+                set:html={sub.icon}
+              />
+              <h2
+                class="text-2xl font-bold mb-4"
+                style="font-family: var(--font-display); color: var(--color-text); line-height: 1.3;"
+              >
+                {sub.titulo}
+              </h2>
+              <p class="text-base leading-relaxed mb-6" style="color: var(--color-text-muted); line-height: 1.7;">
+                {sub.descripcion}
+              </p>
+              <span class="text-sm font-bold group-hover:underline inline-flex items-center gap-2 transition-all" style={`color: ${sub.color};`}>
+                {sub.cta}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-2">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </span>
+            </div>
           </a>
         ))}
       </div>
@@ -129,10 +213,15 @@ const stats = [
 
         <!-- Texto de autoridad -->
         <div>
-          <SectionTitle
-            title="Trayectoria que respalda"
-            subtitle="Autoridad clínica"
-          />
+          <div class="mb-8">
+            <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-accent); letter-spacing: 0.12em;">
+              Autoridad clínica
+            </p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-2" style="font-family: var(--font-display); color: var(--color-text); line-height: 1.2;">
+              Trayectoria que respalda
+            </h2>
+            <div class="w-16 h-1 rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #4a3d9e 100%);"></div>
+          </div>
           <p class="text-base md:text-lg leading-relaxed mb-5" style="color: var(--color-text-muted); line-height: 1.7;">
             Médico Veterinario egresado de la Universidad de Buenos Aires. Especialista
             en Enfermedades Infecciosas y Parasitarias (CPHV) y Magíster en Prevención y
@@ -152,23 +241,23 @@ const stats = [
           </ul>
 
           <!-- Membresías y reconocimientos -->
-          <div class="pt-5" style="border-top: 1px solid #E5EAED;">
-            <p class="text-xs font-semibold uppercase tracking-wider mb-4" style="color: var(--color-text-muted);">Membresías y reconocimientos</p>
-            <div class="flex flex-wrap gap-2">
+          <div class="pt-6" style="border-top: 2px solid #E5EAED;">
+            <p class="text-xs font-semibold uppercase tracking-wider mb-5" style="color: var(--color-text-muted); letter-spacing: 0.1em;">Membresías y reconocimientos</p>
+            <div class="flex flex-wrap gap-2.5">
 
               <!-- TroCCAP — azul -->
               <a
                 href="https://www.troccap.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-80"
-                style="border-radius: 8px; background: #EEF4FF; color: #1849A9; border: 0.5px solid #BDCFFA; text-decoration: none;"
+                class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold transition-all hover:scale-105 hover:shadow-lg"
+                style="border-radius: 10px; background: linear-gradient(135deg, #EEF4FF 0%, #DBEAFE 100%); color: #1849A9; border: 1.5px solid #93C5FD; text-decoration: none;"
               >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
                   <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
                 </svg>
-                TroCCAP Council Scientific Member
+                TroCCAP Council
               </a>
 
               <!-- ABCD — verde -->
@@ -176,24 +265,24 @@ const stats = [
                 href="https://www.abcdcatsvets.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-80"
-                style="border-radius: 8px; background: #F0FDF4; color: #166534; border: 0.5px solid #86EFAC; text-decoration: none;"
+                class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold transition-all hover:scale-105 hover:shadow-lg"
+                style="border-radius: 10px; background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%); color: #166534; border: 1.5px solid #86EFAC; text-decoration: none;"
               >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                 </svg>
-                ABCD cats &amp; vets Europe
+                ABCD Europe
               </a>
 
-              <!-- ISCAID — azul medio -->
+              <!-- ISCAID — celeste -->
               <a
                 href="https://www.iscaid.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-80"
-                style="border-radius: 8px; background: #EFF6FF; color: #1D4ED8; border: 0.5px solid #93C5FD; text-decoration: none;"
+                class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold transition-all hover:scale-105 hover:shadow-lg"
+                style="border-radius: 10px; background: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 100%); color: #065F46; border: 1.5px solid #5EEAD4; text-decoration: none;"
               >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                   <circle cx="9" cy="7" r="4"/>
                   <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
@@ -206,10 +295,10 @@ const stats = [
                 href="https://www.esccap.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-80"
-                style="border-radius: 8px; background: #F0FDF4; color: #065F46; border: 0.5px solid #6EE7B7; text-decoration: none;"
+                class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold transition-all hover:scale-105 hover:shadow-lg"
+                style="border-radius: 10px; background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); color: #065F46; border: 1.5px solid #6EE7B7; text-decoration: none;"
               >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                 </svg>
                 ESCCAP Member
@@ -220,25 +309,25 @@ const stats = [
                 href="https://link.springer.com/journal/13071"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-80"
-                style="border-radius: 8px; background: #FFF7ED; color: #9A3412; border: 0.5px solid #FED7AA; text-decoration: none;"
+                class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold transition-all hover:scale-105 hover:shadow-lg"
+                style="border-radius: 10px; background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%); color: #9A3412; border: 1.5px solid #FDBA74; text-decoration: none;"
               >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
                   <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
                 </svg>
-                Editor — Parasites &amp; Vectors
+                Editor P&V
               </a>
 
               <!-- AVEACA Premio — dorado -->
               <span
-                class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium"
-                style="border-radius: 8px; background: #FFFBEB; color: #92400E; border: 0.5px solid #FCD34D;"
+                class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold"
+                style="border-radius: 10px; background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); color: #92400E; border: 1.5px solid #FCD34D;"
               >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
                 </svg>
-                2º Premio mejor caso clínico — AVEACA 2025
+                Premio AVEACA 2025
               </span>
 
             </div>
@@ -285,15 +374,20 @@ const stats = [
     </div>
   </section>
   <!-- Sección: Publicaciones científicas -->
-  <section style="background: var(--color-neutral-light);" class="py-20 md:py-24">
+  <section style="background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);" class="py-20 md:py-24">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <SectionTitle
-        title="Publicaciones científicas"
-        subtitle="Investigación y ciencia"
-      />
+      <div class="text-center mb-12">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-accent); letter-spacing: 0.12em;">
+          Investigación y ciencia
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display); color: var(--color-text); line-height: 1.2;">
+          Publicaciones científicas
+        </h2>
+        <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #4a3d9e 100%);"></div>
+      </div>
 
-      <div class="divide-y" style="border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); background: #fff;">
+      <div class="divide-y" style="border-radius: 18px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); background: #fff;">
         {[
           {
             titulo: 'Heartworm adulticide treatment: a tropical perspective',
@@ -325,8 +419,10 @@ const stats = [
           },
         ].map((pub, i) => (
           <div
-            class="reveal flex gap-4 md:gap-5 p-6 md:p-7 transition-all hover:bg-neutral-50"
-            style={`transition-delay: ${i * 0.1}s;`}
+            class="reveal flex gap-4 md:gap-5 p-6 md:p-7 transition-all"
+            style={`transition-delay: ${i * 0.1}s; cursor: pointer;`}
+            onmouseover="this.style.background='rgba(24,128,201,0.03)'"
+            onmouseout="this.style.background='transparent'"
           >
             <div class="shrink-0 mt-0.5 text-xl md:text-2xl">&#128196;</div>
             <div class="flex-1 min-w-0">
@@ -344,8 +440,8 @@ const stats = [
               <div class="flex items-center gap-2 mt-2 flex-wrap">
                 <p class="text-sm" style="color: var(--color-text-muted);" set:html={pub.revista} />
                 <span
-                  class="inline-block px-2 py-1 rounded-full text-xs font-bold"
-                  style="background: rgba(24,128,201,0.12); color: var(--color-accent); border: 1px solid rgba(24,128,201,0.2);"
+                  class="inline-block px-3 py-1.5 rounded-full text-xs font-bold"
+                  style="background: linear-gradient(135deg, rgba(24,128,201,0.15) 0%, rgba(74,61,158,0.15) 100%); color: var(--color-accent); border: 1.5px solid rgba(24,128,201,0.3);"
                 >
                   {pub.año}
                 </span>
@@ -356,11 +452,11 @@ const stats = [
                 href={pub.pdf}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-bold transition-all hover:opacity-80 hover:scale-105"
-                style="background: rgba(220,38,38,0.1); color: #DC2626; border: 1px solid rgba(220,38,38,0.25); text-decoration: none; white-space: nowrap;"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all hover:scale-110 hover:shadow-xl"
+                style="background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%); color: #DC2626; border: 1.5px solid rgba(220,38,38,0.3); text-decoration: none; white-space: nowrap;"
                 title="Descargar PDF"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                   <polyline points="7 10 12 15 17 10"/>
                   <line x1="12" y1="15" x2="12" y2="3"/>
@@ -385,23 +481,26 @@ const stats = [
   <!-- Sección: Recursos y organizaciones de referencia -->
   <section class="py-16 md:py-20 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-xs font-bold uppercase tracking-widest mb-7 text-center" style="color: var(--color-text-muted); letter-spacing: 0.12em;">Recursos y organizaciones de referencia</p>
+      <div class="text-center mb-10">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-accent); letter-spacing: 0.12em;">Enlaces útiles</p>
+        <h3 class="text-2xl md:text-3xl font-bold" style="font-family: var(--font-display); color: var(--color-text);">Recursos y organizaciones de referencia</h3>
+      </div>
       <div class="flex flex-wrap justify-center gap-3 md:gap-4">
         {[
-          { label: 'TroCCAP', href: 'https://www.troccap.com' },
-          { label: 'ABCD cats &amp; vets', href: 'https://www.abcdcatsvets.org' },
-          { label: 'CAPC', href: 'https://capcvet.org' },
-          { label: 'ESCCAP', href: 'https://www.esccap.org' },
-          { label: 'ISCAID', href: 'https://www.iscaid.org' },
-          { label: 'Parasites &amp; Vectors', href: 'https://link.springer.com/journal/13071' },
-          { label: 'JVIM', href: 'https://academic.oup.com/jvim' },
-        ].map(r => (
+          { label: 'TroCCAP', href: 'https://www.troccap.com', color: '#1880c9' },
+          { label: 'ABCD cats &amp; vets', href: 'https://www.abcdcatsvets.org', color: '#4a3d9e' },
+          { label: 'CAPC', href: 'https://capcvet.org', color: '#1880c9' },
+          { label: 'ESCCAP', href: 'https://www.esccap.org', color: '#4a3d9e' },
+          { label: 'ISCAID', href: 'https://www.iscaid.org', color: '#1880c9' },
+          { label: 'Parasites &amp; Vectors', href: 'https://link.springer.com/journal/13071', color: '#4a3d9e' },
+          { label: 'JVIM', href: 'https://academic.oup.com/jvim', color: '#1880c9' },
+        ].map((r, index) => (
           <a
             href={r.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center px-4 py-2.5 text-sm font-semibold transition-all hover:scale-105 hover:shadow-md"
-            style="border-radius: 10px; border: 1.5px solid #D1D5DB; color: var(--color-text); text-decoration: none; background: var(--color-neutral-light);"
+            class="inline-flex items-center px-5 py-3 text-sm font-semibold transition-all hover:scale-105 hover:shadow-lg"
+            style={`border-radius: 12px; border: 2px solid ${r.color}; color: ${r.color}; text-decoration: none; background: ${r.color === '#1880c9' ? 'rgba(24,128,201,0.05)' : 'rgba(74,61,158,0.05)'};`}
             set:html={r.label}
           />
         ))}
@@ -426,7 +525,7 @@ const stats = [
     padding: 0.75rem;
     border-radius: 1rem;
     cursor: default;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
   }
 
   .stat-card:hover {
@@ -443,11 +542,29 @@ const stats = [
     transition: color 0.3s ease;
   }
 
-  /* Mejoras de hover para cards */
-  .card-lift:hover .group {
-    transform: scale(1.05);
+  /* Mejoras de hover para cards con gradiente */
+  .card-lift {
+    position: relative;
+    overflow: hidden;
   }
 
+  .card-lift::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+    pointer-events: none;
+  }
+
+  .card-lift:hover::after {
+    left: 100%;
+  }
+
+  /* Animaciones reveal mejoradas */
   @media (prefers-reduced-motion: no-preference) {
     .reveal {
       opacity: 0;
@@ -458,11 +575,44 @@ const stats = [
   @keyframes fadeUpIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  /* Scroll suave para navegación */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Mejoras en badges con hover */
+  a[class*="inline-flex"]:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Efecto de pulso en elementos importantes */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(24, 128, 201, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 8px rgba(24, 128, 201, 0);
+    }
+  }
+
+  /* Gradiente animado en bordes */
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
     }
   }
 </style>
