@@ -2,39 +2,50 @@
 // Footer.astro — Pie de página global
 ---
 
-<footer style="background: var(--color-neutral-dark);" class="pt-12 pb-6">
+<footer style="background: var(--color-neutral-dark);" class="pt-16 pb-6 relative">
+  <!-- Línea de acento en el top (igual que el header) -->
+  <div
+    aria-hidden="true"
+    style="
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #040d4e 0%, #1880c9 50%, #5ba8e0 100%);
+    "
+  ></div>
+  
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Grid de 3 columnas -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pb-12 border-b" style="border-color: rgba(255, 255, 255, 0.1);">
 
       <!-- Columna 1: Logo + tagline -->
-      <div>
-        <a href="/" class="inline-block mb-4 footer-logo-link" style="text-decoration: none;">
+      <div class="lg:col-span-1">
+        <a href="/" class="inline-block mb-5 footer-logo-link" style="text-decoration: none;">
           <img
             src="/imagenes/logo/log2.png"
             alt="Pablo Borrás Veterinario"
             class="footer-logo w-auto"
-            style="height: 84px; flex-shrink: 0; display: block; filter: brightness(0) invert(1) opacity(0.85);"
+            style="height: 72px; display: block; filter: brightness(0) invert(1);"
             loading="lazy"
           />
         </a>
-        <p class="text-sm leading-relaxed" style="color: var(--color-text-muted);">
+        <p class="text-sm leading-relaxed mb-6" style="color: rgba(255, 255, 255, 0.75);">
           Médico Veterinario · Speaker · Autor.<br />
           Formación, referencia clínica y marca profesional al servicio del ecosistema veterinario.
         </p>
         <!-- Redes sociales -->
-        <div class="flex gap-4 mt-5">
+        <div class="flex gap-3">
           <!-- Instagram -->
           <a
             href="https://www.instagram.com/pablojborras"
             aria-label="Instagram de Pablo Borrás"
             target="_blank"
             rel="noopener noreferrer"
-            class="transition-opacity hover:opacity-70 inline-flex items-center justify-center"
-            style="color: var(--color-accent-light); min-width: 44px; min-height: 44px;"
+            class="transition-all hover:scale-110 inline-flex items-center justify-center rounded-full"
+            style="background: rgba(255, 255, 255, 0.1); color: white; width: 40px; height: 40px; backdrop-filter: blur(10px);"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
               <circle cx="12" cy="12" r="4"/>
               <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
@@ -46,10 +57,10 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="YouTube de Pablo Borrás"
-            class="transition-opacity hover:opacity-70 inline-flex items-center justify-center"
-            style="color: var(--color-accent-light); min-width: 44px; min-height: 44px;"
+            class="transition-all hover:scale-110 inline-flex items-center justify-center rounded-full"
+            style="background: rgba(255, 255, 255, 0.1); color: white; width: 40px; height: 40px; backdrop-filter: blur(10px);"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
               <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
             </svg>
@@ -60,10 +71,10 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn de Pablo Borrás"
-            class="transition-opacity hover:opacity-70 inline-flex items-center justify-center"
-            style="color: var(--color-accent-light); min-width: 44px; min-height: 44px;"
+            class="transition-all hover:scale-110 inline-flex items-center justify-center rounded-full"
+            style="background: rgba(255, 255, 255, 0.1); color: white; width: 40px; height: 40px; backdrop-filter: blur(10px);"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
               <rect x="2" y="9" width="4" height="12"/>
               <circle cx="4" cy="4" r="2"/>
@@ -75,12 +86,12 @@
       <!-- Columna 2: Navegación rápida -->
       <div>
         <h3
-          class="text-white font-semibold text-sm uppercase tracking-wider mb-4"
-          style="font-family: var(--font-body);"
+          class="text-white font-bold text-sm uppercase tracking-wider mb-5"
+          style="font-family: var(--font-display); letter-spacing: 0.08em;"
         >
           Navegación
         </h3>
-        <ul class="space-y-2">
+        <ul class="space-y-3">
           {[
             { label: 'Inicio', href: '/' },
             { label: 'Sobre Pablo', href: '/sobre-pablo' },
@@ -88,16 +99,17 @@
             { label: 'Para veterinarios', href: '/veterinarios' },
             { label: 'Para empresas', href: '/empresas' },
             { label: 'Eventos', href: '/eventos' },
-            { label: 'Videos', href: '/videos' },
             { label: 'Contacto', href: '/contacto' },
           ].map(link => (
             <li>
               <a
                 href={link.href}
-                class="text-sm transition-colors hover:text-white"
-                style="color: var(--color-text-muted); text-decoration: none;"
+                class="text-sm transition-colors hover:text-white inline-flex items-center group"
+                style="color: rgba(255, 255, 255, 0.7); text-decoration: none;"
               >
-                {link.label}
+                <span class="transition-transform group-hover:translate-x-1">
+                  {link.label}
+                </span>
               </a>
             </li>
           ))}
@@ -107,76 +119,104 @@
       <!-- Columna 3: Contacto directo -->
       <div>
         <h3
-          class="text-white font-semibold text-sm uppercase tracking-wider mb-4"
-          style="font-family: var(--font-body);"
+          class="text-white font-bold text-sm uppercase tracking-wider mb-5"
+          style="font-family: var(--font-display); letter-spacing: 0.08em;"
         >
           Contacto directo
         </h3>
-        <p class="text-sm mb-3" style="color: var(--color-text-muted);">
+        <p class="text-sm mb-4 leading-relaxed" style="color: rgba(255, 255, 255, 0.7);">
           ¿Tenés una consulta o propuesta profesional?
         </p>
         <a
           href="mailto:consultas.borras@gmail.com"
-          class="text-sm font-medium transition-colors hover:text-white"
+          class="text-sm font-semibold transition-colors hover:text-white inline-flex items-center gap-1 mb-6 group"
           style="color: var(--color-accent-light); text-decoration: none;"
         >
-          consultas.borras@gmail.com
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span class="transition-all group-hover:underline">consultas.borras@gmail.com</span>
         </a>
         <div class="mt-5">
           <a
             href="/contacto"
-            class="inline-block text-sm font-semibold px-5 py-2 rounded-md transition-opacity hover:opacity-80"
-            style="background: var(--color-accent); color: #fff; text-decoration: none; border-radius: var(--radius);"
+            class="inline-block text-sm font-semibold px-6 py-3 rounded-lg transition-all hover:scale-105"
+            style="background: var(--color-accent); color: #fff; text-decoration: none; box-shadow: 0 4px 14px rgba(24, 128, 201, 0.4);"
           >
-            Ir al formulario de contacto
+            Formulario de contacto →
           </a>
         </div>
       </div>
 
     </div>
 
-    <!-- Mini-CTA -->
-    <div class="py-8 text-center border-t border-white/10">
-      <p class="text-sm font-medium mb-3" style="color: rgba(255,255,255,0.55);">
-        ¿Querés trabajar con Pablo?
-      </p>
-      <a
-        href="/contacto"
-        class="inline-flex items-center gap-1 text-sm font-semibold transition-opacity hover:opacity-75"
-        style="color: var(--color-accent-light); text-decoration: none;"
-      >
-        Escribime →
-      </a>
-    </div>
+    <!-- Banda inferior: Copyright, DevCraft y Legal -->
+    <div class="pt-8 pb-4">
+      <!-- Fila 1: Copyright y DevCraft -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-4">
+        <p class="text-xs" style="color: rgba(255, 255, 255, 0.5);">
+          © {new Date().getFullYear()} Pablo Borrás · Todos los derechos reservados.
+        </p>
+        
+        <!-- Desarrollado por DevCraft en el medio -->
+        <div class="flex items-center gap-2">
+          <span class="text-xs" style="color: rgba(255, 255, 255, 0.4);">
+            Desarrollado por
+          </span>
+          <a
+            href="https://www.devcraft.com.ar/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-semibold transition-all hover:scale-105"
+            style="color: rgba(255, 255, 255, 0.7); text-decoration: none;"
+          >
+            <img 
+              src="/imagenes/logo/logodevcraft.png" 
+              alt="DevCraft" 
+              style="height: 18px; width: auto; opacity: 0.85;"
+              class="transition-opacity hover:opacity-100"
+            />
+            <span class="hover:text-white">DevCraft</span>
+          </a>
+        </div>
 
-    <!-- Copyright -->
-    <div class="pb-4 text-center text-xs" style="color: var(--color-text-muted);">
-      © 2025 Pablo Borrás · Todos los derechos reservados.
+        <p class="text-xs" style="color: rgba(255, 255, 255, 0.4);">
+          Médico Veterinario MSc · Buenos Aires, Argentina
+        </p>
+      </div>
+
+      <!-- Fila 2: Links legales -->
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-3 border-t border-white/10">
+        <a
+          href="/privacidad"
+          class="text-xs transition-colors hover:text-white"
+          style="color: rgba(255, 255, 255, 0.4); text-decoration: none;"
+        >
+          Política de Privacidad
+        </a>
+        <span class="text-xs" style="color: rgba(255, 255, 255, 0.3);">·</span>
+        <a
+          href="/terminos"
+          class="text-xs transition-colors hover:text-white"
+          style="color: rgba(255, 255, 255, 0.4); text-decoration: none;"
+        >
+          Términos y Condiciones
+        </a>
+      </div>
     </div>
 
   </div>
 </footer>
 
 <style>
-  @keyframes footerLogoPulse {
-    0%, 100% {
-      filter: drop-shadow(0 0 22px rgba(255,255,255,0.90)) drop-shadow(0 0 48px rgba(255,255,255,0.55)) drop-shadow(0 0 80px rgba(255,255,255,0.25)) drop-shadow(0 4px 20px rgba(0,0,0,0.6));
-      transform: scale(1);
-    }
-    50% {
-      filter: drop-shadow(0 0 32px rgba(255,255,255,1)) drop-shadow(0 0 70px rgba(255,255,255,0.75)) drop-shadow(0 0 110px rgba(255,255,255,0.40)) drop-shadow(0 4px 20px rgba(0,0,0,0.6));
-      transform: scale(1.04);
-    }
-  }
-
   .footer-logo {
-    animation: footerLogoPulse 4s ease-in-out infinite;
-    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+    filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
   }
 
   .footer-logo-link:hover .footer-logo {
-    animation: none;
-    transform: scale(1.10);
-    filter: drop-shadow(0 0 36px rgba(255,255,255,1)) drop-shadow(0 0 80px rgba(255,255,255,0.85)) drop-shadow(0 0 130px rgba(255,255,255,0.50)) drop-shadow(0 4px 20px rgba(0,0,0,0.6));
+    transform: scale(1.08) translateY(-2px);
+    filter: brightness(0) invert(1) drop-shadow(0 0 25px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 40px rgba(24, 128, 201, 0.4));
   }
 </style>
