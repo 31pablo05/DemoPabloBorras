@@ -62,18 +62,48 @@ function Input({ type = 'text', name, required, placeholder }) {
 
 function Select({ name, required, options }) {
   return (
-    <select
-      name={name}
-      required={required}
-      style={{ ...inputStyle, cursor: 'pointer' }}
-      onFocus={e => (e.target.style.borderColor = 'var(--color-accent)')}
-      onBlur={e => (e.target.style.borderColor = '#E5E7EB')}
-    >
-      <option value="">Seleccioná una opción</option>
-      {options.map(opt => (
-        <option key={opt} value={opt}>{opt}</option>
-      ))}
-    </select>
+    <div style={{ position: 'relative' }}>
+      <select
+        name={name}
+        required={required}
+        style={{
+          ...inputStyle,
+          cursor: 'pointer',
+          appearance: 'none',
+          WebkitAppearance: 'none',
+          MozAppearance: 'none',
+          paddingRight: '40px',
+          backgroundImage: 'none',
+        }}
+        onFocus={e => (e.target.style.borderColor = 'var(--color-accent)')}
+        onBlur={e => (e.target.style.borderColor = '#E5E7EB')}
+      >
+        <option value="" style={{ color: '#9CA3AF' }}>Seleccioná una opción</option>
+        {options.map(opt => (
+          <option key={opt} value={opt}>{opt}</option>
+        ))}
+      </select>
+      {/* Ícono de flecha personalizado */}
+      <svg
+        style={{
+          position: 'absolute',
+          right: '12px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          width: '16px',
+          height: '16px',
+          pointerEvents: 'none',
+        }}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="var(--color-accent)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </div>
   );
 }
 

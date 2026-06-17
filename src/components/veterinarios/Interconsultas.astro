@@ -11,15 +11,27 @@ const beneficios = [
   'Discusión de casos complejos con enfoque evidence-based.',
 ];
 
-const casosAplica = [
-  'Enfermedades vectoriales (Ehrlichia, Babesia, Anaplasma, Dirofilaria, Leishmania)',
-  'Infectología canina: moquillo, leptospirosis, parvovirus',
-  'Infectología felina: panleucopenia, calicivirus, herpesvirus, VIF/VLFe',
-  'Zoonosis: brucelosis canina, tuberculosis bovina en gatos, Strongyloides',
-  'Parasitología con diagnóstico molecular',
-  'Toxoplasmosis y otras infecciones por protozoos',
-  'Diagnóstico diferencial en síndromes febriles o infecciosos complejos',
-  'Casos sin diagnóstico con sospecha de causa infecciosa o parasitaria',
+const especialidadesAgrupadas = [
+  {
+    categoria: 'Enfermedades vectoriales',
+    detalle: 'Ehrlichia, Babesia, Anaplasma, Dirofilaria, Leishmania',
+  },
+  {
+    categoria: 'Infectología canina y felina',
+    detalle: 'moquillo, leptospirosis, parvovirus, panleucopenia, calicivirus, herpesvirus, VIF/VLFe',
+  },
+  {
+    categoria: 'Zoonosis',
+    detalle: 'brucelosis canina, tuberculosis bovina en gatos, Strongyloides',
+  },
+  {
+    categoria: 'Parasitología y protozoos',
+    detalle: 'diagnóstico molecular, toxoplasmosis y otras infecciones por protozoos',
+  },
+  {
+    categoria: 'Casos complejos',
+    detalle: 'síndromes febriles o infecciosos sin diagnóstico, sospecha de causa infecciosa o parasitaria',
+  },
 ];
 ---
 
@@ -34,12 +46,12 @@ const casosAplica = [
       <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display); color: var(--color-text); line-height: 1.2;">
         ¿Cómo funciona el servicio?
       </h2>
-      <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #4a3d9e 100%);"></div>
+      <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #0d9488 100%);"></div>
     </div>
 
     <!-- Descripción del servicio mejorada -->
     <div class="max-w-3xl mx-auto mb-16">
-      <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-8 md:p-10 rounded-2xl" style="border-left: 4px solid #1880c9; box-shadow: 0 4px 20px rgba(24,128,201,0.1);">
+      <div class="bg-gradient-to-br from-blue-50 to-teal-50 p-8 md:p-10 rounded-2xl" style="border-left: 4px solid #1880c9; box-shadow: 0 4px 20px rgba(24,128,201,0.1);">
         <p class="text-base md:text-lg leading-relaxed" style="color: var(--color-text);">
           El servicio de interconsulta está diseñado para veterinarios que enfrentan casos clínicos desafiantes y necesitan una <strong>segunda opinión especializada</strong>. Pablo Borrás analiza el caso, el historial clínico del paciente y propone un enfoque diagnóstico y terapéutico detallado basado en evidencia científica actualizada.
         </p>
@@ -115,17 +127,17 @@ const casosAplica = [
         </div>
       </div>
 
-      <!-- Casos aplicables con estilo violeta -->
+      <!-- Casos aplicables con estilo verde/celeste -->
       <div
         class="bg-white p-8 md:p-10 rounded-2xl relative overflow-hidden"
-        style="box-shadow: 0 4px 24px rgba(0,0,0,0.08); border-top: 4px solid #4a3d9e;"
+        style="box-shadow: 0 4px 24px rgba(0,0,0,0.08); border-top: 4px solid #0d9488;"
       >
         <!-- Gradiente de fondo -->
         <div
           style="
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(74,61,158,0.05) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(13,148,136,0.05) 0%, transparent 100%);
             pointer-events: none;
           "
           aria-hidden="true"
@@ -133,8 +145,8 @@ const casosAplica = [
         
         <div style="position: relative; z-index: 1;">
           <!-- Ícono decorativo -->
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(74,61,158,0.12); border: 2px solid rgba(74,61,158,0.2);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4a3d9e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(13,148,136,0.12); border: 2px solid rgba(13,148,136,0.2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
               <polyline points="14 2 14 8 20 8"/>
               <line x1="16" y1="13" x2="8" y2="13"/>
@@ -149,14 +161,16 @@ const casosAplica = [
           >
             Especialidades consultadas
           </h3>
-          <div class="flex flex-wrap gap-2.5">
-            {casosAplica.map(caso => (
-              <span
-                class="text-xs font-semibold px-3.5 py-2 rounded-lg transition-all hover:scale-105"
-                style="background: linear-gradient(135deg, rgba(74,61,158,0.1) 0%, rgba(74,61,158,0.15) 100%); color: #4a3d9e; border: 1.5px solid rgba(74,61,158,0.25);"
-              >
-                {caso}
-              </span>
+          <div class="space-y-5">
+            {especialidadesAgrupadas.map((item, index) => (
+              <div class="pb-5" style={index < especialidadesAgrupadas.length - 1 ? "border-bottom: 1px solid rgba(0,0,0,0.08);" : ""}>
+                <h4 class="text-sm font-bold mb-2" style="color: var(--color-text); font-family: var(--font-body);">
+                  {item.categoria}
+                </h4>
+                <p class="text-xs leading-relaxed" style="color: var(--color-text-muted);">
+                  {item.detalle}
+                </p>
+              </div>
             ))}
           </div>
         </div>
@@ -167,13 +181,13 @@ const casosAplica = [
     <!-- CTA mejorado -->
     <div class="text-center">
       <div class="inline-block">
-        <a
-          href="/contacto?tab=interconsultas"
-          class="inline-flex items-center gap-3 px-8 py-4 text-base font-bold rounded-xl transition-all"
+        <button
+          id="btn-solicitar-interconsulta"
+          class="inline-flex items-center gap-3 px-8 py-4 text-base font-bold rounded-xl transition-all cursor-pointer"
           style="
-            background: linear-gradient(135deg, #1880c9 0%, #4a3d9e 100%);
+            background: linear-gradient(135deg, #1880c9 0%, #0d9488 100%);
             color: white;
-            text-decoration: none;
+            border: none;
             box-shadow: 0 4px 20px rgba(24,128,201,0.3);
           "
           onmouseover="this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 12px 32px rgba(24,128,201,0.4)'"
@@ -187,12 +201,21 @@ const casosAplica = [
             <line x1="5" y1="12" x2="19" y2="12"/>
             <polyline points="12 5 19 12 12 19"/>
           </svg>
-        </a>
+        </button>
         <p class="text-sm mt-4" style="color: var(--color-text-muted);">
           Respuesta en menos de 48 horas hábiles
         </p>
       </div>
     </div>
+
+    <script>
+      document.getElementById('btn-solicitar-interconsulta')?.addEventListener('click', () => {
+        const formulario = document.getElementById('formulario-contacto');
+        if (formulario) {
+          formulario.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    </script>
 
   </div>
 </section>
