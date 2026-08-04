@@ -80,16 +80,6 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
         Videos, divulgación y consejos pensados por un veterinario para quienes comparten su vida con un animal.
       </p>
 
-      <!-- Pill contenido gratuito -->
-      <div class="hero-pill flex justify-center" style="opacity: 0; animation: fadeUp 0.6s ease-out 0.52s both;">
-        <span
-          class="inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full"
-          style="background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); border: 1px solid rgba(255,255,255,0.22);"
-        >
-          <span style="width: 7px; height: 7px; border-radius: 50%; background: #4ade80; flex-shrink: 0;"></span>
-          Contenido gratuito · Sin registro · Para todos
-        </span>
-      </div>
     </div>
   </section>
 
@@ -100,20 +90,20 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
         {[
           {
             emoji: '🎥',
-            titulo: 'Videos educativos',
-            desc: 'Explicaciones claras sobre salud, alimentación y comportamiento.',
+            titulo: 'Consultas presenciales',
+            desc: 'Atendemos en cuatro centros veterinarios en CABA. Consultá disponibilidad y reservá tu turno.',
             color: '#1880c9',
           },
           {
             emoji: '🩺',
-            titulo: 'Basado en evidencia',
-            desc: 'Información avalada por años de práctica clínica real.',
-            color: '#4a3d9e',
+            titulo: 'Interconsultas con tu veterinario',
+            desc: 'Si tu veterinario de cabecera necesita una segunda opinión especializada, puede derivarte a Pablo para una interconsulta online.',
+            color: '#0f6e56',
           },
           {
             emoji: '❤️',
-            titulo: 'Para tutores comprometidos',
-            desc: 'Porque el vínculo con tu mascota empieza por entenderla.',
+            titulo: 'Aprendizaje continuo',
+            desc: 'Contenido de divulgación basado en evidencia para entender mejor la salud de tu mascota.',
             color: '#e11d48',
           },
         ].map((item, index) => (
@@ -473,10 +463,6 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
 
       <!-- CTA turnos -->
       <div class="mt-12 text-center reveal">
-        <p class="text-sm md:text-base mb-5" style="color: rgba(255,255,255,0.9);">
-          Para solicitar turnos escribí a:
-          <a href="mailto:consultas.borras@gmail.com" class="font-bold hover:underline" style="color: #5ba8e0;">consultas.borras@gmail.com</a>
-        </p>
         <a
           href="mailto:consultas.borras@gmail.com"
           class="turno-btn inline-flex items-center gap-2 px-7 py-3.5 font-bold text-sm md:text-base"
@@ -498,8 +484,10 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
           class="text-base font-medium p-6 md:p-7 rounded-2xl"
           style="background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%); box-shadow: 0 8px 24px rgba(0,0,0,0.15); color: var(--color-text); border-radius: 16px; border-left: 5px solid var(--color-accent);"
         >
-          💙 ¿Tenés dudas sobre la salud de tu mascota? <strong>Consultá a tu veterinario de confianza.</strong> Ellos son los indicados para evaluar a tu animal de manera personalizada.
-        </p>
+          <p>
+            💙 ¿Tenés dudas sobre la salud de tu mascota? <a href="/veterinarios/interconsultas" style="color: inherit; text-decoration: underline;"><strong>Consultá a tu veterinario de confianza.</strong></a> Ellos son los indicados para evaluar a tu animal de manera personalizada.
+          </p>
+        </div>
       </div>
 
     </div>
@@ -509,16 +497,18 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
 
 <style>
   .hero-tutores {
-    background:
-      linear-gradient(135deg, rgba(24,128,201,0.92) 0%, rgba(4,13,78,0.90) 100%),
-      url('/imagenes/heros/2(1).png') center top / 75% auto no-repeat;
+    background-color: #040d4e;
+    background-image: url('/imagenes/heros/2(1).png');
+    background-position: center top;
+    background-size: 75% auto;
+    background-repeat: no-repeat;
   }
 
   @media (max-width: 768px) {
     .hero-tutores {
-      background:
-        linear-gradient(135deg, rgba(24,128,201,0.92) 0%, rgba(4,13,78,0.90) 100%),
-        url('/imagenes/heros/paratutores2.JPG') center center / cover no-repeat;
+      background-image: url('/imagenes/heros/paratutores2.JPG');
+      background-position: center center;
+      background-size: cover;
     }
   }
 

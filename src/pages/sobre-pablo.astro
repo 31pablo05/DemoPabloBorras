@@ -114,17 +114,7 @@ const tematicas = [
         position: absolute;
         inset: 0;
         background: url('/imagenes/perfil/pablo3.jpg') center 20% / cover no-repeat;
-        opacity: 0.28;
-      "
-      aria-hidden="true"
-    ></div>
-
-    <!-- Overlay de fondo con degradé direccional (izquierda oscura → derecha transparente) -->
-    <div
-      style="
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to right, rgba(4,13,78,0.88) 0%, rgba(24,128,201,0.35) 100%);
+        opacity: 1;
       "
       aria-hidden="true"
     ></div>
@@ -151,12 +141,6 @@ const tematicas = [
         width: 4px;
         background: linear-gradient(to bottom, transparent 0%, #1880c9 50%, transparent 100%);
       "
-      aria-hidden="true"
-    ></div>
-
-    <!-- Gradiente oscuro abajo -->
-    <div
-      style="position: absolute; bottom: 0; left: 0; right: 0; height: 55%; background: linear-gradient(to top, rgba(4,13,78,0.95), transparent);"
       aria-hidden="true"
     ></div>
 
@@ -239,36 +223,6 @@ const tematicas = [
         </div>
       </div>
 
-      <!-- Indicador de scroll -->
-      <div
-        class="hero-scroll"
-        style="
-          position: absolute;
-          bottom: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 4px;
-        "
-      >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="rgba(255,255,255,0.4)"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="scroll-arrow"
-          aria-hidden="true"
-        >
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-        <span class="hidden sm:inline" style="font-size: 0.65rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.12em;">Scroll</span>
-      </div>
     </div>
   </section>
 
@@ -299,16 +253,6 @@ const tematicas = [
       animation: fadeInUp 0.6s ease-out 0.62s both;
     }
 
-    .hero-scroll {
-      opacity: 0;
-      animation: fadeInUp 0.6s ease-out 1s both;
-    }
-
-    /* Bounce animation para la flecha */
-    .scroll-arrow {
-      animation: bounce 2s ease-in-out infinite;
-    }
-
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -329,14 +273,6 @@ const tematicas = [
       }
     }
 
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(6px);
-      }
-    }
   </style>
 
   <!-- ── BIO + FOTO ── -->
@@ -690,7 +626,7 @@ const tematicas = [
           Actividad científica internacional
         </h2>
         <p class="mt-4 text-base max-w-xl mx-auto" style="color: var(--color-text-muted);">
-          Membresías, colaboraciones y premios que ubican a Pablo en la primera línea de la infectología veterinaria global.
+          Publicaciones en revistas indexadas. Actualización permanente con las últimas investigaciones.
         </p>
       </div>
 
@@ -925,7 +861,7 @@ const tematicas = [
           class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-4"
           style="background: rgba(24,128,201,0.1); color: var(--color-accent); border: 1px solid rgba(24,128,201,0.25);"
         >
-          Presencia internacional
+          PRÓXIMOS EVENTOS
         </span>
         <h2
           class="text-3xl md:text-4xl font-bold"

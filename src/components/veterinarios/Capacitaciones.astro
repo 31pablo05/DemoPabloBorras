@@ -5,13 +5,15 @@ import SectionTitle from '../ui/SectionTitle.astro';
 import Badge from '../ui/Badge.astro';
 import Button from '../ui/Button.astro';
 
-const modalidadColor: Record<string, string> = {
+type BadgeColor = 'blue' | 'green' | 'purple' | 'orange' | 'gray';
+
+const modalidadColor: Record<string, BadgeColor> = {
   Presencial: 'blue',
   Online:     'green',
   Híbrido:    'purple',
 };
 
-const nivelColor: Record<string, string> = {
+const nivelColor: Record<string, BadgeColor> = {
   'Avanzado':          'orange',
   'Intermedio':        'blue',
   'Básico-Intermedio': 'green',
@@ -131,11 +133,56 @@ const nivelColor: Record<string, string> = {
       })}
     </div>
 
+    <!-- Próximas capacitaciones -->
+    <div class="mt-16">
+      <div class="text-center mb-8">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-accent); letter-spacing: 0.12em;">
+          Agenda
+        </p>
+        <h3 class="text-2xl md:text-3xl font-bold" style="font-family: var(--font-display); color: var(--color-text);">
+          Próximas capacitaciones
+        </h3>
+      </div>
+
+      <div class="max-w-3xl mx-auto">
+        <div
+          class="bg-white rounded-2xl p-7 flex flex-col md:flex-row md:items-center md:justify-between gap-5 relative overflow-hidden"
+          style="box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 4px solid #1880c9;"
+        >
+          <div
+            style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(24,128,201,0.05) 0%, transparent 100%); pointer-events: none;"
+            aria-hidden="true"
+          ></div>
+
+          <div style="position: relative; z-index: 1;">
+            <p class="text-xs font-semibold uppercase tracking-wider mb-2" style="color: #1880c9;">
+              SinapsisVet
+            </p>
+            <p class="text-lg font-bold" style="font-family: var(--font-display); color: var(--color-text); line-height: 1.3;">
+              Capacitación online - Próxima edición
+            </p>
+          </div>
+
+          <a
+            href="https://sinapsisvet.com/course/45/detail"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold rounded-xl transition-all duration-200 shrink-0"
+            style="background: #1880c9; color: #fff; text-decoration: none; position: relative; z-index: 1;"
+            onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.2)'"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'"
+          >
+            Ver curso en SinapsisVet →
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- CTA a medida mejorado -->
     <div class="mt-16 text-center">
       <div class="inline-block">
-        <a
-          href="/contacto"
+        <button
+          type="button"
           class="inline-flex items-center gap-3 px-8 py-4 text-base font-bold rounded-xl transition-all"
           style="
             background: linear-gradient(135deg, #4a3d9e 0%, #1880c9 100%);
@@ -149,11 +196,29 @@ const nivelColor: Record<string, string> = {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           </svg>
-          Solicitar una capacitación a medida
-        </a>
+          Próximamente — Dejá tus datos
+        </button>
         <p class="text-sm mt-4" style="color: var(--color-text-muted);">
-          Diseñamos programas adaptados a las necesidades de tu equipo
+          Estamos preparando nuevas capacitaciones. Dejá tu email y te avisamos cuando estén disponibles.
         </p>
+        <form class="mt-4 flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-center">
+          <input
+            type="email"
+            placeholder="Tu email profesional"
+            class="px-4 py-3 rounded-xl text-sm"
+            style="border: 1.5px solid #cbd5e1; min-width: 260px; color: var(--color-text); background: #ffffff;"
+            required
+          />
+          <button
+            type="submit"
+            class="px-5 py-3 text-sm font-bold rounded-xl transition-all duration-200"
+            style="background: #1880c9; color: #fff;"
+            onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 4px 16px rgba(24,128,201,0.3)'"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'"
+          >
+            Enviar
+          </button>
+        </form>
       </div>
     </div>
 
