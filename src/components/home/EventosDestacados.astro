@@ -11,8 +11,8 @@ const sorted = [...eventos].sort((a, b) => new Date(a.fecha) - new Date(b.fecha)
 const proximos = sorted.filter(e => new Date(e.fecha) >= hoy).slice(0, 2);
 const hayFuturos = proximos.length > 0;
 const destacados = hayFuturos ? proximos : [...eventos].sort((a, b) => new Date(b.fecha) - new Date(a.fecha)).slice(0, 2);
-const tituloSeccion = hayFuturos ? 'Próximos eventos' : 'Últimos eventos';
-const subtituloSeccion = hayFuturos ? 'Agenda 2025' : 'Historial reciente';
+const tituloSeccion = hayFuturos ? 'Próximos eventos' : 'Próximos eventos';
+const subtituloSeccion = hayFuturos ? 'Agenda 2025' : 'Próximos eventos';
 
 // Colores de badge por tipo de evento
 const tipoColor = {

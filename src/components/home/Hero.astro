@@ -5,11 +5,7 @@
 <section
   class="relative overflow-hidden"
   style="
-    background:
-      radial-gradient(ellipse 80% 65% at 10% 55%, rgba(24,59,127,0.95) 0%, transparent 52%),
-      radial-gradient(ellipse 55% 70% at 88% 12%, rgba(24,128,201,0.20) 0%, transparent 48%),
-      radial-gradient(ellipse 65% 55% at 50% 100%, rgba(2,6,35,0.85) 0%, transparent 55%),
-      linear-gradient(155deg, #020618 0%, #040d4e 35%, #0d1b6e 65%, #040d4e 100%);
+    background: transparent;
     min-height: 100svh;
     display: flex;
     flex-direction: column;
@@ -17,7 +13,28 @@
   "
 >
   <!-- Patrón decorativo de puntos sobre el fondo -->
-  <div class="dot-pattern absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div class="dot-pattern absolute inset-0 pointer-events-none" style="opacity: 0.15;" aria-hidden="true"></div>
+
+  <!-- Oscurecimiento solo detrás del texto (lado izquierdo) -->
+  <!-- Desktop: solo lado izquierdo -->
+  <div
+    class="hidden md:block absolute top-0 left-0 bottom-0 pointer-events-none"
+    style="
+      width: 60%;
+      background: linear-gradient(to right, rgba(3,13,58,0.78) 0%, rgba(3,13,58,0.55) 50%, rgba(3,13,58,0.20) 80%, rgba(3,13,58,0) 100%);
+      z-index: 0;
+    "
+    aria-hidden="true"
+  ></div>
+  <!-- Mobile: cubre más área vertical donde está el texto -->
+  <div
+    class="block md:hidden absolute inset-0 pointer-events-none"
+    style="
+      background: linear-gradient(to bottom, rgba(3,13,58,0.82) 0%, rgba(3,13,58,0.65) 40%, rgba(3,13,58,0.30) 75%, rgba(3,13,58,0) 100%);
+      z-index: 0;
+    "
+    aria-hidden="true"
+  ></div>
 
   <!-- Imagen de Pablo difuminada — lado izquierdo, detrás de todo -->
   <div
@@ -28,7 +45,7 @@
     <!-- Desktop -->
     <img
       id="hero-bg-pablo"
-      src="/imagenes/perfil/pablohero4.png"
+      src="public/imagenes/heros/heropa.png"
       alt=""
       class="hidden md:block"
       style="
@@ -36,18 +53,16 @@
         left: 0;
         top: -12%;
         height: 115%;
-        width: 55%;
+        width: 100%;
         object-fit: cover;
         object-position: left top;
-        opacity: 0.32;
-        filter: blur(0.5px) saturate(0.85);
-        -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 45%, transparent 100%);
-        mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 45%, transparent 100%);
+        opacity: 0.80;
+        filter: blur(0px) saturate(1.2);
       "
     />
     <!-- Mobile -->
     <img
-      src="/imagenes/perfil/fondoheromobile.png"
+      src="public/imagenes/heros/heromobilen.png"
       alt=""
       class="block md:hidden"
       style="
@@ -58,17 +73,15 @@
         width: 100%;
         object-fit: cover;
         object-position: center top;
-        opacity: 0.32;
-        filter: blur(0.5px) saturate(0.85);
-        -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 55%, transparent 100%);
-        mask-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 55%, transparent 100%);
+        opacity: 0.70;
+        filter: blur(0px) saturate(1.15);
       "
     />
   </div>
 
   <!-- Elemento decorativo: círculo de acento superior derecha (float animado) -->
   <div
-    class="blob-float absolute top-0 right-0 w-96 h-96 rounded-full opacity-[0.15] pointer-events-none"
+    class="blob-float absolute top-0 right-0 w-96 h-96 rounded-full opacity-[0.05] pointer-events-none"
     style="background: linear-gradient(135deg, #1880c9, #2d2e6f); filter: blur(80px); transform: translate(30%, -30%);"
     aria-hidden="true"
   ></div>
@@ -76,131 +89,32 @@
   <!-- Blob sutil inferior izquierda -->
   <div
     class="absolute bottom-0 left-0 w-72 h-72 rounded-full pointer-events-none"
-    style="background: #1a367c; filter: blur(100px); transform: translate(-30%, 30%); opacity: 0.10;"
+    style="background: #1a367c; filter: blur(100px); transform: translate(-30%, 30%); opacity: 0.03;"
     aria-hidden="true"
   ></div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:py-20 w-full" style="position: relative; z-index: 1;">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+  <div class="max-w-7xl ml-0 px-8 lg:px-16 pt-24 pb-16 md:py-20 w-full" style="position: relative; z-index: 1;">
+    <div class="flex items-center">
 
-      <!-- ── IMAGEN — order-2 en mobile = aparece debajo del texto ── -->
-      <div class="flex justify-center items-end order-2 md:order-last animate-scale-in hero-float delay-300 relative">
-        <div class="w-full max-w-xs sm:max-w-sm md:max-w-full">
-          <!-- Glow lateral derecho animado (complementa el glow existente) -->
-          <div
-            class="hero-img-glow absolute pointer-events-none"
-            style="
-              left: -20px;
-              top: 20%;
-              width: 3px;
-              height: 55%;
-              background: linear-gradient(to bottom, transparent, rgba(91,168,224,0.5), transparent);
-              border-radius: 2px;
-              filter: blur(3px);
-            "
-            aria-hidden="true"
-          ></div>
-          <!-- Decoración borrosa detrás -->
-          <div
-            class="absolute -inset-4 rounded-full opacity-25"
-            style="background: radial-gradient(circle, #1880c9 0%, #5ba8e0 40%, transparent 70%); filter: blur(70px);"
-            aria-hidden="true"
-          ></div>
+      <!-- ── TEXTO — columna única ── -->
+      <div class="w-full md:w-3/5 lg:w-7/12 md:pl-0 pt-0 md:pt-0 mt-24 md:mt-0 relative">
+        
+        <!-- Degradado circular negro detrás del texto (solo desktop) -->
+        <div
+          class="hidden md:block absolute pointer-events-none"
+          style="
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(ellipse 80% 85% at 40% 50%, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.80) 35%, rgba(0,0,0,0.50) 60%, rgba(0,0,0,0.20) 75%, transparent 85%);
+            z-index: -1;
+            filter: blur(8px);
+          "
+          aria-hidden="true"
+        ></div>
 
-          <!-- ── Imagen MOBILE: tarjeta con bordes redondeados y glow ── -->
-          <div
-            class="block md:hidden relative"
-            style="
-              border-radius: 20px;
-              overflow: hidden;
-              box-shadow: 0 0 0 1px rgba(91,168,224,0.25), 0 24px 60px rgba(2,6,35,0.6);
-            "
-          >
-            <img
-              src="/imagenes/perfil/pablo2.jpg"
-              alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
-              class="w-full object-cover object-top"
-              style="
-                max-height: 380px;
-                display: block;
-                filter: brightness(1.04) contrast(1.03);
-              "
-              width="480"
-              height="380"
-              loading="eager"
-              fetchpriority="high"
-            />
-            <!-- Degradado inferior para que se integre con el fondo -->
-            <div
-              style="
-                position: absolute;
-                bottom: 0; left: 0; right: 0;
-                height: 80px;
-                background: linear-gradient(to top, rgba(4,13,78,0.75) 0%, transparent 100%);
-                pointer-events: none;
-              "
-              aria-hidden="true"
-            ></div>
-          </div>
-
-          <!-- ── Imagen DESKTOP: cuerpo entero con mask y fade ── -->
-          <div
-            class="relative w-full hidden md:block"
-            style="
-              border-radius: 20px;
-              overflow: hidden;
-              box-shadow:
-                6px 0 48px rgba(24,128,201,0.22),
-                0 8px 40px rgba(2,6,35,0.5);
-            "
-          >
-            <img
-              src="/imagenes/perfil/pablo2.jpg"
-              alt="Pablo Borrás — Médico Veterinario, Speaker y Autor"
-              class="w-full"
-              loading="eager"
-              fetchpriority="high"
-              style="
-                max-height: 600px;
-                object-fit: contain;
-                object-position: center bottom;
-                display: block;
-                -webkit-mask-image:
-                  linear-gradient(to bottom, black 40%, rgba(0,0,0,0.6) 72%, transparent 100%),
-                  linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
-                -webkit-mask-composite: destination-in;
-                mask-image:
-                  linear-gradient(to bottom, black 40%, rgba(0,0,0,0.6) 72%, transparent 100%),
-                  linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
-                mask-composite: intersect;
-                filter: drop-shadow(0 0 40px rgba(24,128,201,0.25)) drop-shadow(0 20px 60px rgba(2,6,35,0.5));
-              "
-              width="480"
-              height="600"
-            />
-          </div>
-
-          <!-- Glow base de la imagen -->
-          <div
-            aria-hidden="true"
-            style="
-              position: absolute;
-              bottom: -20px;
-              left: 50%;
-              transform: translateX(-50%);
-              width: 60%;
-              height: 80px;
-              background: radial-gradient(ellipse, rgba(24,128,201,0.20) 0%, transparent 70%);
-              filter: blur(20px);
-              pointer-events: none;
-            "
-          ></div>
-
-        </div>
-      </div>
-
-      <!-- ── TEXTO — order-1 en mobile = aparece arriba de la imagen ── -->
-      <div class="order-1 md:order-first pt-0 md:pt-0 mt-24 md:mt-0">
         <!-- Línea decorativa + nombre -->
         <div class="flex items-start gap-4 mb-5">
           <div
@@ -217,6 +131,7 @@
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
+                text-shadow: 0 2px 12px rgba(0,0,0,0.6);
               "
             >
               Pablo Borrás
@@ -241,7 +156,7 @@
         <!-- Párrafo de autoridad -->
         <p
           class="text-white/70 text-sm sm:text-base md:text-lg leading-relaxed mb-5 max-w-lg animate-fade-in-up delay-300"
-          style="font-family: var(--font-body); letter-spacing: 0.01em; line-height: 1.75;"
+          style="font-family: var(--font-body); letter-spacing: 0.01em; line-height: 1.75; text-shadow: 0 2px 12px rgba(0,0,0,0.6);"
         >
           Referente clínico, formador de veterinarios y divulgador científico. Especialista en Medicina Interna con foco en Enfermedades Infecciosas y Parasitarias de perros y gatos. Más de 15 años acompañando a mascotas, profesionales e instituciones.
         </p>

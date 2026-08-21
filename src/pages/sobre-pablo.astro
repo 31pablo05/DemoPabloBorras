@@ -38,12 +38,6 @@ const ciencia = [
     descripcion: 'Revista científica internacional de referencia en parasitología y enfermedades vectoriales.',
   },
   {
-    icono: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>`,
-    titulo: 'TroCCAP Council',
-    detalle: 'Scientific Member',
-    descripcion: 'Consejo científico de los Consensos de Parasitología Tropical en Animales de Compañía para Asia, África y América Latina.',
-  },
-  {
     icono: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
     titulo: 'ABCD Cats & Vets Europe',
     detalle: 'Colaborador científico',
@@ -217,8 +211,15 @@ const tematicas = [
           <div style="width: 1px; height: 22px; background: rgba(255,255,255,0.12); flex-shrink: 0; align-self: center;"></div>
 
           <div style="text-align: center; min-width: fit-content;">
-            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0;">4</p>
-            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;">publicaciones</p>
+            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0;">+15</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;">publicaciones internacionales</p>
+          </div>
+
+          <div style="width: 1px; height: 22px; background: rgba(255,255,255,0.12); flex-shrink: 0; align-self: center;"></div>
+
+          <div style="text-align: center; min-width: fit-content;">
+            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0;">2</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;">libros</p>
           </div>
         </div>
       </div>
@@ -401,7 +402,7 @@ const tematicas = [
             { n: '+15', l: 'Años de experiencia clínica' },
             { n: '+30K', l: 'Seguidores en Instagram' },
             { n: '+8', l: 'Países donde disertó' },
-            { n: '+4', l: 'Artículos científicos' },
+            { n: '+15', l: 'Publicaciones internacionales' },
           ].map((s) => (
             <div
               class="stat-card"
@@ -635,14 +636,13 @@ const tematicas = [
           // Colores por categoría
           const colores = [
             '#1880c9', // Editor asociado
-            '#040d4e', // TroCCAP Council
             '#183b7f', // ABCD Cats & Vets Europe
             '#5ba8e0', // ISCAID
             '#183b7f', // Hospital Francisco J. Muñiz
             '#16a34a', // Premio AVEACA 2025
           ];
           const colorCategoria = colores[index];
-          const esPremio = index === 5;
+          const esPremio = index === 4;
 
           // Convertir hex a rgba con opacidad para el fondo del ícono
           const hexToRgba = (hex: string, alpha: number) => {
