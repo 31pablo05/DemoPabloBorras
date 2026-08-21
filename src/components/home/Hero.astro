@@ -36,7 +36,8 @@
     aria-hidden="true"
   ></div>
 
-  <!-- Imagen de Pablo difuminada — lado izquierdo, detrás de todo -->
+  <!-- Imagen de fondo del hero -->
+  <!-- FIX: rutas corregidas — en Astro los assets de /public se referencian sin el prefijo "public/" -->
   <div
     class="absolute inset-0 pointer-events-none"
     style="z-index: 0;"
@@ -45,7 +46,7 @@
     <!-- Desktop -->
     <img
       id="hero-bg-pablo"
-      src="public/imagenes/heros/heropa.png"
+      src="/imagenes/heros/heropa.png"
       alt=""
       class="hidden md:block"
       style="
@@ -62,7 +63,7 @@
     />
     <!-- Mobile -->
     <img
-      src="public/imagenes/heros/heromobilen.png"
+      src="/imagenes/heros/heromobilen.png"
       alt=""
       class="block md:hidden"
       style="
@@ -93,7 +94,8 @@
     aria-hidden="true"
   ></div>
 
-  <div class="max-w-7xl ml-0 px-8 lg:px-16 pt-24 pb-16 md:py-20 w-full" style="position: relative; z-index: 1;">
+  <!-- FIX: px-8 → px-12 lg:px-20 para margen izquierdo cómodo sin centrar con mx-auto -->
+  <div class="max-w-7xl ml-0 px-12 lg:px-20 pt-24 pb-16 md:py-20 w-full" style="position: relative; z-index: 1;">
     <div class="flex items-center">
 
       <!-- ── TEXTO — columna única ── -->
@@ -116,7 +118,9 @@
         ></div>
 
         <!-- Línea decorativa + nombre -->
-        <div class="flex items-start gap-4 mb-5">
+        <!-- FIX: se agrega filter drop-shadow al wrapper para que el h1 (con texto transparente/gradiente)
+             tenga sombra visible — text-shadow no funciona con -webkit-text-fill-color: transparent -->
+        <div class="flex items-start gap-4 mb-5" style="filter: drop-shadow(0 2px 10px rgba(0,0,0,0.7));">
           <div
             class="hero-bar-grow w-1 self-stretch rounded-full mt-1 shrink-0"
             style="background: linear-gradient(to bottom, #1880c9, #5ba8e0); min-height: 48px;"
@@ -131,7 +135,6 @@
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
-                text-shadow: 0 2px 12px rgba(0,0,0,0.6);
               "
             >
               Pablo Borrás
@@ -153,9 +156,9 @@
           </div>
         </div>
 
-        <!-- Párrafo de autoridad -->
+        <!-- FIX: text-white/70 → text-white para que el párrafo se vea blanco puro -->
         <p
-          class="text-white/70 text-sm sm:text-base md:text-lg leading-relaxed mb-5 max-w-lg animate-fade-in-up delay-300"
+          class="text-white text-sm sm:text-base md:text-lg leading-relaxed mb-5 max-w-lg animate-fade-in-up delay-300"
           style="font-family: var(--font-body); letter-spacing: 0.01em; line-height: 1.75; text-shadow: 0 2px 12px rgba(0,0,0,0.6);"
         >
           Referente clínico, formador de veterinarios y divulgador científico. Especialista en Medicina Interna con foco en Enfermedades Infecciosas y Parasitarias de perros y gatos. Más de 15 años acompañando a mascotas, profesionales e instituciones.
@@ -171,65 +174,27 @@
           "
         >
           <div class="hero-stat text-center flex-shrink-0">
-            <p
-              class="text-xl font-bold text-white leading-none"
-              style="font-family: var(--font-display);"
-              data-hero-count="15"
-              data-hero-prefix="+"
-              data-hero-suffix=""
-            >+15</p>
+            <p class="text-xl font-bold text-white leading-none" style="font-family: var(--font-display);" data-hero-count="15" data-hero-prefix="+" data-hero-suffix="">+15</p>
             <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">años</p>
           </div>
-
           <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
-
           <div class="hero-stat text-center flex-shrink-0">
-            <p
-              class="text-xl font-bold text-white leading-none"
-              style="font-family: var(--font-display);"
-              data-hero-count="15"
-              data-hero-prefix="+"
-              data-hero-suffix=""
-            >+15</p>
+            <p class="text-xl font-bold text-white leading-none" style="font-family: var(--font-display);" data-hero-count="15" data-hero-prefix="+" data-hero-suffix="">+15</p>
             <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">publicaciones internacionales</p>
           </div>
-
           <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
-
           <div class="hero-stat text-center flex-shrink-0">
-            <p
-              class="text-xl font-bold text-white leading-none"
-              style="font-family: var(--font-display);"
-              data-hero-count="30"
-              data-hero-prefix=""
-              data-hero-suffix="K+"
-            >30K+</p>
+            <p class="text-xl font-bold text-white leading-none" style="font-family: var(--font-display);" data-hero-count="30" data-hero-prefix="" data-hero-suffix="K+">30K+</p>
             <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">seguidores</p>
           </div>
-
           <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
-
           <div class="hero-stat text-center flex-shrink-0">
-            <p
-              class="text-xl font-bold text-white leading-none"
-              style="font-family: var(--font-display);"
-              data-hero-count="8"
-              data-hero-prefix="+"
-              data-hero-suffix=""
-            >+8</p>
+            <p class="text-xl font-bold text-white leading-none" style="font-family: var(--font-display);" data-hero-count="8" data-hero-prefix="+" data-hero-suffix="">+8</p>
             <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">países</p>
           </div>
-
           <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
-
           <div class="hero-stat text-center flex-shrink-0">
-            <p
-              class="text-xl font-bold text-white leading-none"
-              style="font-family: var(--font-display);"
-              data-hero-count="2"
-              data-hero-prefix=""
-              data-hero-suffix=""
-            >2</p>
+            <p class="text-xl font-bold text-white leading-none" style="font-family: var(--font-display);" data-hero-count="2" data-hero-prefix="" data-hero-suffix="">2</p>
             <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">libros</p>
           </div>
         </div>
@@ -241,40 +206,18 @@
           <a
             href="/tutores"
             class="flex items-center gap-3.5 transition-all duration-200"
-            style="
-              border-radius: 10px;
-              background: #ffffff;
-              color: #040d4e;
-              text-decoration: none;
-              padding: 14px 18px;
-              box-shadow: 0 2px 12px rgba(255,255,255,0.12);
-            "
+            style="border-radius: 10px; background: #ffffff; color: #040d4e; text-decoration: none; padding: 14px 18px; box-shadow: 0 2px 12px rgba(255,255,255,0.12);"
             onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(255,255,255,0.25)';"
             onmouseout="this.style.transform=''; this.style.boxShadow='0 2px 12px rgba(255,255,255,0.12)';"
           >
-            <div
-              style="
-                width: 36px;
-                height: 36px;
-                border-radius: 8px;
-                background: rgba(24,128,201,0.12);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-shrink: 0;
-              "
-            >
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(24,128,201,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1880c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
               </svg>
             </div>
-            <div style="flex: 1;">
-              <p style="font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; color: #040d4e; margin: 0; line-height: 1.3;">
-                Soy tutor de mascotas
-              </p>
-              <p style="font-family: var(--font-body); font-size: 0.75rem; color: #5b7a9e; margin: 2px 0 0; line-height: 1.3;">
-                Información y consejos para cuidar a tu compañero
-              </p>
+            <div style="flex:1;">
+              <p style="font-family:var(--font-body);font-size:0.9rem;font-weight:700;color:#040d4e;margin:0;line-height:1.3;">Soy tutor de mascotas</p>
+              <p style="font-family:var(--font-body);font-size:0.75rem;color:#5b7a9e;margin:2px 0 0;line-height:1.3;">Información y consejos para cuidar a tu compañero</p>
             </div>
           </a>
 
@@ -282,40 +225,18 @@
           <a
             href="/veterinarios"
             class="flex items-center gap-3.5 transition-all duration-200"
-            style="
-              border-radius: 10px;
-              background: #1880c9;
-              color: #ffffff;
-              text-decoration: none;
-              padding: 14px 18px;
-              box-shadow: 0 2px 12px rgba(24,128,201,0.3);
-            "
+            style="border-radius:10px;background:#1880c9;color:#ffffff;text-decoration:none;padding:14px 18px;box-shadow:0 2px 12px rgba(24,128,201,0.3);"
             onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(24,128,201,0.5)';"
             onmouseout="this.style.transform=''; this.style.boxShadow='0 2px 12px rgba(24,128,201,0.3)';"
           >
-            <div
-              style="
-                width: 36px;
-                height: 36px;
-                border-radius: 8px;
-                background: rgba(255,255,255,0.18);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-shrink: 0;
-              "
-            >
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
               </svg>
             </div>
-            <div style="flex: 1;">
-              <p style="font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; color: #ffffff; margin: 0; line-height: 1.3;">
-                Soy veterinario
-              </p>
-              <p style="font-family: var(--font-body); font-size: 0.75rem; color: rgba(255,255,255,0.75); margin: 2px 0 0; line-height: 1.3;">
-                Interconsultas, formación y libro técnico
-              </p>
+            <div style="flex:1;">
+              <p style="font-family:var(--font-body);font-size:0.9rem;font-weight:700;color:#ffffff;margin:0;line-height:1.3;">Soy veterinario</p>
+              <p style="font-family:var(--font-body);font-size:0.75rem;color:rgba(255,255,255,0.75);margin:2px 0 0;line-height:1.3;">Interconsultas, formación y libro técnico</p>
             </div>
           </a>
 
@@ -323,210 +244,100 @@
           <a
             href="/empresas"
             class="flex items-center gap-3.5 transition-all duration-200"
-            style="
-              border-radius: 10px;
-              background: #4a3d9e;
-              color: #ffffff;
-              text-decoration: none;
-              padding: 14px 18px;
-              box-shadow: 0 2px 12px rgba(74,61,158,0.3);
-            "
+            style="border-radius:10px;background:#4a3d9e;color:#ffffff;text-decoration:none;padding:14px 18px;box-shadow:0 2px 12px rgba(74,61,158,0.3);"
             onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(74,61,158,0.5)';"
             onmouseout="this.style.transform=''; this.style.boxShadow='0 2px 12px rgba(74,61,158,0.3)';"
           >
-            <div
-              style="
-                width: 36px;
-                height: 36px;
-                border-radius: 8px;
-                background: rgba(255,255,255,0.18);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-shrink: 0;
-              "
-            >
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="2" y="7" width="20" height="14" rx="2"/>
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
               </svg>
             </div>
-            <div style="flex: 1;">
-              <p style="font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; color: #ffffff; margin: 0; line-height: 1.3;">
-                Represento una empresa
-              </p>
-              <p style="font-family: var(--font-body); font-size: 0.75rem; color: rgba(255,255,255,0.75); margin: 2px 0 0; line-height: 1.3;">
-                Charlas, capacitaciones y proyectos
-              </p>
+            <div style="flex:1;">
+              <p style="font-family:var(--font-body);font-size:0.9rem;font-weight:700;color:#ffffff;margin:0;line-height:1.3;">Represento una empresa</p>
+              <p style="font-family:var(--font-body);font-size:0.75rem;color:rgba(255,255,255,0.75);margin:2px 0 0;line-height:1.3;">Charlas, capacitaciones y proyectos</p>
             </div>
           </a>
 
         </div>
 
         <!-- Indicador de disponibilidad — solo desktop -->
-        <div
-          class="hidden md:flex items-center gap-2 mt-3 animate-fade-in-up delay-700"
-        >
+        <div class="hidden md:flex items-center gap-2 mt-3 animate-fade-in-up delay-700">
           <span class="avail-dot" aria-hidden="true"></span>
-          <span style="font-size: 0.68rem; color: rgba(255,255,255,0.38); font-family: var(--font-body); letter-spacing: 0.04em;">
+          <span style="font-size:0.68rem;color:rgba(255,255,255,0.38);font-family:var(--font-body);letter-spacing:0.04em;">
             Recibiendo Consultas
           </span>
         </div>
       </div>
 
-      <!-- Stats strip mobile — debajo de la imagen -->
+      <!-- Stats strip mobile -->
       <div
         class="flex md:hidden items-center justify-center gap-4 order-3 w-full px-4"
-        style="
-          border-top: 1px solid rgba(255,255,255,0.15);
-          border-bottom: 1px solid rgba(255,255,255,0.15);
-          padding: 12px 0;
-        "
+        style="border-top:1px solid rgba(255,255,255,0.15);border-bottom:1px solid rgba(255,255,255,0.15);padding:12px 0;"
       >
         <div class="hero-stat text-center flex-shrink-0">
-          <p class="text-xl font-bold text-white leading-none" style="font-family: var(--font-display);" data-hero-count="15" data-hero-prefix="+" data-hero-suffix="">+15</p>
-          <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">años</p>
+          <p class="text-xl font-bold text-white leading-none" style="font-family:var(--font-display);" data-hero-count="15" data-hero-prefix="+" data-hero-suffix="">+15</p>
+          <p style="font-size:0.68rem;color:rgba(255,255,255,0.5);margin-top:4px;font-family:var(--font-body);letter-spacing:0.06em;text-transform:uppercase;">años</p>
         </div>
-        <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
+        <div style="width:1px;height:28px;background:rgba(255,255,255,0.12);flex-shrink:0;"></div>
         <div class="hero-stat text-center flex-shrink-0">
-          <p class="text-xl font-bold text-white leading-none" style="font-family: var(--font-display);" data-hero-count="15" data-hero-prefix="+" data-hero-suffix="">+15</p>
-          <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">publicaciones internacionales</p>
+          <p class="text-xl font-bold text-white leading-none" style="font-family:var(--font-display);" data-hero-count="15" data-hero-prefix="+" data-hero-suffix="">+15</p>
+          <p style="font-size:0.68rem;color:rgba(255,255,255,0.5);margin-top:4px;font-family:var(--font-body);letter-spacing:0.06em;text-transform:uppercase;">publ. int.</p>
         </div>
-        <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
+        <div style="width:1px;height:28px;background:rgba(255,255,255,0.12);flex-shrink:0;"></div>
         <div class="hero-stat text-center flex-shrink-0">
-          <p class="text-xl font-bold text-white leading-none" style="font-family: var(--font-display);" data-hero-count="30" data-hero-prefix="" data-hero-suffix="K+">30K+</p>
-          <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">seguidores</p>
+          <p class="text-xl font-bold text-white leading-none" style="font-family:var(--font-display);" data-hero-count="30" data-hero-prefix="" data-hero-suffix="K+">30K+</p>
+          <p style="font-size:0.68rem;color:rgba(255,255,255,0.5);margin-top:4px;font-family:var(--font-body);letter-spacing:0.06em;text-transform:uppercase;">seguidores</p>
         </div>
-        <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
+        <div style="width:1px;height:28px;background:rgba(255,255,255,0.12);flex-shrink:0;"></div>
         <div class="hero-stat text-center flex-shrink-0">
-          <p class="text-xl font-bold text-white leading-none" style="font-family: var(--font-display);" data-hero-count="8" data-hero-prefix="+" data-hero-suffix="">+8</p>
-          <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">países</p>
+          <p class="text-xl font-bold text-white leading-none" style="font-family:var(--font-display);" data-hero-count="8" data-hero-prefix="+" data-hero-suffix="">+8</p>
+          <p style="font-size:0.68rem;color:rgba(255,255,255,0.5);margin-top:4px;font-family:var(--font-body);letter-spacing:0.06em;text-transform:uppercase;">países</p>
         </div>
-        <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0;"></div>
+        <div style="width:1px;height:28px;background:rgba(255,255,255,0.12);flex-shrink:0;"></div>
         <div class="hero-stat text-center flex-shrink-0">
-          <p class="text-xl font-bold text-white leading-none" style="font-family: var(--font-display);" data-hero-count="2" data-hero-prefix="" data-hero-suffix="">2</p>
-          <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;">libros</p>
+          <p class="text-xl font-bold text-white leading-none" style="font-family:var(--font-display);" data-hero-count="2" data-hero-prefix="" data-hero-suffix="">2</p>
+          <p style="font-size:0.68rem;color:rgba(255,255,255,0.5);margin-top:4px;font-family:var(--font-body);letter-spacing:0.06em;text-transform:uppercase;">libros</p>
         </div>
       </div>
 
-      <!-- CTAs por audiencia (solo mobile — debajo de la imagen) -->
+      <!-- CTAs mobile -->
       <div class="flex md:hidden flex-col gap-2.5 order-4 w-full">
-
-        <!-- CTA tutores — blanco -->
-        <a
-          href="/tutores"
-          class="flex items-center gap-3.5"
-          style="
-            border-radius: 10px;
-            background: #ffffff;
-            color: #040d4e;
-            text-decoration: none;
-            padding: 14px 18px;
-          "
-        >
-          <div
-            style="
-              width: 36px;
-              height: 36px;
-              border-radius: 8px;
-              background: rgba(24,128,201,0.12);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              flex-shrink: 0;
-            "
-          >
+        <a href="/tutores" class="flex items-center gap-3.5" style="border-radius:10px;background:#ffffff;color:#040d4e;text-decoration:none;padding:14px 18px;">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(24,128,201,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1880c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
           </div>
-          <div style="flex: 1;">
-            <p style="font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; color: #040d4e; margin: 0; line-height: 1.3;">
-              Soy tutor de mascotas
-            </p>
-            <p style="font-family: var(--font-body); font-size: 0.75rem; color: #5b7a9e; margin: 2px 0 0; line-height: 1.3;">
-              Información y consejos para cuidar a tu compañero
-            </p>
+          <div style="flex:1;">
+            <p style="font-family:var(--font-body);font-size:0.9rem;font-weight:700;color:#040d4e;margin:0;line-height:1.3;">Soy tutor de mascotas</p>
+            <p style="font-family:var(--font-body);font-size:0.75rem;color:#5b7a9e;margin:2px 0 0;line-height:1.3;">Información y consejos para cuidar a tu compañero</p>
           </div>
         </a>
-
-        <!-- CTA veterinarios — celeste -->
-        <a
-          href="/veterinarios"
-          class="flex items-center gap-3.5"
-          style="
-            border-radius: 10px;
-            background: #1880c9;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 14px 18px;
-          "
-        >
-          <div
-            style="
-              width: 36px;
-              height: 36px;
-              border-radius: 8px;
-              background: rgba(255,255,255,0.18);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              flex-shrink: 0;
-            "
-          >
+        <a href="/veterinarios" class="flex items-center gap-3.5" style="border-radius:10px;background:#1880c9;color:#ffffff;text-decoration:none;padding:14px 18px;">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
             </svg>
           </div>
-          <div style="flex: 1;">
-            <p style="font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; color: #ffffff; margin: 0; line-height: 1.3;">
-              Soy veterinario
-            </p>
-            <p style="font-family: var(--font-body); font-size: 0.75rem; color: rgba(255,255,255,0.75); margin: 2px 0 0; line-height: 1.3;">
-              Interconsultas, formación y libro técnico
-            </p>
+          <div style="flex:1;">
+            <p style="font-family:var(--font-body);font-size:0.9rem;font-weight:700;color:#ffffff;margin:0;line-height:1.3;">Soy veterinario</p>
+            <p style="font-family:var(--font-body);font-size:0.75rem;color:rgba(255,255,255,0.75);margin:2px 0 0;line-height:1.3;">Interconsultas, formación y libro técnico</p>
           </div>
         </a>
-
-        <!-- CTA empresas — violeta azulado -->
-        <a
-          href="/empresas"
-          class="flex items-center gap-3.5"
-          style="
-            border-radius: 10px;
-            background: #4a3d9e;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 14px 18px;
-          "
-        >
-          <div
-            style="
-              width: 36px;
-              height: 36px;
-              border-radius: 8px;
-              background: rgba(255,255,255,0.18);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              flex-shrink: 0;
-            "
-          >
+        <a href="/empresas" class="flex items-center gap-3.5" style="border-radius:10px;background:#4a3d9e;color:#ffffff;text-decoration:none;padding:14px 18px;">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="2" y="7" width="20" height="14" rx="2"/>
               <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
             </svg>
           </div>
-          <div style="flex: 1;">
-            <p style="font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; color: #ffffff; margin: 0; line-height: 1.3;">
-              Represento una empresa
-            </p>
-            <p style="font-family: var(--font-body); font-size: 0.75rem; color: rgba(255,255,255,0.75); margin: 2px 0 0; line-height: 1.3;">
-              Charlas, capacitaciones y proyectos
-            </p>
+          <div style="flex:1;">
+            <p style="font-family:var(--font-body);font-size:0.9rem;font-weight:700;color:#ffffff;margin:0;line-height:1.3;">Represento una empresa</p>
+            <p style="font-family:var(--font-body);font-size:0.75rem;color:rgba(255,255,255,0.75);margin:2px 0 0;line-height:1.3;">Charlas, capacitaciones y proyectos</p>
           </div>
         </a>
-
       </div>
 
     </div>
