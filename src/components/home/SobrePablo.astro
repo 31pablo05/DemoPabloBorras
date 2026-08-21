@@ -1,13 +1,6 @@
 ---
 // SobrePablo.astro — Bloque de presentación y autoridad profesional del home
 import Button from '../ui/Button.astro';
-
-const stats = [
-  { numero: '+15',  label: 'Años de experiencia clínica' },
-  { numero: '+30K', label: 'Seguidores en Instagram' },
-  { numero: '+8',   label: 'Países donde disertó' },
-  { numero: '+4',   label: 'Artículos científicos publicados' },
-];
 ---
 
 <section class="py-20 bg-white">
@@ -17,7 +10,7 @@ const stats = [
       <!-- ── Columna izquierda: Grid de fotos + Caption ── -->
       <div class="reveal hidden lg:flex flex-col gap-4" style="transition-delay: 0.1s;">
 
-        <!-- 1. Grid de fotos -->
+        <!-- Grid de fotos -->
         <div
           class="hidden lg:grid"
           style="
@@ -40,9 +33,10 @@ const stats = [
           </div>
 
           <!-- Celda 2: Foto congreso (arriba derecha) -->
+          <!-- FIX: ruta corregida — faltaba el / inicial -->
           <div class="sobrepablo-card" style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow);">
             <img
-              src="/imagenes/congresos/medellin-colombia-2025.jpg"
+              src="/imagenes/perfil/congreso-hero-mobile.png"
               alt="Pablo Borrás en congreso internacional"
               class="w-full h-full object-cover"
               style="border-radius: 12px; object-fit: cover; object-position: center 30%;"
@@ -52,63 +46,21 @@ const stats = [
             />
           </div>
 
-          <!-- Celda 3: Tapa del libro (abajo derecha) -->
-          <a
-            href="/veterinarios/libro"
-            class="sobrepablo-card"
-            style="
-              border-radius: 12px;
-              overflow: hidden;
-              background: linear-gradient(145deg, var(--color-primary), var(--color-secondary));
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: flex-end;
-              padding: 0;
-              text-decoration: none;
-              box-shadow: var(--shadow);
-              position: relative;
-            "
-          >
+          <!-- Celda 3: Foto Pablo con el libro (abajo derecha) -->
+          <div class="sobrepablo-card" style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow);">
             <img
-              src="/imagenes/libro/libroport2.png"
-              alt="Manual Práctico de Enfermedades Infecciosas y Parasitarias — Pablo Borrás"
-              style="
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                object-position: center center;
-                display: block;
-                padding: 10px 8px 28px;
-              "
-              width="300"
-              height="300"
+              src="/imagenes/perfil/pablomobileperf.png"
+              alt="Pablo Borrás con el libro Manual Práctico de Enfermedades Infecciosas y Parasitarias"
+              class="w-full h-full object-cover"
+              style="border-radius: 12px;"
               loading="lazy"
+              width="200"
+              height="175"
             />
-            <!-- Overlay con texto en la parte inferior -->
-            <div style="
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              right: 0;
-              padding: 8px 10px;
-              background: linear-gradient(to top, rgba(4,13,78,0.85), transparent);
-              text-align: center;
-            ">
-              <p style="
-                font-family: var(--font-body);
-                font-size: 0.6rem;
-                font-weight: 700;
-                color: var(--color-accent-light);
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
-                margin: 0;
-              ">Ver libro →</p>
-            </div>
-          </a>
+          </div>
         </div>
 
-        <!-- 2. Strip de credencial inferior -->
+        <!-- Strip de credencial inferior -->
         <div
           style="
             display: flex;
@@ -121,24 +73,11 @@ const stats = [
           "
         >
           <span
-            style="
-              width: 7px;
-              height: 7px;
-              border-radius: 50%;
-              background: #4ade80;
-              flex-shrink: 0;
-              display: inline-block;
-            "
+            style="width: 7px; height: 7px; border-radius: 50%; background: #4ade80; flex-shrink: 0; display: inline-block;"
             aria-hidden="true"
           ></span>
           <p
-            style="
-              font-family: var(--font-body);
-              font-size: 0.75rem;
-              color: var(--color-text-muted);
-              margin: 0;
-              line-height: 1.4;
-            "
+            style="font-family: var(--font-body); font-size: 0.75rem; color: var(--color-text-muted); margin: 0; line-height: 1.4;"
           >
             Editor asociado · <em>Parasites &amp; Vectors</em> — Springer Nature
           </p>
@@ -147,9 +86,29 @@ const stats = [
       </div>
 
       <!-- ── Columna derecha: Texto ── -->
-      <div>
+      <div style="position: relative;">
+
+        <!-- Watermark libro de fondo -->
+        <img
+          src="/imagenes/libro/libroport2.png"
+          alt=""
+          style="
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: none;
+            opacity: 0.13;
+            object-fit: contain;
+            pointer-events: none;
+            z-index: 0;
+          "
+          aria-hidden="true"
+        />
+
         <!-- Badge -->
-        <div class="reveal" style="transition-delay: 0.1s;">
+        <div class="reveal" style="transition-delay: 0.1s; position: relative; z-index: 1;">
           <span
             class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-5"
             style="background: rgba(24,128,201,0.12); color: var(--color-accent); border: 1px solid rgba(24,128,201,0.28);"
@@ -159,7 +118,7 @@ const stats = [
         </div>
 
         <!-- Título -->
-        <div class="reveal" style="transition-delay: 0.15s;">
+        <div class="reveal" style="transition-delay: 0.15s; position: relative; z-index: 1;">
           <h2
             class="text-3xl md:text-4xl font-bold mb-6 leading-tight"
             style="font-family: var(--font-display); color: var(--color-text);"
@@ -168,8 +127,8 @@ const stats = [
           </h2>
         </div>
 
-        <!-- Párrafo bio — LEAD (formación y editor) -->
-        <div class="reveal" style="transition-delay: 0.2s;">
+        <!-- Párrafo bio — LEAD -->
+        <div class="reveal" style="transition-delay: 0.2s; position: relative; z-index: 1;">
           <p
             class="text-base leading-relaxed mb-4"
             style="color: #111827; font-weight: 600; font-family: var(--font-body);"
@@ -181,11 +140,12 @@ const stats = [
           </p>
         </div>
 
-        <!-- Párrafo bio — DETALLE (membresías, máster y países) -->
-        <div class="reveal" style="transition-delay: 0.25s;">
+        <!-- Párrafo bio — DETALLE -->
+        <!-- FIX: color más oscuro #1f2937 y font-weight 500 para mejorar legibilidad -->
+        <div class="reveal" style="transition-delay: 0.25s; position: relative; z-index: 1;">
           <p
             class="text-sm leading-relaxed mb-8"
-            style="color: #374151; font-weight: 400; font-family: var(--font-body);"
+            style="color: #1f2937; font-weight: 500; font-family: var(--font-body);"
           >
             Miembro del TroCCAP Council e ISCAID. Colaborador del
             servicio de Zoopatología del Hospital Francisco J. Muñiz. Actualmente
@@ -196,9 +156,8 @@ const stats = [
           </p>
         </div>
 
-        <!-- Imágenes — solo mobile (entre bio y CTA) -->
+        <!-- Imágenes — solo mobile -->
         <div class="lg:hidden flex flex-col gap-3 mb-8">
-          <!-- Foto principal -->
           <div style="border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); max-height: 340px;">
             <img
               src="/imagenes/perfil/pablo4.png"
@@ -209,7 +168,6 @@ const stats = [
               height="340"
             />
           </div>
-          <!-- Fila de 2: congreso + libro -->
           <div class="grid grid-cols-2 gap-3" style="height: 160px;">
             <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow);">
               <img
@@ -222,42 +180,21 @@ const stats = [
                 height="160"
               />
             </div>
-            <a
-              href="/veterinarios/libro"
-              class="flex items-center justify-center"
-              style="
-                border-radius: 12px;
-                overflow: hidden;
-                position: relative;
-                background: linear-gradient(160deg, #0a1a5c 0%, #0d2d8a 40%, #1055b0 70%, #1880c9 100%);
-                box-shadow: var(--shadow);
-              "
-            >
+            <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow);">
               <img
-                src="/imagenes/libro/libroport2.png"
-                alt="Manual Práctico — Pablo Borrás"
-                style="width: 85%; height: 90%; object-fit: contain; border-radius: 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.4);"
-                width="130"
-                height="144"
+                src="/imagenes/perfil/pablomobileperf.png"
+                alt="Pablo Borrás con el libro Manual Práctico de Enfermedades Infecciosas y Parasitarias"
+                class="w-full h-full object-cover object-center"
+                style="border-radius: 12px;"
+                width="200"
+                height="160"
               />
-            </a>
+            </div>
           </div>
-          <!-- Badge editor asociado -->
           <div
-            style="
-              display: flex;
-              align-items: center;
-              gap: 8px;
-              background: var(--color-neutral-light);
-              border: 1px solid #c8d8f0;
-              border-radius: 10px;
-              padding: 10px 14px;
-            "
+            style="display: flex; align-items: center; gap: 8px; background: var(--color-neutral-light); border: 1px solid #c8d8f0; border-radius: 10px; padding: 10px 14px;"
           >
-            <span
-              style="width: 7px; height: 7px; border-radius: 50%; background: #4ade80; flex-shrink: 0; display: inline-block;"
-              aria-hidden="true"
-            ></span>
+            <span style="width: 7px; height: 7px; border-radius: 50%; background: #4ade80; flex-shrink: 0; display: inline-block;" aria-hidden="true"></span>
             <p style="font-family: var(--font-body); font-size: 0.75rem; color: var(--color-text-muted); margin: 0; line-height: 1.4;">
               Editor asociado · <em>Parasites &amp; Vectors</em> — Springer Nature
             </p>
@@ -265,17 +202,11 @@ const stats = [
         </div>
 
         <!-- CTA outline -->
-        <div class="reveal" style="transition-delay: 0.3s;">
+        <div class="reveal" style="transition-delay: 0.3s; position: relative; z-index: 1;">
           <a
             href="/sobre-pablo"
             class="inline-flex items-center gap-2 px-6 py-3 font-semibold text-sm transition-all duration-200 rounded-lg"
-            style="
-              border: 2px solid var(--color-accent);
-              color: var(--color-accent);
-              border-radius: var(--radius);
-              text-decoration: none;
-              background: transparent;
-            "
+            style="border: 2px solid var(--color-accent); color: var(--color-accent); border-radius: var(--radius); text-decoration: none; background: transparent;"
             onmouseover="this.style.background='var(--color-accent)'; this.style.color='#fff'; this.querySelector('.cta-arrow').style.transform='translateX(4px)';"
             onmouseout="this.style.background='transparent'; this.style.color='var(--color-accent)'; this.querySelector('.cta-arrow').style.transform='translateX(0)';"
           >
@@ -283,14 +214,8 @@ const stats = [
             <svg
               class="cta-arrow"
               style="transition: transform 0.2s ease; flex-shrink: 0;"
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              width="15" height="15" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
               aria-hidden="true"
             >
               <line x1="5" y1="12" x2="19" y2="12"/>
@@ -300,34 +225,24 @@ const stats = [
         </div>
 
         <!-- Badges de autoridad internacional -->
-        <div class="reveal mt-8 pt-6" style="transition-delay: 0.35s; border-top: 1px solid #E5EAED;">
+        <div class="reveal mt-8 pt-6" style="transition-delay: 0.35s; border-top: 1px solid #E5EAED; position: relative; z-index: 1;">
           <p class="text-xs font-semibold uppercase tracking-wider mb-4" style="color: var(--color-text-muted);">
             Membresías y reconocimientos
           </p>
           <div class="flex flex-wrap gap-2">
 
-            <!-- ABCD — verde -->
-            <a
-              href="https://www.abcdcatsvets.org"
-              target="_blank"
-              rel="noopener noreferrer"
+            <a href="https://www.abcdcatsvets.org" target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-80"
-              style="border-radius: 8px; background: #F0FDF4; color: #166534; border: 0.5px solid #86EFAC; text-decoration: none;"
-            >
+              style="border-radius: 8px; background: #F0FDF4; color: #166534; border: 0.5px solid #86EFAC; text-decoration: none;">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
               </svg>
               ABCD cats &amp; vets Europe
             </a>
 
-            <!-- ISCAID — azul medio -->
-            <a
-              href="https://www.iscaid.org"
-              target="_blank"
-              rel="noopener noreferrer"
+            <a href="https://www.iscaid.org" target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-80"
-              style="border-radius: 8px; background: #EFF6FF; color: #1D4ED8; border: 0.5px solid #93C5FD; text-decoration: none;"
-            >
+              style="border-radius: 8px; background: #EFF6FF; color: #1D4ED8; border: 0.5px solid #93C5FD; text-decoration: none;">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                 <circle cx="9" cy="7" r="4"/>
@@ -336,14 +251,9 @@ const stats = [
               ISCAID Member
             </a>
 
-            <!-- Editor Parasites & Vectors — naranja -->
-            <a
-              href="https://link.springer.com/journal/13071"
-              target="_blank"
-              rel="noopener noreferrer"
+            <a href="https://link.springer.com/journal/13071" target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-80"
-              style="border-radius: 8px; background: #FFF7ED; color: #9A3412; border: 0.5px solid #FED7AA; text-decoration: none;"
-            >
+              style="border-radius: 8px; background: #FFF7ED; color: #9A3412; border: 0.5px solid #FED7AA; text-decoration: none;">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
                 <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
@@ -351,11 +261,8 @@ const stats = [
               Editor — Parasites &amp; Vectors
             </a>
 
-            <!-- AVEACA Premio — dorado -->
-            <span
-              class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium"
-              style="border-radius: 8px; background: #FFFBEB; color: #92400E; border: 0.5px solid #FCD34D;"
-            >
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium"
+              style="border-radius: 8px; background: #FFFBEB; color: #92400E; border: 0.5px solid #FCD34D;">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
               </svg>
@@ -384,9 +291,7 @@ const stats = [
         const duration = 1400;
         const start = performance.now();
         function format(n) {
-          return useThousands
-            ? prefix + n.toLocaleString('de-DE')
-            : prefix + n;
+          return useThousands ? prefix + n.toLocaleString('de-DE') : prefix + n;
         }
         function step(ts) {
           const elapsed = ts - start;
