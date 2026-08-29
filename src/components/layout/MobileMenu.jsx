@@ -69,12 +69,13 @@ export default function MobileMenu({ links = [] }) {
             top: '100%',
             left: 0,
             right: 0,
-            background: 'rgba(255, 255, 255, 0.98)',
-            backdropFilter: 'blur(20px)',
+            background: '#ffffff',
             borderTop: '1px solid rgba(24,128,201,0.12)',
             padding: '16px 0',
-            boxShadow: 'var(--shadow-lg)',
-            zIndex: 100,
+            boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
+            zIndex: 40,
+            maxHeight: 'calc(100vh - 96px)',
+            overflowY: 'auto',
           }}
         >
           <nav aria-label="Menú móvil">
