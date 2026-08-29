@@ -116,16 +116,47 @@ const tematicas = [
         src="/imagenes/heros/sobrepabl1.png"
         alt=""
         class="hidden md:block w-full h-full object-cover"
-        style="object-position: center 20%; opacity: 1;"
+        style="object-position: center 20%; opacity: 0.80;"
       />
       <!-- Mobile -->
       <img
         src="/imagenes/heros/sobrepabl1mobiel.png"
         alt=""
         class="block md:hidden w-full h-full object-cover"
-        style="object-position: center 20%; opacity: 1;"
+        style="object-position: center 20%; opacity: 0.75;"
       />
     </div>
+
+    <!-- Overlays de contraste — Desktop: dos capas (horizontal + vertical) -->
+    <!-- Desktop: gradiente horizontal — oscuro izquierda (texto), transparente derecha (foto) -->
+    <div
+      class="hidden md:block absolute inset-0 pointer-events-none"
+      style="
+        background: linear-gradient(to right, rgba(3,13,58,0.82) 0%, rgba(3,13,58,0.60) 40%, rgba(3,13,58,0.25) 70%, rgba(3,13,58,0) 100%);
+        z-index: 1;
+      "
+      aria-hidden="true"
+    ></div>
+
+    <!-- Desktop: gradiente vertical — oscuro abajo (texto), transparente arriba (foto) -->
+    <div
+      class="hidden md:block absolute inset-0 pointer-events-none"
+      style="
+        background: linear-gradient(to top, rgba(3,13,58,0.75) 0%, rgba(3,13,58,0.40) 35%, rgba(3,13,58,0) 65%);
+        z-index: 1;
+      "
+      aria-hidden="true"
+    ></div>
+
+    <!-- Mobile: gradiente vertical invertido — transparente arriba (foto nítida), oscuro abajo (texto) -->
+    <div
+      class="block md:hidden absolute inset-0 pointer-events-none"
+      style="
+        background: linear-gradient(to bottom, rgba(3,13,58,0) 0%, rgba(3,13,58,0) 25%, rgba(3,13,58,0.55) 45%, rgba(3,13,58,0.82) 70%, rgba(3,13,58,0.90) 100%);
+        z-index: 1;
+      "
+      aria-hidden="true"
+    ></div>
 
     <!-- Patrón de puntos sutil -->
     <div
@@ -135,7 +166,7 @@ const tematicas = [
         background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
         background-size: 28px 28px;
         pointer-events: none;
-        z-index: 1;
+        z-index: 2;
       "
       aria-hidden="true"
     ></div>
@@ -149,7 +180,7 @@ const tematicas = [
         bottom: 0;
         width: 4px;
         background: linear-gradient(to bottom, transparent 0%, #1880c9 50%, transparent 100%);
-        z-index: 2;
+        z-index: 3;
       "
       aria-hidden="true"
     ></div>
@@ -158,11 +189,28 @@ const tematicas = [
       class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 pt-24 sm:pt-28 w-full"
       style="position: relative; z-index: 10;"
     >
-      <div class="max-w-3xl">
+      <div class="max-w-3xl relative">
+        
+        <!-- Degradado radial negro detrás del texto (solo desktop) -->
+        <div
+          class="hidden md:block absolute pointer-events-none"
+          style="
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(ellipse 80% 85% at 40% 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.32) 40%, rgba(0,0,0,0.12) 65%, transparent 82%);
+            z-index: -1;
+            filter: blur(8px);
+          "
+          aria-hidden="true"
+        ></div>
+
         <!-- Badge -->
         <span
           class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-4 sm:mb-6 hero-badge"
-          style="background: rgba(24,128,201,0.18); color: var(--color-accent-light); border: 1px solid rgba(24,128,201,0.35); font-size: 0.65rem; line-height: 1.3;"
+          style="background: rgba(24,128,201,0.18); color: var(--color-accent-light); border: 1px solid rgba(24,128,201,0.35); font-size: 0.65rem; line-height: 1.3; text-shadow: 0 2px 12px rgba(0,0,0,0.65);"
         >
           <span class="hidden sm:inline">Médico Veterinario MSc · Speaker Internacional · Autor</span>
           <span class="sm:hidden">Veterinario · Speaker · Autor</span>
@@ -184,13 +232,13 @@ const tematicas = [
         <!-- Nombre -->
         <h1
           class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 hero-name"
-          style="font-family: var(--font-display); line-height: 1.15;"
+          style="font-family: var(--font-display); line-height: 1.15; text-shadow: 0 2px 12px rgba(0,0,0,0.65);"
         >
           Pablo Borrás
         </h1>
 
         <!-- Descripción -->
-        <p class="text-white/75 text-base sm:text-lg max-w-xl leading-relaxed mb-6 sm:mb-8 hero-description">
+        <p class="text-white/75 text-base sm:text-lg max-w-xl leading-relaxed mb-6 sm:mb-8 hero-description" style="text-shadow: 0 2px 12px rgba(0,0,0,0.65);">
           Especialista en enfermedades infecciosas y parasitarias de perros y gatos.
           Docente, investigador y voz de referencia en infectología veterinaria de habla hispana.
         </p>
@@ -206,36 +254,36 @@ const tematicas = [
           "
         >
           <div style="text-align: center; min-width: fit-content;">
-            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0;">+15</p>
-            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;">años</p>
+            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0; text-shadow: 0 2px 12px rgba(0,0,0,0.65);">+15</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; text-shadow: 0 2px 12px rgba(0,0,0,0.65);">años</p>
           </div>
 
           <div style="width: 1px; height: 22px; background: rgba(255,255,255,0.12); flex-shrink: 0; align-self: center;"></div>
 
           <div style="text-align: center; min-width: fit-content;">
-            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0;">+8</p>
-            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;">países</p>
+            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0; text-shadow: 0 2px 12px rgba(0,0,0,0.65);">+8</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; text-shadow: 0 2px 12px rgba(0,0,0,0.65);">países</p>
           </div>
 
           <div style="width: 1px; height: 22px; background: rgba(255,255,255,0.12); flex-shrink: 0; align-self: center;"></div>
 
           <div style="text-align: center; min-width: fit-content;">
-            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0;">30K</p>
-            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;">seguidores</p>
+            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0; text-shadow: 0 2px 12px rgba(0,0,0,0.65);">30K</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; text-shadow: 0 2px 12px rgba(0,0,0,0.65);">seguidores</p>
           </div>
 
           <div style="width: 1px; height: 22px; background: rgba(255,255,255,0.12); flex-shrink: 0; align-self: center;"></div>
 
           <div style="text-align: center; min-width: fit-content;">
-            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0;">+15</p>
-            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;">publicaciones internacionales</p>
+            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0; text-shadow: 0 2px 12px rgba(0,0,0,0.65);">+15</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; text-shadow: 0 2px 12px rgba(0,0,0,0.65);">publicaciones internacionales</p>
           </div>
 
           <div style="width: 1px; height: 22px; background: rgba(255,255,255,0.12); flex-shrink: 0; align-self: center;"></div>
 
           <div style="text-align: center; min-width: fit-content;">
-            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0;">2</p>
-            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;">libros</p>
+            <p style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #ffffff; line-height: 1; margin: 0; text-shadow: 0 2px 12px rgba(0,0,0,0.65);">2</p>
+            <p style="font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; text-shadow: 0 2px 12px rgba(0,0,0,0.65);">libros</p>
           </div>
         </div>
       </div>
