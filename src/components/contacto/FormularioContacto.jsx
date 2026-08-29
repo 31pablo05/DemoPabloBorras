@@ -156,7 +156,7 @@ function FormInterconsultas() {
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 16px' }}>
         <Field label="Área clínica">
-          <Select name="tipo_caso" options={['Dermatología','Nutrición','Oncología','Cardiología','Neurología','Otro']} />
+          <Select name="tipo_caso" options={['Enfermedades vectoriales','Infectología canina','Infectología felina','Zoonosis','Parasitología con diagnóstico molecular','Casos complejos sin diagnóstico','Otro']} />
         </Field>
         <Field label="Urgencia">
           <Select name="urgencia" options={['Rutina','Moderada','Alta']} />
