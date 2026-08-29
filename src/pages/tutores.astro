@@ -10,12 +10,41 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
   title="Información para tutores de mascotas — Pablo Borrás Veterinario"
   description="Contenido educativo, videos y consejos de salud para dueños de perros y gatos. Por Pablo Borrás, veterinario especialista en enfermedades infecciosas y parasitarias."
 >
+  <!-- Preload imágenes hero responsive -->
+  <link slot="head" rel="preload" as="image" href="/imagenes/heros/paratut1.png" media="(min-width: 768px)" fetchpriority="high" />
+  <link slot="head" rel="preload" as="image" href="/imagenes/heros/paratut2mob.png" media="(max-width: 767px)" fetchpriority="high" />
 
   <!-- Hero emocional — Tutores -->
   <section
     class="page-hero py-24 text-center relative overflow-hidden hero-tutores"
-    style="display: flex; align-items: center;"
+    style="display: flex; align-items: center; background-color: #040d4e;"
   >
+    <!-- Imagen de fondo responsive -->
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="z-index: 0;"
+      aria-hidden="true"
+    >
+      <!-- Desktop -->
+      <img
+        src="/imagenes/heros/paratut1.png"
+        alt=""
+        class="hidden md:block w-full h-full object-cover"
+        style="object-position: center top; opacity: 0.85;"
+        loading="eager"
+        aria-hidden="true"
+      />
+      <!-- Mobile -->
+      <img
+        src="/imagenes/heros/paratut2mob.png"
+        alt=""
+        class="block md:hidden w-full h-full object-cover"
+        style="object-position: center center; opacity: 0.80;"
+        loading="eager"
+        aria-hidden="true"
+      />
+    </div>
+
     <!-- Patrón de puntos decorativo -->
     <div
       class="hero-dots"
@@ -496,22 +525,6 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
 </Layout>
 
 <style>
-  .hero-tutores {
-    background-color: #040d4e;
-    background-image: url('/imagenes/heros/2(1).png');
-    background-position: center top;
-    background-size: 75% auto;
-    background-repeat: no-repeat;
-  }
-
-  @media (max-width: 768px) {
-    .hero-tutores {
-      background-image: url('/imagenes/heros/paratutores2.JPG');
-      background-position: center center;
-      background-size: cover;
-    }
-  }
-
   /* Animación fadeUp */
   @keyframes fadeUp {
     from {

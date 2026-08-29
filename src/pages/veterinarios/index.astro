@@ -48,14 +48,43 @@ const stats = [
 <Layout
   title="Para veterinarios — Interconsultas, Capacitaciones y Libro | Pablo Borrás"
   description="Interconsultas clínicas especializadas en infectología, capacitaciones en enfermedades vectoriales y libro técnico para médicos veterinarios. Por Pablo Borrás MSc."
-  heroImage="/imagenes/heros/mendoza.jpg"
+  heroImage="/imagenes/heros/paravet1.png"
 >
+  <!-- Preload imágenes hero responsive -->
+  <link slot="head" rel="preload" as="image" href="/imagenes/heros/paravet1.png" media="(min-width: 768px)" fetchpriority="high" />
+  <link slot="head" rel="preload" as="image" href="/imagenes/heros/paravet1mob.png" media="(max-width: 767px)" fetchpriority="high" />
 
   <!-- Hero secundario mejorado -->
   <section
     class="page-hero py-24 md:py-28 relative overflow-hidden"
-    style="display: flex; align-items: center; background: url('/imagenes/heros/mendoza.jpg') center 60% / cover no-repeat;"
+    style="display: flex; align-items: center;"
   >
+    <!-- Imagen de fondo responsive -->
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="z-index: 0;"
+      aria-hidden="true"
+    >
+      <!-- Desktop -->
+      <img
+        src="/imagenes/heros/paravet1.png"
+        alt=""
+        class="hidden md:block w-full h-full object-cover"
+        style="object-position: center top; opacity: 0.85;"
+        loading="eager"
+        aria-hidden="true"
+      />
+      <!-- Mobile -->
+      <img
+        src="/imagenes/heros/paravet1mob.png"
+        alt=""
+        class="block md:hidden w-full h-full object-cover"
+        style="object-position: center top; opacity: 0.80;"
+        loading="eager"
+        aria-hidden="true"
+      />
+    </div>
+
     <!-- Patrón de puntos decorativo -->
     <div
       style="
@@ -64,6 +93,7 @@ const stats = [
         background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
         background-size: 24px 24px;
         pointer-events: none;
+        z-index: 1;
       "
       aria-hidden="true"
     ></div>
@@ -80,6 +110,7 @@ const stats = [
         border-radius: 50%;
         filter: blur(80px);
         pointer-events: none;
+        z-index: 2;
       "
       aria-hidden="true"
     ></div>
