@@ -3,7 +3,7 @@
 import Button from '../ui/Button.astro';
 ---
 
-<section class="py-20 bg-white">
+<section class="py-16 md:py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
@@ -105,6 +105,7 @@ import Button from '../ui/Button.astro';
 
         <!-- Watermark libro de fondo -->
         <img
+          class="sp-watermark"
           src="/imagenes/libro/libroport2.png"
           alt=""
           style="
@@ -376,5 +377,14 @@ import Button from '../ui/Button.astro';
     height: auto;
     object-fit: contain;
     display: block;
+  }
+
+  /* ── Mobile: watermark más acotado y posicionado en zona de texto ── */
+  @media (max-width: 767px) {
+    .sp-watermark {
+      width: 80% !important;
+      top: 30% !important;
+      opacity: 0.22 !important;
+    }
   }
 </style>

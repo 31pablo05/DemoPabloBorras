@@ -65,7 +65,7 @@ const cards = [
 ];
 ---
 
-<section style="background: var(--color-neutral-light);" class="py-20">
+<section style="background: var(--color-neutral-light);" class="py-16 md:py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <SectionTitle
@@ -75,7 +75,7 @@ const cards = [
     />
 
     <!-- Grid de cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-4">
       {cards.map((card, index) => (
         <a
           href={card.href}
@@ -84,7 +84,7 @@ const cards = [
         >
           <!-- Header coloreado con gradiente -->
           <div
-            class="card-header relative px-8 pt-8 pb-10 overflow-hidden"
+            class="card-header relative px-6 sm:px-8 pt-7 pb-9 overflow-hidden"
             style={index === 0
               ? `background: url('/imagenes/heros/paratut3.png') center 30%/cover no-repeat;`
               : index === 1 
@@ -93,15 +93,15 @@ const cards = [
               ? `background: url('/imagenes/heros/pablocharla.png') center/cover no-repeat;` 
               : `background: ${card.headGradient};`}
           >
-            <!-- Overlay oscuro para mejorar contraste en imágenes -->
+            <!-- Overlay con degradado para contraste del texto -->
             <div 
-              class="absolute inset-0" 
-              style="background: rgba(0, 0, 0, 0.25); z-index: 0;"
+              class="absolute inset-0"
+              style="background: linear-gradient(to top, rgba(2,6,35,0.82) 0%, rgba(2,6,35,0.40) 48%, rgba(2,6,35,0.28) 100%); z-index: 0;"
             />
             <!-- Etiqueta "Para quién" -->
             <div
               class="text-xs font-medium mb-5 relative"
-              style="color: white; letter-spacing: 0.02em; z-index: 1;"
+              style="color: white; letter-spacing: 0.02em; z-index: 1; text-shadow: 0 1px 8px rgba(0,0,0,0.45);"
             >
               {card.whoLabel}
             </div>
@@ -116,7 +116,7 @@ const cards = [
             <!-- Título -->
             <h3
               class="text-2xl font-bold leading-tight relative"
-              style="font-family: var(--font-display); color: white; white-space: pre-line; z-index: 1;"
+              style="font-family: var(--font-display); color: white; white-space: pre-line; z-index: 1; text-shadow: 0 2px 12px rgba(0,0,0,0.45);"
             >
               {card.label}
             </h3>
@@ -130,7 +130,7 @@ const cards = [
           </div>
 
           <!-- Cuerpo blanco -->
-          <div class="px-8 py-8">
+          <div class="px-6 sm:px-8 py-7">
             <!-- Pills -->
             <div class="flex flex-wrap gap-2 mb-5">
               {card.pills.map(pill => (
@@ -189,5 +189,11 @@ const cards = [
   }
   .audience-card:hover .card-cta-arrow {
     transform: translateX(4px);
+  }
+  .card-header {
+    min-height: 200px;
+  }
+  @media (min-width: 1024px) {
+    .card-header { min-height: 230px; }
   }
 </style>

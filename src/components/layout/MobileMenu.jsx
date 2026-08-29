@@ -1,5 +1,5 @@
 // MobileMenu.jsx — React Island: menú hamburguesa animado
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 /** @param {{ links: Array<{label: string, href: string}> }} props */
 export default function MobileMenu({ links = [] }) {
@@ -8,107 +8,53 @@ export default function MobileMenu({ links = [] }) {
   const toggle = () => setIsOpen(prev => !prev);
   const close  = () => setIsOpen(false);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e) => { if (e.key === 'Escape') close(); };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [isOpen]);
+
   return (
     <div>
-      {/* Botón hamburguesa / X */}
       <button
         onClick={toggle}
         aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
         aria-expanded={isOpen}
-        style={{
-          background: 'none',
-          border: 'none',
-          cursor: 'pointer',
-          padding: '8px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '5px',
-        }}
+        className="mobile-menu-btn"
       >
-        <span
-          style={{
-            display: 'block',
-            width: '24px',
-            height: '2px',
-            background: '#040d4e',
-            borderRadius: '2px',
-            transition: 'transform 0.3s, opacity 0.3s',
-            transform: isOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
-          }}
-        />
-        <span
-          style={{
-            display: 'block',
-            width: '24px',
-            height: '2px',
-            background: '#040d4e',
-            borderRadius: '2px',
-            transition: 'opacity 0.3s',
-            opacity: isOpen ? 0 : 1,
-          }}
-        />
-        <span
-          style={{
-            display: 'block',
-            width: '24px',
-            height: '2px',
-            background: '#040d4e',
-            borderRadius: '2px',
-            transition: 'transform 0.3s, opacity 0.3s',
-            transform: isOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none',
-          }}
-        />
+        <span className={isOpen ? 'is-open' : ''} />
+        <span className={isOpen ? 'is-open' : ''} />
+        <span className={isOpen ? 'is-open' : ''} />
       </button>
 
-      {/* Panel desplegable */}
       {isOpen && (
-        <div
-          className="animate-slide-down"
-          style={{
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0,
-            background: '#ffffff',
-            borderTop: '1px solid rgba(24,128,201,0.12)',
-            padding: '16px 0',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
-            zIndex: 40,
-            maxHeight: 'calc(100vh - 96px)',
-            overflowY: 'auto',
-          }}
-        >
-          <nav aria-label="Menú móvil">
-            {links.map(link => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={close}
-                style={{
-                  display: 'block',
-                  padding: '12px 24px',
-                  color: '#040d4e',
-                  textDecoration: 'none',
-                  fontFamily: 'var(--font-body)',
-                  fontSize: '1rem',
-                  fontWeight: 500,
-                  borderBottom: '1px solid rgba(4,13,78,0.08)',
-                  transition: 'color 0.2s, background 0.2s',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.color = 'var(--color-accent)';
-                  e.currentTarget.style.background = 'rgba(4,13,78,0.04)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.color = '#040d4e';
-                  e.currentTarget.style.background = 'transparent';
-                }}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-        </div>
+        <>
+          <div
+            className="mobile-menu-backdrop"
+            onClick={close}
+            aria-hidden="true"
+          />
+          <div className="mobile-menu-panel animate-slide-down">
+            <nav aria-label="Menú móvil">
+              {links.map(link => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={close}
+                  className="mobile-menu-link"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </>
       )}
     </div>
   );

@@ -7,19 +7,41 @@ import AgendaEventos from '../components/eventos/AgendaEventos.astro';
 <Layout
   title="Congresos y eventos veterinarios — Pablo Borrás Speaker Internacional"
   description="Agenda de participación de Pablo Borrás en congresos veterinarios nacionales e internacionales. ECVIM, WAAVP, AVEACA y más. Solicitar invitación como ponente."
-  heroImage="/imagenes/heros/1.png"
 >
+  <!-- Preload imágenes hero responsive -->
+  <link slot="head" rel="preload" as="image" href="/imagenes/heros/paraeven1.png" media="(min-width: 768px)" fetchpriority="high" />
+  <link slot="head" rel="preload" as="image" href="/imagenes/heros/paraeven1mob.png" media="(max-width: 767px)" fetchpriority="high" />
 
   <!-- Hero mejorado -->
   <section
-    class="relative overflow-hidden"
+    class="page-hero relative overflow-hidden"
     style="
-      min-height: 100vh;
       display: flex;
       align-items: center;
-      background: url('/imagenes/heros/1.png') center 65% / cover no-repeat;
     "
   >
+    <!-- Imagen de fondo responsive -->
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="z-index: 0;"
+      aria-hidden="true"
+    >
+      <!-- Desktop -->
+      <img
+        src="/imagenes/heros/paraeven1.png"
+        alt=""
+        class="hidden md:block w-full h-full object-cover"
+        style="object-position: center 65%;"
+      />
+      <!-- Mobile -->
+      <img
+        src="/imagenes/heros/paraeven1mob.png"
+        alt=""
+        class="block md:hidden w-full h-full object-cover"
+        style="object-position: center 65%;"
+      />
+    </div>
+
     <!-- Patrón decorativo -->
     <div
       style="
@@ -28,6 +50,7 @@ import AgendaEventos from '../components/eventos/AgendaEventos.astro';
         background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.08) 1px, transparent 0);
         background-size: 40px 40px;
         opacity: 0.3;
+        z-index: 1;
       "
       aria-hidden="true"
     ></div>
@@ -43,6 +66,7 @@ import AgendaEventos from '../components/eventos/AgendaEventos.astro';
         background: radial-gradient(circle, rgba(74,61,158,0.4) 0%, transparent 70%);
         border-radius: 50%;
         filter: blur(70px);
+        z-index: 2;
       "
       aria-hidden="true"
     ></div>
@@ -58,11 +82,12 @@ import AgendaEventos from '../components/eventos/AgendaEventos.astro';
         background: radial-gradient(circle, rgba(24,128,201,0.35) 0%, transparent 70%);
         border-radius: 50%;
         filter: blur(60px);
+        z-index: 2;
       "
       aria-hidden="true"
     ></div>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 text-center">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 text-center" style="position: relative; z-index: 10;">
       <!-- Badge superior mejorado -->
       <div class="inline-block mb-6">
         <span
