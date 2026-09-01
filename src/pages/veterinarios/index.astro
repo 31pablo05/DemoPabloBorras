@@ -70,8 +70,9 @@ const stats = [
         src="/imagenes/heros/paravet1.png"
         alt=""
         class="hidden md:block w-full h-full object-cover"
-        style="object-position: center top; opacity: 0.85;"
+        style="object-position: center top; opacity: 0.88;"
         loading="eager"
+        fetchpriority="high"
         aria-hidden="true"
       />
       <!-- Mobile -->
@@ -79,82 +80,110 @@ const stats = [
         src="/imagenes/heros/paravet1mob.png"
         alt=""
         class="block md:hidden w-full h-full object-cover"
-        style="object-position: center top; opacity: 0.80;"
+        style="object-position: center 15%; opacity: 0.80;"
         loading="eager"
         aria-hidden="true"
       />
     </div>
 
-    <!-- Patrón de puntos decorativo -->
+    <!-- Oscurecimiento solo detrás del texto — Desktop: solo lado izquierdo (más intenso que home por fondo ruidoso) -->
     <div
+      class="hidden md:block absolute top-0 left-0 bottom-0 pointer-events-none"
       style="
-        position: absolute;
-        inset: 0;
-        background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-        background-size: 24px 24px;
-        pointer-events: none;
+        width: 60%;
+        background: linear-gradient(to right, rgba(3,13,58,0.72) 0%, rgba(3,13,58,0.48) 45%, rgba(3,13,58,0.18) 75%, rgba(3,13,58,0) 100%);
         z-index: 1;
       "
       aria-hidden="true"
     ></div>
-    
-    <!-- Blob decorativo -->
+
+    <!-- Mobile: degradado vertical — transparente arriba, oscuro abajo (reajustado para mayor claridad arriba) -->
     <div
+      class="block md:hidden absolute inset-0 pointer-events-none"
       style="
-        position: absolute;
-        top: -100px;
-        right: -100px;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(24,128,201,0.15) 0%, transparent 70%);
-        border-radius: 50%;
-        filter: blur(80px);
-        pointer-events: none;
-        z-index: 2;
+        background: linear-gradient(to bottom, rgba(3,13,58,0) 0%, rgba(3,13,58,0) 30%, rgba(3,13,58,0.50) 50%, rgba(3,13,58,0.80) 75%, rgba(3,13,58,0.90) 100%);
+        z-index: 1;
       "
       aria-hidden="true"
     ></div>
 
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <div
-        class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-5 py-2.5 rounded-full mb-7"
-        style="background: rgba(255,255,255,0.12); color: #a8d8f0; border: 1px solid rgba(255,255,255,0.25); letter-spacing: 0.12em; backdrop-filter: blur(10px);"
-      >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-        </svg>
-        Espacio exclusivo para profesionales
-      </div>
-      <h1
-        class="text-4xl md:text-6xl font-bold text-white mb-6"
-        style="font-family: var(--font-display); line-height: 1.15; text-shadow: 0 2px 20px rgba(0,0,0,0.3);"
-      >
-        Para veterinarios y<br/><span style="background: linear-gradient(135deg, #ffffff 0%, #5ba8e0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">profesionales de la salud animal</span>
-      </h1>
-      <p class="text-white/85 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8" style="text-shadow: 0 1px 8px rgba(0,0,0,0.2);">
-        Herramientas diseñadas para elevar el estándar de tu ejercicio profesional: interconsultas, formación continua y material de referencia clínica.
-      </p>
-      <!-- Badges de credenciales -->
-      <div class="flex flex-wrap justify-center gap-3 items-center">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px);">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <!-- Patrón de puntos sutil -->
+    <div
+      class="dot-pattern absolute inset-0 pointer-events-none"
+      style="opacity: 0.12; z-index: 2;"
+      aria-hidden="true"
+    ></div>
+
+    <div class="max-w-7xl ml-0 px-4 sm:px-6 md:px-12 lg:px-20 py-10 w-full relative z-10">
+      <div class="max-w-3xl relative">
+        <!-- Degradado radial negro detrás del texto (solo desktop, más intenso que home) -->
+        <div
+          class="hidden md:block absolute pointer-events-none"
+          style="
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(ellipse 80% 85% at 40% 50%, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.38) 40%, rgba(0,0,0,0.15) 65%, transparent 82%);
+            z-index: -1;
+            filter: blur(10px);
+          "
+          aria-hidden="true"
+        ></div>
+
+        <div
+          class="hero-badge inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-5 py-2.5 rounded-full mb-7"
+          style="background: rgba(255,255,255,0.12); color: #a8d8f0; border: 1px solid rgba(255,255,255,0.25); letter-spacing: 0.12em; backdrop-filter: blur(10px); text-shadow: 0 2px 12px rgba(0,0,0,0.65);"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
           </svg>
-          Esp. Enf. Infecciosas
-        </span>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px);">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-          </svg>
-          MSc Zoonosis
-        </span>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px);">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-          </svg>
-          Editor P&V
-        </span>
+          <span class="hidden md:inline">Espacio exclusivo para profesionales</span>
+          <span class="md:hidden">Para profesionales</span>
+        </div>
+
+        <!-- Título con barra vertical -->
+        <div class="flex items-start gap-4 mb-6" style="filter: drop-shadow(0 2px 10px rgba(0,0,0,0.55));">
+          <div
+            class="w-1 self-stretch rounded-full mt-1 shrink-0"
+            style="background: linear-gradient(to bottom, #1880c9, #5ba8e0); min-height: 56px;"
+            aria-hidden="true"
+          ></div>
+          <h1
+            class="hero-title text-4xl md:text-6xl font-bold text-white"
+            style="font-family: var(--font-display); line-height: 1.15; text-align: left;"
+          >
+            Para veterinarios y<br/><span class="hero-title-highlight" style="background: linear-gradient(135deg, #ffffff 0%, #5ba8e0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">profesionales de la salud animal</span>
+          </h1>
+        </div>
+
+        <p class="hero-description text-white/90 text-lg md:text-xl max-w-2xl leading-relaxed mb-8" style="text-shadow: 0 2px 12px rgba(0,0,0,0.65); text-align: left;">
+          Herramientas diseñadas para elevar el estándar de tu ejercicio profesional: interconsultas, formación continua y material de referencia clínica.
+        </p>
+
+        <!-- Badges de credenciales -->
+        <div class="flex flex-wrap gap-3 items-center">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px); text-shadow: 0 2px 12px rgba(0,0,0,0.65);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+            Esp. Enf. Infecciosas
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px); text-shadow: 0 2px 12px rgba(0,0,0,0.65);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+            MSc Zoonosis
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px); text-shadow: 0 2px 12px rgba(0,0,0,0.65);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            Editor P&V
+          </span>
+        </div>
       </div>
     </div>
   </section>
@@ -644,6 +673,117 @@ const stats = [
     }
     100% {
       background-position: 0% 50%;
+    }
+  }
+
+  /* Fade suave hacia la siguiente sección (desktop) */
+  @media (min-width: 768px) {
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 32px;
+      background: linear-gradient(to bottom, transparent, #f0f9ff);
+      z-index: 11;
+      pointer-events: none;
+    }
+  }
+
+  /* Mobile: anclar abajo y alinear a izquierda */
+  @media (max-width: 767px) {
+    .page-hero {
+      align-items: flex-end !important;
+      padding-bottom: 2rem !important;
+    }
+    
+    .page-hero .max-w-7xl {
+      margin-left: 0 !important;
+      margin-right: auto !important;
+    }
+    
+    .page-hero .hero-title,
+    .page-hero .hero-description,
+    .page-hero .hero-badge {
+      text-align: left !important;
+    }
+    
+    /* Pills alineadas a la izquierda */
+    .page-hero .flex.flex-wrap {
+      justify-content: flex-start !important;
+    }
+    
+    /* Reducir tamaño del título en mobile */
+    .page-hero .hero-title {
+      font-size: 1.75rem !important;
+      line-height: 1.25 !important;
+    }
+    
+    /* Descripción más pequeña */
+    .page-hero .hero-description {
+      font-size: 0.95rem !important;
+      line-height: 1.6 !important;
+    }
+    
+    /* Badge más pequeño */
+    .page-hero .hero-badge {
+      font-size: 0.65rem !important;
+      padding: 0.4rem 0.85rem !important;
+      letter-spacing: 0.08em !important;
+    }
+    
+    /* Pills más pequeñas */
+    .page-hero .flex.flex-wrap span {
+      font-size: 0.7rem !important;
+      padding: 0.5rem 0.75rem !important;
+    }
+    
+    /* Sombras más fuertes para contraste */
+    .page-hero .hero-title,
+    .page-hero .hero-description,
+    .page-hero .hero-badge {
+      text-shadow: 0 1px 3px rgba(0,0,0,0.85), 0 2px 14px rgba(0,0,0,0.6) !important;
+    }
+    
+    /* Drop-shadow más fuerte en el contenedor del título */
+    .page-hero .flex.items-start {
+      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.70)) !important;
+    }
+    
+    /* Segundo renglón del título en blanco sólido (sin gradiente) */
+    .hero-title-highlight {
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      background-clip: initial !important;
+      -webkit-text-fill-color: white !important;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.85), 0 2px 14px rgba(0,0,0,0.6) !important;
+    }
+  }
+  
+  /* Pills en columna por debajo de 400px */
+  @media (max-width: 400px) {
+    .page-hero .flex.flex-wrap {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+    }
+  }
+  
+  /* Breakpoint adicional para pantallas muy chicas */
+  @media (max-width: 390px) {
+    .page-hero .hero-title {
+      font-size: 1.5rem !important;
+    }
+    
+    .page-hero .hero-description {
+      font-size: 0.875rem !important;
+    }
+  }
+  
+  /* Aire adicional abajo en pantallas de 380px o menos */
+  @media (max-width: 380px) {
+    .page-hero {
+      padding-bottom: 3rem !important;
     }
   }
 </style>

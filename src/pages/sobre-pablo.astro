@@ -220,9 +220,9 @@ const tematicas = [
           Docente, investigador y voz de referencia en infectología veterinaria de habla hispana.
         </p>
 
-        <!-- Stats inline -->
+        <!-- Stats inline — desktop -->
         <div
-          class="flex items-center gap-6 hero-stats"
+          class="hidden md:flex items-center gap-6 hero-stats"
           style="
             border-top: 1px solid rgba(255,255,255,0.15);
             border-bottom: 1px solid rgba(255,255,255,0.15);
@@ -254,6 +254,30 @@ const tematicas = [
             <p style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0.06em; text-transform: uppercase; text-shadow: 0 2px 12px rgba(0,0,0,0.65);">libros</p>
           </div>
         </div>
+
+        <!-- Stats — mobile -->
+        <div class="hero-stats-mobile grid md:hidden grid-cols-5 mb-4 mt-3">
+          <div class="hero-stat text-center">
+            <p class="text-base font-bold text-white leading-none" style="font-family: var(--font-display);">+15</p>
+            <p class="hero-stat-label">años</p>
+          </div>
+          <div class="hero-stat text-center">
+            <p class="text-base font-bold text-white leading-none" style="font-family: var(--font-display);">+15</p>
+            <p class="hero-stat-label">publ. int.</p>
+          </div>
+          <div class="hero-stat text-center">
+            <p class="text-base font-bold text-white leading-none" style="font-family: var(--font-display);">30K+</p>
+            <p class="hero-stat-label">seguidores</p>
+          </div>
+          <div class="hero-stat text-center">
+            <p class="text-base font-bold text-white leading-none" style="font-family: var(--font-display);">+8</p>
+            <p class="hero-stat-label">países</p>
+          </div>
+          <div class="hero-stat text-center">
+            <p class="text-base font-bold text-white leading-none" style="font-family: var(--font-display);">2</p>
+            <p class="hero-stat-label">libros</p>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -271,7 +295,8 @@ const tematicas = [
       animation: fadeInUp 0.6s ease-out 0.3s both;
     }
 
-    .hero-stats {
+    .hero-stats,
+    .hero-stats-mobile {
       opacity: 0;
       animation: fadeInUp 0.6s ease-out 0.4s both;
     }
@@ -284,6 +309,41 @@ const tematicas = [
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    /* Stats mobile: grilla de 5 columnas */
+    @media (max-width: 767px) {
+      .hero-stats-mobile {
+        border-top: 1px solid rgba(255,255,255,0.14);
+        border-bottom: 1px solid rgba(255,255,255,0.14);
+        padding: 10px 0;
+        column-gap: 0.25rem;
+      }
+
+      .hero-stat-label {
+        font-size: 0.55rem;
+        color: rgba(255,255,255,0.58);
+        margin-top: 4px;
+        font-family: var(--font-body);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        line-height: 1.2;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.85), 0 2px 10px rgba(0,0,0,0.55);
+      }
+
+      .hero-stats-mobile .hero-stat p {
+        text-shadow: 0 1px 3px rgba(0,0,0,0.85), 0 2px 10px rgba(0,0,0,0.55);
+      }
+    }
+
+    /* Breakpoint adicional para pantallas muy chicas */
+    @media (max-width: 380px) {
+      .hero-stats-mobile .hero-stat p:first-child {
+        font-size: 0.9rem !important;
+      }
+      .hero-stat-label {
+        font-size: 0.5rem !important;
       }
     }
 

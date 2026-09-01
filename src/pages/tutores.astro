@@ -16,8 +16,8 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
 
   <!-- Hero emocional — Tutores -->
   <section
-    class="page-hero py-24 text-center relative overflow-hidden hero-tutores"
-    style="display: flex; align-items: center; background-color: #040d4e;"
+    class="page-hero py-24 relative overflow-hidden hero-tutores"
+    style="display: flex; align-items: center; background: transparent;"
   >
     <!-- Imagen de fondo responsive -->
     <div
@@ -32,6 +32,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
         class="hidden md:block w-full h-full object-cover"
         style="object-position: center top; opacity: 0.85;"
         loading="eager"
+        fetchpriority="high"
         aria-hidden="true"
       />
       <!-- Mobile -->
@@ -45,70 +46,98 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
       />
     </div>
 
-    <!-- Patrón de puntos decorativo -->
+    <!-- Oscurecimiento solo detrás del texto — Desktop: solo lado izquierdo -->
     <div
-      class="hero-dots"
+      class="hidden md:block absolute top-0 left-0 bottom-0 pointer-events-none"
       style="
-        position: absolute;
-        inset: 0;
-        background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
-        background-size: 24px 24px;
-        pointer-events: none;
+        width: 60%;
+        background: linear-gradient(to right, rgba(3,13,58,0.65) 0%, rgba(3,13,58,0.40) 45%, rgba(3,13,58,0.15) 75%, rgba(3,13,58,0) 100%);
         z-index: 1;
       "
       aria-hidden="true"
     ></div>
 
-    <!-- SVG corazón decorativo -->
+    <!-- Mobile: degradado vertical — transparente arriba, oscuro abajo -->
     <div
+      class="block md:hidden absolute inset-0 pointer-events-none"
       style="
-        position: absolute;
-        right: -40px;
-        bottom: -40px;
-        width: 400px;
-        height: 400px;
-        opacity: 0.06;
-        pointer-events: none;
+        background: linear-gradient(to bottom, rgba(3,13,58,0) 0%, rgba(3,13,58,0) 25%, rgba(3,13,58,0.55) 45%, rgba(3,13,58,0.82) 70%, rgba(3,13,58,0.90) 100%);
         z-index: 1;
       "
       aria-hidden="true"
-    >
-      <svg width="400" height="400" viewBox="0 0 24 24" fill="white">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-      </svg>
-    </div>
+    ></div>
 
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8" style="position: relative; z-index: 2;">
-      <!-- Badge con corazón animado -->
-      <div class="hero-badge" style="opacity: 0; animation: fadeUp 0.6s ease-out both;">
-        <span
-          class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide px-4 py-2 rounded-full mb-6"
-          style="background: rgba(255,255,255,0.15); color: #ffffff; border: 1px solid rgba(255,255,255,0.3);"
+    <!-- Patrón de puntos sutil -->
+    <div
+      class="dot-pattern absolute inset-0 pointer-events-none"
+      style="opacity: 0.15; z-index: 2;"
+      aria-hidden="true"
+    ></div>
+
+    <div class="max-w-7xl ml-0 px-4 sm:px-6 md:px-12 lg:px-20 py-10 w-full" style="position: relative; z-index: 10;">
+      <div class="max-w-3xl relative">
+        <!-- Degradado radial negro detrás del texto (solo desktop) -->
+        <div
+          class="hidden md:block absolute pointer-events-none"
+          style="
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(ellipse 80% 85% at 40% 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.32) 40%, rgba(0,0,0,0.12) 65%, transparent 82%);
+            z-index: -1;
+            filter: blur(8px);
+          "
+          aria-hidden="true"
+        ></div>
+
+        <!-- Badge con corazón animado -->
+        <div class="hero-badge" style="opacity: 0; animation: fadeUp 0.6s ease-out both;">
+          <span
+            class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide px-4 py-2 rounded-full mb-6"
+            style="background: rgba(255,255,255,0.15); color: #ffffff; border: 1px solid rgba(255,255,255,0.3); text-shadow: 0 2px 12px rgba(0,0,0,0.65);"
+          >
+            <svg class="heart-pulse" width="13" height="13" viewBox="0 0 24 24" fill="white">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            Para tutores de mascotas
+          </span>
+        </div>
+
+        <!-- Título con barra vertical -->
+        <div class="flex items-start gap-4 mb-4" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.45));">
+          <div
+            class="w-1 self-stretch rounded-full mt-1 shrink-0"
+            style="background: linear-gradient(to bottom, #1880c9, #5ba8e0); min-height: 48px;"
+            aria-hidden="true"
+          ></div>
+          <h1
+            class="hero-title text-4xl md:text-5xl font-bold text-white"
+            style="font-family: var(--font-display); line-height: 1.2; opacity: 0; animation: fadeUp 0.6s ease-out 0.1s both; text-align: left;"
+          >
+            Tu mascota merece lo mejor<br/>
+            <span
+              class="hero-title-highlight"
+              style="
+                background: linear-gradient(135deg, #a8d8f0 0%, #5ba8e0 60%, #1880c9 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+              "
+            >Vos también merecés entenderlo</span>
+          </h1>
+        </div>
+
+        <!-- Descripción -->
+        <p 
+          class="hero-description text-lg max-w-xl mb-8"
+          style="color: rgba(255,255,255,0.85); opacity: 0; animation: fadeUp 0.6s ease-out 0.3s both; text-shadow: 0 2px 12px rgba(0,0,0,0.65); text-align: left;"
         >
-          <svg class="heart-pulse" width="13" height="13" viewBox="0 0 24 24" fill="white">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-          </svg>
-          Para tutores de mascotas
-        </span>
+          Videos, divulgación y consejos pensados por un veterinario para quienes comparten su vida con un animal.
+        </p>
+
       </div>
-
-      <!-- Título -->
-      <h1
-        class="hero-title text-4xl md:text-5xl font-bold text-white mb-4"
-        style="font-family: var(--font-display); line-height: 1.2; opacity: 0; animation: fadeUp 0.6s ease-out 0.25s both;"
-      >
-        Tu mascota merece lo mejor<br/>
-        <span style="color: #a8d8f0;">Vos también merecés entenderlo</span>
-      </h1>
-
-      <!-- Descripción -->
-      <p 
-        class="hero-description text-lg max-w-xl mx-auto mb-8"
-        style="color: rgba(255,255,255,0.72); opacity: 0; animation: fadeUp 0.6s ease-out 0.4s both;"
-      >
-        Videos, divulgación y consejos pensados por un veterinario para quienes comparten su vida con un animal.
-      </p>
-
     </div>
   </section>
 
@@ -601,6 +630,90 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
 
   .video-facade-container:hover .play-button-overlay > div {
     transform: scale(1.1);
+  }
+
+  /* Fade suave hacia la siguiente sección (desktop) */
+  @media (min-width: 768px) {
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 32px;
+      background: linear-gradient(to bottom, transparent, #f0f9ff);
+      z-index: 11;
+      pointer-events: none;
+    }
+  }
+
+  /* Mobile: anclar abajo y alinear a izquierda */
+  @media (max-width: 767px) {
+    .hero-tutores {
+      align-items: flex-end !important;
+      padding-bottom: 2rem !important;
+    }
+    
+    .page-hero .max-w-7xl {
+      margin-left: 0 !important;
+      margin-right: auto !important;
+    }
+    
+    .page-hero .hero-title,
+    .page-hero .hero-description,
+    .page-hero .hero-badge {
+      text-align: left !important;
+    }
+    
+    /* Reducir tamaño del título en mobile */
+    .page-hero .hero-title {
+      font-size: 1.75rem !important;
+      line-height: 1.25 !important;
+    }
+    
+    /* Descripción más pequeña */
+    .page-hero .hero-description {
+      font-size: 0.95rem !important;
+      line-height: 1.6 !important;
+    }
+    
+    /* Badge más pequeño */
+    .page-hero .hero-badge span {
+      font-size: 0.7rem !important;
+      padding: 0.4rem 0.85rem !important;
+    }
+    
+    /* Sombras más fuertes para contraste */
+    .page-hero .hero-title,
+    .page-hero .hero-description,
+    .page-hero .hero-badge span {
+      text-shadow: 0 1px 3px rgba(0,0,0,0.85), 0 2px 14px rgba(0,0,0,0.6) !important;
+    }
+    
+    /* Drop-shadow más fuerte en el contenedor del título */
+    .page-hero .flex.items-start {
+      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.70)) !important;
+    }
+    
+    /* Segundo renglón del título en blanco sólido (sin gradiente) */
+    .hero-title-highlight {
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      background-clip: initial !important;
+      -webkit-text-fill-color: white !important;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.85), 0 2px 14px rgba(0,0,0,0.6) !important;
+    }
+  }
+  
+  /* Breakpoint adicional para pantallas muy chicas */
+  @media (max-width: 390px) {
+    .page-hero .hero-title {
+      font-size: 1.5rem !important;
+    }
+    
+    .page-hero .hero-description {
+      font-size: 0.875rem !important;
+    }
   }
 
   /* Responsive mejorado */
