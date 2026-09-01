@@ -11,8 +11,8 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
   description="Contenido educativo, videos y consejos de salud para dueños de perros y gatos. Por Pablo Borrás, veterinario especialista en enfermedades infecciosas y parasitarias."
 >
   <!-- Preload imágenes hero responsive -->
-  <link slot="head" rel="preload" as="image" href="/imagenes/heros/paratut1.png" media="(min-width: 768px)" fetchpriority="high" />
-  <link slot="head" rel="preload" as="image" href="/imagenes/heros/paratut2mob.png" media="(max-width: 767px)" fetchpriority="high" />
+  <link slot="head" rel="preload" as="image" href="/imagenes/heros/paratut1.webp" media="(min-width: 768px)" fetchpriority="high" />
+  <link slot="head" rel="preload" as="image" href="/imagenes/heros/paratut2mob.webp" media="(max-width: 767px)" fetchpriority="high" />
 
   <!-- Hero emocional — Tutores -->
   <section
@@ -27,7 +27,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
     >
       <!-- Desktop -->
       <img
-        src="/imagenes/heros/paratut1.png"
+        src="/imagenes/heros/paratut1.webp"
         alt=""
         class="hidden md:block w-full h-full object-cover"
         style="object-position: center top; opacity: 0.85;"
@@ -37,7 +37,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
       />
       <!-- Mobile -->
       <img
-        src="/imagenes/heros/paratut2mob.png"
+        src="/imagenes/heros/paratut2mob.webp"
         alt=""
         class="block md:hidden w-full h-full object-cover"
         style="object-position: center center; opacity: 0.80;"
@@ -211,14 +211,14 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
         {[
           {
             videoSrc: '/videos/moquillo.mp4',
-            posterSrc: '/imagenes/postermoquillo.PNG',
+            posterSrc: '/imagenes/postermoquillo.webp',
             duracion: '1:00',
             titulo: '5 cosas que todo tutor debe saber sobre el moquillo',
             descripcion: 'Lo que necesitás saber para proteger a tu perro.',
           },
           {
             videoSrc: '/videos/canidos-silvestres.mp4',
-            posterSrc: '/imagenes/postercandidos.PNG',
+            posterSrc: '/imagenes/postercandidos.webp',
             duracion: '1:20',
             titulo: 'Perros domésticos y cánidos silvestres',
             descripcion: 'Lo que tienen en común y por qué importa saberlo.',
@@ -348,7 +348,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
           style="border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-decoration: none; border-left: 4px solid #DC2626; transition: all 0.3s ease;"
         >
           <div class="shrink-0 w-14 h-14 rounded-xl flex items-center justify-center p-2" style="background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-            <img src="/imagenes/logo/infobaelogo.png" alt="Infobae" class="w-full h-full object-contain" loading="lazy" />
+            <img src="/imagenes/logo/infobaelogo.webp" alt="Infobae" class="w-full h-full object-contain" loading="lazy" />
           </div>
           <div>
             <p class="text-xs font-bold mb-1" style="color: #DC2626;">Infobae · 2026</p>
@@ -362,7 +362,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
           style="border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-decoration: none; border-left: 4px solid #040d4e; transition: all 0.3s ease;"
         >
           <div class="shrink-0 w-14 h-14 rounded-xl flex items-center justify-center p-2" style="background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-            <img src="/imagenes/logo/lanacion.png" alt="La Nación" class="w-full h-full object-contain" loading="lazy" />
+            <img src="/imagenes/logo/lanacion.webp" alt="La Nación" class="w-full h-full object-contain" loading="lazy" />
           </div>
           <div>
             <p class="text-xs font-bold mb-1" style="color: var(--color-primary);">La Nación · TikTok · 2025</p>
@@ -421,7 +421,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
   </section>
 
   <!-- Sección: ¿Dónde consultar con Pablo? -->
-  <section class="py-20" style="position: relative; background: linear-gradient(135deg, rgba(4,13,78,0.88) 0%, rgba(24,59,127,0.85) 60%, rgba(24,128,201,0.82) 100%), url('/imagenes/fondos/dondeatnedemosfondo.JPG') center top / 85% auto no-repeat;">
+  <section class="py-20" style="position: relative; background: linear-gradient(135deg, rgba(4,13,78,0.88) 0%, rgba(24,59,127,0.85) 60%, rgba(24,128,201,0.82) 100%), url('/imagenes/fondos/dondeatnedemosfondo.webp') center top / 85% auto no-repeat;">
     <!-- Overlay adicional para mejor legibilidad -->
     <div style="position: absolute; inset: 0; background: rgba(4,13,78,0.15); pointer-events: none;" aria-hidden="true"></div>
 
@@ -441,28 +441,28 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
             direccion: 'Guayaquil 650, CABA',
             dias: 'Todos los miércoles + Jueves por la tarde cada 15 días',
             principal: true,
-            imagen: '/imagenes/veterinarias/guayaquil.jpg',
+            imagen: '/imagenes/veterinarias/guayaquil.webp',
           },
           {
             nombre: 'Veterinaria Merli',
             direccion: 'Cnel. Apolinario Figueroa 299, CABA',
             dias: 'Martes cada 15 días',
             principal: false,
-            imagen: '/imagenes/veterinarias/merli.jpg',
+            imagen: '/imagenes/veterinarias/merli.webp',
           },
           {
             nombre: 'Clínica Veterinaria Panda',
             direccion: 'Nahuel Huapi 5185, CABA (suc. Nahuel Huapi)',
             dias: 'Un martes por mes',
             principal: false,
-            imagen: '/imagenes/veterinarias/panda.jpg',
+            imagen: '/imagenes/veterinarias/panda.webp',
           },
           {
             nombre: 'Clínica Veterinaria Wellvet',
             direccion: 'Lavalle 4090, CABA',
             dias: 'Un viernes por mes',
             principal: false,
-            imagen: '/imagenes/veterinarias/wellvet.jpg',
+            imagen: '/imagenes/veterinarias/wellvet.webp',
           },
         ].map((c, i) => (
           <div

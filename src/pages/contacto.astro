@@ -11,8 +11,8 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
 >
 
   <!-- Preload imágenes hero (responsive) -->
-  <link slot="head" rel="preload" as="image" href="/imagenes/heros/contactodektop.png" media="(min-width: 768px)" fetchpriority="high" />
-  <link slot="head" rel="preload" as="image" href="/imagenes/heros/contactmob.png" media="(max-width: 767px)" fetchpriority="high" />
+  <link slot="head" rel="preload" as="image" href="/imagenes/heros/contactodektop.webp" media="(min-width: 768px)" fetchpriority="high" />
+  <link slot="head" rel="preload" as="image" href="/imagenes/heros/contactmob.webp" media="(max-width: 767px)" fetchpriority="high" />
 
   <!-- Hero de contacto -->
   <section
@@ -32,7 +32,7 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
     >
       <!-- Desktop: altura aumentada + anclada al bottom -->
       <img
-        src="/imagenes/heros/contactodektop.png"
+        src="/imagenes/heros/contactodektop.webp"
         alt=""
         class="hidden md:block"
         style="
@@ -51,7 +51,7 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
       />
       <!-- Mobile: anclada al bottom con altura mayor para permitir encuadre -->
       <img
-        src="/imagenes/heros/contactmob.png"
+        src="/imagenes/heros/contactmob.webp"
         alt=""
         class="block md:hidden object-cover"
         style="
