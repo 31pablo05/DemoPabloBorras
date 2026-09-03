@@ -372,52 +372,40 @@ const tematicas = [
   </style>
 
   <!-- ── BIO + FOTO ── -->
-  <section class="py-20" style="background: #f8fafc;">
+  <section class="bio-photo-section py-20" style="background: #f8fafc;">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Parte superior: dos columnas alineadas al tope -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-12">
+      <div class="bio-layout grid grid-cols-1 gap-8 lg:gap-12 items-start mb-10">
 
         <!-- Columna izquierda: Foto + Caption -->
-        <div class="order-2 lg:order-1">
-          <div class="lg:mt-24" style="border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg); max-height: 560px;">
+        <div class="bio-photo-column order-1">
+          <div class="bio-photo-frame">
             <img
               src="/imagenes/perfil/pablo1.webp"
               alt="Pablo Borrás — Médico Veterinario especialista en infectología"
-              class="w-full object-cover object-top"
-              style="border-radius: 18px; max-height: 560px;"
+              class="bio-photo w-full object-cover object-top"
               width="560"
               height="560"
               loading="eager"
             />
           </div>
           <!-- Caption strip -->
-          <div
-            style="
-              margin-top: 16px;
-              display: flex;
-              align-items: center;
-              gap: 10px;
-              background: var(--color-neutral-light);
-              border: 1px solid #c8d8f0;
-              border-radius: 10px;
-              padding: 12px 16px;
-            "
-          >
+          <div class="bio-credential">
             <span
               style="width: 8px; height: 8px; border-radius: 50%; background: #4ade80; flex-shrink: 0;"
               aria-hidden="true"
             ></span>
-            <p style="font-family: var(--font-body); font-size: 0.8rem; color: var(--color-text-muted); margin: 0; line-height: 1.5;">
-              Editor asociado · <em>Parasites &amp; Vectors</em> — Springer Nature &nbsp;·&nbsp; Buenos Aires, Argentina
+            <p class="bio-credential-text">
+              Editor asociado · <em>Parasites &amp; Vectors</em> — Springer Nature
             </p>
           </div>
         </div>
 
         <!-- Columna derecha: Badge + Título + Párrafos -->
-        <div class="order-1 lg:order-2">
+        <div class="bio-copy-column order-2">
           <span
-            class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-5"
+            class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-3"
             style="background: rgba(24,128,201,0.1); color: var(--color-accent); border: 1px solid rgba(24,128,201,0.25);"
           >
             Quién es
@@ -425,25 +413,18 @@ const tematicas = [
 
           <!-- Línea decorativa antes del título -->
           <div
-            style="
-              width: 40px;
-              height: 3px;
-              background: #1880c9;
-              border-radius: 2px;
-              margin-bottom: 16px;
-              margin-left: 12px;
-            "
+            class="bio-title-accent"
             aria-hidden="true"
           ></div>
 
           <h2
-            class="text-3xl md:text-4xl font-bold mb-6"
+            class="bio-section-title text-3xl md:text-4xl font-bold mb-5"
             style="font-family: var(--font-display); color: var(--color-text); line-height: 1.2;"
           >
             Una trayectoria construida sobre ciencia y compromiso
           </h2>
 
-          <div class="space-y-4">
+          <div class="bio-copy space-y-3 md:space-y-4">
             <!-- Primer párrafo: destacado con borde izquierdo -->
             <p style="
               color: #111827;
@@ -460,13 +441,13 @@ const tematicas = [
             </p>
 
             <!-- Párrafos intermedios: secundarios -->
-            <p style="color: #4b5563; font-weight: 400; font-size: 13px; line-height: 1.8;">
+            <p class="bio-copy-secondary">
               A lo largo de más de 15 años de carrera, construyó un perfil único que combina la clínica
               diaria con la investigación científica, la docencia y la comunicación. Ese cruce entre
               rigor académico y capacidad de transmitir es lo que define su forma de ejercer y enseñar.
             </p>
 
-            <p style="color: #4b5563; font-weight: 400; font-size: 13px; line-height: 1.8;">
+            <p class="bio-copy-secondary">
               Ha disertado en congresos internacionales en Argentina, Colombia, Ecuador, Uruguay, Brasil,
               Paraguay, España y Países Bajos. Es colaborador del Servicio de Zoopatología del Hospital
               Francisco J. Muñiz, editor asociado de <em>Parasites & Vectors</em> (Springer Nature) y
@@ -474,11 +455,7 @@ const tematicas = [
             </p>
 
             <!-- Último párrafo: chip destacado con emoji -->
-            <div style="
-              background: #e8f3fb;
-              border-radius: 8px;
-              padding: 12px 14px;
-            ">
+            <div class="bio-award">
               <p style="color: #1880c9; font-weight: 500; font-size: 13px; line-height: 1.7; margin: 0;">
                 🏆 En 2025, obtuvo el 2° Premio al mejor caso clínico en AVEACA por el primer reporte de
                 <em>Schizophyllum commune</em> en perro en América Latina. Ese mismo año fue speaker
@@ -491,23 +468,16 @@ const tematicas = [
       </div>
 
       <!-- Parte inferior: fila completa de 4 stats -->
-      <div style="border-top: 0.5px solid #b8cde0; padding-top: 32px;">
-        <div class="stats-grid grid grid-cols-4 gap-4">
+      <div class="bio-stats-wrap">
+        <div class="stats-grid grid grid-cols-2 md:grid-cols-4">
           {[
-            { n: '+15', l: 'Años de experiencia clínica' },
-            { n: '+30K', l: 'Seguidores en Instagram' },
-            { n: '+8', l: 'Países donde disertó' },
-            { n: '+15', l: 'Publicaciones internacionales' },
+            { n: '+15', l: 'Años de experiencia clínica', lMobile: 'Exp. clínica' },
+            { n: '+30K', l: 'Seguidores en Instagram', lMobile: 'Seguidores IG' },
+            { n: '+8', l: 'Países donde disertó', lMobile: 'Países' },
+            { n: '+15', l: 'Publicaciones internacionales', lMobile: 'Publ. internac.' },
           ].map((s) => (
             <div
               class="stat-card"
-              style="
-                background: #ffffff;
-                border: 1px solid #d0dff0;
-                border-radius: 10px;
-                padding: 20px;
-                text-align: center;
-              "
             >
               <p
                 class="stat-number text-3xl font-bold leading-none mb-2"
@@ -519,7 +489,8 @@ const tematicas = [
                 class="stat-label text-xs uppercase tracking-wide"
                 style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.05em;"
               >
-                {s.l}
+                <span class="hidden md:inline">{s.l}</span>
+                <span class="md:hidden">{s.lMobile}</span>
               </p>
             </div>
           ))}
@@ -530,33 +501,167 @@ const tematicas = [
   </section>
 
   <style>
-    /* Stats responsive - siempre en una sola fila */
+    .bio-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .bio-photo-frame {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border: 1px solid #d0dff0;
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(4,13,78,0.10);
+    }
+
+    .bio-photo {
+      height: 100%;
+    }
+
+    .bio-credential {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.6);
+      border: 1px solid #d0dff0;
+      border-radius: 8px;
+    }
+
+    .bio-credential-text {
+      margin: 0;
+      color: var(--color-text-muted);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .bio-title-accent {
+      width: 40px;
+      height: 3px;
+      margin-bottom: 12px;
+      background: var(--color-accent);
+      border-radius: 2px;
+    }
+
+    .bio-copy p {
+      max-width: 40rem;
+    }
+
+    .bio-copy-secondary {
+      color: #3f4a5f;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .bio-award {
+      padding: 10px 14px;
+      background: rgba(24,128,201,0.045);
+      border: 1px solid rgba(24,128,201,0.12);
+      border-radius: 8px;
+    }
+
+    .bio-stats-wrap {
+      border-top: 1px solid #b8cde0;
+      padding-top: 28px;
+    }
+
+    .stats-grid {
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid #d0dff0;
+      border-radius: 10px;
+    }
+
+    .stat-card {
+      padding: 18px 14px;
+      text-align: center;
+    }
+
+    .stat-card:nth-child(odd) {
+      border-right: 1px solid rgba(4,13,78,0.07);
+    }
+
+    .stat-card:nth-child(-n+2) {
+      border-bottom: 1px solid rgba(4,13,78,0.07);
+    }
+
     @media (max-width: 767px) {
-      .stats-grid {
-        gap: 6px !important;
+      .bio-photo-section {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
       }
 
-      .stat-card {
-        padding: 10px 8px !important;
-        border-radius: 8px !important;
+      .bio-layout {
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .bio-copy-column {
+        margin-top: 0;
+      }
+
+      .bio-stats-wrap {
+        padding-top: 20px;
       }
 
       .stat-number {
-        font-size: 18px !important;
+        font-size: 1.65rem !important;
       }
 
       .stat-label {
-        font-size: 9px !important;
+        font-size: 0.7rem !important;
+        line-height: 1.3 !important;
+      }
+
+      .bio-section-title {
+        font-size: 1.6rem !important;
+        line-height: 1.14 !important;
+      }
+    }
+
+    @media (max-width: 389px) {
+      .stat-card {
+        padding: 15px 8px;
+      }
+
+      .stat-label {
+        font-size: 0.68rem !important;
+      }
+
+      .bio-section-title {
+        font-size: 1.5rem !important;
+        line-height: 1.12 !important;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .bio-layout {
+        grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
+      }
+
+      .stat-card {
+        padding: 20px;
+      }
+
+      .stat-card:nth-child(odd),
+      .stat-card:nth-child(-n+2) {
+        border: 0;
+      }
+
+      .stat-card:not(:last-child) {
+        border-right: 1px solid rgba(4,13,78,0.07);
       }
     }
   </style>
 
   <!-- ── FORMACIÓN ACADÉMICA ── -->
   <section style="background: var(--color-neutral-light);" class="py-20">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 md:mb-12">
         <span
-          class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-4"
+          class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-3"
           style="background: rgba(24,128,201,0.1); color: var(--color-accent); border: 1px solid rgba(24,128,201,0.25);"
         >
           Trayectoria académica
@@ -573,11 +678,11 @@ const tematicas = [
       <div style="position: relative;">
         <!-- Línea vertical con gradiente -->
         <div
-          style="position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #1880c9 0%, #5ba8e0 50%, rgba(91,168,224,0.2) 100%); margin-left: 20px;"
+          class="formacion-line"
           aria-hidden="true"
         ></div>
 
-        <div class="space-y-10" style="padding-left: 56px;">
+        <div class="space-y-6 md:space-y-8" style="padding-left: 40px;">
           {formacion.map((item, index) => {
             const esActivo = item.año.includes('Actualidad');
             return (
@@ -586,7 +691,7 @@ const tematicas = [
                 <div
                   style={`
                     position: absolute;
-                    left: -48px;
+                    left: -28px;
                     top: 8px;
                     width: 12px;
                     height: 12px;
@@ -603,10 +708,10 @@ const tematicas = [
                   class="formacion-card"
                   style={`
                     background: ${esActivo ? 'linear-gradient(135deg, #f0f8ff 0%, #ffffff 60%)' : 'white'};
-                    border: 1px solid #dde8f2;
-                    border-left: 3px solid ${esActivo ? '#1880c9' : '#dde8f2'};
+                    border: 1px solid rgba(4,13,78,0.08);
+                    border-left: 3px solid ${esActivo ? '#1880c9' : 'rgba(4,13,78,0.10)'};
                     border-radius: 14px;
-                    padding: 20px 24px;
+                    padding: 18px 22px;
                     position: relative;
                     transition: box-shadow 0.3s ease;
                   `}
@@ -648,8 +753,8 @@ const tematicas = [
                       color: ${esActivo ? 'white' : '#1880c9'};
                       background: ${esActivo ? '#1880c9' : '#e8f3fb'};
                       border-radius: 999px;
-                      padding: 4px 12px;
-                      margin-bottom: 10px;
+                      padding: 5px 12px;
+                      margin-bottom: 8px;
                     `}
                   >
                     {!esActivo && <span style="width: 4px; height: 4px; border-radius: 50%; background: #1880c9;"></span>}
@@ -660,10 +765,10 @@ const tematicas = [
                     style="
                       font-family: var(--font-display);
                       font-weight: 700;
-                      font-size: 15px;
+                      font-size: 16px;
                       color: #0a1e55;
                       margin-bottom: 6px;
-                      line-height: 1.3;
+                      line-height: 1.35;
                     "
                   >
                     {item.titulo}
@@ -673,7 +778,7 @@ const tematicas = [
                     style="
                       color: #1880c9;
                       font-weight: 600;
-                      font-size: 12.5px;
+                      font-size: 13px;
                       margin-bottom: 8px;
                     "
                   >
@@ -682,10 +787,10 @@ const tematicas = [
 
                   <p
                     style="
-                      color: #6b7280;
+                      color: #56606f;
                       font-weight: 400;
-                      font-size: 12.5px;
-                      line-height: 1.65;
+                      font-size: 13px;
+                      line-height: 1.7;
                     "
                   >
                     {item.descripcion}
@@ -700,17 +805,32 @@ const tematicas = [
   </section>
 
   <style>
+    .formacion-line {
+      position: absolute;
+      left: 17px;
+      top: 0;
+      bottom: 96px;
+      width: 2px;
+      background: linear-gradient(to bottom, #1880c9 0%, #5ba8e0 50%, rgba(91,168,224,0.2) 100%);
+    }
+
     .formacion-card:hover {
-      box-shadow: 0 4px 20px rgba(4,13,78,0.08);
+      box-shadow: 0 4px 16px rgba(4,13,78,0.06);
+    }
+
+    @media (min-width: 768px) {
+      .formacion-line {
+        bottom: 56px;
+      }
     }
   </style>
 
   <!-- ── ACTIVIDAD CIENTÍFICA ── -->
   <section class="py-20 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
+      <div class="text-center mb-10 md:mb-12">
         <span
-          class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-4"
+          class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-3"
           style="background: rgba(24,128,201,0.1); color: var(--color-accent); border: 1px solid rgba(24,128,201,0.25);"
         >
           Ciencia y reconocimientos
@@ -726,7 +846,7 @@ const tematicas = [
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="ciencia-grid">
         {ciencia.map((item, index) => {
           // Colores por categoría
           const colores = [
@@ -750,65 +870,34 @@ const tematicas = [
           return (
             <div
               class="ciencia-card"
-              style={`
-                background: var(--color-neutral-light);
-                border: 1px solid #DDE8F5;
-                border-top: 3px solid ${colorCategoria};
-                border-radius: 16px;
-                padding: 24px;
-                position: relative;
-                transition: transform 0.2s ease, box-shadow 0.2s ease;
-              `}
+              style={`border-top: 3px solid ${colorCategoria};`}
             >
               {esPremio && (
-                <span
-                  style="
-                    position: absolute;
-                    top: 20px;
-                    right: 20px;
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 4px;
-                    font-size: 0.65rem;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    letter-spacing: 0.03em;
-                    color: #166534;
-                    background: #dcfce7;
-                    border-radius: 999px;
-                    padding: 4px 10px;
-                  "
-                >
+                <span class="ciencia-award-badge">
                   ★ Premio
                 </span>
               )}
 
               <div
+                class="ciencia-icon-box"
                 style={`
-                  width: 48px;
-                  height: 48px;
-                  border-radius: 12px;
-                  background: ${hexToRgba(colorCategoria, 0.12)};
-                  border: 1px solid ${hexToRgba(colorCategoria, 0.25)};
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
+                  background: ${hexToRgba(colorCategoria, 0.09)};
+                  border: 1px solid ${hexToRgba(colorCategoria, 0.18)};
                   color: ${colorCategoria};
-                  margin-bottom: 14px;
                 `}
               >
                 <div style={`color: ${colorCategoria};`} set:html={item.icono.replace('stroke="currentColor"', `stroke="${colorCategoria}"`)} />
               </div>
 
               <p
-                class="font-bold text-sm mb-0.5"
+                class="font-bold text-base mb-1"
                 style="color: var(--color-text); font-family: var(--font-display);"
               >
                 {item.titulo}
               </p>
 
               <p
-                class="text-xs font-semibold mb-3"
+                class="text-xs font-semibold mb-2"
                 style={`
                   color: ${colorCategoria};
                   text-transform: uppercase;
@@ -820,7 +909,7 @@ const tematicas = [
 
               <p
                 class="text-sm leading-relaxed"
-                style="color: var(--color-text-muted);"
+                style="color: #56606f;"
               >
                 {item.descripcion}
               </p>
@@ -832,9 +921,84 @@ const tematicas = [
   </section>
 
   <style>
+    .ciencia-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .ciencia-grid > * {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+
+    .ciencia-card {
+      background: var(--color-neutral-light);
+      border: 1px solid rgba(4,13,78,0.07);
+      border-radius: 16px;
+      padding: 18px 20px;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .ciencia-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .ciencia-award-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: #166534;
+      background: #dcfce7;
+      border-radius: 999px;
+      padding: 4px 10px;
+    }
+
     .ciencia-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(4,13,78,0.10);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(4,13,78,0.07);
+    }
+
+    @media (min-width: 768px) {
+      .ciencia-grid > * {
+        flex: 1 1 calc(50% - 0.75rem);
+        max-width: calc(50% - 0.75rem);
+      }
+
+      .ciencia-card {
+        padding: 22px 24px;
+      }
+
+      .ciencia-icon-box {
+        margin-bottom: 14px;
+      }
+
+      .ciencia-award-badge {
+        top: 18px;
+        right: 18px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .ciencia-grid > * {
+        flex: 1 1 calc(33.333% - 1rem);
+        max-width: calc(33.333% - 1rem);
+      }
     }
   </style>
 

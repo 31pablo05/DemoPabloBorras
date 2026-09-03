@@ -2,7 +2,7 @@
 // Footer.astro — Pie de página global
 ---
 
-<footer style="background: var(--color-neutral-dark);" class="pt-12 md:pt-16 pb-6 relative">
+<footer style="background: var(--color-neutral-dark);" class="pt-10 md:pt-16 pb-6 relative">
   <!-- Línea de acento en el top (igual que el header) -->
   <div
     aria-hidden="true"
@@ -16,12 +16,12 @@
   
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <!-- Grid de 3 columnas -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pb-12 border-b" style="border-color: rgba(255, 255, 255, 0.1);">
+    <!-- Grid de 2 columnas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 pb-10 md:pb-12 border-b" style="border-color: rgba(255, 255, 255, 0.1);">
 
       <!-- Columna 1: Logo + tagline -->
-      <div class="lg:col-span-1">
-        <a href="/" class="inline-block mb-5 footer-logo-link" style="text-decoration: none;">
+      <div class="text-center md:text-left">
+        <a href="/" class="footer-brand-lockup inline-flex items-center gap-3 mb-5" style="text-decoration: none;">
           <img
             src="/imagenes/logo/log2.webp"
             alt="Pablo Borrás Veterinario"
@@ -29,13 +29,15 @@
             style="height: 56px; display: block; filter: brightness(0) invert(1);"
             loading="lazy"
           />
+          <span class="footer-logo-separator" aria-hidden="true"></span>
+          <span class="footer-logo-name">Pablo Borrás</span>
         </a>
-        <p class="text-sm leading-relaxed mb-6" style="color: rgba(255, 255, 255, 0.75);">
+        <p class="max-w-xs mx-auto md:mx-0 text-sm leading-relaxed mb-6" style="color: rgba(255, 255, 255, 0.75);">
           Médico Veterinario · Speaker · Autor.<br />
           Formación, referencia clínica y marca profesional al servicio del ecosistema veterinario.
         </p>
         <!-- Redes sociales -->
-        <div class="flex gap-3">
+        <div class="flex justify-center md:justify-start gap-3">
           <!-- Instagram -->
           <a
             href="https://www.instagram.com/pablojborras"
@@ -83,41 +85,8 @@
         </div>
       </div>
 
-      <!-- Columna 2: Navegación rápida -->
-      <div>
-        <h3
-          class="text-white font-bold text-sm uppercase tracking-wider mb-5"
-          style="font-family: var(--font-display); letter-spacing: 0.08em;"
-        >
-          Navegación
-        </h3>
-        <ul class="space-y-3">
-          {[
-            { label: 'Inicio', href: '/' },
-            { label: 'Sobre Pablo', href: '/sobre-pablo' },
-            { label: 'Para tutores', href: '/tutores' },
-            { label: 'Para veterinarios', href: '/veterinarios' },
-            { label: 'Para empresas', href: '/empresas' },
-            { label: 'Eventos', href: '/eventos' },
-            { label: 'Contacto', href: '/contacto' },
-          ].map(link => (
-            <li>
-              <a
-                href={link.href}
-                class="text-sm transition-colors hover:text-white inline-flex items-center group"
-                style="color: rgba(255, 255, 255, 0.7); text-decoration: none;"
-              >
-                <span class="transition-transform group-hover:translate-x-1">
-                  {link.label}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Columna 3: Contacto directo -->
-      <div>
+      <!-- Columna 2: Contacto directo -->
+      <div class="text-center md:text-right md:justify-self-end md:self-center">
         <h3
           class="text-white font-bold text-sm uppercase tracking-wider mb-5"
           style="font-family: var(--font-display); letter-spacing: 0.08em;"
@@ -129,7 +98,7 @@
         </p>
         <a
           href="mailto:consultas.borras@gmail.com"
-          class="text-sm font-semibold transition-colors hover:text-white inline-flex items-center gap-1 mb-6 group"
+          class="text-sm font-semibold transition-colors hover:text-white inline-flex items-center gap-1 mb-6 group md:justify-end"
           style="color: var(--color-accent-light); text-decoration: none;"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -141,7 +110,7 @@
         <div class="mt-5">
           <a
             href="/contacto"
-            class="inline-block text-sm font-semibold px-6 py-3 rounded-lg transition-all hover:scale-105"
+            class="block w-full md:inline-block md:w-auto text-sm font-semibold px-6 py-3 rounded-lg transition-all hover:scale-105"
             style="background: var(--color-accent); color: #fff; text-decoration: none; box-shadow: 0 4px 14px rgba(24, 128, 201, 0.4);"
           >
             Formulario de contacto →
@@ -151,15 +120,31 @@
 
     </div>
 
-    <!-- Banda inferior: Copyright, DevCraft y Legal -->
-    <div class="pt-8 pb-4">
-      <!-- Fila 1: Copyright y DevCraft -->
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-4">
+    <!-- Banda inferior: Copyright, enlaces legales y DevCraft -->
+    <div class="pt-4 pb-5 md:py-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-1.5 md:gap-6">
         <p class="text-xs" style="color: rgba(255, 255, 255, 0.5);">
           © {new Date().getFullYear()} Pablo Borrás · Todos los derechos reservados.
         </p>
-        
-        <!-- Desarrollado por DevCraft en el medio -->
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="/privacidad"
+            class="text-xs transition-colors hover:text-white"
+            style="color: rgba(255, 255, 255, 0.4); text-decoration: none;"
+          >
+            Política de Privacidad
+          </a>
+          <span class="text-xs" style="color: rgba(255, 255, 255, 0.3);">·</span>
+          <a
+            href="/terminos"
+            class="text-xs transition-colors hover:text-white"
+            style="color: rgba(255, 255, 255, 0.4); text-decoration: none;"
+          >
+            Términos y Condiciones
+          </a>
+        </div>
+
         <div class="flex items-center gap-2">
           <span class="text-xs" style="color: rgba(255, 255, 255, 0.4);">
             Desarrollado por
@@ -172,7 +157,7 @@
             style="color: rgba(255, 255, 255, 0.7); text-decoration: none;"
           >
             <img 
-              src="/imagenes/logo/logodevcraft.webp" 
+              src="/imagenes/logo/logodevcraft.png" 
               alt="DevCraft" 
               style="height: 18px; width: auto; opacity: 0.85;"
               class="transition-opacity hover:opacity-100"
@@ -180,29 +165,6 @@
             <span class="hover:text-white">DevCraft</span>
           </a>
         </div>
-
-        <p class="text-xs" style="color: rgba(255, 255, 255, 0.4);">
-          Médico Veterinario MSc · Buenos Aires, Argentina
-        </p>
-      </div>
-
-      <!-- Fila 2: Links legales -->
-      <div class="flex flex-wrap items-center justify-center gap-3 pt-3 border-t border-white/10">
-        <a
-          href="/privacidad"
-          class="text-xs transition-colors hover:text-white"
-          style="color: rgba(255, 255, 255, 0.4); text-decoration: none;"
-        >
-          Política de Privacidad
-        </a>
-        <span class="text-xs" style="color: rgba(255, 255, 255, 0.3);">·</span>
-        <a
-          href="/terminos"
-          class="text-xs transition-colors hover:text-white"
-          style="color: rgba(255, 255, 255, 0.4); text-decoration: none;"
-        >
-          Términos y Condiciones
-        </a>
       </div>
     </div>
 
@@ -215,8 +177,22 @@
     filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
   }
 
-  .footer-logo-link:hover .footer-logo {
+  .footer-brand-lockup:hover .footer-logo {
     transform: scale(1.08) translateY(-2px);
     filter: brightness(0) invert(1) drop-shadow(0 0 25px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 40px rgba(24, 128, 201, 0.4));
+  }
+
+  .footer-logo-separator {
+    width: 1px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  .footer-logo-name {
+    color: white;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
   }
 </style>
