@@ -61,11 +61,13 @@ Nunca forzar Tailwind por prolijidad, ni agregar JS donde alcanza con CSS.
 
 Definidas en `src/styles/global.css` dentro del bloque `@theme`.
 
-```
+```text
 --color-primary:       #040d4e   (navy)
 --color-secondary:     #183b7f
 --color-accent:        #1880c9   (celeste)
 --color-accent-light:  #5ba8e0
+--color-business:      #303276   (índigo del logo / audiencia Empresas)
+
 --color-neutral-dark:  #040d4e
 --color-neutral-mid:   #1a367c
 --color-neutral-light: #eef3fb
@@ -75,13 +77,84 @@ Definidas en `src/styles/global.css` dentro del bloque `@theme`.
 --font-display:        Playfair Display, Georgia, serif
 --font-body:           DM Sans, system-ui, sans-serif
 
---radius, --shadow, --shadow-lg, --header-height
+--radius, --shadow, --shadow-lg, --header-height 
 ```
+La paleta se limita a colores derivados del logo de Pablo Borrás.
 
-La paleta se limita a los colores del logo. **El violeta `#4a3d9e` está excluido.**
+El logo contiene una transición visual entre navy, índigo y azul. Por ese motivo,
+`--color-business: #303276` forma parte oficialmente de la identidad visual del sitio.
+
+Este índigo se utiliza principalmente para representar a la audiencia de
+empresas/instituciones.
+
+**El antiguo violeta `#4a3d9e` continúa excluido.** Es demasiado violeta y no representa
+correctamente el tono índigo presente en el logo.
+
+`--color-business` no debe convertirse en un color decorativo general del sitio.
 
 ---
 
+# Sistema cromático de audiencias
+
+Los tres públicos principales del sitio tienen una diferenciación cromática intencional.
+Este sistema forma parte de la identidad visual y debe mantenerse consistente en todas
+las páginas.
+
+## Tutores de mascotas
+
+Tratamiento principal:
+
+- blanco y tonos neutros claros;
+- navy para textos;
+- celeste como acento.
+
+Referencia visual:
+
+`Soy tutor de mascotas` → tratamiento claro.
+
+## Veterinarios
+
+Tratamiento principal:
+
+- `--color-accent`;
+- `--color-accent-light`;
+- azules de la marca.
+
+Referencia visual:
+
+`Soy veterinario` → azul/celeste.
+
+## Empresas e instituciones
+
+Tratamiento principal:
+
+- `--color-business`;
+- navy;
+- tonos derivados del índigo presente en el logo.
+
+Referencia visual:
+
+`Represento una empresa` → índigo de marca.
+
+## Regla de uso
+
+Los colores de audiencia funcionan como identificadores semánticos.
+
+Pueden utilizarse en:
+
+- CTAs;
+- botones;
+- cards;
+- badges;
+- iconos;
+- pequeños acentos vinculados claramente con cada público.
+
+No utilizar estos colores arbitrariamente en secciones sin relación con las audiencias.
+
+Especialmente, `--color-business` no debe convertirse en un color decorativo general
+del sitio.
+
+---
 # Heros
 
 `src/components/home/Hero.astro` es el estándar visual del sitio. Todos los heros deben
