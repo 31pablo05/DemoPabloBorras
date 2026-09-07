@@ -147,19 +147,19 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
         {[
           {
-            emoji: '🎥',
+            icon: 'camera',
             titulo: 'Consultas presenciales',
             desc: 'Atendemos en cuatro centros veterinarios en CABA. Consultá disponibilidad y reservá tu turno.',
             color: '#1880c9',
           },
           {
-            emoji: '🩺',
+            icon: 'stethoscope',
             titulo: 'Interconsultas con tu veterinario',
             desc: 'Si tu veterinario de cabecera necesita una segunda opinión especializada, puede derivarte a Pablo para una interconsulta online.',
             color: '#183b7f',
           },
           {
-            emoji: '❤️',
+            icon: 'heart',
             titulo: 'Aprendizaje continuo',
             desc: 'Contenido de divulgación basado en evidencia para entender mejor la salud de tu mascota.',
             color: '#5ba8e0',
@@ -177,7 +177,26 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
                 class="mx-auto mb-4 flex items-center justify-center"
                 style={`width: 56px; height: 56px; border-radius: 16px; background: ${item.color}14;`}
               >
-                <span class="text-2xl" aria-hidden="true">{item.emoji}</span>
+                {item.icon === 'camera' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                    <circle cx="12" cy="13" r="3.5"/>
+                  </svg>
+                )}
+                {item.icon === 'stethoscope' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4.5 3v6a4.5 4.5 0 0 0 9 0V3"/>
+                    <path d="M9 13.5V16a5 5 0 0 0 10 0v-2.5"/>
+                    <circle cx="19.5" cy="12.5" r="1.75"/>
+                    <circle cx="4.5" cy="3" r="1"/>
+                    <circle cx="9" cy="3" r="1"/>
+                  </svg>
+                )}
+                {item.icon === 'heart' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                  </svg>
+                )}
               </div>
               <h3
                 class="text-lg md:text-xl font-bold mb-2"
@@ -196,7 +215,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
   </section>
 
   <!-- Sección de videos verticales (Cortos) -->
-  <section class="py-16 md:py-20 bg-white">
+  <section class="py-14 md:py-16 bg-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Encabezado -->
       <div class="mb-10 max-w-2xl mx-auto text-center">
@@ -212,7 +231,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
       </div>
 
       <!-- Grid de videos verticales -->
-      <div class="flex flex-wrap justify-center gap-5 md:gap-6 mx-auto max-w-4xl">
+      <div class="flex flex-wrap justify-center gap-5 md:gap-8 mx-auto max-w-3xl">
         {[
           {
             videoSrc: '/videos/moquillo.mp4',
@@ -341,17 +360,17 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
   </div>
 
   <!-- Apariciones en medios -->
-  <section class="py-10 md:py-16 lg:py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-8">
+  <section class="py-10 md:py-14 lg:py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-6">
         <span class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-3" style="background: rgba(24,128,201,0.1); color: var(--color-accent); border: 1px solid rgba(24,128,201,0.25);">Prensa</span>
         <p class="text-lg font-bold" style="color: var(--color-text); font-family: var(--font-display);">Apariciones en medios</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
         <a
           href="https://www.infobae.com/perros-y-gatos/2026/03/20/el-75-de-los-duenos-de-mascotas-pide-mejores-recomendaciones-para-evitar-parasitos/"
           target="_blank" rel="noopener noreferrer"
-          class="media-card flex items-center gap-4 p-6 bg-white rounded-xl"
+          class="media-card flex items-center gap-4 p-7 bg-white rounded-xl"
           style="border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-decoration: none; border-left: 4px solid #DC2626; transition: all 0.3s ease;"
         >
           <div class="shrink-0 w-16 h-16 rounded-xl flex items-center justify-center p-2.5" style="background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
@@ -365,7 +384,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
         <a
           href="https://www.tiktok.com/@lanacioncom/video/7578953045355072824"
           target="_blank" rel="noopener noreferrer"
-          class="media-card flex items-center gap-4 p-6 bg-white rounded-xl"
+          class="media-card flex items-center gap-4 p-7 bg-white rounded-xl"
           style="border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-decoration: none; border-left: 4px solid #040d4e; transition: all 0.3s ease;"
         >
           <div class="shrink-0 w-16 h-16 rounded-xl flex items-center justify-center p-2.5" style="background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
@@ -428,15 +447,51 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
   </section>
 
   <!-- Sección: ¿Dónde consultar con Pablo? -->
-  <section class="py-14 md:py-20" style="position: relative; background: linear-gradient(135deg, rgba(4,13,78,0.88) 0%, rgba(24,59,127,0.85) 60%, rgba(24,128,201,0.82) 100%), url('/imagenes/fondos/dondeatnedemosfondo.webp') center top / 85% auto no-repeat;">
-    <!-- Overlay adicional para mejor legibilidad -->
-    <div style="position: absolute; inset: 0; background: rgba(4,13,78,0.15); pointer-events: none;" aria-hidden="true"></div>
+  <section class="py-14 md:py-20 relative overflow-hidden">
+    <!-- Fondo fotográfico responsive: Pablo con perro, distinto encuadre por breakpoint -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <img
+        src="/imagenes/fondos/fondoveterinariasdesktop.png"
+        alt=""
+        class="hidden md:block w-full h-full object-cover"
+        style="object-position: 80% 15%;"
+        loading="lazy"
+      />
+      <img
+        src="/imagenes/fondos/fondoveterinariasmob.png"
+        alt=""
+        class="block md:hidden w-full h-full object-cover"
+        style="object-position: center 15%;"
+        loading="lazy"
+      />
+    </div>
 
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" style="position: relative; z-index: 1;">
+    <!-- Degradado navy progresivo — desktop: la foto acompaña, el overlay domina -->
+    <div
+      class="hidden md:block absolute inset-0 pointer-events-none"
+      style="background: linear-gradient(to bottom, rgba(4,13,78,0.60) 0%, rgba(4,13,78,0.78) 45%, rgba(4,13,78,0.88) 100%); z-index: 1;"
+      aria-hidden="true"
+    ></div>
 
-      <div class="text-center mb-10 reveal">
-        <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color: rgba(255,255,255,0.85);">Atención presencial · CABA</p>
-        <h2 class="text-3xl font-bold text-white" style="font-family: var(--font-display);">
+    <!-- Degradado navy progresivo — mobile: más intenso para que domine el contenido -->
+    <div
+      class="block md:hidden absolute inset-0 pointer-events-none"
+      style="background: linear-gradient(to bottom, rgba(4,13,78,0.68) 0px, rgba(4,13,78,0.88) 320px, rgba(4,13,78,0.94) 480px, rgba(4,13,78,0.95) 100%); z-index: 1;"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Oscurecimiento adicional detrás del encabezado -->
+    <div
+      class="absolute top-0 left-0 right-0 pointer-events-none"
+      style="height: 320px; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,0,0,0.38) 0%, transparent 70%); z-index: 1;"
+      aria-hidden="true"
+    ></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" style="position: relative; z-index: 2;">
+
+      <div class="text-center mb-10 md:mb-12 reveal">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color: rgba(255,255,255,0.85); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">Atención presencial · CABA</p>
+        <h2 class="text-3xl font-bold text-white" style="font-family: var(--font-display); text-shadow: 0 2px 14px rgba(0,0,0,0.5);">
           ¿Dónde atendemos a tu mascota?
         </h2>
       </div>
@@ -474,7 +529,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
         ].map((c, i) => (
           <div
             class="vet-card reveal flex flex-col bg-white"
-            style={`border-radius: 14px; box-shadow: ${c.principal ? '0 4px 20px rgba(24,128,201,0.15)' : '0 2px 12px rgba(0,0,0,0.08)'}; transition: all 0.3s ease; transition-delay: ${i * 0.1}s; border: ${c.principal ? '2px solid var(--color-accent)' : '2px solid rgba(255,255,255,0.1)'}; position: relative; overflow: hidden;`}
+            style={`border-radius: 14px; box-shadow: ${c.principal ? '0 6px 24px rgba(24,128,201,0.22)' : '0 4px 16px rgba(4,13,78,0.16)'}; transition: all 0.3s ease; transition-delay: ${i * 0.1}s; border: ${c.principal ? '2px solid var(--color-accent)' : '1px solid rgba(255,255,255,0.25)'}; position: relative; overflow: hidden;`}
           >
             {c.principal && (
               <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(24,128,201,0.03) 0%, transparent 100%); pointer-events: none; z-index: 0;" aria-hidden="true"></div>
@@ -729,7 +784,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
   }
   @media (min-width: 640px) {
     .vertical-video-card {
-      max-width: 260px;
+      max-width: 300px;
     }
   }
 
@@ -742,6 +797,14 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
     .tutores-videos-compact :global(section) {
       padding-top: 3.5rem !important;
       padding-bottom: 3.5rem !important;
+    }
+  }
+  .tutores-videos-compact :global(.mb-8.md\:mb-10) {
+    margin-bottom: 1.5rem !important;
+  }
+  @media (min-width: 768px) {
+    .tutores-videos-compact :global(.mb-8.md\:mb-10) {
+      margin-bottom: 1.75rem !important;
     }
   }
   .tutores-videos-compact :global(.grid) {
@@ -762,12 +825,6 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
   .tutores-videos-compact :global(.play-circle svg) {
     width: 16px !important;
     height: 16px !important;
-  }
-  .tutores-videos-compact :global(.mt-1.text-sm) {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
   .tutores-videos-compact :global(.mt-10.flex.justify-center) {
     margin-top: 1.75rem !important;
