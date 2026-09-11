@@ -78,7 +78,7 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
     ></div>
 
     <div class="max-w-7xl ml-0 px-4 sm:px-6 md:px-12 lg:px-20 py-10 w-full relative z-10">
-      <div class="max-w-3xl relative">
+      <div class="max-w-2xl relative">
         <!-- Degradado radial negro detrás del texto (solo desktop, MÁS intenso que otros héroes) -->
         <div
           class="hidden md:block absolute pointer-events-none"
@@ -138,9 +138,9 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
         </p>
 
         <!-- Stats pills -->
-        <div class="hero-pills flex flex-wrap gap-4 mb-10">
+        <div class="hero-chips flex flex-wrap gap-4 mb-10">
           <div
-            class="hero-pill flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
+            class="hero-chip flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
             style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); text-shadow: 0 2px 12px rgba(0,0,0,0.65);"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -156,7 +156,7 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
           </div>
 
           <div
-            class="hero-pill flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
+            class="hero-chip flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
             style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); text-shadow: 0 2px 12px rgba(0,0,0,0.65);"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -169,7 +169,7 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
           </div>
 
           <div
-            class="hero-pill flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
+            class="hero-chip flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
             style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); text-shadow: 0 2px 12px rgba(0,0,0,0.65);"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -361,7 +361,7 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
       left: 0;
       right: 0;
       height: 32px;
-      background: linear-gradient(to bottom, transparent, #040d4e);
+      background: linear-gradient(to bottom, transparent, var(--color-primary));
       z-index: 11;
       pointer-events: none;
     }
@@ -387,15 +387,15 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
       text-align: left !important;
     }
     
-    /* Reducir tamaño del título en mobile */
+    /* Título: escalado continuo, sin saltos entre breakpoints */
     .page-hero .hero-title {
-      font-size: 1.75rem !important;
-      line-height: 1.25 !important;
+      font-size: clamp(1.65rem, 8vw, 2.1rem) !important;
+      line-height: 1.24 !important;
     }
     
-    /* Descripción más pequeña */
+    /* Descripción: escalado continuo, legible desde 370px */
     .page-hero .hero-description {
-      font-size: 0.95rem !important;
+      font-size: clamp(0.9rem, 3.8vw, 1rem) !important;
       line-height: 1.6 !important;
       margin-bottom: 1.5rem !important;
     }
@@ -429,14 +429,14 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
     }
     
     /* Pills apiladas en columna con fondo opaco */
-    .hero-pills {
+    .hero-chips {
       flex-direction: column !important;
       align-items: flex-start !important;
       gap: 0.75rem !important;
       margin-bottom: 1.5rem !important;
     }
     
-    .hero-pill {
+    .hero-chip {
       background: rgba(3,13,58,0.75) !important;
       border-color: rgba(255,255,255,0.3) !important;
       font-size: 0.75rem !important;
@@ -444,11 +444,11 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
       width: auto !important;
     }
     
-    .hero-pill p {
+    .hero-chip p {
       font-size: 0.7rem !important;
     }
     
-    .hero-pill svg {
+    .hero-chip svg {
       width: 16px !important;
       height: 16px !important;
     }
@@ -469,17 +469,6 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
     /* Botón secundario con fondo opaco */
     .hero-btn-secondary {
       background: rgba(3,13,58,0.70) !important;
-    }
-  }
-  
-  /* Breakpoint adicional para pantallas muy chicas */
-  @media (max-width: 390px) {
-    .page-hero .hero-title {
-      font-size: 1.5rem !important;
-    }
-    
-    .page-hero .hero-description {
-      font-size: 0.875rem !important;
     }
   }
   

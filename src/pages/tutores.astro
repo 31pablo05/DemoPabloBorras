@@ -93,10 +93,10 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
         ></div>
 
         <!-- Badge con corazón animado -->
-        <div class="hero-badge" style="opacity: 0; animation: fadeUp 0.6s ease-out both;">
+        <div class="inline-block mb-6" style="opacity: 0; animation: fadeUp 0.6s ease-out both;">
           <span
-            class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide px-3.5 py-1.5 rounded-full mb-5"
-            style="background: rgba(255,255,255,0.15); color: #ffffff; border: 1px solid rgba(255,255,255,0.3); text-shadow: 0 1px 6px rgba(0,0,0,0.4);"
+            class="hero-badge inline-flex items-center gap-2 text-xs font-bold uppercase px-5 py-2.5 rounded-xl backdrop-blur-md"
+            style="background: rgba(255,255,255,0.15); color: white; letter-spacing: 0.1em; border: 1px solid rgba(255,255,255,0.25); text-shadow: 0 2px 12px rgba(0,0,0,0.65);"
           >
             <svg class="heart-pulse" width="13" height="13" viewBox="0 0 24 24" fill="white">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
@@ -713,7 +713,7 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
       left: 0;
       right: 0;
       height: 32px;
-      background: linear-gradient(to bottom, transparent, #f0f9ff);
+      background: linear-gradient(to bottom, transparent, var(--color-neutral-light));
       z-index: 11;
       pointer-events: none;
     }
@@ -751,15 +751,16 @@ import SectionTitle from '../components/ui/SectionTitle.astro';
     }
     
     /* Badge más pequeño */
-    .page-hero .hero-badge span {
-      font-size: 0.7rem !important;
+    .page-hero .hero-badge {
+      font-size: 0.65rem !important;
       padding: 0.4rem 0.85rem !important;
+      letter-spacing: 0.08em !important;
     }
     
     /* Sombras necesarias sobre la foto, sin halo pesado */
     .page-hero .hero-title,
     .page-hero .hero-description,
-    .page-hero .hero-badge span {
+    .page-hero .hero-badge {
       text-shadow: 0 1px 2px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.5) !important;
     }
     

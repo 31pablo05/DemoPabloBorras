@@ -140,15 +140,17 @@ const stats = [
           aria-hidden="true"
         ></div>
 
-        <div
-          class="hero-badge inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-5 py-2.5 rounded-full mb-6"
-          style="background: rgba(255,255,255,0.12); color: #a8d8f0; border: 1px solid rgba(255,255,255,0.25); letter-spacing: 0.12em; backdrop-filter: blur(10px); text-shadow: 0 2px 12px rgba(0,0,0,0.65);"
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-          </svg>
-          <span class="hidden md:inline">Espacio exclusivo para profesionales</span>
-          <span class="md:hidden">Para profesionales</span>
+        <div class="inline-block mb-6">
+          <span
+            class="hero-badge inline-flex items-center gap-2 text-xs font-bold uppercase px-5 py-2.5 rounded-xl backdrop-blur-md"
+            style="background: rgba(255,255,255,0.15); color: white; letter-spacing: 0.1em; border: 1px solid rgba(255,255,255,0.25); text-shadow: 0 2px 12px rgba(0,0,0,0.65);"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+            <span class="hidden md:inline">Espacio exclusivo para profesionales</span>
+            <span class="md:hidden">Para profesionales</span>
+          </span>
         </div>
 
         <!-- Título con barra vertical -->
@@ -716,7 +718,7 @@ const stats = [
       left: 0;
       right: 0;
       height: 32px;
-      background: linear-gradient(to bottom, transparent, #f0f9ff);
+      background: linear-gradient(to bottom, transparent, var(--color-neutral-light));
       z-index: 11;
       pointer-events: none;
     }
