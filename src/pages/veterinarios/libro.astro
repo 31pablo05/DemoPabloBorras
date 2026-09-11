@@ -2,156 +2,111 @@
 // pages/veterinarios/libro.astro — Página del libro técnico con FAQ acordeón
 import Layout from '../../layouts/Layout.astro';
 import LibroTecnico from '../../components/veterinarios/LibroTecnico.astro';
+
+const heroDesktop = '/imagenes/heros/libroherodesktop.webp';
+const heroMobile = '/imagenes/heros/libroheromobile.webp';
 ---
 
 <Layout
   title="Manual Práctico de Enfermedades Infecciosas y Parasitarias en el Perro — Pablo Borrás"
   description="Libro técnico veterinario sobre enfermedades infecciosas y parasitarias en el perro. Autor: Pablo Borrás. Publicado por Multimedica Ediciones Veterinarias. Disponible online."
 >
+  <link slot="head" rel="preload" as="image" href={heroDesktop} media="(min-width: 768px)" fetchpriority="high" />
+  <link slot="head" rel="preload" as="image" href={heroMobile} media="(max-width: 767px)" fetchpriority="high" />
 
-  <!-- Hero mejorado -->
-  <section
-    class="relative overflow-hidden"
-    style="
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      background-color: #040d4e;
-      background-image: url('/imagenes/perfil/pablo2.webp');
-      background-position: center 20%;
-      background-size: 35% auto;
-      background-repeat: no-repeat;
-    "
-  >
-    <!-- Patrón decorativo -->
-    <div
-      style="
-        position: absolute;
-        inset: 0;
-        background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.08) 1px, transparent 0);
-        background-size: 40px 40px;
-        opacity: 0.3;
-      "
-      aria-hidden="true"
-    ></div>
+  <section class="page-hero lb-hero relative overflow-hidden">
+    <div class="lb-hero-media pointer-events-none" aria-hidden="true">
+      <picture>
+        <source media="(min-width: 768px)" srcset={heroDesktop} type="image/webp" width="1600" height="900" />
+        <img
+          src={heroMobile}
+          alt=""
+          class="lb-hero-photo"
+          width="900"
+          height="1600"
+          loading="eager"
+          fetchpriority="high"
+          aria-hidden="true"
+        />
+      </picture>
+      <div class="lb-hero-overlay-desktop hidden md:block"></div>
+      <div class="lb-hero-overlay-mobile block md:hidden"></div>
+      <div class="dot-pattern lb-hero-dots"></div>
+    </div>
 
-    <!-- Blob decorativo -->
-    <div
-      style="
-        position: absolute;
-        bottom: -10%;
-        left: -5%;
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(circle, rgba(74,61,158,0.4) 0%, transparent 70%);
-        border-radius: 50%;
-        filter: blur(60px);
-      "
-      aria-hidden="true"
-    ></div>
+    <div class="lb-hero-inner max-w-7xl ml-0 px-4 sm:px-6 md:px-12 lg:px-20 w-full min-w-0 relative z-10">
+      <div class="lb-hero-copy relative min-w-0">
+        <div class="lb-hero-radial hidden md:block absolute pointer-events-none" aria-hidden="true"></div>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
-      <!-- Breadcrumb mejorado -->
-      <nav class="text-sm mb-6 flex items-center gap-2" aria-label="Breadcrumb">
-        <a
-          href="/veterinarios"
-          class="text-white/90 hover:text-white transition-colors flex items-center gap-1.5"
-          style="text-decoration: none;"
-        >
-          Para veterinarios
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"/>
-          </svg>
-        </a>
-        <span class="text-white/60">Libro técnico</span>
-      </nav>
+        <nav class="lb-hero-breadcrumb flex items-center gap-2" aria-label="Breadcrumb">
+          <a href="/veterinarios" class="inline-flex items-center gap-1 transition-colors lb-hero-crumb-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Para veterinarios
+          </a>
+          <span class="text-white/40">/</span>
+          <span class="text-white/80 font-medium">Libro técnico</span>
+        </nav>
 
-      <!-- Badge -->
-      <div class="inline-block mb-5">
-        <span
-          class="text-xs font-bold uppercase px-4 py-2 rounded-lg backdrop-blur-sm"
-          style="background: rgba(255,255,255,0.15); color: white; letter-spacing: 0.1em; border: 1px solid rgba(255,255,255,0.25);"
-        >
+        <div class="hero-badge inline-flex items-center gap-1.5 font-semibold uppercase rounded-full">
           📚 Exclusivo para profesionales veterinarios
-        </span>
-      </div>
-
-      <!-- Título con gradiente -->
-      <h1
-        class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 max-w-4xl"
-        style="
-          font-family: var(--font-display);
-          background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          line-height: 1.2;
-        "
-      >
-        Manual Práctico de Enfermedades Infecciosas y Parasitarias en el Perro
-      </h1>
-
-      <p class="text-lg text-white/80 max-w-3xl mb-10 leading-relaxed">
-        Publicado por Multimedica Ediciones Veterinarias. Herramientas, conocimientos y actualizaciones sobre diferentes enfermedades producidas por virus, bacterias, hongos, protozoarios y helmintos.
-      </p>
-
-      <!-- Stats pills -->
-      <div class="flex flex-wrap gap-4">
-        <div
-          class="flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
-          style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-          </svg>
-          <div>
-            <p class="text-xs text-white/70 uppercase tracking-wider">Enfoque</p>
-            <p class="text-sm font-bold text-white">América Latina y Europa</p>
-          </div>
         </div>
 
-        <div
-          class="flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
-          style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-            <line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/>
-            <polyline points="10 9 9 9 8 9"/>
-          </svg>
-          <div>
-            <p class="text-xs text-white/70 uppercase tracking-wider">Contenido</p>
-            <p class="text-sm font-bold text-white">Casos clínicos reales</p>
-          </div>
+        <div class="lb-hero-title-wrap min-w-0">
+          <div class="lb-hero-bar" aria-hidden="true"></div>
+          <h1 class="hero-title text-white min-w-0">
+            Manual Práctico de Enfermedades Infecciosas y Parasitarias en el Perro
+          </h1>
         </div>
 
-        <div
-          class="flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
-          style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-          </svg>
-          <div>
-            <p class="text-xs text-white/70 uppercase tracking-wider">Base</p>
-            <p class="text-sm font-bold text-white">Evidencia científica</p>
-          </div>
+        <p class="hero-description text-white/90 leading-relaxed">
+          Publicado por Multimedica Ediciones Veterinarias. Herramientas, conocimientos y actualizaciones sobre diferentes enfermedades producidas por virus, bacterias, hongos, protozoarios y helmintos.
+        </p>
+
+        <div class="hero-chips">
+          <span class="hero-chip">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+            <span>
+              <span class="hero-chip-label">Enfoque</span>
+              <span class="hero-chip-value">América Latina y Europa</span>
+            </span>
+          </span>
+          <span class="hero-chip">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+            <span>
+              <span class="hero-chip-label">Contenido</span>
+              <span class="hero-chip-value">Casos clínicos reales</span>
+            </span>
+          </span>
+          <span class="hero-chip">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+            <span>
+              <span class="hero-chip-label">Base</span>
+              <span class="hero-chip-value">Evidencia científica</span>
+            </span>
+          </span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Componente del libro (NO aparece en tutores ni en el home) -->
   <LibroTecnico />
 
-  <!-- FAQ con acordeón mejorado -->
-  <section class="py-20" style="background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);">
+  <section class="lb-faq">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Título de sección -->
-      <div class="text-center mb-12">
+      <div class="text-center lb-faq-heading">
         <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-accent); letter-spacing: 0.12em;">
           ¿Tenés dudas?
         </p>
@@ -161,58 +116,346 @@ import LibroTecnico from '../../components/veterinarios/LibroTecnico.astro';
         >
           Preguntas frecuentes
         </h2>
-        <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #4a3d9e 100%);"></div>
+        <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #0d9488 100%);"></div>
       </div>
 
-      <!-- Acordeón nativo con <details> mejorado -->
-      <div class="space-y-4">
+      <div class="space-y-3 md:space-y-4">
         {[
           {
             pregunta: '¿El libro es adecuado para residentes o recién egresados?',
             respuesta: 'El libro está pensado principalmente para veterinarios en ejercicio que enfrentan casos complejos a diario. Sin embargo, residentes y profesionales en formación de posgrado también encontrarán un material muy valioso para complementar su formación teórica con casos reales y protocolos aplicables.',
+            accent: '#1880c9',
+            wash: 'rgba(24,128,201,0.12)',
           },
           {
             pregunta: '¿Está disponible en formato digital (PDF o eBook)?',
             respuesta: 'Actualmente el libro se comercializa en una edición impresa de alta calidad. Estamos evaluando una edición digital accesible. Podés dejarnos tu email para recibir novedades sobre disponibilidad.',
+            accent: '#183b7f',
+            wash: 'rgba(24,59,127,0.12)',
           },
-        ].map((faq, i) => {
-          const colors = ['#1880c9', '#4a3d9e', '#1880c9'];
-          const borderColor = colors[i % colors.length];
-          
-          return (
-            <details
-              class="group rounded-2xl overflow-hidden bg-white transition-all"
-              style={`box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid ${borderColor};`}
+        ].map((faq) => (
+          <details
+            class="group rounded-2xl overflow-hidden bg-white transition-all lb-faq-item"
+            style={`border-left: 4px solid ${faq.accent};`}
+          >
+            <summary
+              class="flex items-center justify-between px-5 py-4 md:px-6 md:py-5 cursor-pointer font-bold text-sm md:text-base select-none"
+              style="color: var(--color-text); list-style: none;"
             >
-              <summary
-                class="flex items-center justify-between px-6 py-5 cursor-pointer font-bold text-sm md:text-base select-none transition-colors"
-                style="color: var(--color-text); list-style: none;"
-              >
-                <span class="flex-1 pr-4">{faq.pregunta}</span>
-                <!-- Ícono +/- mejorado -->
-                <div 
-                  class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300"
-                  style={`background: ${borderColor === '#1880c9' ? 'rgba(24,128,201,0.12)' : 'rgba(74,61,158,0.12)'}; color: ${borderColor};`}
-                  aria-hidden="true"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="group-open:rotate-45 transition-transform duration-300">
-                    <line x1="12" y1="5" x2="12" y2="19"/>
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                  </svg>
-                </div>
-              </summary>
+              <span class="flex-1 pr-4">{faq.pregunta}</span>
               <div
-                class="px-6 py-5 text-sm md:text-base leading-relaxed"
-                style="background: linear-gradient(135deg, rgba(248,250,252,0.5) 0%, white 100%); color: var(--color-text-muted); border-top: 1px solid rgba(0,0,0,0.06);"
+                class="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
+                style={`background: ${faq.wash}; color: ${faq.accent};`}
+                aria-hidden="true"
               >
-                {faq.respuesta}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="group-open:rotate-45 transition-transform duration-300">
+                  <line x1="12" y1="5" x2="12" y2="19"/>
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
               </div>
-            </details>
-          );
-        })}
+            </summary>
+            <div
+              class="px-5 py-4 md:px-6 md:py-5 text-sm md:text-base leading-relaxed"
+              style="background: linear-gradient(135deg, rgba(248,250,252,0.5) 0%, white 100%); color: var(--color-text-muted); border-top: 1px solid rgba(0,0,0,0.06);"
+            >
+              {faq.respuesta}
+            </div>
+          </details>
+        ))}
       </div>
-
     </div>
   </section>
 
 </Layout>
+
+<style>
+  .lb-hero {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    min-height: 62vh;
+    overflow-x: clip;
+  }
+
+  .lb-hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .lb-hero-photo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 78% center;
+  }
+
+  .lb-hero-overlay-desktop {
+    width: 58%;
+    background: linear-gradient(to right, rgba(3,13,58,0.78) 0%, rgba(3,13,58,0.52) 42%, rgba(3,13,58,0.16) 75%, rgba(3,13,58,0) 100%);
+    z-index: 1;
+  }
+
+  .lb-hero-overlay-mobile {
+    background: linear-gradient(to bottom, rgba(3,13,58,0) 0%, rgba(3,13,58,0) 24%, rgba(3,13,58,0.50) 48%, rgba(3,13,58,0.82) 74%, rgba(3,13,58,0.92) 100%);
+    z-index: 1;
+  }
+
+  .lb-hero-dots {
+    opacity: 0.1;
+    z-index: 2;
+  }
+
+  .lb-hero-copy {
+    max-width: 36rem;
+    width: 100%;
+  }
+
+  .lb-hero-radial {
+    top: 50%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(ellipse 78% 82% at 35% 50%, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.28) 42%, rgba(0,0,0,0.08) 68%, transparent 84%);
+    z-index: -1;
+    filter: blur(9px);
+  }
+
+  .lb-hero-inner {
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+    flex: 1 1 0%;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lb-hero-copy,
+  .hero-title,
+  .hero-description {
+    overflow-wrap: break-word;
+  }
+
+  .lb-hero-breadcrumb {
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .lb-hero-crumb-link {
+    color: #a8d8f0;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .hero-badge {
+    background: rgba(255,255,255,0.12);
+    color: #a8d8f0;
+    border: 1px solid rgba(255,255,255,0.25);
+    letter-spacing: 0.12em;
+    backdrop-filter: blur(10px);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.65);
+    margin-bottom: 1.15rem;
+  }
+
+  .lb-hero-bar {
+    background: linear-gradient(to bottom, #1880c9, #5ba8e0);
+    min-height: 56px;
+  }
+
+  .lb-hero-title-wrap {
+    display: grid !important;
+    grid-template-columns: 4px minmax(0px, 1fr);
+    column-gap: 1rem;
+    align-items: start;
+    width: 100%;
+    filter: drop-shadow(0 2px 10px rgba(0,0,0,0.55));
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 2.4vw, 2.55rem);
+    font-weight: 700;
+    line-height: 1.22;
+    text-align: left;
+    color: #fff;
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .hero-description {
+    max-width: 28rem;
+    font-size: 1.05rem;
+    margin-bottom: 1.35rem;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.65);
+    text-align: left;
+  }
+
+  .hero-chip {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.65);
+  }
+
+  .hero-chip-label {
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.2;
+  }
+
+  .hero-chip-value {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .lb-faq {
+    background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+    padding: 2.75rem 0 3rem;
+  }
+
+  .lb-faq-heading {
+    margin-bottom: 1.75rem;
+  }
+
+  .lb-faq-item {
+    box-shadow: 0 3px 16px rgba(0,0,0,0.06);
+  }
+
+  .lb-faq-item[open] {
+    box-shadow: 0 6px 22px rgba(24,59,127,0.10);
+  }
+
+  .lb-faq-item summary {
+    list-style: none;
+  }
+
+  .lb-faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 32px;
+      background: linear-gradient(to bottom, transparent, #ffffff);
+      z-index: 11;
+      pointer-events: none;
+    }
+
+    .hero-chips {
+      flex-wrap: nowrap;
+    }
+
+    .hero-chip {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .lb-faq {
+      padding: 3.5rem 0 4rem;
+    }
+
+    .lb-faq-heading {
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .lb-hero {
+      align-items: flex-end;
+      min-height: 0;
+      height: auto;
+      padding-bottom: 2rem;
+    }
+
+    .lb-hero-photo {
+      top: auto;
+      bottom: 0;
+      height: 118%;
+      object-position: center 18%;
+    }
+
+    .lb-hero-inner {
+      margin-left: 0;
+      margin-right: auto;
+      padding-top: min(36vh, 15.5rem);
+      padding-bottom: 0.5rem;
+    }
+
+    .lb-hero-copy {
+      max-width: 100%;
+    }
+
+    .lb-hero-breadcrumb {
+      font-size: 0.7rem;
+      margin-bottom: 0.7rem;
+      flex-wrap: wrap;
+      white-space: normal;
+    }
+
+    .hero-badge,
+    .hero-title,
+    .hero-description {
+      text-align: left;
+    }
+
+    .hero-title {
+      font-size: clamp(1.28rem, 5.8vw, 1.62rem);
+      line-height: 1.28;
+      overflow-wrap: break-word;
+      white-space: normal;
+    }
+
+    .hero-description {
+      max-width: 100%;
+      font-size: clamp(0.86rem, 3.6vw, 0.98rem);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+      overflow-wrap: break-word;
+    }
+
+    .lb-hero-title-wrap {
+      column-gap: 0.7rem;
+      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.70));
+    }
+
+    .hero-badge {
+      font-size: 0.62rem;
+      padding: 0.4rem 0.8rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-chips {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.55rem;
+    }
+
+    .hero-chip {
+      width: 100%;
+    }
+
+    .hero-title,
+    .hero-description,
+    .hero-badge {
+      text-shadow: 0 1px 3px rgba(0,0,0,0.85), 0 2px 14px rgba(0,0,0,0.6);
+    }
+  }
+</style>
