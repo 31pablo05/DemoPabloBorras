@@ -17,154 +17,25 @@ const publicoObjetivo = [
 ];
 ---
 
-<!-- Sección del libro técnico: diseño premium mejorado -->
+<!-- Sección del libro técnico: presentación editorial -->
 <section class="lb-book">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="flex justify-center lb-book-badge-wrap">
-      <span
-        class="inline-flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-xl"
-        style="background: linear-gradient(135deg, rgba(24,128,201,0.12) 0%, rgba(24,59,127,0.10) 100%); color: #1880c9; border: 2px solid rgba(24,128,201,0.25);"
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-        </svg>
-        Exclusivo para médicos veterinarios
-      </span>
-    </div>
+    <!-- Card premium mejorada: panel de producto (izquierda) + contenido (derecha) -->
+    <div class="lb-book-card rounded-3xl overflow-hidden relative">
 
-    <!-- Card premium mejorada -->
-    <div
-      class="lb-book-card rounded-3xl overflow-hidden flex flex-col lg:flex-row relative"
-    >
+      <div class="lb-left-panel">
+        <img
+          src="/imagenes/libro/libroport2.webp"
+          alt="Portada del Manual Práctico de Enfermedades Infecciosas y Parasitarias en el Perro — Pablo Borrás"
+          class="lb-book-photo"
+          loading="lazy"
+        />
 
-      <div class="lb-book-visual shrink-0 flex flex-col items-center justify-center relative overflow-hidden">
-        <div class="lb-book-visual-pattern absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-
-        <div class="relative z-10 flex flex-col items-center lb-book-visual-stack">
-          <img
-            src="/imagenes/perfil/pablo1.webp"
-            alt="Pablo Borrás sosteniendo su libro"
-            class="rounded-2xl w-full object-cover object-top lb-book-photo"
-            loading="lazy"
-          />
-          <img
-            src="/imagenes/libro/port.webp"
-            alt="Portada del Manual Práctico de Enfermedades Infecciosas y Parasitarias en el Perro — Pablo Borrás"
-            class="rounded-xl lb-book-cover"
-            width="220"
-            height="290"
-            loading="lazy"
-          />
-        </div>
-      </div>
-
-      <div class="flex-1 lb-book-content bg-white">
-
-        <h2
-          class="text-3xl lg:text-4xl font-bold lb-book-title"
-          style="font-family: var(--font-display); color: var(--color-text); line-height: 1.2;"
-        >
-          Manual Práctico de Enfermedades Infecciosas y Parasitarias en el Perro
-        </h2>
-
-        <p class="text-base md:text-lg leading-relaxed lb-book-lead" style="color: var(--color-text-muted);">
-          Este libro fue pensado con el objetivo de brindar herramientas, conocimientos y actualizaciones
-          sobre diferentes enfermedades producidas por <strong>virus, bacterias, hongos, protozoarios y helmintos</strong>
-          que afectan a los perros de todo el mundo, con mayor énfasis en América Latina y Europa. Cuenta con la colaboración de más de 50 investigadores de todo el mundo.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 items-stretch lb-book-grid">
-
-          <div
-            class="lb-info-card p-5 md:p-6 rounded-2xl relative overflow-hidden h-full"
-            style="background: white; box-shadow: 0 3px 16px rgba(0,0,0,0.06); border-top: 4px solid #1880c9;"
-          >
-            <div
-              style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(24,128,201,0.05) 0%, transparent 100%); pointer-events: none;"
-              aria-hidden="true"
-            ></div>
-            <div style="position: relative; z-index: 1;">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(24,128,201,0.12); border: 2px solid rgba(24,128,201,0.2);">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1880c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                    <circle cx="9" cy="7" r="4"/>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                  </svg>
-                </div>
-                <h4
-                  class="font-bold text-base uppercase tracking-wider"
-                  style="color: #1880c9; font-family: var(--font-body);"
-                >
-                  Dirigido a:
-                </h4>
-              </div>
-              <ul class="space-y-2.5">
-                {publicoObjetivo.map(pub => (
-                  <li class="flex items-start gap-2.5 text-sm" style="color: var(--color-text-muted);">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1880c9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
-                      <polyline points="9 18 15 12 9 6"/>
-                    </svg>
-                    {pub}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div
-            class="lb-info-card p-5 md:p-6 rounded-2xl relative overflow-hidden h-full"
-            style="background: white; box-shadow: 0 3px 16px rgba(0,0,0,0.06); border-top: 4px solid #183b7f;"
-          >
-            <div
-              style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(24,59,127,0.05) 0%, transparent 100%); pointer-events: none;"
-              aria-hidden="true"
-            ></div>
-            <div style="position: relative; z-index: 1;">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(24,59,127,0.12); border: 2px solid rgba(24,59,127,0.2);">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#183b7f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                  </svg>
-                </div>
-                <h4
-                  class="font-bold text-base uppercase tracking-wider"
-                  style="color: #183b7f; font-family: var(--font-body);"
-                >
-                  Qué vas a encontrar:
-                </h4>
-              </div>
-              <ul class="space-y-2.5">
-                {beneficios.map(b => (
-                  <li class="flex items-start gap-2.5 text-sm" style="color: var(--color-text-muted);">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#183b7f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
-                      <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                    {b}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="flex items-center gap-6 lb-price-block rounded-2xl">
-          <div class="flex-1 min-w-0">
-            <p class="text-4xl font-bold" style="font-family: var(--font-display); color: #1880c9;">104 €</p>
-            <p class="text-sm mt-1.5" style="color: var(--color-text-muted);">Impuestos incluidos · Envío internacional disponible</p>
-            <p class="text-xs mt-2 font-semibold" style="color: var(--color-text);">Editorial: Multimedica Ediciones Veterinarias</p>
-          </div>
-          <img
-            src="/imagenes/libro/libroport.webp"
-            alt="Silueta del libro"
-            aria-hidden="true"
-            class="lb-price-cover"
-            loading="lazy"
-          />
+        <div class="lb-price-block rounded-2xl">
+          <p class="lb-price-value">104 €</p>
+          <p class="lb-price-meta">Impuestos incluidos · Envío internacional disponible</p>
+          <p class="lb-price-editorial">Editorial: Multimedica Ediciones Veterinarias</p>
         </div>
 
         <div class="lb-buy">
@@ -206,37 +77,120 @@ const publicoObjetivo = [
             </a>
           </div>
         </div>
+      </div>
 
-        <div
-          class="lb-press p-5 md:p-6 rounded-2xl relative overflow-hidden"
-          style="background: linear-gradient(135deg, rgba(24,128,201,0.08) 0%, rgba(24,59,127,0.06) 100%); border-left: 4px solid #1880c9;"
+      <div class="lb-book-content bg-white">
+
+        <p class="lb-book-kicker">Libro técnico</p>
+
+        <h2
+          class="font-bold lb-book-title"
+          style="font-family: var(--font-display); color: var(--color-text);"
         >
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(24,128,201,0.15); border: 2px solid rgba(24,128,201,0.25);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1880c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          Manual Práctico de Enfermedades Infecciosas y Parasitarias en el Perro
+        </h2>
+
+        <p class="lb-book-lead" style="color: var(--color-text-muted);">
+          Este libro fue pensado con el objetivo de brindar herramientas, conocimientos y actualizaciones
+          sobre diferentes enfermedades producidas por <strong>virus, bacterias, hongos, protozoarios y helmintos</strong>
+          que afectan a los perros de todo el mundo, con mayor énfasis en América Latina y Europa. Cuenta con la colaboración de más de 50 investigadores de todo el mundo.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 items-stretch lb-book-grid">
+
+          <div class="lb-info-card lb-info-card-accent rounded-2xl relative overflow-hidden h-full">
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(24,128,201,0.05) 0%, transparent 100%); pointer-events: none;"
+              aria-hidden="true"
+            ></div>
+            <div style="position: relative; z-index: 1;">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(24,128,201,0.12); border: 2px solid rgba(24,128,201,0.2);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1880c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                </div>
+                <h4
+                  class="font-bold text-base uppercase tracking-wider"
+                  style="color: #1880c9; font-family: var(--font-body);"
+                >
+                  Dirigido a:
+                </h4>
+              </div>
+              <ul class="space-y-2.5">
+                {publicoObjetivo.map(pub => (
+                  <li class="flex items-start gap-2.5 text-sm" style="color: var(--color-text-muted);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1880c9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                      <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                    {pub}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div class="lb-info-card lb-info-card-navy rounded-2xl relative overflow-hidden h-full">
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(24,59,127,0.05) 0%, transparent 100%); pointer-events: none;"
+              aria-hidden="true"
+            ></div>
+            <div style="position: relative; z-index: 1;">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(24,59,127,0.12); border: 2px solid rgba(24,59,127,0.2);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#183b7f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                  </svg>
+                </div>
+                <h4
+                  class="font-bold text-base uppercase tracking-wider"
+                  style="color: #183b7f; font-family: var(--font-body);"
+                >
+                  Qué vas a encontrar:
+                </h4>
+              </div>
+              <ul class="space-y-2.5">
+                {beneficios.map(b => (
+                  <li class="flex items-start gap-2.5 text-sm" style="color: var(--color-text-muted);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#183b7f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="lb-press rounded-2xl">
+          <div class="lb-press-icon shrink-0" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1880c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <div class="lb-press-body min-w-0">
+            <p class="lb-press-kicker">Destacado en prensa especializada</p>
+            <p class="lb-press-text">
+              El libro fue destacado por la revista <strong style="color: var(--color-text);">Motivar — Sanidad Animal</strong> como referencia clínica para el ejercicio veterinario cotidiano.
+            </p>
+            <a
+              href="https://www.motivar.com.ar/sanidad-animal/manual-practico-enfermedades-infecciosas-y-parasitarias-el-perro-n5333670"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="lb-press-link"
+            >
+              Leer nota en Motivar
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
               </svg>
-            </div>
-            <div class="flex-1">
-              <p class="text-xs font-bold uppercase tracking-wider mb-2" style="color: #1880c9;">Destacado en prensa especializada</p>
-              <p class="text-sm md:text-base leading-relaxed mb-3" style="color: var(--color-text-muted);">
-                El libro fue destacado por la revista <strong style="color: var(--color-text);">Motivar — Sanidad Animal</strong> como referencia clínica para el ejercicio veterinario cotidiano.
-              </p>
-              <a
-                href="https://www.motivar.com.ar/sanidad-animal/manual-practico-enfermedades-infecciosas-y-parasitarias-el-perro-n5333670"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 text-sm font-bold hover:gap-3 transition-all"
-                style="color: #1880c9; text-decoration: none;"
-              >
-                Leer nota en Motivar
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"/>
-                  <polyline points="12 5 19 12 12 19"/>
-                </svg>
-              </a>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -249,87 +203,108 @@ const publicoObjetivo = [
 <style>
   .lb-book {
     background: #fff;
-    padding: 2.5rem 0 2.75rem;
+    padding: 2.4rem 0 2.6rem;
   }
 
-  .lb-book-badge-wrap {
-    margin-bottom: 1.35rem;
-  }
-
+  /* Mobile/tablet: una sola columna; los wrappers se aplanan para reordenar con `order` */
   .lb-book-card {
-    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0 8px 32px rgba(4,13,78,0.1);
+    padding: 1.25rem 1.2rem 1.6rem;
   }
 
-  .lb-book-visual {
-    background: linear-gradient(135deg, #1880c9 0%, #0d5a99 100%);
-    padding: 1.1rem 1.1rem 1.35rem;
-  }
-
-  .lb-book-visual::after {
-    content: none;
-  }
-
-  .lb-book-visual-pattern {
-    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.08) 1px, transparent 0);
-    background-size: 30px 30px;
-    opacity: 0.4;
-  }
-
-  .lb-book-visual-stack {
-    width: 100%;
-    max-width: 16.5rem;
-    position: relative;
+  .lb-left-panel,
+  .lb-book-content {
+    display: contents;
   }
 
   .lb-book-photo {
-    max-height: 200px;
-    object-position: center 16%;
-    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
-    border: 3px solid rgba(255,255,255,0.15);
+    order: 1;
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 1.25rem;
+    box-shadow: 0 6px 20px rgba(4,13,78,0.14);
+    margin-bottom: 1.25rem;
   }
 
-  .lb-book-cover {
-    width: 11.25rem;
-    height: auto;
-    margin-top: -2.5rem;
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 12px 36px rgba(0,0,0,0.38);
-    border: 2px solid rgba(255,255,255,0.12);
-  }
-
-  .lb-book-content {
-    padding: 1.4rem 1.2rem 1.6rem;
-    min-width: 0;
+  .lb-book-kicker {
+    order: 2;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1880c9;
+    margin-bottom: 0.4rem;
   }
 
   .lb-book-title {
+    order: 3;
+    font-size: clamp(1.35rem, 4.8vw, 1.7rem);
+    line-height: 1.22;
     margin-bottom: 0.8rem;
   }
 
   .lb-book-lead {
+    order: 4;
+    font-size: 0.95rem;
+    line-height: 1.65;
     margin-bottom: 1.2rem;
+    max-width: 42rem;
   }
 
   .lb-book-grid {
+    order: 5;
     margin-bottom: 1.2rem;
   }
 
+  .lb-info-card {
+    background: white;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    border-top: 4px solid #1880c9;
+    padding: 1.05rem 1.05rem 1.1rem;
+  }
+
+  .lb-info-card-navy {
+    border-top-color: #183b7f;
+  }
+
   .lb-price-block {
+    order: 6;
     background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
     border-left: 4px solid #1880c9;
     padding: 0.95rem 1.1rem;
     margin-bottom: 1.1rem;
   }
 
-  .lb-price-cover {
-    height: 84px;
-    width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 6px 18px rgba(4,13,78,0.2));
+  .lb-price-value {
+    font-family: var(--font-display);
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #1880c9;
+    line-height: 1.1;
+  }
+
+  .lb-price-meta {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 0.3rem;
+    line-height: 1.4;
+  }
+
+  .lb-price-editorial {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-top: 0.28rem;
   }
 
   .lb-buy {
+    order: 7;
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
@@ -347,33 +322,34 @@ const publicoObjetivo = [
   }
 
   .lb-buy-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(24,128,201,0.35);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(24,128,201,0.32);
   }
 
   .lb-buy-alt {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 0.6rem;
   }
 
   .lb-buy-ml,
   .lb-buy-amazon {
+    width: 100%;
     padding: 0.72rem 0.45rem;
     font-size: 0.8rem;
     text-decoration: none;
     text-align: center;
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: background 0.2s ease;
   }
 
   .lb-buy-ml {
-    border: 2px solid #1880c9;
+    border: 1.5px solid #1880c9;
     color: #1880c9;
     background: transparent;
   }
 
   .lb-buy-amazon {
-    border: 2px solid #183b7f;
+    border: 1.5px solid #183b7f;
     color: #183b7f;
     background: transparent;
   }
@@ -386,10 +362,51 @@ const publicoObjetivo = [
     background: rgba(24,59,127,0.08);
   }
 
-  @media (max-width: 359px) {
-    .lb-buy-alt {
-      grid-template-columns: 1fr;
-    }
+  .lb-press {
+    order: 8;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, rgba(24,128,201,0.07) 0%, rgba(24,59,127,0.05) 100%);
+    border-left: 4px solid #1880c9;
+    padding: 0.9rem 0.95rem;
+  }
+
+  .lb-press-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(24,128,201,0.12);
+    border: 1.5px solid rgba(24,128,201,0.2);
+  }
+
+  .lb-press-kicker {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #1880c9;
+    margin-bottom: 0.3rem;
+  }
+
+  .lb-press-text {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+    margin-bottom: 0.45rem;
+  }
+
+  .lb-press-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1880c9;
+    text-decoration: none;
   }
 
   @media (min-width: 768px) {
@@ -397,19 +414,21 @@ const publicoObjetivo = [
       padding: 3rem 0 3.25rem;
     }
 
-    .lb-book-badge-wrap {
-      margin-bottom: 1.75rem;
-    }
-
-    .lb-book-content {
+    .lb-book-card {
       padding: 1.85rem 2rem 2rem;
     }
 
+    .lb-book-photo {
+      margin-bottom: 1.5rem;
+    }
+
     .lb-book-title {
+      font-size: clamp(1.7rem, 2.4vw, 2.15rem);
       margin-bottom: 1rem;
     }
 
     .lb-book-lead {
+      font-size: 1.02rem;
       margin-bottom: 1.5rem;
     }
 
@@ -417,17 +436,36 @@ const publicoObjetivo = [
       margin-bottom: 1.5rem;
     }
 
+    .lb-info-card {
+      padding: 1.2rem 1.25rem;
+    }
+
     .lb-price-block {
       padding: 1.15rem 1.35rem;
       margin-bottom: 1.35rem;
     }
 
-    .lb-price-cover {
-      height: 104px;
+    .lb-price-value {
+      font-size: 2.1rem;
     }
 
     .lb-buy {
       margin-bottom: 1.5rem;
+    }
+
+    .lb-buy-ml,
+    .lb-buy-amazon {
+      font-size: 0.82rem;
+      padding: 0.7rem 0.65rem;
+    }
+
+    .lb-press {
+      padding: 1.05rem 1.15rem;
+      gap: 0.9rem;
+    }
+
+    .lb-press-text {
+      font-size: 0.92rem;
     }
   }
 
@@ -436,75 +474,40 @@ const publicoObjetivo = [
       padding: 3.25rem 0 3.5rem;
     }
 
-    .lb-book-visual {
-      width: 19rem;
-      padding: 0 0 1.4rem;
-      align-self: stretch;
+    /* Desktop: dos columnas reales; el panel izquierdo (portada + compra) queda pegajoso */
+    .lb-book-card {
+      display: grid;
+      grid-template-columns: minmax(0, 33%) 1fr;
+      align-items: start;
+      gap: 2rem;
+      padding: 2rem;
     }
 
-    .lb-book-visual::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 46%;
-      background: linear-gradient(to top, rgba(13,90,153,0.78) 0%, rgba(13,90,153,0.28) 55%, transparent 100%);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .lb-book-visual-stack {
-      max-width: none;
-      height: 100%;
-      min-height: 28rem;
-      justify-content: flex-end;
-    }
-
-    .lb-book-photo {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      max-height: none;
-      border-radius: 0;
-      border: 0;
-      object-fit: cover;
-      object-position: center 14%;
-    }
-
-    .lb-book-cover {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 48%;
-      width: 14.25rem;
-      margin-top: 0;
+    .lb-left-panel {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      position: sticky;
+      top: calc(var(--header-height) + 1.5rem);
     }
 
     .lb-book-content {
-      padding: 2rem 2.15rem 2.15rem;
+      display: block;
+      min-width: 0;
+    }
+
+    .lb-book-photo {
+      margin-bottom: 1.25rem;
     }
 
     .lb-buy {
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: stretch;
-    }
-
-    .lb-buy-primary {
-      width: auto;
-      flex: 1 1 16rem;
-    }
-
-    .lb-buy-alt {
-      flex: 1 1 15rem;
+      margin-bottom: 0;
     }
 
     .lb-buy-ml,
     .lb-buy-amazon {
       font-size: 0.875rem;
-      padding: 0.85rem 0.75rem;
+      padding: 0.8rem 0.75rem;
     }
   }
 </style>
