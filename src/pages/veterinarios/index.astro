@@ -79,8 +79,16 @@ const stats = [
       <img
         src="/imagenes/heros/paravet2mob.webp"
         alt=""
-        class="block md:hidden w-full h-full object-cover"
-        style="object-position: center 15%; opacity: 0.80;"
+        class="block md:hidden object-cover"
+        style="
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 112%;
+          object-position: center bottom;
+          opacity: 0.80;
+        "
         loading="eager"
         aria-hidden="true"
       />
@@ -189,10 +197,10 @@ const stats = [
   </section>
 
   <!-- 3 Cards de subsecciones mejoradas -->
-  <section style="background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);" class="py-20 md:py-24">
+  <section style="background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);" class="py-16 md:py-22">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="text-center mb-12">
+      <div class="text-center mb-10 md:mb-12">
         <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-accent); letter-spacing: 0.12em;">
           Servicios para colegas
         </p>
@@ -202,7 +210,7 @@ const stats = [
         <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #183b7f 100%);"></div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
         {[
           { ...subsecciones[0], color: '#1880c9', bgGradient: 'linear-gradient(135deg, rgba(24,128,201,0.08) 0%, transparent 100%)', shadowColor: '24,128,201' },
           { ...subsecciones[1], color: '#183b7f', bgGradient: 'linear-gradient(135deg, rgba(24,59,127,0.08) 0%, transparent 100%)', shadowColor: '24,59,127' },
@@ -210,7 +218,7 @@ const stats = [
         ].map((sub, index) => (
           <a
             href={sub.href}
-            class="card-lift group block bg-white rounded-2xl p-8 md:p-10 no-underline relative overflow-hidden"
+            class="card-lift service-card group block bg-white rounded-2xl p-6 md:p-10 no-underline relative overflow-hidden"
             style={`
               border-radius: 18px;
               box-shadow: 0 4px 24px rgba(0,0,0,0.08);
@@ -238,17 +246,17 @@ const stats = [
             <!-- Contenido -->
             <div style="position: relative; z-index: 1;">
               <div
-                class="mb-6 w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300"
+                class="service-icon mb-5 md:mb-6 w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300"
                 style={`color: ${sub.color}; background: ${sub.color === '#1880c9' ? 'rgba(24,128,201,0.12)' : 'rgba(24,59,127,0.12)'}; border: 1.5px solid ${sub.color === '#1880c9' ? 'rgba(24,128,201,0.2)' : 'rgba(24,59,127,0.2)'};`}
                 set:html={sub.icon}
               />
               <h2
-                class="text-2xl font-bold mb-4"
+                class="service-title text-2xl font-bold mb-3 md:mb-4"
                 style="font-family: var(--font-display); color: var(--color-text); line-height: 1.3;"
               >
                 {sub.titulo}
               </h2>
-              <p class="text-base leading-relaxed mb-6" style="color: var(--color-text-muted); line-height: 1.7;">
+              <p class="service-desc text-base leading-relaxed mb-5 md:mb-6" style="color: var(--color-text-muted); line-height: 1.7;">
                 {sub.descripcion}
               </p>
               <span class="text-sm font-bold group-hover:underline inline-flex items-center gap-2 transition-all" style={`color: ${sub.color};`}>
@@ -267,9 +275,9 @@ const stats = [
   </section>
 
   <!-- Bloque de autoridad con stats -->
-  <section class="py-16 md:py-24 bg-white">
+  <section class="py-14 md:py-20 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
 
         <!-- Texto de autoridad -->
         <div class="order-2 lg:order-1">
@@ -282,7 +290,7 @@ const stats = [
             </h2>
             <div class="w-16 h-1 rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #183b7f 100%);"></div>
           </div>
-          <p class="text-base md:text-lg leading-relaxed mb-5" style="color: var(--color-text-muted); line-height: 1.7;">
+          <p class="text-base md:text-lg leading-relaxed mb-4 md:mb-5 trayectoria-intro" style="color: var(--color-text-muted); line-height: 1.7;">
             Médico Veterinario egresado de la Universidad de Buenos Aires. Especialista
             en Enfermedades Infecciosas y Parasitarias (CPHV) y Magíster en Prevención y
             Control de Zoonosis (UNNOBA–ANLIS). Editor asociado de <em>Parasites and Vectors</em>
@@ -293,7 +301,7 @@ const stats = [
             internacional con presencia en congresos en Argentina, Ecuador, Colombia,
             Uruguay, Brasil, Paraguay, España y Países Bajos.
           </p>
-          <ul class="space-y-2 text-sm md:text-base mb-7" style="color: var(--color-text-muted);">
+          <ul class="space-y-2 text-sm md:text-base mb-5 md:mb-6 trayectoria-bullets" style="color: var(--color-text-muted);">
             <li class="flex items-start gap-2.5"><span style="color: var(--color-accent); font-weight: 700; font-size: 1.1em;">&#9656;</span> Editor asociado de <em>Parasites &amp; Vectors</em> — Springer Nature</li>
             <li class="flex items-start gap-2.5"><span style="color: var(--color-accent); font-weight: 700; font-size: 1.1em;">&#9656;</span> Colaborador del servicio de Zoopatología, Hospital Francisco J. Muñiz</li>
             <li class="flex items-start gap-2.5"><span style="color: var(--color-accent); font-weight: 700; font-size: 1.1em;">&#9656;</span> Actualmente cursando el Máster en Medicina Interna — Fac. Veterinaria, UAB (España)</li>
@@ -301,8 +309,8 @@ const stats = [
           </ul>
 
           <!-- Membresías y reconocimientos -->
-          <div class="pt-6" style="border-top: 2px solid #E5EAED;">
-            <p class="text-xs font-semibold uppercase tracking-wider mb-5" style="color: var(--color-text-muted); letter-spacing: 0.1em;">Membresías y reconocimientos</p>
+          <div class="pt-5 md:pt-6" style="border-top: 2px solid #E5EAED;">
+            <p class="text-xs font-semibold uppercase tracking-wider mb-4 md:mb-5" style="color: var(--color-text-muted); letter-spacing: 0.1em;">Membresías y reconocimientos</p>
             <div class="flex flex-wrap gap-2.5">
 
               <!-- TroCCAP — azul -->
@@ -434,10 +442,10 @@ const stats = [
     </div>
   </section>
   <!-- Sección: Publicaciones científicas -->
-  <section style="background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);" class="py-16 md:py-24">
+  <section style="background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);" class="py-14 md:py-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="text-center mb-12">
+      <div class="text-center mb-10 md:mb-12">
         <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-accent); letter-spacing: 0.12em;">
           Investigación y ciencia
         </p>
@@ -479,12 +487,12 @@ const stats = [
           },
         ].map((pub, i) => (
           <div
-            class="reveal flex flex-col sm:flex-row sm:items-center gap-4 p-5 sm:p-6 md:p-7 transition-all"
+            class="reveal publication-item transition-all"
             style={`transition-delay: ${i * 0.1}s;`}
             onmouseover="this.style.background='rgba(24,128,201,0.03)'"
             onmouseout="this.style.background='transparent'"
           >
-            <div class="flex gap-4 flex-1 min-w-0">
+            <div class="flex gap-4">
               <div
                 class="shrink-0 mt-0.5 w-10 h-10 rounded-lg flex items-center justify-center"
                 style="background: rgba(24,128,201,0.10);"
@@ -502,7 +510,7 @@ const stats = [
                   href={pub.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-base md:text-lg font-bold leading-snug transition-colors hover:underline"
+                  class="publication-title text-base md:text-lg font-bold leading-snug transition-colors hover:underline"
                   style="color: var(--color-primary); text-decoration: none; display: block; line-height: 1.4;"
                   onmouseover="this.style.color='var(--color-accent)'"
                   onmouseout="this.style.color='var(--color-primary)'"
@@ -518,39 +526,39 @@ const stats = [
                     {pub.año}
                   </span>
                 </div>
+                <div class="publication-actions flex items-center gap-3 mt-3">
+                  <a
+                    href={pub.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all hover:scale-105 hover:shadow-lg"
+                    style="background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%); color: #DC2626; border: 1.5px solid rgba(220,38,38,0.3); text-decoration: none; white-space: nowrap;"
+                    title="Descargar PDF"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                      <polyline points="7 10 12 15 17 10"/>
+                      <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    PDF
+                  </a>
+                  <a
+                    href={pub.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center w-9 h-9 rounded-lg shrink-0 transition-colors"
+                    style="color: var(--color-accent); background: rgba(24,128,201,0.08);"
+                    title="Ver publicación completa"
+                    aria-label="Ver publicación completa"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                      <polyline points="15 3 21 3 21 9"/>
+                      <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="flex items-center gap-3 pl-14 sm:pl-0 sm:ml-auto shrink-0">
-              <a
-                href={pub.pdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all hover:scale-105 hover:shadow-lg"
-                style="background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%); color: #DC2626; border: 1.5px solid rgba(220,38,38,0.3); text-decoration: none; white-space: nowrap;"
-                title="Descargar PDF"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                  <polyline points="7 10 12 15 17 10"/>
-                  <line x1="12" y1="15" x2="12" y2="3"/>
-                </svg>
-                PDF
-              </a>
-              <a
-                href={pub.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center w-9 h-9 rounded-lg shrink-0 transition-colors"
-                style="color: var(--color-accent); background: rgba(24,128,201,0.08);"
-                title="Ver publicación completa"
-                aria-label="Ver publicación completa"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                  <polyline points="15 3 21 3 21 9"/>
-                  <line x1="10" y1="14" x2="21" y2="3"/>
-                </svg>
-              </a>
             </div>
           </div>
         ))}
@@ -562,9 +570,9 @@ const stats = [
   <PodcastsMNV />
 
   <!-- Sección: Recursos y organizaciones de referencia -->
-  <section class="py-16 md:py-20" style="background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);">
+  <section class="py-12 md:py-16" style="background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
+      <div class="text-center mb-8">
         <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-accent); letter-spacing: 0.12em;">Enlaces útiles</p>
         <h3 class="text-2xl md:text-3xl font-bold" style="font-family: var(--font-display); color: var(--color-text);">Recursos y organizaciones de referencia</h3>
       </div>
@@ -786,14 +794,79 @@ const stats = [
     }
   }
   
-  /* Pills en columna por debajo de 400px */
-  @media (max-width: 400px) {
+  /* Credenciales: siempre apiladas en mobile para consistencia */
+  @media (max-width: 767px) {
     .page-hero .hero-chips {
       flex-direction: column !important;
       align-items: flex-start !important;
+      gap: 0.6rem !important;
+    }
+    
+    .page-hero .hero-chips span {
+      width: auto !important;
     }
   }
   
+  /* Publicaciones científicas: layout mobile optimizado */
+  @media (max-width: 767px) {
+    .publication-item {
+      padding: 1.25rem 1rem !important;
+    }
+    
+    .publication-title {
+      font-size: 0.95rem !important;
+      line-height: 1.45 !important;
+    }
+    
+    .publication-actions {
+      display: flex !important;
+      margin-top: 0.75rem !important;
+    }
+  }
+  
+  /* Trayectoria: mejorar ritmo en mobile */
+  @media (max-width: 767px) {
+    .trayectoria-intro {
+      line-height: 1.65 !important;
+      margin-bottom: 1rem !important;
+    }
+    
+    .trayectoria-bullets {
+      margin-bottom: 1.25rem !important;
+    }
+    
+    .trayectoria-bullets li {
+      margin-bottom: 0.5rem !important;
+      line-height: 1.5 !important;
+    }
+  }
+  
+  /* Services cards: compactar en mobile */
+  @media (max-width: 767px) {
+    .service-card {
+      padding: 1.5rem !important;
+    }
+    
+    .service-icon {
+      margin-bottom: 1rem !important;
+    }
+    
+    .service-title {
+      margin-bottom: 0.75rem !important;
+    }
+    
+    .service-desc {
+      margin-bottom: 1.25rem !important;
+      font-size: 0.95rem !important;
+    }
+  }
+  
+  /* Ajustar imagen con stats en mobile para mejor ritmo */
+  @media (max-width: 1023px) {
+    .order-1.lg\\:order-2 {
+      margin-bottom: 1.5rem;
+    }
+  }  
   /* Aire adicional abajo en pantallas de 380px o menos */
   @media (max-width: 380px) {
     .page-hero {

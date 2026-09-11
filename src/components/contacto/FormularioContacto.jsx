@@ -19,7 +19,6 @@ const inputStyle = {
   borderRadius: '8px',
   border: '1.5px solid #E5E7EB',
   fontFamily: 'var(--font-body)',
-  fontSize: '14px',
   color: 'var(--color-text)',
   background: '#fff',
   outline: 'none',
@@ -126,17 +125,14 @@ function FormInterconsultas() {
   return (
     <>
       {/* Aviso legal */}
-      <div style={{
-        display: 'flex', gap: '12px', padding: '14px 16px', borderRadius: '8px',
-        background: '#FEF3C7', borderLeft: '4px solid #D97706', marginBottom: '20px',
-      }}>
-        <span style={{ fontSize: '20px', flexShrink: 0 }}>⚠️</span>
+      <div className="form-notice">
+        <span style={{ fontSize: '18px', flexShrink: 0, lineHeight: 1.3 }}>⚠️</span>
         <p style={{ fontSize: '13px', color: '#78350F', margin: 0, fontFamily: 'var(--font-body)' }}>
           <strong>Aviso:</strong> Esta interconsulta no reemplaza al veterinario tratante. Es un apoyo clínico exclusivo para profesionales.
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 16px' }}>
+      <div className="form-grid-2">
         <Field label="Nombre completo" required>
           <Input name="nombre" required placeholder="Dra. María González" />
         </Field>
@@ -145,7 +141,7 @@ function FormInterconsultas() {
         </Field>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 16px' }}>
+      <div className="form-grid-2">
         <Field label="Teléfono">
           <Input type="tel" name="telefono" placeholder="+54 11 0000-0000" />
         </Field>
@@ -154,7 +150,7 @@ function FormInterconsultas() {
         </Field>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 16px' }}>
+      <div className="form-grid-2">
         <Field label="Área clínica">
           <Select name="tipo_caso" options={['Enfermedades vectoriales','Infectología canina','Infectología felina','Zoonosis','Parasitología con diagnóstico molecular','Casos complejos sin diagnóstico','Otro']} />
         </Field>
@@ -173,7 +169,7 @@ function FormInterconsultas() {
 function FormCapacitaciones() {
   return (
     <>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 16px' }}>
+      <div className="form-grid-2">
         <Field label="Nombre completo" required>
           <Input name="nombre" required placeholder="Dr. Juan Pérez" />
         </Field>
@@ -186,7 +182,7 @@ function FormCapacitaciones() {
         <Input name="institucion" placeholder="Clínica / Universidad / Empresa" />
       </Field>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 16px' }}>
+      <div className="form-grid-2">
         <Field label="Tipo de capacitación">
           <Select name="tipo_capacitacion" options={['Charla','Workshop','Jornada','Congreso','Online','A definir']} />
         </Field>
@@ -205,7 +201,7 @@ function FormCapacitaciones() {
 function FormEventos() {
   return (
     <>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 16px' }}>
+      <div className="form-grid-2">
         <Field label="Nombre completo" required>
           <Input name="nombre" required placeholder="Lic. Ana Torres" />
         </Field>
@@ -218,7 +214,7 @@ function FormEventos() {
         <Input name="institucion" required placeholder="Asociación / Congreso / Empresa" />
       </Field>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 16px' }}>
+      <div className="form-grid-2">
         <Field label="Tipo de evento">
           <Select name="tipo_evento" options={['Congreso','Simposio','Jornada','Charla corporativa','Otro']} />
         </Field>
@@ -241,7 +237,7 @@ function FormEventos() {
 function FormEmpresas() {
   return (
     <>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 16px' }}>
+      <div className="form-grid-2">
         <Field label="Nombre completo" required>
           <Input name="nombre" required placeholder="Martín García" />
         </Field>
@@ -250,7 +246,7 @@ function FormEmpresas() {
         </Field>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 16px' }}>
+      <div className="form-grid-2">
         <Field label="Empresa" required>
           <Input name="empresa" required placeholder="Nombre de la empresa" />
         </Field>
@@ -339,12 +335,7 @@ export default function FormularioContacto() {
 
       {/* Tabs de navegación */}
       <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '8px',
-          marginBottom: '28px',
-        }}
+        className="form-tabs"
         role="tablist"
         aria-label="Tipo de consulta"
       >
@@ -355,18 +346,17 @@ export default function FormularioContacto() {
               key={tab.id}
               role="tab"
               aria-selected={isActive}
+              className="form-tab"
               onClick={() => {
                 setActiveTab(tab.id);
                 setStatus('idle');
               }}
               style={{
-                padding: '8px 18px',
                 borderRadius: '8px',
                 border: isActive ? 'none' : '1.5px solid #D1D5DB',
                 background: isActive ? 'var(--color-accent)' : 'transparent',
                 color: isActive ? '#fff' : 'var(--color-text-muted)',
                 fontFamily: 'var(--font-body)',
-                fontSize: '14px',
                 fontWeight: 600,
                 cursor: 'pointer',
                 transition: 'all 0.2s',
@@ -379,14 +369,7 @@ export default function FormularioContacto() {
       </div>
 
       {/* El formulario */}
-      <div
-        style={{
-          background: '#fff',
-          borderRadius: '16px',
-          padding: '32px',
-          boxShadow: 'var(--shadow)',
-        }}
-      >
+      <div className="form-card">
         <h3
           style={{
             fontFamily: 'var(--font-display)',
@@ -432,9 +415,9 @@ export default function FormularioContacto() {
           <button
             type="submit"
             disabled={status === 'loading'}
+            className="form-submit"
             style={{
               width: '100%',
-              padding: '13px',
               borderRadius: '8px',
               border: 'none',
               background: status === 'loading' ? '#9CA3AF' : 'var(--color-accent)',
@@ -473,8 +456,82 @@ export default function FormularioContacto() {
 
       <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
-        @media (max-width: 600px) {
-          [data-grid-2col] { grid-template-columns: 1fr !important; }
+        .form-tabs {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 8px;
+          margin-bottom: 24px;
+        }
+        .form-tab {
+          width: 100%;
+          min-height: 42px;
+          padding: 8px 12px;
+          font-size: 14px;
+        }
+        .form-grid-2 {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0 16px;
+        }
+        .form-card {
+          background: #fff;
+          border-radius: 16px;
+          padding: 28px;
+          box-shadow: var(--shadow);
+        }
+        .form-notice {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          padding: 12px 14px;
+          border-radius: 8px;
+          background: #FEF3C7;
+          border-left: 4px solid #D97706;
+          margin-bottom: 20px;
+        }
+        .form-card input,
+        .form-card select,
+        .form-card textarea {
+          font-size: 14px;
+        }
+        .form-submit {
+          padding: 13px;
+        }
+        @media (max-width: 767px) {
+          .form-tabs {
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 18px;
+          }
+          .form-tab {
+            min-height: 44px;
+            padding: 10px 8px;
+            font-size: 13px;
+          }
+          .form-grid-2 {
+            grid-template-columns: 1fr;
+          }
+          .form-card {
+            padding: 16px;
+            box-shadow: none;
+            border-radius: 12px;
+          }
+          .form-notice {
+            width: 100%;
+            gap: 8px;
+            padding: 10px 12px;
+            margin-bottom: 14px;
+          }
+          .form-card input,
+          .form-card select,
+          .form-card textarea {
+            min-height: 44px;
+            font-size: 16px;
+          }
+          .form-submit {
+            padding: 14px;
+            min-height: 48px;
+          }
         }
       `}</style>
     </div>
