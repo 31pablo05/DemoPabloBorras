@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import SectionTitle from '../../components/ui/SectionTitle.astro';
 import Button from '../../components/ui/Button.astro';
 import PodcastsMNV from '../../components/veterinarios/PodcastsMNV.astro';
+import VideosPreview from '../../components/home/VideosPreview.astro';
 
 const subsecciones = [
   {
@@ -39,7 +40,7 @@ const subsecciones = [
 
 const stats = [
   { numero: '+15',  label: 'Años de experiencia clínica' },
-  { numero: '+30K', label: 'Seguidores en Instagram' },
+  { numero: '+32K', label: 'Seguidores en Instagram' },
   { numero: '+8',   label: 'Países donde disertó' },
   { numero: '+15',  label: 'Publicaciones internacionales' },
 ];
@@ -307,101 +308,8 @@ const stats = [
             <li class="flex items-start gap-2.5"><span style="color: var(--color-accent); font-weight: 700; font-size: 1.1em;">&#9656;</span> Editor asociado de <em>Parasites &amp; Vectors</em> — Springer Nature</li>
             <li class="flex items-start gap-2.5"><span style="color: var(--color-accent); font-weight: 700; font-size: 1.1em;">&#9656;</span> Colaborador del servicio de Zoopatología, Hospital Francisco J. Muñiz</li>
             <li class="flex items-start gap-2.5"><span style="color: var(--color-accent); font-weight: 700; font-size: 1.1em;">&#9656;</span> Actualmente cursando el Máster en Medicina Interna — Fac. Veterinaria, UAB (España)</li>
-            <li class="flex items-start gap-2.5"><span style="color: var(--color-accent); font-weight: 700; font-size: 1.1em;">&#9656;</span> Miembro de TroCCAP, ISCAID y ESCCAP</li>
+            <li class="flex items-start gap-2.5"><span style="color: var(--color-accent); font-weight: 700; font-size: 1.1em;">&#9656;</span> Miembro de TroCCAP e ISCAID</li>
           </ul>
-
-          <!-- Membresías y reconocimientos -->
-          <div class="pt-5 md:pt-6" style="border-top: 2px solid #E5EAED;">
-            <p class="text-xs font-semibold uppercase tracking-wider mb-4 md:mb-5" style="color: var(--color-text-muted); letter-spacing: 0.1em;">Membresías y reconocimientos</p>
-            <div class="flex flex-wrap gap-2.5">
-
-              <!-- TroCCAP — azul -->
-              <a
-                href="https://www.troccap.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold transition-all hover:scale-105 hover:shadow-lg"
-                style="border-radius: 10px; background: linear-gradient(135deg, #EEF4FF 0%, #DBEAFE 100%); color: #1849A9; border: 1.5px solid #93C5FD; text-decoration: none;"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                </svg>
-                TroCCAP Council
-              </a>
-
-              <!-- ABCD — verde -->
-              <a
-                href="https://www.abcdcatsvets.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold transition-all hover:scale-105 hover:shadow-lg"
-                style="border-radius: 10px; background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%); color: #166534; border: 1.5px solid #86EFAC; text-decoration: none;"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                </svg>
-                ABCD Europe
-              </a>
-
-              <!-- ISCAID — celeste -->
-              <a
-                href="https://www.iscaid.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold transition-all hover:scale-105 hover:shadow-lg"
-                style="border-radius: 10px; background: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 100%); color: #065F46; border: 1.5px solid #5EEAD4; text-decoration: none;"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-                ISCAID Member
-              </a>
-
-              <!-- ESCCAP — verde oscuro -->
-              <a
-                href="https://www.esccap.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold transition-all hover:scale-105 hover:shadow-lg"
-                style="border-radius: 10px; background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); color: #065F46; border: 1.5px solid #6EE7B7; text-decoration: none;"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-                ESCCAP Member
-              </a>
-
-              <!-- Editor Parasites & Vectors — naranja -->
-              <a
-                href="https://link.springer.com/journal/13071"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold transition-all hover:scale-105 hover:shadow-lg"
-                style="border-radius: 10px; background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%); color: #9A3412; border: 1.5px solid #FDBA74; text-decoration: none;"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                </svg>
-                Editor P&V
-              </a>
-
-              <!-- AVEACA Premio — dorado -->
-              <span
-                class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold"
-                style="border-radius: 10px; background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); color: #92400E; border: 1.5px solid #FCD34D;"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                </svg>
-                Premio AVEACA 2025
-              </span>
-
-            </div>
-          </div>
         </div>
 
         <!-- Imagen de Pablo -->
@@ -452,7 +360,7 @@ const stats = [
           Investigación y ciencia
         </p>
         <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display); color: var(--color-text); line-height: 1.2;">
-          Publicaciones científicas
+          Algunas publicaciones científicas
         </h2>
         <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #183b7f 100%);"></div>
       </div>
@@ -568,6 +476,8 @@ const stats = [
 
     </div>
   </section>
+
+  <VideosPreview />
 
   <PodcastsMNV />
 

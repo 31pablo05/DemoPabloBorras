@@ -53,8 +53,8 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
     <div
       class="hidden md:block absolute top-0 left-0 bottom-0 pointer-events-none"
       style="
-        width: 60%;
-        background: linear-gradient(to right, rgba(3,13,58,0.80) 0%, rgba(3,13,58,0.58) 45%, rgba(3,13,58,0.22) 75%, rgba(3,13,58,0) 100%);
+        width: 54%;
+        background: linear-gradient(to right, rgba(3,13,58,0.88) 0%, rgba(3,13,58,0.62) 42%, rgba(3,13,58,0.2) 72%, rgba(3,13,58,0) 100%);
         z-index: 1;
       "
       aria-hidden="true"
@@ -141,7 +141,7 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
         <div class="hero-chips flex flex-wrap gap-4 mb-10">
           <div
             class="hero-chip flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
-            style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); text-shadow: 0 2px 12px rgba(0,0,0,0.65);"
+            style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); text-shadow: 0 2px 12px rgba(0,0,0,0.65); min-height: 60px;"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -149,7 +149,7 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
               <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
-            <div>
+            <div class="whitespace-nowrap">
               <p class="text-xs text-white/70 uppercase tracking-wider">Speaker</p>
               <p class="text-sm font-bold text-white">Internacional</p>
             </div>
@@ -157,12 +157,12 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
 
           <div
             class="hero-chip flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
-            style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); text-shadow: 0 2px 12px rgba(0,0,0,0.65);"
+            style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); text-shadow: 0 2px 12px rgba(0,0,0,0.65); min-height: 60px;"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
             </svg>
-            <div>
+            <div class="whitespace-nowrap">
               <p class="text-xs text-white/70 uppercase tracking-wider">Base</p>
               <p class="text-sm font-bold text-white">Científica sólida</p>
             </div>
@@ -170,13 +170,13 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
 
           <div
             class="hero-chip flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-md"
-            style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); text-shadow: 0 2px 12px rgba(0,0,0,0.65);"
+            style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); text-shadow: 0 2px 12px rgba(0,0,0,0.65); min-height: 60px;"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"/>
               <polyline points="12 6 12 12 16 14"/>
             </svg>
-            <div>
+            <div class="whitespace-nowrap">
               <p class="text-xs text-white/70 uppercase tracking-wider">Experiencia</p>
               <p class="text-sm font-bold text-white">Clínica diaria</p>
             </div>
@@ -231,11 +231,11 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
   <ServiciosEmpresas />
 
   <!-- Sección: Por qué trabajar con Pablo -->
-  <section class="py-20" style="background: linear-gradient(135deg, #040d4e 0%, #1880c9 100%);">
+  <section class="py-16 md:py-20" style="background: linear-gradient(135deg, #040d4e 0%, #1880c9 100%);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Título de sección -->
-      <div class="text-center mb-16">
+      <div class="text-center mb-10 md:mb-12">
         <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: rgba(255,255,255,0.8); letter-spacing: 0.12em;">
           Valor agregado
         </p>
@@ -255,80 +255,78 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
         <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #93c5fd 0%, #ffffff 100%);"></div>
       </div>
 
-      <!-- Grid de beneficios -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
+      <!-- Grid de beneficios + estadística, unificados como tarjetas -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-6 items-stretch">
+
         <!-- Beneficio 1 -->
-        <div class="text-center">
-          <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.2);">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="text-center p-6 md:p-7 rounded-2xl h-full" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5" style="background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.2);">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3" style="font-family: var(--font-display);">
+          <h3 class="text-lg font-bold text-white mb-3" style="font-family: var(--font-display);">
             Experiencia clínica real
           </h3>
           <p class="text-white/80 text-sm leading-relaxed">
-            No solo teoría: más de 15 años atendiendo pacientes a diario. Casos reales, protocolos probados, evidencia aplicable.
+            Más de 15 años atendiendo pacientes a diario. Casos reales, protocolos probados, evidencia aplicable.
           </p>
         </div>
 
         <!-- Beneficio 2 -->
-        <div class="text-center">
-          <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.2);">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="text-center p-6 md:p-7 rounded-2xl h-full" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5" style="background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.2);">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
               <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
               <line x1="12" y1="22.08" x2="12" y2="12"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3" style="font-family: var(--font-display);">
+          <h3 class="text-lg font-bold text-white mb-3" style="font-family: var(--font-display);">
             Rigor científico internacional
           </h3>
           <p class="text-white/80 text-sm leading-relaxed">
-            Publicaciones en revistas indexadas, membresías en WAAVP y TroCCAP. Actualización permanente con las últimas investigaciones.
+            Publicaciones en revistas indexadas. Actualización permanente con las últimas investigaciones.
           </p>
         </div>
 
         <!-- Beneficio 3 -->
-        <div class="text-center">
-          <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.2);">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="text-center p-6 md:p-7 rounded-2xl h-full" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5" style="background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.2);">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
               <circle cx="9" cy="7" r="4"/>
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
               <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3" style="font-family: var(--font-display);">
+          <h3 class="text-lg font-bold text-white mb-3" style="font-family: var(--font-display);">
             Comunicación efectiva
           </h3>
           <p class="text-white/80 text-sm leading-relaxed">
-            Speaker en congresos internacionales. Capacidad de adaptar contenido complejo para diferentes audiencias, desde técnicos hasta público general.
+            Speaker en congresos internacionales. Capacidad de adaptar contenido complejo para diferentes audiencias.
           </p>
         </div>
 
-      </div>
-
-      <!-- Stat destacado -->
-      <div class="mt-16 text-center">
-        <div class="inline-block p-8 rounded-2xl backdrop-blur-md" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2);">
-          <p class="text-5xl font-bold text-white mb-2" style="font-family: var(--font-display);">
+        <!-- Estadística destacada, integrada como cuarta tarjeta -->
+        <div class="text-center p-6 md:p-7 rounded-2xl h-full flex flex-col items-center justify-center" style="background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3);">
+          <p class="text-4xl md:text-5xl font-bold text-white mb-2" style="font-family: var(--font-display);">
             15+ años
           </p>
-          <p class="text-white/80 text-sm uppercase tracking-wider">
-            De experiencia combinando clínica, investigación y docencia
+          <p class="text-white/80 text-xs uppercase tracking-wider leading-relaxed">
+            Combinando clínica, investigación y docencia
           </p>
         </div>
+
       </div>
 
     </div>
   </section>
 
   <!-- Formulario pre-abierto en tab Empresas -->
-  <section class="py-20" style="background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);">
+  <section class="py-16 md:py-20" style="background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
+      <div class="text-center mb-8 md:mb-10">
         <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-accent); letter-spacing: 0.12em;">
           Próximo paso
         </p>
@@ -343,7 +341,7 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
           Contanos sobre tu empresa o institución y cómo podría colaborar Pablo.
         </p>
       </div>
-      <div class="bg-white p-8 md:p-10 rounded-2xl" style="box-shadow: 0 4px 24px rgba(0,0,0,0.08); border-top: 4px solid #1880c9;">
+      <div class="bg-white p-6 md:p-8 rounded-2xl" style="box-shadow: 0 4px 24px rgba(0,0,0,0.08); border-top: 4px solid #1880c9;">
         <FormularioContacto client:load />
       </div>
     </div>
@@ -442,6 +440,7 @@ import FormularioContacto from '../components/contacto/FormularioContacto.jsx';
       font-size: 0.75rem !important;
       padding: 0.65rem 1rem !important;
       width: auto !important;
+      min-height: auto !important;
     }
     
     .hero-chip p {

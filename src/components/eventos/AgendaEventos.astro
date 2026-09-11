@@ -9,8 +9,8 @@ import Button from '../ui/Button.astro';
 const tipoColor = {
   Congreso: 'blue',
   Jornada:  'orange',
-  Workshop: 'green',
-  Simposio: 'purple',
+  Taller: 'green',
+  'Evento corporativo': 'purple',
 };
 
 // Ordenar por fecha ascendente
@@ -41,8 +41,8 @@ function mesCorto(fechaStr) {
 }
 ---
 
-<section class="py-20 bg-white" id="agenda">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-12 md:py-16 bg-white" id="agenda">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- ==================== PRÓXIMOS EVENTOS ==================== -->
     {proximos.length > 0 && (
@@ -183,7 +183,7 @@ function mesCorto(fechaStr) {
     {pasados.length > 0 && (
       <>
         <!-- Título de sección mejorado -->
-        <div class="text-center mb-12 mt-20">
+        <div class={`text-center mb-10 md:mb-12 ${proximos.length > 0 ? 'mt-14 md:mt-16' : ''}`}>
           <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: #6b7280; letter-spacing: 0.12em;">
             Historial
           </p>
@@ -193,28 +193,28 @@ function mesCorto(fechaStr) {
           <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #9ca3af 0%, #d1d5db 100%);"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-10 md:mb-12">
           {pasados.map((evento, index) => {
             const cardColor = index % 2 === 0 ? '#1880c9' : '#4a3d9e';
             
             return (
               <div
-                class="flex gap-4 items-start rounded-2xl p-6 bg-white transition-all duration-300"
+                class="flex gap-3 md:gap-4 items-start rounded-2xl p-5 md:p-7 bg-white transition-all duration-300 h-full"
                 style="box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-left: 3px solid #e5e7eb;"
                 onmouseover={`this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'; this.style.borderLeftColor='${cardColor}'`}
                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'; this.style.borderLeftColor='#e5e7eb'"
               >
-                <!-- Fecha pequeña mejorada -->
+                <!-- Fecha pequeña mejorada: visible también en mobile -->
                 <div
-                  class="hidden sm:flex flex-col items-center justify-center shrink-0 w-14 h-14 rounded-xl text-white"
+                  class="flex flex-col items-center justify-center shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl text-white"
                   style="background: #9ca3af;"
                 >
-                  <span class="text-lg font-bold leading-none">{diaNum(evento.fecha)}</span>
-                  <span class="text-xs font-semibold mt-0.5" style="color: rgba(255,255,255,0.85);">{mesCorto(evento.fecha)}</span>
+                  <span class="text-base md:text-lg font-bold leading-none">{diaNum(evento.fecha)}</span>
+                  <span class="text-[10px] md:text-xs font-semibold mt-0.5" style="color: rgba(255,255,255,0.85);">{mesCorto(evento.fecha)}</span>
                 </div>
 
                 <!-- Contenido -->
-                <div class="flex-1">
+                <div class="flex-1 min-w-0">
                   <div class="flex flex-wrap items-center gap-2 mb-2">
                     <Badge label={evento.tipo} color={tipoColor[evento.tipo] || 'gray'} />
                     <!-- Badge "Finalizado" -->
@@ -231,7 +231,7 @@ function mesCorto(fechaStr) {
                   
                   <h4
                     class="font-bold text-base mb-1"
-                    style="font-family: var(--font-display); color: var(--color-text);"
+                    style="font-family: var(--font-display); color: var(--color-text); line-height: 1.35;"
                   >
                     {evento.nombre}
                   </h4>
@@ -254,11 +254,11 @@ function mesCorto(fechaStr) {
     )}
 
     <!-- CTA quiero invitar a Pablo mejorado -->
-    <div class="mt-16 text-center">
-      <div class="inline-block">
+    <div class="text-center px-2 sm:px-0">
+      <div class="inline-block w-full sm:w-auto">
         <a
           href="/contacto?tab=eventos"
-          class="inline-flex items-center gap-3 px-8 py-4 text-base font-bold rounded-xl transition-all"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-bold rounded-xl transition-all"
           style="
             background: linear-gradient(135deg, #1880c9 0%, #4a3d9e 100%);
             color: white;
@@ -277,7 +277,7 @@ function mesCorto(fechaStr) {
             <polyline points="12 5 19 12 12 19"/>
           </svg>
         </a>
-        <p class="text-sm mt-4" style="color: var(--color-text-muted);">
+        <p class="text-sm mt-4 max-w-sm mx-auto" style="color: var(--color-text-muted);">
           Contactanos para coordinar su participación en tu congreso o jornada
         </p>
       </div>
