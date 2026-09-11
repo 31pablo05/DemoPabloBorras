@@ -115,7 +115,7 @@ const stats = [
     ></div>
 
     <div class="max-w-7xl ml-0 px-4 sm:px-6 md:px-12 lg:px-20 py-10 w-full relative z-10">
-      <div class="max-w-3xl relative">
+      <div class="max-w-2xl relative">
         <!-- Degradado radial negro detrás del texto (solo desktop, más intenso que home) -->
         <div
           class="hidden md:block absolute pointer-events-none"
@@ -123,17 +123,17 @@ const stats = [
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 140%;
-            height: 140%;
-            background: radial-gradient(ellipse 80% 85% at 40% 50%, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.38) 40%, rgba(0,0,0,0.15) 65%, transparent 82%);
+            width: 135%;
+            height: 135%;
+            background: radial-gradient(ellipse 78% 82% at 40% 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.32) 40%, rgba(0,0,0,0.12) 65%, transparent 82%);
             z-index: -1;
-            filter: blur(10px);
+            filter: blur(9px);
           "
           aria-hidden="true"
         ></div>
 
         <div
-          class="hero-badge inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-5 py-2.5 rounded-full mb-7"
+          class="hero-badge inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-5 py-2.5 rounded-full mb-6"
           style="background: rgba(255,255,255,0.12); color: #a8d8f0; border: 1px solid rgba(255,255,255,0.25); letter-spacing: 0.12em; backdrop-filter: blur(10px); text-shadow: 0 2px 12px rgba(0,0,0,0.65);"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -158,12 +158,12 @@ const stats = [
           </h1>
         </div>
 
-        <p class="hero-description text-white/90 text-lg md:text-xl max-w-2xl leading-relaxed mb-8" style="text-shadow: 0 2px 12px rgba(0,0,0,0.65); text-align: left;">
+        <p class="hero-description text-white/90 text-lg md:text-xl max-w-2xl leading-relaxed mb-6" style="text-shadow: 0 2px 12px rgba(0,0,0,0.65); text-align: left;">
           Herramientas diseñadas para elevar el estándar de tu ejercicio profesional: interconsultas, formación continua y material de referencia clínica.
         </p>
 
         <!-- Badges de credenciales -->
-        <div class="flex flex-wrap gap-3 items-center">
+        <div class="hero-chips flex flex-wrap gap-3 items-center mt-1">
           <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px); text-shadow: 0 2px 12px rgba(0,0,0,0.65);">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
@@ -199,13 +199,13 @@ const stats = [
         <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display); color: var(--color-text); line-height: 1.2;">
           ¿Cómo puedo ayudarte?
         </h2>
-        <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #4a3d9e 100%);"></div>
+        <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #183b7f 100%);"></div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mt-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
         {[
           { ...subsecciones[0], color: '#1880c9', bgGradient: 'linear-gradient(135deg, rgba(24,128,201,0.08) 0%, transparent 100%)', shadowColor: '24,128,201' },
-          { ...subsecciones[1], color: '#4a3d9e', bgGradient: 'linear-gradient(135deg, rgba(74,61,158,0.08) 0%, transparent 100%)', shadowColor: '74,61,158' },
+          { ...subsecciones[1], color: '#183b7f', bgGradient: 'linear-gradient(135deg, rgba(24,59,127,0.08) 0%, transparent 100%)', shadowColor: '24,59,127' },
           { ...subsecciones[2], color: '#1880c9', bgGradient: 'linear-gradient(135deg, rgba(24,128,201,0.08) 0%, transparent 100%)', shadowColor: '24,128,201' },
         ].map((sub, index) => (
           <a
@@ -216,11 +216,11 @@ const stats = [
               box-shadow: 0 4px 24px rgba(0,0,0,0.08);
               text-decoration: none;
               border-top: 4px solid ${sub.color};
-              transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+              transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
               transform-origin: center;
             `}
-            onmouseover={`this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(${sub.shadowColor},0.25)'`}
-            onmouseout={`this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.08)'`}
+            onmouseover={`this.style.transform='translateY(-6px)'; this.style.boxShadow='0 14px 30px rgba(${sub.shadowColor},0.18)'`}
+            onmouseout={`this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.08)'`}
           >
             <!-- Gradiente de fondo -->
             <div
@@ -239,7 +239,7 @@ const stats = [
             <div style="position: relative; z-index: 1;">
               <div
                 class="mb-6 w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300"
-                style={`color: ${sub.color}; background: ${sub.color === '#1880c9' ? 'rgba(24,128,201,0.12)' : 'rgba(74,61,158,0.12)'}; border: 2px solid ${sub.color === '#1880c9' ? 'rgba(24,128,201,0.2)' : 'rgba(74,61,158,0.2)'};`}
+                style={`color: ${sub.color}; background: ${sub.color === '#1880c9' ? 'rgba(24,128,201,0.12)' : 'rgba(24,59,127,0.12)'}; border: 1.5px solid ${sub.color === '#1880c9' ? 'rgba(24,128,201,0.2)' : 'rgba(24,59,127,0.2)'};`}
                 set:html={sub.icon}
               />
               <h2
@@ -267,12 +267,12 @@ const stats = [
   </section>
 
   <!-- Bloque de autoridad con stats -->
-  <section class="py-20 md:py-24 bg-white">
+  <section class="py-16 md:py-24 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         <!-- Texto de autoridad -->
-        <div>
+        <div class="order-2 lg:order-1">
           <div class="mb-8">
             <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-accent); letter-spacing: 0.12em;">
               Autoridad clínica
@@ -280,7 +280,7 @@ const stats = [
             <h2 class="text-3xl md:text-4xl font-bold mb-2" style="font-family: var(--font-display); color: var(--color-text); line-height: 1.2;">
               Trayectoria que respalda
             </h2>
-            <div class="w-16 h-1 rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #4a3d9e 100%);"></div>
+            <div class="w-16 h-1 rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #183b7f 100%);"></div>
           </div>
           <p class="text-base md:text-lg leading-relaxed mb-5" style="color: var(--color-text-muted); line-height: 1.7;">
             Médico Veterinario egresado de la Universidad de Buenos Aires. Especialista
@@ -293,7 +293,7 @@ const stats = [
             internacional con presencia en congresos en Argentina, Ecuador, Colombia,
             Uruguay, Brasil, Paraguay, España y Países Bajos.
           </p>
-          <ul class="space-y-2 text-sm md:text-base mb-8" style="color: var(--color-text-muted);">
+          <ul class="space-y-2 text-sm md:text-base mb-7" style="color: var(--color-text-muted);">
             <li class="flex items-start gap-2.5"><span style="color: var(--color-accent); font-weight: 700; font-size: 1.1em;">&#9656;</span> Editor asociado de <em>Parasites &amp; Vectors</em> — Springer Nature</li>
             <li class="flex items-start gap-2.5"><span style="color: var(--color-accent); font-weight: 700; font-size: 1.1em;">&#9656;</span> Colaborador del servicio de Zoopatología, Hospital Francisco J. Muñiz</li>
             <li class="flex items-start gap-2.5"><span style="color: var(--color-accent); font-weight: 700; font-size: 1.1em;">&#9656;</span> Actualmente cursando el Máster en Medicina Interna — Fac. Veterinaria, UAB (España)</li>
@@ -395,7 +395,7 @@ const stats = [
         </div>
 
         <!-- Imagen de Pablo -->
-        <div class="flex flex-col gap-6">
+        <div class="order-1 lg:order-2 flex flex-col gap-6">
           <!-- Imagen con stats superpuestos abajo -->
           <div class="img-desktop-rounded overflow-hidden relative" style="box-shadow: var(--shadow-lg);">
             <img
@@ -434,7 +434,7 @@ const stats = [
     </div>
   </section>
   <!-- Sección: Publicaciones científicas -->
-  <section style="background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);" class="py-20 md:py-24">
+  <section style="background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);" class="py-16 md:py-24">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div class="text-center mb-12">
@@ -444,7 +444,7 @@ const stats = [
         <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display); color: var(--color-text); line-height: 1.2;">
           Publicaciones científicas
         </h2>
-        <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #4a3d9e 100%);"></div>
+        <div class="w-20 h-1 mx-auto rounded-full" style="background: linear-gradient(90deg, #1880c9 0%, #183b7f 100%);"></div>
       </div>
 
       <div class="divide-y" style="border-radius: 18px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); background: #fff;">
@@ -479,40 +479,53 @@ const stats = [
           },
         ].map((pub, i) => (
           <div
-            class="reveal flex gap-4 md:gap-5 p-6 md:p-7 transition-all"
-            style={`transition-delay: ${i * 0.1}s; cursor: pointer;`}
+            class="reveal flex flex-col sm:flex-row sm:items-center gap-4 p-5 sm:p-6 md:p-7 transition-all"
+            style={`transition-delay: ${i * 0.1}s;`}
             onmouseover="this.style.background='rgba(24,128,201,0.03)'"
             onmouseout="this.style.background='transparent'"
           >
-            <div class="shrink-0 mt-0.5 text-xl md:text-2xl">&#128196;</div>
-            <div class="flex-1 min-w-0">
-              <a
-                href={pub.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-base md:text-lg font-bold leading-snug transition-colors hover:underline"
-                style="color: var(--color-primary); text-decoration: none; display: block; line-height: 1.4;"
-                onmouseover="this.style.color='var(--color-accent)'"
-                onmouseout="this.style.color='var(--color-primary)'"
+            <div class="flex gap-4 flex-1 min-w-0">
+              <div
+                class="shrink-0 mt-0.5 w-10 h-10 rounded-lg flex items-center justify-center"
+                style="background: rgba(24,128,201,0.10);"
+                aria-hidden="true"
               >
-                {pub.titulo}
-              </a>
-              <div class="flex items-center gap-2 mt-2 flex-wrap">
-                <p class="text-sm" style="color: var(--color-text-muted);" set:html={pub.revista} />
-                <span
-                  class="inline-block px-3 py-1.5 rounded-full text-xs font-bold"
-                  style="background: linear-gradient(135deg, rgba(24,128,201,0.15) 0%, rgba(74,61,158,0.15) 100%); color: var(--color-accent); border: 1.5px solid rgba(24,128,201,0.3);"
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <a
+                  href={pub.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-base md:text-lg font-bold leading-snug transition-colors hover:underline"
+                  style="color: var(--color-primary); text-decoration: none; display: block; line-height: 1.4;"
+                  onmouseover="this.style.color='var(--color-accent)'"
+                  onmouseout="this.style.color='var(--color-primary)'"
                 >
-                  {pub.año}
-                </span>
+                  {pub.titulo}
+                </a>
+                <div class="flex items-center gap-2 mt-2 flex-wrap">
+                  <p class="text-sm" style="color: var(--color-text-muted);" set:html={pub.revista} />
+                  <span
+                    class="inline-block px-3 py-1.5 rounded-full text-xs font-bold"
+                    style="background: rgba(24,128,201,0.12); color: var(--color-accent); border: 1.5px solid rgba(24,128,201,0.25);"
+                  >
+                    {pub.año}
+                  </span>
+                </div>
               </div>
             </div>
-            <div class="ml-auto shrink-0 self-center flex items-center gap-3">
+            <div class="flex items-center gap-3 pl-14 sm:pl-0 sm:ml-auto shrink-0">
               <a
                 href={pub.pdf}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all hover:scale-110 hover:shadow-xl"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all hover:scale-105 hover:shadow-lg"
                 style="background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%); color: #DC2626; border: 1.5px solid rgba(220,38,38,0.3); text-decoration: none; white-space: nowrap;"
                 title="Descargar PDF"
               >
@@ -523,11 +536,21 @@ const stats = [
                 </svg>
                 PDF
               </a>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                <polyline points="15 3 21 3 21 9"/>
-                <line x1="10" y1="14" x2="21" y2="3"/>
-              </svg>
+              <a
+                href={pub.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center w-9 h-9 rounded-lg shrink-0 transition-colors"
+                style="color: var(--color-accent); background: rgba(24,128,201,0.08);"
+                title="Ver publicación completa"
+                aria-label="Ver publicación completa"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+              </a>
             </div>
           </div>
         ))}
@@ -539,8 +562,8 @@ const stats = [
   <PodcastsMNV />
 
   <!-- Sección: Recursos y organizaciones de referencia -->
-  <section class="py-16 md:py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="py-16 md:py-20" style="background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10">
         <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-accent); letter-spacing: 0.12em;">Enlaces útiles</p>
         <h3 class="text-2xl md:text-3xl font-bold" style="font-family: var(--font-display); color: var(--color-text);">Recursos y organizaciones de referencia</h3>
@@ -548,19 +571,19 @@ const stats = [
       <div class="flex flex-wrap justify-center gap-3 md:gap-4">
         {[
           { label: 'TroCCAP', href: 'https://www.troccap.com', color: '#1880c9' },
-          { label: 'ABCD cats &amp; vets', href: 'https://www.abcdcatsvets.org', color: '#4a3d9e' },
+          { label: 'ABCD cats &amp; vets', href: 'https://www.abcdcatsvets.org', color: '#183b7f' },
           { label: 'CAPC', href: 'https://capcvet.org', color: '#1880c9' },
-          { label: 'ESCCAP', href: 'https://www.esccap.org', color: '#4a3d9e' },
+          { label: 'ESCCAP', href: 'https://www.esccap.org', color: '#183b7f' },
           { label: 'ISCAID', href: 'https://www.iscaid.org', color: '#1880c9' },
-          { label: 'Parasites &amp; Vectors', href: 'https://link.springer.com/journal/13071', color: '#4a3d9e' },
+          { label: 'Parasites &amp; Vectors', href: 'https://link.springer.com/journal/13071', color: '#183b7f' },
           { label: 'JVIM', href: 'https://academic.oup.com/jvim', color: '#1880c9' },
         ].map((r, index) => (
           <a
             href={r.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center px-5 py-3 text-sm font-semibold transition-all hover:scale-105 hover:shadow-lg"
-            style={`border-radius: 12px; border: 2px solid ${r.color}; color: ${r.color}; text-decoration: none; background: ${r.color === '#1880c9' ? 'rgba(24,128,201,0.05)' : 'rgba(74,61,158,0.05)'};`}
+            class="inline-flex items-center px-6 py-3.5 text-sm font-semibold transition-all hover:scale-105 hover:shadow-lg"
+            style={`border-radius: 12px; border: 2px solid ${r.color}; color: ${r.color}; text-decoration: none; background: ${r.color === '#1880c9' ? 'rgba(24,128,201,0.05)' : 'rgba(24,59,127,0.05)'};`}
             set:html={r.label}
           />
         ))}
@@ -709,21 +732,23 @@ const stats = [
       text-align: left !important;
     }
     
-    /* Pills alineadas a la izquierda */
-    .page-hero .flex.flex-wrap {
+    /* Pills alineadas a la izquierda, con aire respecto del párrafo */
+    .page-hero .hero-chips {
       justify-content: flex-start !important;
+      margin-top: 0.5rem !important;
     }
     
-    /* Reducir tamaño del título en mobile */
+    /* Título: escalado continuo, sin saltos entre breakpoints */
     .page-hero .hero-title {
-      font-size: 1.75rem !important;
-      line-height: 1.25 !important;
+      font-size: clamp(1.65rem, 8vw, 2.1rem) !important;
+      line-height: 1.24 !important;
     }
     
-    /* Descripción más pequeña */
+    /* Descripción: escalado continuo, legible desde 370px */
     .page-hero .hero-description {
-      font-size: 0.95rem !important;
+      font-size: clamp(0.9rem, 3.8vw, 1rem) !important;
       line-height: 1.6 !important;
+      margin-bottom: 1.25rem !important;
     }
     
     /* Badge más pequeño */
@@ -734,7 +759,7 @@ const stats = [
     }
     
     /* Pills más pequeñas */
-    .page-hero .flex.flex-wrap span {
+    .page-hero .hero-chips span {
       font-size: 0.7rem !important;
       padding: 0.5rem 0.75rem !important;
     }
@@ -763,20 +788,9 @@ const stats = [
   
   /* Pills en columna por debajo de 400px */
   @media (max-width: 400px) {
-    .page-hero .flex.flex-wrap {
+    .page-hero .hero-chips {
       flex-direction: column !important;
       align-items: flex-start !important;
-    }
-  }
-  
-  /* Breakpoint adicional para pantallas muy chicas */
-  @media (max-width: 390px) {
-    .page-hero .hero-title {
-      font-size: 1.5rem !important;
-    }
-    
-    .page-hero .hero-description {
-      font-size: 0.875rem !important;
     }
   }
   
